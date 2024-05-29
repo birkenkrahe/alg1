@@ -90,24 +90,24 @@ in this course.
 
 * Dates and class schedule
 
-| Week | Textbook (Malik, 2019)    | Page | Project           |
+| Week | Textbook (Kanetkar, 2019) | Page | Project           |
 |------+---------------------------+------+-------------------|
-|    1 | Review: C++ Basics        |    1 |                   |
-|    2 | Records (=struct=)          |  612 |                   |
-|    3 | Classes and UML           |  651 |                   |
-|    4 | Constructors              |  671 | 1st sprint review |
-|    5 | Data abstraction          |  681 |                   |
-|    6 | Inheritance               |  743 |                   |
-|    7 | Composition (Aggregation) |  773 |                   |
-|    8 | Object-oriented Design    |  778 | 2nd sprint review |
-|    9 | Pointers                  |  817 |                   |
-|   10 | Dynamic Arrays and Lists  |  837 |                   |
-|   11 | Overloading               |  907 |                   |
-|   12 | Templates                 |  937 | 3rd sprint review |
-|   13 | Linked Lists              | 1086 |                   |
-|   14 | Stacks and Queues         | 1179 |                   |
-|   15 | Binary Trees              | 1361 |                   |
-|   16 | Graphs                    | 1417 | 4th sprint review |
+|    1 | Analysis of Algorithms    |   14 |                   |
+|    2 |                           |      |                   |
+|    3 | Arrays                    |   52 |                   |
+|    4 |                           |      | 1st sprint review |
+|    5 | Linked Lists              |   87 |                   |
+|    6 |                           |      |                   |
+|    7 | Sparse Matrices           |  139 |                   |
+|    8 |                           |      | 2nd sprint review |
+|    9 | Stacks                    |  179 |                   |
+|   10 |                           |      |                   |
+|   11 | Queues                    |  218 |                   |
+|   12 |                           |      | 3rd sprint review |
+|   13 | Trees                     |  244 |                   |
+|   14 |                           |      |                   |
+|   15 | Graphs                    |  294 |                   |
+|   16 |                           |      | 4th sprint review |
 
 * Learning management system
 
