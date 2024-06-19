@@ -14,11 +14,11 @@
 - Professor's Office: Derby Science Building 210
 - Phone: (870) 307-7254 (office) / (501) 422-4725 (private)
 - Office hours: [[https://calendar.app.google/yjr7tB7foMYowRJm7][by appointment]] MWF 4pm, Tue 3pm, Thu 11 am & 3 pm
-- Textbook: None. Recommended: Malik, C++ Programming - Program Design
-  Including Data Structures (Cengage 2015); La Rocca, Grokking Data
-  Structures (Manning 2023); Zingaro, Algorithmic Thinking (NoStarch
-  2023); Morin, Open Data Structures (in C++) (OpenText, 2013);
-  Erickson, Algorithms (OpenText, 2019).
+- Textbook: None. Recommended: Kanetkar Y, Data Structures Through C++
+  5th ed (bpb,2024). Malik, C++ Programming - Program Design Including
+  Data Structures (Cengage 2015); La Rocca, Grokking Data Structures
+  (Manning 2023) - with Python; Morin, Open Data Structures (in C++)
+  (OpenText, 2013); Helfrich, C++ Data Structures (KendallHunt, 2020).
 
 * Objectives
 
@@ -119,8 +119,9 @@ Both topics can be taught language-agnostic (without referencing a
 particular language) but your understanding will benefit greatly from
 examples and programming assignments.
 
-The presentation will be loosely aligned with content of the book by
-Kanetkar, "Data Structures Through C++" (bpb, 2019):
+If you like books: The presentation will be loosely aligned with
+content of the book by Kanetkar, "Data Structures Through C++" (bpb,
+5th edition, 2024):
 
 | Week | Textbook (Kanetkar, 2019) | Page | Project           |
 |------+---------------------------+------+-------------------|
