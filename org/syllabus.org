@@ -119,43 +119,26 @@ Both topics can be taught language-agnostic (without referencing a
 particular language) but your understanding will benefit greatly from
 examples and programming assignments.
 
-Course plan for the course on data structures (CSC 240):
-| Week | Topic                                                                  |
-|------+------------------------------------------------------------------------|
-|    1 | Introduction to Data Structures; Abstract Data Types (ADTs)            |
-|    2 | Arrays and Dynamic Arrays                                              |
-|    3 | Linked Lists: Singly, Doubly, and Circular Linked Lists                |
-|    4 | Stacks and Queues                                                      |
-|    5 | Recursion and Its Applications                                         |
-|    6 | Trees: Binary Trees, Binary Search Trees                               |
-|    7 | Balanced Trees: AVL Trees, Red-Black Trees                             |
-|    8 | Heaps and Priority Queues                                              |
-|    9 | Hashing and Hash Tables                                                |
-|   10 | Graphs: Representations, Traversals (BFS, DFS)                         |
-|   11 | Advanced Graph Algorithms: Minimum Spanning Trees, Shortest Paths      |
-|   12 | String Data Structures: Tries, Suffix Trees                            |
-|   13 | Sorting Algorithms: Quick Sort, Merge Sort, Heap Sort                  |
-|   14 | Searching Algorithms: Binary Search, Interpolation Search              |
-|   15 | Introduction to External Memory Data Structures: B-Trees, Buffer Trees |
-|   16 | Review and Final Project Presentations                                 |
+The presentation will be loosely aligned with content of the book by
+Kanetkar, "Data Structures Through C++" (bpb, 2019):
 
-The course on algorithms (CSC 245) builds on this content:
-| Week | Topic                                                              |
-|------+--------------------------------------------------------------------|
-|    1 | Introduction to Algorithms; Asymptotic Analysis                    |
-|    2 | Basic Algorithmic Techniques: Greedy Algorithms                    |
-|    3 | Divide and Conquer                                                 |
-|    4 | Dynamic Programming                                                |
-|    5 | Graph Algorithms: Depth-First Search, Breadth-First Search         |
-|    6 | Minimum Spanning Trees: Kruskal's and Prim's Algorithms            |
-|    7 | Shortest Path Algorithms: Dijkstra's, Bellman-Ford, Floyd-Warshall |
-|    8 | Network Flow: Ford-Fulkerson Algorithm, Max-Flow Min-Cut Theorem   |
-|    9 | Advanced Graph Algorithms: A* Search, Johnson’s Algorithm          |
-|   10 | String Matching Algorithms: Knuth-Morris-Pratt, Boyer-Moore        |
-|   11 | Computational Geometry: Convex Hull, Line Intersection             |
-|   12 | NP-Completeness and Reductions                                     |
-|   13 | Approximation Algorithms                                           |
-|   14 | Randomized Algorithms                                              |
-|   15 | Parallel Algorithms                                                |
-|   16 | Review and Final Project Presentations                             |
+| Week | Textbook (Kanetkar, 2019) | Page | Project           |
+|------+---------------------------+------+-------------------|
+|    1 | Analysis of Algorithms    |   14 |                   |
+|    2 |                           |      |                   |
+|    3 | Arrays                    |   52 |                   |
+|    4 |                           |      | 1st sprint review |
+|    5 | Linked Lists              |   87 |                   |
+|    6 |                           |      |                   |
+|    7 | Sparse Matrices           |  139 |                   |
+|    8 |                           |      | 2nd sprint review |
+|    9 | Stacks                    |  179 |                   |
+|   10 |                           |      |                   |
+|   11 | Queues                    |  218 |                   |
+|   12 |                           |      | 3rd sprint review |
+|   13 | Trees                     |  244 |                   |
+|   14 |                           |      |                   |
+|   15 | Graphs                    |  294 |                   |
+|   16 |                           |      | 4th sprint review |
+
 
