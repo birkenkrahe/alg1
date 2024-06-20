@@ -15,19 +15,19 @@
 - Phone: (870) 307-7254 (office) / (501) 422-4725 (private)
 - Office hours: [[https://calendar.app.google/yjr7tB7foMYowRJm7][by appointment]] MWF 4pm, Tue 3pm, Thu 11 am & 3 pm
 
-* Materials
+* Materials and multimedia
 
 - Textbook: None. Recommended: Kanetkar Y, Data Structures Through C++
   5th ed (bpb,2024). Malik, C++ Programming - Program Design Including
   Data Structures (Cengage 2015); La Rocca, Grokking Data Structures
   (Manning 2023) - with Python; Morin, Open Data Structures (in C++)
-  (OpenText, 2013); Helfrich, C++ Data Structures (KendallHunt, 2020).
+  (OpenText, 2013); Helfrich, C++ Data Structurnes (KendallHunt, 2020).
 
-- Videos: The Udemy course "C++ Data Structures & Algorithms +
+- Videos: The [[https://scottbarrett.com/][Udemy course]] "C++ Data Structures & Algorithms +
   LEETCODE Exercises" is very good (nice animations). I've used this
-  as well as Helrich's YouTube videos (for his book). Animations can
+  as well as [[https://www.youtube.com/@CPlusPlusDataStructures/videos][Helfrich's YouTube videos]] (for his book). Animations can
   be helpful for this topic to visualize multi-dimensional, dynamic
-  processes.
+  processes. The [[https://youtu.be/B31LgI4Y4DQ?si=mu7z5qTupDg1Pu3x][freeCodeCamp course]] is more teacher-centric but OK.
 
 - There is a gazillion sources available online and offline on the
   topics of data structures and algorithms. Many of the books are
