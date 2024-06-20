@@ -14,11 +14,30 @@
 - Professor's Office: Derby Science Building 210
 - Phone: (870) 307-7254 (office) / (501) 422-4725 (private)
 - Office hours: [[https://calendar.app.google/yjr7tB7foMYowRJm7][by appointment]] MWF 4pm, Tue 3pm, Thu 11 am & 3 pm
+
+* Materials
+
 - Textbook: None. Recommended: Kanetkar Y, Data Structures Through C++
   5th ed (bpb,2024). Malik, C++ Programming - Program Design Including
   Data Structures (Cengage 2015); La Rocca, Grokking Data Structures
   (Manning 2023) - with Python; Morin, Open Data Structures (in C++)
   (OpenText, 2013); Helfrich, C++ Data Structures (KendallHunt, 2020).
+
+- Videos: The Udemy course "C++ Data Structures & Algorithms +
+  LEETCODE Exercises" is very good (nice animations). I've used this
+  as well as Helrich's YouTube videos (for his book). Animations can
+  be helpful for this topic to visualize multi-dimensional, dynamic
+  processes.
+
+- There is a gazillion sources available online and offline on the
+  topics of data structures and algorithms. Many of the books are
+  great for the first 10, good for the next 30, and disappointing for
+  the lats 300 pages. Many of the videos are great for the first 5 and
+  lousy for the last 15-30 minutes.
+
+- I have looked at dozens of books, videos, courses, and
+  tutorials. Ask me if you found a specific source - I may know it, or
+  I may want to learn more about it!
 
 * Objectives
 
@@ -119,27 +138,27 @@ Both topics can be taught language-agnostic (without referencing a
 particular language) but your understanding will benefit greatly from
 examples and programming assignments.
 
-If you like books: The presentation will be loosely aligned with
-content of the book by Kanetkar, "Data Structures Through C++" (bpb,
-5th edition, 2024):
+| Week | Topic              |  Pg | Project           |
+|------+--------------------+-----+-------------------|
+|    1 | Boolean            |   3 |                   |
+|    2 | Integer            |  20 |                   |
+|    3 | Real Number        |  51 |                   |
+|    4 | Linked List        |  81 | 1st sprint review |
+|    5 | Binary Tree        | 109 |                   |
+|    6 | Binary Search Tree |  138 |                   |
+|    7 | Graph              | 179 |                   |
+|    8 | Vector             | 212 | 2nd sprint review |
+|    9 | List               | 245 |                   |
+|   10 | Deque              | 275 |                   |
+|   11 | Stack              | 320 |                   |
+|   12 | Queue              | 353 | 3rd sprint review |
+|   13 | Priority Queue     | 382 |                   |
+|   14 | Hash               | 412 |                   |
+|   15 | Set                | 442 |                   |
+|   16 | Map                | 478 | 4th sprint review |
 
-| Week | Textbook (Kanetkar, 2019) | Page | Project           |
-|------+---------------------------+------+-------------------|
-|    1 | Analysis of Algorithms    |   14 |                   |
-|    2 |                           |      |                   |
-|    3 | Arrays                    |   52 |                   |
-|    4 |                           |      | 1st sprint review |
-|    5 | Linked Lists              |   87 |                   |
-|    6 |                           |      |                   |
-|    7 | Sparse Matrices           |  139 |                   |
-|    8 |                           |      | 2nd sprint review |
-|    9 | Stacks                    |  179 |                   |
-|   10 |                           |      |                   |
-|   11 | Queues                    |  218 |                   |
-|   12 |                           |      | 3rd sprint review |
-|   13 | Trees                     |  244 |                   |
-|   14 |                           |      |                   |
-|   15 | Graphs                    |  294 |                   |
-|   16 |                           |      | 4th sprint review |
-
+Pg refers to pages in Helfrich, C++ Data Structures (2e), Kendall Hunt
+Publishing 2020. The book also contains 10 appendices with an overview
+of specific topics, like UML modeling, pseudocode keywords, operator
+overloading, recursion, etc., and a glossary.
 
