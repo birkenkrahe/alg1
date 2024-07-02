@@ -17,6 +17,10 @@
 
 * Materials and multimedia
 
+- C++ language reference (written by a group of student volunteers
+  over a weekend!): Rook's Guide to C++ (Hansen, 2013) - [[https://rooksguide.org/wp-content/uploads/2013/12/rooks-guide-isbn-version.pdf][Online]]. An
+  auto-generated test with 100 questions is available for that book.
+  
 - Textbook (optional): Helfrich, C++ Data Structurnes (KendallHunt,
   2020). Recommended: Kanetkar Y, Data Structures Through C++ 5th ed
   (bpb,2024). Malik, C++ Programming - Program Design Including Data
