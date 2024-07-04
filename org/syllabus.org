@@ -159,7 +159,7 @@ examples and programming assignments.
 |    3 | Real Number        |  51 |                   |
 |    4 | Linked List        |  81 | 1st sprint review |
 |    5 | Binary Tree        | 109 |                   |
-|    6 | Binary Search Tree |  138 |                   |
+|    6 | Binary Search Tree | 138 |                   |
 |    7 | Graph              | 179 |                   |
 |    8 | Vector             | 212 | 2nd sprint review |
 |    9 | List               | 245 |                   |
