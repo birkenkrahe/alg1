@@ -17,8 +17,10 @@
 
 * Materials and multimedia
 
-- C++ language reference (written by a group of student volunteers
-  over a weekend!): "Rook's Guide to C++" (Hansen, 2013) - [[https://rooksguide.org/wp-content/uploads/2013/12/rooks-guide-isbn-version.pdf][Online]].
+- 100-page C++ language reference (written by a group of student
+  volunteers over a weekend!): "Rook's Guide to C++" (Hansen, 2013) -
+  [[https://rooksguide.org/wp-content/uploads/2013/12/rooks-guide-isbn-version.pdf][Online]]. The equivalent material in a complete textbook
+  (e.g. Malik, 2015) covers no less than 1,000 pages.
   
 - Textbook (optional): Helfrich, C++ Data Structurnes (KendallHunt,
   2020). Recommended: Kanetkar Y, Data Structures Through C++ 5th ed
