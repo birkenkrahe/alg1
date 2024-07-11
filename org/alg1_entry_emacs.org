@@ -6,11 +6,11 @@
 
 To get this file either download the *raw* file and open in Emacs, or
 download straight to Emacs:
-1) M-x eww
-2) enter URL: tinyurl.com/alg1-entry-emacs
-3) write buffer to file with C-x C-w entry.org
-4) kill buffer with C-x k
-5) open file C-x f entry.org
+1) ~M-x eww~
+2) enter URL: ~tinyurl.com/alg1-entry-emacs~
+3) write buffer to file with ~C-x C-w entry.org~
+4) kill buffer with ~C-x k RET~
+5) open file ~C-x f entry.org~
 
 -----   
 
