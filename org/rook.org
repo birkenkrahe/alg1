@@ -1,0 +1,3421 @@
+#+title: Rook's Guide to C++ (Notes and Review Questions)
+#+property: header-args:C++ :main yes :includes <iostream> :namespaces std :results output :exports both :comments both :tangle yes :noweb yes
+#+startup: overview hideblocks indent entitiespretty:
+* README
+
+- These are worked out "review questions" for the first 100 pages
+  (chapters 1-17) of the freely available Rook's Guide to C++
+  (Hansen, 2013) - [[https://rooksguide.org/wp-content/uploads/2013/12/rooks-guide-isbn-version.pdf][PDF Online]] (License: [[https://creativecommons.org/licenses/by-nc-sa/3.0/legalcode][CC-BY-NC-SA 3.0 Unported]]).
+
+- I modified some of the exercises to make them either more
+  interesting, or because they had mistakes in them.
+
+- I believe that Rook's Guide to C++ is probably the shortest, and
+  most pleasant introduction and/or recap for C++ (up to and including
+  C++11). For more experienced programmers, I recommend Lospinoso's
+  "C++ Crash Course" (NoStarch, 2019) - at almost 800 pages, it's way
+  more complete (and it's being updated in 2024 for the 2nd
+  edition). More complete, but also a lot more tedious is the book by
+  Malik (2016) that has 1600 pages (but also includes data
+  structures).
+
+* Chapter 1: History
+
+- Developed by Bjarne Stroustrup as "C with Classes" in 1980s
+- Named C++ in 1989, standardized in 1998, overhauled every 3 years
+- This book favors techniques from before the C++11 standard of 2011
+
+* Chapter 2: Variables
+
+- Overview of data types:
+  #+name: table_2.1
+  | Name   | Definition                                                            |
+  |--------+-----------------------------------------------------------------------|
+  | =int=    | Short for integer; stores whole numbers                               |
+  | =char=   | Short for character; stores a single letter, digit, or symbol         |
+  | =bool=   | Short for Boolean; stores =true= or =false=                               |
+  | =float=  | Short for floating point number; stores numbers with fractional parts |
+  | =double= | Short for double precision floating point number;                     |
+  |        | stores bigger numbers with bigger fractional parts than =float=         |
+
+- How do you decide which data type you need?
+  #+begin_quote
+  What you can do with a variable depends on the type of data it
+  contains: you cannot store 100,000 in a =char= but in an =int= etc.
+  #+end_quote
+
+- Which data type is right for these data?
+  1. 100,000,000
+  2. 'A'
+  3. "Hello world"
+  4. 0
+  5. 1
+  6. 3.14
+  7. 3.141592653589793
+
+- Answers:
+  #+begin_src C++ :main yes :includes <iostream> <string> :namespaces std :results output :exports both :comments both :tangle yes :noweb yes
+    // declarations and definitions
+    int i = 100000000;
+    char a = 'A';
+    string hw = "Hello world";
+    bool False = 0, True = 1;
+    float pi = 3.14;
+    double Pi = 3.141592653589793;
+    // output
+    cout << "Integer i = " << i << endl
+    << "Character a = " << a << endl
+    << "String hw = " << hw << endl
+    << "Boolean False = " << False << endl
+    << "Boolean True = " << True << endl
+    << "Float pi = " << pi << endl
+    << "Double Pi = " << Pi << endl;
+  #+end_src
+
+  #+RESULTS:
+  : Integer i = 100000000
+  : Character a = A
+  : String hw = Hello world
+  : Boolean False = 0
+  : Boolean True = 1
+  : Float pi = 3.14
+  : Double Pi = 3.14159
+
+- *Identifiers* are the names of (typed) variables. Several identifiers
+  of the same type can be declared together.
+
+- Variables can be *initialized* with =cin= (read from standard input
+  device) or via assignment with ===.
+
+- You can mix assignment, declaration and evaluation:
+  #+begin_src C++ :main yes :includes <iostream> :namespaces std :results output :exports both :comments both :tangle yes :noweb yes
+    int a = 1, b = 2;
+    int x = a + b, y = x;
+    cout << a << " " << b << " " << x << " " << y << endl;
+  #+end_src
+
+  #+RESULTS:
+  : 1 2 3 3
+
+** Review questions (Variables)
+
+1. Declare two variables of type int and initialize them to an
+   appropriate value.
+   #+begin_src C++ :main yes :includes <iostream> :namespaces std :results output :exports both :comments both :tangle yes :noweb yes
+     int foo = 100, bar = 200;
+     cout << foo << endl << bar << endl;
+   #+end_src
+
+   #+RESULTS:
+   : 100
+   : 200
+
+2. Declare three integer variables: sum, a, b. Initialize the
+   variables a and b to integer values 1000 and 2000 and use an
+   assignment statement to assign sum the result of a plus b. Print
+   the result in this format:
+   #+begin_example
+     1000 + 2000 = 3000
+   #+end_example
+
+   Solution:
+   #+begin_src C++ :main yes :includes <iostream> :namespaces std :results output :exports both :comments both :tangle yes :noweb yes
+     int sum, a = 1000, b = 2000; // declaration and initialization
+     sum = a + b; // assignment
+     cout << a << " + " << b << " = " << sum << endl; // print result
+   #+end_src
+
+   #+RESULTS:
+   : 1000 + 2000 = 3000
+
+3. Declare a double variable called number and initialize it to 13.6.
+   #+begin_src C++ :main yes :includes <iostream> :namespaces std :results output :exports both :comments both :tangle yes :noweb yes
+     double number = 13.6; // declare and initialize
+     cout << number << endl; // print
+   #+end_src
+
+   #+RESULTS:
+   : 13.6
+
+4. Create a program in which 3 variables are declared. Create one
+   float named myFloat, one int named myInt, and one double named
+   myDouble. Initialize them to 3.14, 3, and 3.14159,
+   respectively. Print each variable on a line of its own like this:
+   #+begin_example
+     myFloat  = 3.14
+     myInt    = 3
+     myDouble = 3.14159
+   #+end_example
+
+   Solution:
+   #+begin_src C++ :main yes :includes <iostream> :namespaces std :results output :exports both :comments both :tangle yes :noweb yes
+     // declare and initialize
+     float myFloat = 3.14;
+     int myInt = 3;
+     double myDouble = 3.14159;
+     // print result
+     cout << "myFloat  = " << myFloat  << endl
+     << "myInt    = " << myInt    << endl
+     << "myDouble = " << myDouble << endl;
+   #+end_src
+
+   #+RESULTS:
+   : myFloat  = 3.14
+   : myInt    = 3
+   : myDouble = 3.14159
+
+** Initializing variables with parentheses or braces
+
+In C++, the parentheses ~()~ and curly braces ~{}~ are used for
+different types of initialization, and they have some important
+differences:
+
+*** Parentheses ~()~
+1. **Direct Initialization*:
+   - When using parentheses, it is called direct initialization.
+   - Example: ~int x(7);~ directly initializes ~x~ with the value ~7~.
+   - Used for both fundamental types and class types.
+
+2. **Function-style Casting**
+   - Parentheses are also used for type casting in function-style casting.
+   - Example: ~int x = int(7.5);~ casts ~7.5~ to an integer, resulting in ~x~ being ~7~.
+
+3. **Ambiguity with Aggregate Initialization**
+   - Parentheses cannot be used for initializing aggregate types (like
+     =arrays= or =structs=) because they can be ambiguous.
+   - Example: ~std::vector<int> v(5);~ initializes a ~std::vector~ with 5
+     elements, but ~std::vector<int> v{5};~ initializes a ~std::vector~
+     with one element having value ~5~.
+
+*** Curly Braces ~{}~
+
+1. **Uniform Initialization (Brace-enclosed Initialization)**
+   - Introduced in C++11 to provide a more consistent and safer way of
+     initializing variables.
+   - Example: ~int x{7};~ or ~int x = {7};~ initializes ~x~ with the value
+     ~7~.
+
+2. **Initialization Lists**
+   - Used for initializing containers and arrays.
+   - Example: ~int arr[3] = {1, 2, 3};~ initializes an array with three
+     elements.
+
+3. **Avoids Narrowing Conversions**
+   - Brace initialization prevents narrowing conversions, which can
+     lead to data loss.
+   - Example: ~int x{7.5};~ will cause a compile-time error, as ~7.5~
+     cannot be safely converted to ~int~ without data loss.
+   - In contrast, ~int x = 7.5;~ or ~int x(7.5);~ will compile but result
+     in ~x~ being ~7~.
+
+4. **Supports Aggregate Initialization**
+   - Suitable for aggregate types (arrays, structs, etc.).
+   - Example: ~struct Point { int x, y; }; Point p{1, 2};~ initializes ~Point~ with ~x=1~ and ~y=2~.
+
+*** Summary of Differences
+
+- **Syntax**: ~()~ for direct initialization, ~[]~ for uniform
+  initialization.
+
+- **Safety**: ~{}~ prevents narrowing conversions, ~()~ does not.
+
+- **Use Cases**: ~()~ for fundamental types and function-style casting, ~{}~
+  for consistent initialization, aggregates, and containers.
+
+- **Aggregate Initialization**: ~{}~ is used for aggregates; ~()~ is not
+  allowed.
+
+By understanding these differences, you can choose the appropriate
+initialization method for different contexts in your C++ programs.
+
+** Glossary
+
+| TERM           | Example              | DEFINITION                         |
+|----------------+----------------------+------------------------------------|
+| Data type      | =int=                  | Memory cell of a certain size      |
+| Variable       | =int a;=               | Typed data container               |
+| Identifier     | =myInt=                | Unique name for variable           |
+| Initialization | =a = 1;=               | Giving a variable a first value    |
+| Expression     | =1+1=                  | Instruction to evaluate            |
+| Statement      | =a++;=                 | Single instruction (addition)      |
+| Assignment     | =a = b;=               | Giving a variable a value          |
+| =cin=            | =cin >> input=         | Stream standard input to =input=     |
+| =cout=           | =cout << output=       | Stream standard output from =output= |
+| =iostream=       | =#include <iostream>=  | Load input/output stream library   |
+| =string=         | =#include <string>=    | Load string functions library      |
+| =string=         | =string s = "hello"=   | Data with string values            |
+| =bool=           | =bool areYouReady=     | Data with values =true= or =false=     |
+| =int=            | =int pi = 3;=          | Data with whole integer values     |
+| =char=           | =char a = 'A';=        | Data with single character values  |
+| =float=          | =float pi = 3.14=      | Data with floating point values    |
+| =double=         | =double pi = 3.145926= | Data with high precision           |
+
+* Chapter 3: Literals
+
+- A *literal* is a constant that cannot be changed and that is
+  not stored in a variable. This includes numbers like =3.14=,
+  characters like =H=, strings like ="hello"=, or Booleans like ="hello"=.
+- A *constant* is an unchanging value stored in a constant that we
+  define ourselves, like ~pi~ in the following code chunk:
+  #+begin_src C++ :main yes :includes <iostream> :namespaces std :results output :exports both :comments both :tangle yes :noweb yes
+    const float pi = 3.14;
+    float radius = 5, area;
+    area = radius * radius * pi;
+    cout << area;
+  #+end_src
+
+  #+RESULTS:
+  : 78.5
+
+** Review questions:
+
+1. Describe the difference between literals and declared
+   constants. When would a declared constant be more useful than a
+   literal constant?
+   #+begin_quote
+   - Literals are built-in, while declared constants have to be declared
+     at the start of the program and are removed from memory when they
+     program execution has ended. A declared constant would be more
+     useful if we want to change it ever.
+   #+end_quote
+
+2. What is the difference between a normal variable and a constant?
+   #+begin_quote
+   Literals cannot be changed or overwritten, normal variables can be
+   changed.
+   #+end_quote
+
+3. Build a program in C++ that does the following:
+   1) Declare a =double= variable named ~Feet~. Initialize it to your
+      height.
+   2) Declare a =double= constant named ~MetersPerFoot~, with the value of
+      0.3048.
+   3) Declare a =double= variable named ~Meters~. Set it to ~Feet~
+      multiplied by ~MetersPerFoot~.
+
+   #+begin_src C++ :main yes :includes <iostream> :namespaces std :results output :exports both :comments both :tangle yes :noweb yes
+     double Feet = 5.91;
+     double feet = 5;
+     double MetersPerFoot = 0.3048;
+     double Meters = Feet * MetersPerFoot;
+     cout << Feet << " feet = " << Meters << " m" << endl;
+   #+end_src
+
+   #+RESULTS:
+   : 5.91 feet = 1.80137 m
+
+4. Create a program that displays the diameter and area of a circle
+   for any given radius. Use a =const float= to represent the literal π.
+   #+begin_src C++ :main yes :includes <iostream> :namespaces std :results output :exports both :comments both :tangle yes :noweb yes
+     // const declaration
+     const float pi = 3.141592;
+     // variable declarations
+     float area;
+     // initialize variables
+     float radius = 1.f; // radius = 1
+     // compute area
+     area = pi * radius * radius;
+     // print results
+     cout << "The area of a circle of diameter " << 2 * radius << " is " << area << endl;
+   #+end_src
+
+   #+RESULTS:
+   : The area of a circle of diameter 2 is 3.14159
+
+* Chapter 4: Assignments
+
+1. Which of the following is an *incorrect* way to assign a value to a
+   variable ~x~ of type =int=? (Why?)
+
+   - [X] ~7 = x;~
+   - [ ] ~int x = 7;~
+   - [ ] ~int x(7);~
+   - [ ] ~x = 7;~
+
+   #+begin_src C++ :main yes :includes <iostream> :namespaces std :results output :exports both :comments both :tangle yes :noweb yes
+     int x = 7;
+     int y(7); // alternative assignment operator
+     int z;
+     z = y;
+     cout << x << y << z << endl;
+   #+end_src
+
+   #+RESULTS:
+   : 777
+
+   Why?
+   #+begin_quote
+   - When a value is stored in a variable, the variable goes on the
+     left of the assignment operator, and the value being stored in
+     that variable goes to the right of the assignment operator.
+   - In C++, ~int x(7);~ works because it uses direct initialization
+     syntax to directly initialize the variable x with the
+     value 7. This syntax is one of several ways to initialize
+     variables in C++, and it is different from using the assignment
+     operator.
+   - ~int x = 7;~ is initialization by copy. Since C++11, you can also
+     apply uniform or brace-enclosed initialization: ~int x{7};~
+   #+end_quote
+
+   Let's check this:
+   #+begin_src C++ :main yes :includes <iostream> :namespaces std :results output :exports both :comments both :tangle yes :noweb yes
+     int x{10};
+     cout << x << endl;
+     int y(7.);
+     cout << y << endl;
+   #+end_src
+
+   #+RESULTS:
+   : 10
+   : 7
+
+2. Which of the following is an *incorrect* way to assign a value to a
+   variable of type string, and why?
+   - [ ] ~string myString = "word";~
+   - [X] ~string myString = 'word';~
+   - [ ] ~myString = "word";~
+
+   #+begin_src C++ :main yes :includes <iostream> :namespaces std :results output :exports both :comments both :tangle yes :noweb yes
+     #include <string>
+     string myString1 = "word";
+     //string myString2 = 'word';
+     string myString3;
+     myString3 = "word";
+     cout << myString1 << " " << myString3 << endl;
+   #+end_src
+
+   #+RESULTS:
+   : word word
+
+3. Is the following code incorrect? If so, why? If it is correct, why?
+   #+begin_src C++ :main yes :includes <iostream> :namespaces std :results output :exports both :comments both :tangle yes :noweb yes
+     int x = 6, y;
+     char myChar = 'x';
+     y = myChar + x;  // implicit conversion of myChar to equivalent ASCII number code 120x
+     cout << y << endl;
+   #+end_src
+
+   #+RESULTS:
+   : 126
+
+   - [ ] Incorrect: You cannot add a character (myChar) and a number (x)
+   - [X] Correct: myChar is implicitly converted to ASCII code (120)
+     and added to x (6)
+   - [ ] Incorrect: You cannot declare and define one (x) and declare
+     another (y) integer on one line
+   - [ ] Correct: x is converted to '6' and 'myChar' and '6' become
+     'x6'.
+
+4. Write a program that declares two =int= variables i, j and two =double=
+   variables x, y.
+   1) Assign the values 1,2, 3. and 4. to i,j,x,y, respectively.
+   2) Add five to i and subtract 5 from j using compound operators.
+   3) Multiply x with 7.32 and divice y by 7.32 using compound operators.
+   4) Output your results to the screen.
+   5) Comment your program throughout and check for readability.
+
+   Expected output:
+   #+begin_example
+     i = -4
+     j = 7
+     x = 21.96
+     y = 0.546448
+   #+end_example
+
+   Solution:
+   #+begin_src C++ :main yes :includes <iostream> :namespaces std :results output :exports both :comments both :tangle yes :noweb yes
+     // declarations
+     int i, j;
+     double x, y;
+     // initialization
+     i = 1;
+     j = 2;
+     x = 3.;
+     y = 4.;
+     // computations
+     i -= 5; // i = i - 5
+     j += 5; // j = j + 5
+     x *= 7.32; // x = x * 7.32
+     y /= 7.32; // y = y / 7.32
+     // output
+     cout << "i = " << i << endl
+     << "j = " << j << endl
+     << "x = " << x << endl
+     << "y = " << y << endl;
+   #+end_src
+
+   #+RESULTS:
+   : i = -4
+   : j = 7
+   : x = 21.96
+   : y = 0.546448
+
+* Chapter 5: Output
+
+- =cout= stands for "console output". It is used in connection with the
+  *stream insertion* operator =<<=.
+
+** Review questions
+
+1. Which of the following is a correct way to output ~"Hello World"~ to
+   the screen?
+   - [X] cout << "\"Hello World\"";
+   - [ ] output: "Hello World";
+   - [ ] cout >> "Hello World";
+   - [ ] cout << "Hello World";
+   - [ ] console.output << "Hello World";
+
+   #+begin_src C++ :main yes :includes <iostream> :namespaces std :results output :exports both :comments both :tangle yes :noweb yes
+     cout << "\"Hello World\"";
+   #+end_src
+
+   #+RESULTS:
+   : "Hello World"
+
+2. Which of the following is a correct way to output ~Hello!~ to the
+   screen on one line and ~Goodbye!~ to the screen on the next line?
+
+   - [ ] cout >> "Hello!" >> "Goodbye!";
+   - [ ] output: "Hello!\nGoodbye!";
+   - [ ] cout << "Hello!" << \n << "Goodbye!";
+   - [X] cout << "Hello!" << '\n' << "Goodbye!";
+
+   #+begin_src C++ :main yes :includes <iostream> :namespaces std :results output :exports both :comments both :tangle yes :noweb yes
+     cout << "Hello!" << '\n' << "Goodbye!";
+   #+end_src
+
+   #+RESULTS:
+   : Hello!
+   : Goodbye!
+
+3. Aside from the answer in the previous question, write two
+   alternative ways of printing Hello! and Goodbye! to the screen on
+   two different lines.
+   #+begin_src C++ :main yes :includes <iostream> :namespaces std :results output :exports both :comments both :tangle yes :noweb yes
+     cout << "Hello!\nGoodbye!" << endl;
+     cout << "Hello!" << endl << "Goodbye!" << endl;
+   #+end_src
+
+   #+RESULTS:
+   : Hello!
+   : Goodbye!
+   : Hello!
+   : Goodbye!
+
+4. Write several lines of code using the =width()= and =fill()= functions
+   in a =main()= function that prints ~Programming!~ to the screen with 4
+   'x' characters printed aer it.
+
+   Information: =width= returns the minimum number of characters for the
+   next output field, and =fill= sets the fill character for padding
+   fields:
+   #+begin_src C++ :main yes :includes <iostream> :namespaces std :results output :exports both
+     cout.fill('x');
+     cout.width(16);
+     cout << "Programming!" << endl;
+   #+end_src
+
+   #+RESULTS:
+   : xxxxProgramming!
+
+   This last example prints the padding characters before the
+   number. To set the field width after the output use the =left=
+   function after =cout=:
+   #+begin_src C++ :main yes :includes <iostream> :namespaces std :results output :exports both :comments both :tangle yes :noweb yes
+     cout.fill('x');
+     cout.width(16);
+     cout << left << "Programming!" << endl;
+   #+end_src
+
+   #+RESULTS:
+   : Programming!xxxx
+
+5. Write code to output the values 124, 12.376, z, 1000000, and
+   strings! as distinct values, separated by spaces.
+   #+begin_src C++ :main yes :includes <iostream> :namespaces std :results output :exports both :comments both :tangle yes :noweb yes
+     cout << 124        << " "
+     << 12.376     << " "
+     << 'z'        << " "
+     << 1000000    << " "
+     << "strings!" << endl;
+   #+end_src
+
+   #+RESULTS:
+   : 124 12.376 z 1000000 strings!
+
+6. What is the output of the following program?
+   #+begin_src C++ :main yes :includes <iostream> <string> :namespaces std :results output :exports both :comments both :tangle yes :noweb yes
+     string shirt = "maroon", pants = "blue";
+     cout << shirt << " " << pants << endl;
+   #+end_src
+
+   #+RESULTS:
+   : maroon blue
+
+* Chapter 6: Input
+
+- To enter data from standard input devices, use =cin= with the standard
+  extraction operator =>>=.
+
+- To check for improper input you can use =cin.fail=:
+  #+begin_src C++ :tangle src/fail.cpp :main yes :includes <iostream> :namespaces std :results output :exports both
+    int x = 0, y = 0;
+
+    cout << "Please enter a value for x: " << endl;
+    cin >> x;
+    if (cin.fail()) {
+      cout << "That is not a valid data type!" << endl;
+     } else {
+      cout << "You entered: " << x << endl;
+     }
+  #+end_src
+
+** Review questions
+
+#+begin_src bash :results output
+  echo "500" > data/input
+  cat data/input
+#+end_src
+
+#+RESULTS:
+: 500
+
+1. Which of the following numbered lines of code are proper =cin= statements?
+   #+begin_example C++
+     // variable declarations
+     int x=0,y=0;
+     // ask for input
+     cout << "Please enter a value for x: ";
+     // get input
+     cin << x; // #1
+     cin >> x; // #2
+     cin >> x // #3
+     cin x; // #4
+     cin >< x; // #5
+     x >> cin; // #6
+   #+end_example
+
+   Solution:
+   #+begin_src C++ :cmdline < data/input :main yes :includes <iostream> :namespaces std :results output :exports both :comments both :tangle yes :noweb yes
+     // variable declarations
+     int x=0;
+     // ask for input
+     cout << "Please enter a value for x: ";
+     // get input
+     //cin << x; // #1
+     cin >> x; // #2
+     //cin >> x // #3
+     //cin x; // #4
+     //cin >< x; // #5
+     //x >> cin; // #6
+     cout << endl << "You entered: " << x << endl;
+   #+end_src
+
+   #+RESULTS:
+   : Please enter a value for x:
+   : You entered: 500
+
+2. Must you always use =cin= with =cout=? Why or why not?
+   #+begin_quote
+   No, input and output are separate commands and processes. You can
+   use =cin= for input, or =scanf=, and =cout= or =printf= for output.
+   #+end_quote
+
+3. What is the "redirect" or "extraction" operator , and how is it
+   used to process user input?
+   #+begin_quote
+   - In C++, the operator =>>= redirects input from its left into output
+     on its right.
+   - On the shell, there is also a redirection operator, =>= or =<=, which
+     redirects the input on its left or right into files on the
+     opposite side. The operators =>>= and =<<= append to the file rather
+     than rewrite it.
+   #+end_quote
+
+4. Can you use =cin= to store a value in a variable that already has a
+   value?
+   #+begin_quote
+   Yes, and the previous value is overwritten.
+   #+end_quote
+
+5. Write code that allows the user to enter an integer value and store
+   it in a variable. Your code should prompt the user, receive their
+   input, and then print their input value back to them.
+   #+begin_src C++ :cmdline < data/input :main yes :includes <iostream> :namespaces std :results output :exports both :comments both :tangle yes :noweb yes
+     int x;
+     cout << "Enter integer value: ";
+     cin >> x;
+     cout << "\nYou entered: " << x << endl;
+   #+end_src
+
+   #+RESULTS:
+   : Enter integer value:
+   : You entered: 500
+
+6. Add some functionality to the code you wrote for the previous
+   exercise. Add two new variables, one =char= and one =float= or
+   =double=. Prompt the user properly for each value. e program should
+   print out the values of the variables, clearly labeled, on separate
+   lines.
+   #+begin_src bash :results output
+     echo "29121963 M 180.34" > data/input
+     cat data/input
+   #+end_src
+
+   #+RESULTS:
+   : 29121963 M 180.34
+
+   #+begin_src C++ :cmdline < data/input :main yes :includes <iostream> :namespaces std :results output :exports both :comments both :tangle yes :noweb yes
+     // variable declarations
+     int foo;
+     char bar;
+     float baz;
+     // input
+     cout << "Enter integer, character, and floating-point number, separated by space(s): ";
+     cin >> foo >> bar >> baz;
+     // failsafe
+     if (cin.fail()) cout << "\nNot valid input\n";
+     // output
+     cout << "\nYou entered: "
+     << foo << " (integer)" << endl
+     << bar << " (character)" << endl
+     << baz << " (floating-point number)" << endl;
+   #+end_src
+
+   #+RESULTS:
+   : Enter integer, character, and floating-point number, separated by space(s):
+   : You entered: 29121963 (integer)
+   : M (character)
+   : 180.34 (floating-point number)
+
+* Chapter 7: Arithmetic
+
+- For compound operator, order matters:
+  #+begin_src C++ :main yes :includes <iostream> :namespaces std :results output :exports both :comments both :tangle yes :noweb yes
+    int a, b;
+    a = 7;
+    b = a++;
+    cout << "a = " << a << " b = a++ = " << b << endl;
+    a = 7; b= 0;
+    b = ++a;
+    cout << "a = " << a << " b = ++a = " << b << endl;
+    a = 7; b = 0;
+    b = a--;
+    cout << "a = " << a << " b = a-- = " << b << endl;
+    a = 7; b = 0;
+    b = --a;
+    cout << "a = " << a << " b = --a = " << b << endl;
+  #+end_src
+
+  #+RESULTS:
+  : a = 8 b = a++ = 7
+  : a = 8 b = ++a = 8
+  : a = 6 b = a-- = 7
+  : a = 6 b = --a = 6
+
+** Review questions
+
+1. Write a statement declaring two integer variables a and b and
+   initialize them to 6 and 3, respectively, on one line only. Then
+   calculate their sum and product, and display the results on two
+   lines, but with only one line of code.
+   #+begin_src C++ :main yes :includes <iostream> :namespaces std :results output :exports both :comments both :tangle yes :noweb yes
+     int a = 6, b = 3;
+     cout << a << " + " << b << " = " << a+b << '\n'
+     << a << " * " << b << " = " << a*b << endl;
+   #+end_src
+
+   #+RESULTS:
+   : 6 + 3 = 9
+   : 6 * 3 = 18
+
+2. Fix the following code so there will be an output of 20. Then,
+   modify the code to calculate and display the difference between a
+   and b (it should print 16) after the fix.
+   #+begin_src C++ :main yes :includes <iostream> :namespaces std :results output :exports both :comments both :tangle yes :noweb yes
+     int a = 10, b = 4;
+     a = a - 2 + 3 * b;
+     cout << "Updated a: " << a << endl;
+     int difference = a - b;
+     cout << "Difference between a and b: " << difference << endl;
+   #+end_src
+
+   #+RESULTS:
+   : Updated a: 20
+   : Difference between a and b: 16
+
+3. What is the output of the following code?
+   #+begin_src C++ :main yes :includes <iostream> :namespaces std :results output :exports both :comments both :tangle yes :noweb yes
+     int a = 2, b = 5, c = 6;
+     a++;
+     b = b * a;
+     c = (c - a) + 3;
+     cout << a << endl;
+     cout << b << endl;
+     cout << c << endl;
+   #+end_src
+
+   #+RESULTS:
+   : 3
+   : 15
+   : 6
+
+4. What is the output of the following code:
+   #+begin_src C++ :main yes :includes <iostream> :namespaces std :results output :exports both :comments both :tangle yes :noweb yes
+     int a, b, c;
+     a = 2;
+     b = 8;
+     c = 1;
+     c = b - b;
+     c = a + a;
+     c = b * 8;
+     b = b + b;
+     c = a + c;
+     b = a + b;
+     a = a * c;
+     b = a - c;
+     c = b + a;
+     cout << a << endl;
+     cout << b << endl;
+     cout << c << endl;
+   #+end_src
+
+   #+RESULTS:
+   : 132
+   : 66
+   : 198
+
+5. What is the output of the following code?
+   #+begin_src C++ :main yes :includes <iostream> :namespaces std :results output :exports both :comments both :tangle yes :noweb yes
+     int a = 4, b = 2, c, d;
+     a = b + 3;
+     b++;
+     c = (b + 4) * 2;
+     c = c + 2;
+     d = a + b - 3;
+     a++;
+     a = a + 2 - b;
+     b = b * 2;
+     cout << "a = " << a << endl;
+     cout << "b = " << b << endl;
+     cout << "c = " << c << endl;
+     cout << "d = " << d << endl;
+   #+end_src
+
+   #+RESULTS:
+   : a = 5
+   : b = 6
+   : c = 16
+   : d = 5
+
+6. What is the output of the following code?
+   #+begin_src C++ :main yes :includes <iostream> :namespaces std :results output :exports both :comments both :tangle yes :noweb yes
+     int m = 3, n = 2, x, y;
+     x = m + 5;
+     m--;
+     y = (m + 4) / 3;
+     n = n + 2;
+     m = m + n / 2;
+     m++;
+     x = x * 2 - 3;
+     y = y * 2;
+     n = n + y * 3;
+     cout << "m = " << m << endl;
+     cout << "n = " << n << endl;
+     cout << "x = " << x << endl;
+     cout << "y = " << y << endl;
+   #+end_src
+
+   #+RESULTS:
+   : m = 5
+   : n = 16
+   : x = 13
+   : y = 4
+
+* Chapter 8: Comments
+
+** Review questions
+
+#+begin_src bash :results output
+  echo "10" > data/input
+  cat data/input
+#+end_src
+
+#+RESULTS:
+: 10
+
+1. Comment each line of this code:
+   #+begin_src C++ :cmdline < data/input :main yes :includes <iostream> :namespaces std :results output :exports both :comments both :tangle yes :noweb yes
+     #include <iostream>
+     using namespace std;
+
+     int main()
+     {
+       int time;
+       cout << "Enter time in seconds:\n";
+       cin >> time;
+       cout << "You entered: " << time << " seconds." << endl;
+       int answer = (32 * time * time) / 2;
+       cout << "The distance is ";
+       cout << answer;
+       cout << " feet.\n";
+       return 0;
+     }
+   #+end_src
+
+   #+RESULTS:
+   : Enter time in seconds:
+   : You entered: 10 seconds.
+   : The distance is 1600 feet.
+
+   *Background:* In the imperial metric system, 32 feet per second
+   squared (or 9.8 meter per second squared in the metric system) is
+   the approximate acceleration due to Earth's gravity for a freely
+   falling body (no air friction or other effects assumed).
+
+   Solution:
+   #+begin_src C++ :cmdline < data/input :main yes :includes <iostream> :namespaces std :results output :exports both :comments both :tangle yes :noweb yes
+     // Load input output header file
+     #include <iostream>
+     // use standard namespace
+     using namespace std;
+     // main function - no arguments, returns integer
+     int main()
+     { // body of main function begins
+       // declare integer variable `time`
+       int time;
+       // Ask for user input
+       cout << "Enter time in seconds:\n";
+       // Stream user input from standard device to variable `time`
+       cin >> time;
+       // Tell user which number he entered.
+       cout << "You entered: " << time << " seconds." << endl;
+       // declare and initialize variable `answer` with arithmetic expression
+       int answer = (32 * time * time) / 2;
+       // print result
+       cout << "The distance is "; // redirect string to output
+       cout << answer;             // redirect variable value to output
+       cout << " feet.\n";         // redirect string to output and print new line
+       // return 0 from main function
+       return 0;
+     } // body of main functions ends
+   #+end_src
+
+   #+RESULTS:
+   : Enter time in seconds:
+   : You entered: 10 seconds.
+   : The distance is 1600 feet.
+
+2. Fix this code by removing or modifying comments so that it runs and
+   compiles as it should.
+   #+begin_src C++ :main yes :includes <iostream> :namespaces std :results output :exports both :comments both :tangle yes :noweb yes
+     /* #include <iostream> includes the iostream *
+
+        using namespace std;
+
+        int main()
+        {
+        int time;                // A place to store the time
+        cout << "Enter time \n": // Ask to enter the time
+        cin >> time;             // Takes user input
+        int answer = (32 * time * time) / 2; // Calculates it
+        cout << "The distance is ";          /* Outputs
+        cout << answer;                         the distance
+        cout << " feet.\n";                     in meters */
+     return 0;
+     }
+   #+end_src
+
+   Solution:
+   #+begin_src C++ :main yes :includes <iostream> :namespaces std :results output :exports both :comments both :tangle yes :noweb yes
+     /*  includes the iostream */
+     #include <iostream>
+     using namespace std;
+
+     int main()
+     {
+       int time;                // A place to store the time
+       cout << "Enter time \n"; // Ask to enter the time
+       cin >> time;             // Takes user input
+       int answer = (32 * time * time) / 2; // Calculates it
+       cout << "The distance is ";          // Outputs
+       cout << answer;                      // the distance
+       cout << " feet.\n";                  // in meters
+       return 0;
+     }
+   #+end_src
+
+3. Explain the purpose of commenting.
+   #+begin_quote
+   Commenting helps clarifying the purpose behind code, and
+   understanding it line by line and word for word.
+   #+end_quote
+   How does it help you?
+   #+begin_quote
+   It would helps me in particular if I read someone else's code so
+   that I could understand its purpose and the algorithms behind
+   it. It helps me if I'm coming back to my code to understand what
+   I've been doing.
+   #+end_quote
+   Why would someone else need to be able to understand your code?
+   #+begin_quote
+   Because most programs are not short programs written by just one
+   person in an instant, but they are large, written, improved, and
+   extended by many different programmers.
+   #+end_quote
+
+4. Write and properly comment your own simple program.
+
+   Solution:
+
+   A "hello" program that greets the user with his name.
+
+   Input:
+   #+begin_src bash :results output
+     echo "Marcus" > data/input
+     cat data/input
+   #+end_src
+
+   #+RESULTS:
+   : Marcus
+
+   Code:
+   #+begin_src C++ :cmdline < data/input :results output :exports both
+     /* Get user name from keyboard and welcome him by name */
+     /* Sample input: Marcus
+        /* Sample output: "Hello, Marcus"  */
+
+     #include <iostream> // include I/O header file
+     #include <string>  // include string methods
+
+     using namespace std; // don't need to use std:: in front of cout, cin, endl
+
+     int main() {  // begin main function (returns control integer)
+
+       string name; // declare user name for input operation
+
+       cout << "Enter your first name:\n"; // ask user for input
+       cin >> name; // get user name as input
+
+       // print personalized welcome message
+       cout << "Hello, " + name << "!" << endl;
+
+       return 0; // return control integer: 0 = all OK
+     } // end main function
+   #+end_src
+
+   #+RESULTS:
+   : Enter your first name:
+   : Hello, Marcus!
+
+5. Go back to the program you wrote from the previous question. Add
+   further comments that explain what’s happening and share the
+   commented code with a classmate or friend. Ask them if they
+   understand what’s happening from just the comments.
+
+   Solution:
+
+   "Only the comments" should read like pseudocode:
+   #+begin_example
+     // include I/O header file
+     // include string methods
+
+     // don't need to use std:: in front of cout, cin, endl
+
+     // begin main function (returns control integer)
+       // declare user name for input operation
+       // ask user for input
+       // get user name as input
+       // print personalized welcome message
+       // return control integer: 0 = all OK
+     // end main function
+   #+end_example
+
+6. Add comments to the following code.
+
+   - Note: Save percentages in hockey are shown to three decimal
+     places and not multiplied by 100: .900 instead of 90%.
+
+     #+begin_src C++ :cmdline < data/input :results output :exports both :comments both
+       #include <iostream>
+       #include <cstdlib>
+       using namespace std;
+       int main()
+       {
+         double shots, goals, saves, save_perc;
+         char cont;
+
+         do {
+           cout.unsetf(ios::fixed);
+           cout.unsetf(ios::showpoint);
+
+           cout << "Enter the number of shots on goal:\t";
+           cin >> shots;
+           cout << "Enter the number of goals scored:\t";
+           cin >> goals;
+           cout << endl;
+
+           saves = shots - goals;
+           save_perc = (saves / shots);
+
+           cout << "If there were " << shots << " shots and "
+                << goals << " goals\n";
+           cout << "then the goalie's save percentage was ";
+
+           cout.setf(ios::fixed);
+           cout.setf(ios::showpoint);
+           cout.precision(3);
+
+           cout << save_perc << endl << endl;
+
+           cout << "Run again? Y/N\t";
+           cin >> cont;
+           cont = toupper(cont);
+         } while (cont == 'Y');
+         return 0;
+       }
+     #+end_src
+
+     #+RESULTS:
+     : Enter the number of shots on goal:       Enter the number of goals scored:
+     : If there were 1000 shots and 91 goals
+     : then the goalie's save percentage was 0.909
+     :
+     : Run again? Y/N   Enter the number of shots on goal:      Enter the number of goals scored:
+     : If there were 1e+03 shots and 110 goals
+     : then the goalie's save percentage was 0.890
+     :
+     : Run again? Y/N
+
+   - Input file: number of shots on goal, goals scored
+     #+begin_src bash :results output
+       echo "1000 91 Y" > data/input
+       echo "1000 110 N" >> data/input
+       cat data/input
+     #+end_src
+
+     #+RESULTS:
+     : 1000 91 Y
+     : 1000 110 N
+
+   - Solution:
+     #+name: hockey
+     #+begin_src C++ :cmdline < data/input :results output :exports both :comments both
+       #include <iostream>  // Include the iostream library for input and output
+       #include <cstdlib>   // Include the cstdlib library for utility functions
+       using namespace std; // Use the standard namespace
+
+       int main() { // Main function
+         double shots, goals, saves, save_perc; // Declare variables for shots,
+                                                // goals, saves, and save percentage
+         char cont; // Declare a variable to store the user's choice to continue
+
+         do {
+           cout.unsetf(ios::fixed); // Unset the fixed flag for cout
+           cout.unsetf(ios::showpoint); // Unset the showpoint flag for cout
+
+           cout << "Enter the number of shots on goal:\t"; // Prompt for number of shots
+           cin >> shots; // Read the number of shots from the user
+           cout << "Enter the number of goals scored:\t"; // Prompt for number of goals
+           cin >> goals; // Read the number of goals from the user
+           cout << endl; // Print a newline
+
+           saves = shots - goals; // Calculate the number of saves
+           save_perc = (saves / shots); // Calculate the save percentage
+
+           cout << "If there were " << shots << " shots and " // Output
+                                                              // number of
+                                                              // shots
+                << goals << " goals\n"; // Output the number of goals
+           cout << "then the goalie's save percentage was "; // Output the
+                                                             // save
+                                                             // percentage
+                                                             // message
+
+           cout.setf(ios::fixed); // Set the fixed flag for cout
+           cout.setf(ios::showpoint); // Set the showpoint flag for cout
+           cout.precision(3); // Set the precision for cout to 3 decimal places
+
+           cout << save_perc << endl << endl; // Output the save percentage
+                                              // with the specified precision
+
+           cout << "Run again? Y/N\t"; // Prompt the user to run the program again
+           cin >> cont; // Read the user's choice
+           cont = toupper(cont); // Convert the user's choice to uppercase
+         } while (cont == 'Y'); // Continue the loop if the user enters 'Y'
+         return 0; // Return 0 to indicate successful execution
+       }
+     #+end_src
+
+* Chapter 9: Data Types and Conversion
+
+- Special values: infinity and NaN
+  #+begin_src C++ :main yes :includes <iostream> :namespaces std :results output :exports both :comments both :tangle yes :noweb yes
+    float g = 10.0/0.0; // Infinity
+    float h = g * -1.0; // Negative infinity
+    float i = g / h; // Not a Number (NaN)
+
+    cout << g << endl
+    << h << endl
+    << i << endl;
+  #+end_src
+
+  #+RESULTS:
+  : inf
+  : -inf
+  : -nan
+
+- *Widening conversion*: from =int= to =double=
+  #+begin_src C++ :main yes :includes <iostream> :namespaces std :results output :exports both :comments both :tangle yes :noweb yes
+    int x = 2;
+    double y;
+    y = x; // integer 2 is converted to double 2.0
+    cout << "y = " << y << endl;
+    printf("%.1f\n",y);
+  #+end_src
+
+  #+RESULTS:
+  : y = 2
+  : 2.0
+
+- *Narrowing conversion*: from =double= to =int=
+  #+begin_src C++ :main yes :includes <iostream> :namespaces std :results output :exports both :comments both :tangle yes :noweb yes
+    int x;
+    double y = 2.0;
+    x = y; // narrowing type conversion
+    cout << "x = " << x << endl;
+  #+end_src
+
+  #+RESULTS:
+  : x = 2
+
+- =<cmath>= has =round=:
+  #+begin_src C++ :main yes :includes <iostream> :namespaces std :results output :exports both :comments both :tangle yes :noweb yes
+    #include <cmath>
+    int main() {
+      int x;
+      double y = 2.9;
+      x = round(y); // returns double 3.0, which is converted to 3
+      cout << "x = " << x << endl;
+    }
+  #+end_src
+
+  #+RESULTS:
+  : x = 3
+
+- Automatic types in C++11: the =auto= type leaves the typing to the
+  compiler
+  #+begin_src C++ :main yes :includes <iostream> :namespaces std :results output :exports both :comments both :tangle yes :noweb yes
+    auto myVar = 3; // int
+    auto myVar2 = &myVar; // int* (integer pointer)
+    auto myVar3 = 't'; // char
+    cout << myVar << endl
+    << myVar2 << endl
+    << myVar3 << endl;
+  #+end_src
+
+  #+RESULTS:
+  : 3
+  : 0x7ffe9bcf45fc
+  : t
+
+- The =decltype= operator extracts types from objects:
+  #+begin_src C++ :main yes :includes <iostream> :namespaces std :results output :exports both :comments both :tangle yes :noweb yes
+    auto myVar = 3; // int
+    decltype(myVar) myVar4; // int - myVar4 not initialized
+    decltype(myVar < 1) myVar5; // bool
+    cout << myVar << endl
+    << myVar4 << endl
+    << myVar5 << endl;
+  #+end_src
+
+  #+RESULTS:
+  : 3
+  : 32529
+  : 0
+
+- =auto= is powerful with more complicated objects:
+  #+begin_example C++
+    std::vector<int> v; // create vector of integers
+    v.push_back(2) // add element 2 to vector
+    v.push_back(8) // add element 8 to vector
+    auto myIterator = v.begin(); // equivalent to:
+                                 // std::vector<int>::iterator myIterator
+                                 // = v.begin();
+  #+end_example
+
+** Review questions
+
+1. What’s the difference between the various data types that store
+   numbers? Why would you use one over the other?
+   #+begin_quote
+   - The difference is memory size.
+   - You'd choose one over the other to accommodate data, e.g. to
+     store a number with decimal points, choose =float= or =double=, or to
+     choose a TRUE or FALSE value, choose =bool=.
+   #+end_quote
+
+2. If you assign the result of an =int= divided by an =int= to a =float=
+   (e.g. ~float num = 13/7;~), what could happen to the resulting value?
+   #+begin_quote
+   - The result of 13/7 is coerced to an integer (1)
+   - The variable ~num~ converts the 1 to 1.0 (widening conversion)
+   #+end_quote
+
+   Show this:
+   #+begin_src C++ :main yes :includes <iostream> :namespaces std :results output :exports both :comments both :tangle yes :noweb yes
+     float num = 13/7;
+     cout << num << endl;
+     printf("%.1f",num);
+   #+end_src
+
+   #+RESULTS:
+   : 1
+   : 1.0
+
+   This last =printf= shows the floating-point character, because if you
+   print it as an integer, you see that it's a =float= (with warning):
+   #+begin_src C++ :main yes :includes <iostream> :namespaces std :results output :exports both :comments both :tangle yes :noweb yes
+     float num = 13/7;
+     cout << num << endl;
+     printf("%d",num);
+   #+end_src
+
+   #+RESULTS:
+   : 1
+   : 0
+
+- You can also use =typeid= from =<typeinfo>=:
+  #+begin_src C++ :results output :exports both :comments both :tangle yes :noweb yes
+    #include <iostream>
+    #include <typeinfo>
+    using namespace std;
+
+    int main()
+    {
+      auto num = 13/7;
+      auto num2 = 13.f/7.f;
+
+      double num3 = 13/7;
+
+      cout << "The type of num is: " << typeid(num).name() << endl;
+      cout << "The type of num2 is: " << typeid(num2).name() << endl;
+      cout << "The type of num3 is: " << typeid(num3).name() << endl;
+      return 0;
+    }
+  #+end_src
+
+  #+RESULTS:
+  : The type of num is: i
+  : The type of num2 is: f
+  : The type of num3 is: d
+
+3. Declare a variable named ~sampleSize~ and set it to 14.58093.
+   #+begin_src C++ :main yes :includes <iostream> :namespaces std :results none :exports both :comments both :tangle yes :noweb yes
+     double sampleSize = 14.58093;
+   #+end_src
+
+4. Write code that increases sampleSize by 12.495.
+   #+begin_src C++ :main yes :includes <iostream> :namespaces std :results output :exports both :comments both :tangle yes :noweb yes
+     double sampleSize = 14.58093;
+     sampleSize += 12.495;
+     cout << sampleSize << endl;
+   #+end_src
+
+   #+RESULTS:
+   : 27.0759
+
+* Chapter 10: Conditionals
+
+Input file:
+#+begin_src bash :results output
+  echo "-100.503040504822 -100.50304050483" > data/input
+  cat data/input
+#+end_src
+
+#+RESULTS:
+: -100.503040504822 -100.50304050483
+
+- Write a program that declares two numbers a and b and initializes
+  them with appropriate values. The program should print out one
+  message that informs the user if a is smaller or bigger than b, or
+  if they're the same.
+  #+name: compare a and b
+  #+begin_src C++ :cmdline < data/input :main yes :includes <iostream> :namespaces std :results output :exports both :comments both :tangle yes :noweb yes
+    // Declare variables
+    double a, b;
+    // Ask for user input
+    cout << "Enter two numbers: ";
+    // Store input in variables
+    cin >> a >> b;
+    // set cout precision
+    cout.precision(15);
+    // Compare values
+    if (a == b) {
+      cout << a << " and " << b << " are the same!" << endl;
+     } else if (a > b) {
+      cout << a << " is bigger than " << b << "!" << endl;
+     } else {
+      cout << a << " is smaller than " << b << "!" << endl;
+     }
+  #+end_src
+
+  #+RESULTS:
+  : Enter two numbers: -100.503040504822 is bigger than -100.50304050483!
+
+- Improve this process model of the if-else conditional:
+  #+attr_html: :width 600px:
+  [[../img/if_else_bad.png]]
+
+- Go to bpmn.io to draw a better model!
+
+- Solution: (if_else_good.bpmn)
+  #+attr_html: :width 600px:
+  [[../img/if_else_good.svg]]
+
+* Chapter 11: Strings
+
+- In order to use strings you must =#include <string>=.
+
+- A string can be treated like a 1-dim array of characters.
+
+- when a literal is assigned to a =string=, it needs to be in ""
+
+- Importing strings: a whitespace is seen as the end of the input
+  #+begin_src  C++ :cmdline < data/string :main yes :includes <iostream> :namespaces std :results output :exports both :comments both :tangle yes :noweb yes
+    string myString;
+    cin >> myString;
+    cout << myString;
+  #+end_src
+
+  #+RESULTS:
+  : Hello+string+world
+
+  #+begin_src bash :results output
+    echo "Hello string world" > data/string
+    cat data/string
+  #+end_src
+
+  #+RESULTS:
+  : Hello string world
+
+- So how can we print the whole string? Use the =getline= function:
+  #+begin_src C++ :cmdline < data/string :main yes :includes <iostream> :namespaces std :results output :exports both :comments both :tangle yes :noweb yes
+    string myString;
+    getline(cin, myString);
+    cout << myString;
+  #+end_src
+
+  #+RESULTS:
+  : Hello string world
+
+- What about strings split up over different lines?
+  #+begin_src bash :results output
+    echo "Hello string world" >> data/string
+    cat data/string
+  #+end_src
+
+  #+RESULTS:
+  : Hello string world
+  : Hello string world
+
+- Only the first line is fetched!
+
+- Length of string:
+  #+begin_src C++ :cmdline < data/string :main yes :includes <iostream> :namespaces std :results output :exports both :comments both :tangle yes :noweb yes
+    #include <string>
+    string myString;
+    int stringLength;
+    getline(cin, myString);
+    stringLength = myString.length();
+    cout << stringLength;
+  #+end_src
+
+  #+RESULTS:
+  : 18
+
+- You can search for certain characters in a string using =string::find=
+  and =string::rfind= member functions:
+  #+begin_src C++ :main yes :includes <iostream> :namespaces std :results output :exports both :comments both :tangle yes :noweb yes
+    string myString = "Hello World";
+    int spot = myString.find(" ");
+    cout << spot << endl; // output 5 for the 5th string element
+  #+end_src
+
+  #+RESULTS:
+  : 5
+
+- Memory image:
+  #+attr_html: :width 400px:
+  [[../img/myString.png]]
+
+- You can also search within a string from another position than the
+  beginning:
+  #+begin_src C++ :main yes :includes <iostream> :namespaces std :results output :exports both :comments both :tangle yes :noweb yes
+    string myString = "Hello World";
+    int spot, spot2;
+    spot = myString.find(" "); // looks for space - found at index 5
+    spot2 = myString.find("o",spot); // looks for 'o' - starting from index 5, finds 7
+    cout << spot << " " << spot2 << endl;
+  #+end_src
+
+  #+RESULTS:
+  : 5 7
+
+- The =rfind= function finds a character in reverse direction from the
+  end of the string:
+  #+begin_src C++ :main yes :includes <iostream> :namespaces std :results output :exports both :comments both :tangle yes :noweb yes
+    string myString = "Hello World";
+    int spot, spot2, spot3;
+    spot = myString.rfind(" "); // looks for space from end - found at index 5
+    spot2 = myString.rfind("o",spot); // looks from end for 'o' - starts from 5, finds 4
+    spot3 = myString.rfind("o",5); // looks from end for 'o' - starts from 5, finds 4
+    cout << spot << " " << spot2 << " " << spot3 << endl;
+  #+end_src
+
+  #+RESULTS:
+  : 5 4 4
+
+- The finding functions return the position of the last occurrence, or
+  =std::string::npos= if the substring is not found:
+  #+begin_src C++ :main yes :includes <iostream> :namespaces std :results output :exports both :comments both :tangle yes :noweb yes
+    #include <iostream>
+    #include <string>
+
+    using namespace std;
+
+    int main() {
+      string myString = "Hello World!";
+      string substring = "o";
+
+      // Find the last occurrence of the substring in the main string
+      size_t position = myString.find(substring); // output 4
+      //size_t position_r = myString.rfind(substring); // output 7
+
+      // Check if the substring was found
+      if (position != string::npos) {
+        cout << "Last occurrence of substring found at position: " << position << endl;
+      } else {
+        cout << "Substring not found." << endl;
+      }
+
+      return 0;
+    }
+  #+end_src
+
+  #+RESULTS:
+  : Last occurrence of substring found at position: 4
+
+- The data type =size_t= is used for unsigned size data - it is
+  optimized for whatever computing platform you're using.
+
+** Review questions
+
+1. Write code to declare a string and take input from a user.
+   #+begin_src C++ :cmdline < data/string :main yes :includes <iostream> :namespaces std :results output :exports both :comments both :tangle yes :noweb yes
+     #include <string>
+     string  myString;
+     cin >> myString;
+     cout << myString;
+   #+end_src
+
+   #+RESULTS:
+   : Hello
+
+2. Can a string be treated as a character array?
+   #+begin_quote
+   Yes.
+   #+end_quote
+
+3. When do you use a string?
+   #+begin_quote
+   When you need to hold a sequence of characters, words, sentences.
+   #+end_quote
+4. What is the =#include= needed to use strings?
+   #+begin_quote
+   =<string>=
+   #+end_quote
+5. What function do you have to use to take an input with a space?
+   #+begin_quote
+   =std::string::getline=
+   #+end_quote
+6. Write code that takes in 5 words (one after the other, not at once)
+   and outputs each of them 4 times.
+   #+begin_src bash :results output
+     echo "One Two Three Four Five" > data/words
+     cat data/words
+   #+end_src
+
+   #+RESULTS:
+   : One Two Three Four Five
+
+   #+begin_src C++ :cmdline < data/words :main yes :includes <iostream> :namespaces std :results output :exports both :comments both :tangle yes :noweb yes
+     #include <string>
+
+     string word;
+
+     puts("Enter first word");
+     cin >> word;
+     cout << word << endl;
+     puts("Enter second word");
+     cin >> word;
+     cout << word << endl;
+     puts("Enter third word");
+     cin >> word;
+     cout << word << endl;
+     puts("Enter fourth word");
+     cin >> word;
+     cout << word << endl;
+     puts("Enter fifth word");
+     cin >> word;
+     cout << word << endl;
+   #+end_src
+
+   #+RESULTS:
+   #+begin_example
+   Enter first word
+   One
+   Enter second word
+   Two
+   Enter third word
+   Three
+   Enter fourth word
+   Four
+   Enter fifth word
+   Five
+   #+end_example
+
+7. Write a program that takes in an input of at least two words of the
+   same length. e program should then switch the last word and the
+   first word.
+
+   Pseudocode - the simpler case of 2 words:
+   #+begin_example
+   // Input: 2 words of the same length, e.g. "hello" and "world".
+   // Output: switch word order: "world" "hello"
+
+   // 1. Get input with `getline` and store it in `words`
+
+   // 2. Get the length of the string with the two words with `length`
+
+   // 3. Identify the index of the space between the two words with `find`
+
+   // 4. Print the two substrings
+   #+end_example
+
+   We can use either the length (it tells us that the string is 5 +
+   1 + 5 characters), or store the index for the whitespace.
+
+   Let's see how we can print the words:
+   #+begin_src C++ :main yes :includes <iostream> :namespaces std :results output :exports both :comments both :tangle yes :noweb yes
+     #include <string>
+
+     // input data
+     string words = "hello world";
+     //cout << words << endl; // hello world
+     // length of string
+     int words_length = words.length();
+     // cout << words_length << endl; // length of words
+     // print string character-wise
+     for (char c : words) { // range based for loop
+       cout << c; // print characters
+      }
+     cout << endl;
+     // find space between the words
+     int space = words.find(" "); // 5
+     // print words starting from beginning (1st word)
+     for (int i=0; i<space; i++) {
+       cout << words[i]; // print characters
+      }
+     cout << endl;
+     // print words starting from space (2nd word)
+     for (int i=space+1; i<words_length; i++) {
+       cout << words[i]; // print characters
+      }
+     // create words_reverse as a string
+     string words_rev;
+     // initialize words_reverse from the back
+     // fill string with second word
+     for (int i=space+1; i<words_length; i++) {
+       //cout << words[i]; // print characters
+       words_rev[i-space-1] = words[i];
+      }
+     // add white space after the first word
+     words_rev[space] = ' ';
+     // continue with first word
+     for (int i=0; i<space; i++) {
+       //cout << words[i]; // print characters
+       words_rev[i+space+1] = words[i];
+      }
+     // print result
+     cout << endl;
+     for (int i=0;i<words_length;i++) {
+       cout << words_rev[i];
+      }
+   #+end_src
+
+   #+RESULTS:
+   : hello world
+   : hello
+   : world
+   : world hello
+
+- Shorter version without the intermediate printout and checks:
+  #+begin_src C++ :main yes :includes <iostream> :namespaces std :results output :exports both :comments both :tangle yes :noweb yes
+    #include <string>
+    string words = "hello world";
+    int words_length = words.length(); // length of string
+    for (char c : words) cout << c;  // print string character-wise
+    int space = words.find(" ");  // find space between the words
+    string words_rev; // create words_reverse as a string
+    for (int i=space+1; i<words_length; i++)  words_rev[i-space-1] = words[i];
+    words_rev[space] = ' ';
+    for (int i=0; i<space; i++) words_rev[i+space+1] = words[i];
+    cout << endl;
+    for (int i=0;i<words_length;i++) cout << words_rev[i];
+  #+end_src
+
+  #+RESULTS:
+  : hello world
+  : world hello
+
+- You can use =substr= from the =<string>= library:
+  #+begin_src C++ :main yes :includes <iostream> :namespaces std :results output :exports both :comments both :tangle yes :noweb yes
+    #include <string>
+    string words = "hello world";  // Input data
+    cout << words << endl;
+    int space = words.find(" ");   // Find space between the words
+    string first_word = words.substr(0, space);        // Extract the first word
+    string second_word = words.substr(space + 1);      // Extract the second word
+    string words_rev = second_word + " " + first_word; // Concatenate in reverse order
+    cout << words_rev << endl;
+  #+end_src
+
+  #+RESULTS:
+  : hello world
+  : world hello
+
+* Chalter 12: Loops
+
+- Wrap the program [[compare a and b]] from "conditionals" in an infinite
+  loop, and ask the user after each iteration if he wants to quit or
+  continue playing, exit the program accordinly, and print the number
+  of iterations. Play at least once.
+  #+name: compare and and b with break
+  #+begin_src C++ :cmdline < data/compare :tangle src/compare.cpp :main yes :includes <iostream> :namespaces std :results output :exports both
+    // Declare variables
+    int a, b;
+    char quit;
+    int counter = 0;
+    // infinite loop
+    do {
+      counter++;
+      // Ask for user input
+      cout << "Enter two numbers: ";
+      // Store input in variables
+      cin >> a >> b;
+      // check for valid input
+      if (cin.fail()) {
+        cout << "Invalid input. Please enter two integers!" << endl;
+        break;
+      }
+      // Compare values
+      if (a == b) {
+        cout << a << " and " << b << " are the same!" << endl;
+      } else if (a > b) {
+        cout << a << " is bigger than " << b << "!" << endl;
+      } else {
+        cout << a << " is smaller than " << b << "!" << endl;
+      }
+      cout << "Quit playing? Type Y for yes:\n";
+      cin >> quit;
+     } while (quit != 'Y');
+    cout << "Done after " << counter << " times." << endl;
+  #+end_src
+
+  #+RESULTS: compare and and b with break
+  : Enter two numbers: 100 and 100 are the same!
+  : Quit playing? Type Y for yes:
+  : Enter two numbers: -100 is smaller than 100!
+  : Quit playing? Type Y for yes:
+  : Enter two numbers: 8 is bigger than 1!
+  : Quit playing? Type Y for yes:
+  : Done after 3 times.
+
+- Testing
+  #+begin_src bash :results output
+    echo "100 100 N
+         -100 100 N
+            8   1 Y" > data/compare
+    cat data/compare
+  #+end_src
+
+  #+RESULTS:
+  : 100 100 N
+  :      -100 100 N
+  :         8   1 Y
+
+- =while= loops and =do while= loops can be event-controlled or counter
+  controlled: The previous program was event-controlled (event = user
+  enters Y), or you could use a counter variable:
+  #+begin_src C++ :main yes :includes <iostream> :namespaces std :results output :exports both :comments both :tangle yes :noweb yes
+    int counter = 1;
+    while (counter) {
+      cout << "counting down!" << endl;
+      counter--;
+     }
+  #+end_src
+
+  #+RESULTS:
+  : counting down!
+
+** Review questions
+
+1. Create a =while= loop that increments some integer variable x
+   initialized with a value of 0 by 3 until the value of x reaches a
+   value of 30. Make sure you declare the variable and initialize it
+   first!
+   #+begin_src C++ :main yes :includes <iostream> :namespaces std :results output :exports both :comments both :tangle yes :noweb yes
+     int x = 0;
+     while (x < 30) x+=3;
+     cout << x << endl;
+   #+end_src
+
+   #+RESULTS:
+   : 30
+
+2. Create a =do-while= loop that reads integer values given by the user
+   into an integer variable x, initialized to 0, then adds those
+   values onto some variable named =totalVal= until =totalVal= reaches at
+   least 20.
+   #+begin_src bash :results output
+     echo "1 3 5 3 4 2 1 1 2 2 3 4" > data/totalval
+     cat data/totalval
+   #+end_src
+
+   #+RESULTS:
+   : 1 3 5 3 4 2 1 1 2 2 3 4
+
+   Solution:
+   #+begin_src C++ :cmdline < data/totalval :main yes :includes <iostream> :namespaces std :results output :exports both :comments both :tangle yes :noweb yes
+     int x = 0;
+     int totalVal = 0;
+     int counter = 0;
+     do {
+       cin >> x;
+       cout << x << endl;
+       totalVal += x;
+       counter ++;
+      } while (totalVal < 20);
+     cout << "Reached " << totalVal << " after " << counter << " iterations." << endl;
+   #+end_src
+
+   #+RESULTS:
+   : 1
+   : 3
+   : 5
+   : 3
+   : 4
+   : 2
+   : 1
+   : 1
+   : Reached 20 after 8 iterations.
+
+3. Create a =for= loop that outputs your =name= to the screen 10 times
+   before exiting the loop.
+
+   Solution I:
+   #+begin_src C++ :main yes :includes <iostream> :namespaces std :results output :exports both :comments both :tangle yes :noweb yes
+     for (int i=0; i<10; i++) {
+       cout << "Marcus" << endl;
+      }
+   #+end_src
+
+   Solution II (storing the name as a =string= type):
+   #+begin_src C++ :main yes :includes <iostream> :namespaces std :results output :exports both :comments both :tangle yes :noweb yes
+     #include <string> // include string library
+
+     string name = "Marcus"; // set name string variable
+
+     for (int i=0; i<10; i++) {
+       cout << name << endl;
+      }
+   #+end_src
+
+4. Spot the syntax and the logic errors and correct it in the
+   following code:
+   #+begin_src C++ :main yes :includes <iostream> :namespaces std :results output :exports both :comments both :tangle yes :noweb yes
+     for (int j=10, j>0, j--)
+       {
+         cout << j << endl;
+         if (j=1)
+           {
+             cout << "BOOM!\n";
+           }
+       }
+   #+end_src
+
+   Solution:
+   1) The separator in the =for= condition was wrong.
+   2) The condition ~if(j=1)~ changes j from 10 to 1 in the first
+      iteration, enters the if-statement body, and finishes.
+
+   Fixed code:
+   #+begin_src C++ :main yes :includes <iostream> :namespaces std :results output :exports both :comments both :tangle yes :noweb yes
+     for (int j=10; j>0; j--) // separator must be semi-colon, not comma
+       {
+         cout << j << endl;
+         if (j==1)  // condition must be logical ==, not assignment =
+           {
+             cout << "BOOM!\n";
+           }
+       }
+   #+end_src
+
+   #+RESULTS:
+   #+begin_example
+   10
+   9
+   8
+   7
+   6
+   5
+   4
+   3
+   2
+   1
+   BOOM!
+   #+end_example
+
+5. In the last question, was the loop an event-controlled loop or a
+   count-controlled loop? Answer: count-controlled (i was the counter
+   variable).
+
+* Chapter 13: Arrays
+
+- Different way of defining a character array or string:
+  #+begin_src C++ :main yes :includes <iostream> :namespaces std :results output :exports both :comments both :tangle yes :noweb yes
+    #include <string>
+
+    char Scott[] = "Scott";
+    string scott = Scott;
+    char Scott2[] = {'S','c','o','t','t','\0'};
+    cout << Scott << endl;
+    cout << scott.length() << endl;
+    cout << Scott2 << endl;
+  #+end_src
+
+  #+RESULTS:
+  : Scott
+  : 5
+  : Scott
+
+** Review questions
+
+1. Declare an integer array named ~myInt~ with a size of 10.
+   #+begin_src C++ :main yes :includes <iostream> :namespaces std :results output :exports both :comments both :tangle yes :noweb yes
+     int myInt[10];
+     cout << sizeof(myInt)/sizeof(int) << endl;
+   #+end_src
+
+   #+RESULTS:
+   : 10
+
+2. If an array has a size of 20, how many indexes are there in the
+   array and what are they?
+   #+begin_quote
+   An array of size 20 starts at index 0 and ends at index 19.
+   #+end_quote
+   #+begin_src C++ :main yes :includes <iostream> :namespaces std :results output :exports both :comments both :tangle yes :noweb yes
+     int arr[20]={0};  // initialize 20-element array with zeroes
+     // print array elements and index
+     for (int i=0;i<20;i++) {
+       cout << "index: " << i << " array element: " << arr[i] << endl;
+      }
+   #+end_src
+
+   #+RESULTS:
+   #+begin_example
+   index: 0 array element: 0
+   index: 1 array element: 0
+   index: 2 array element: 0
+   index: 3 array element: 0
+   index: 4 array element: 0
+   index: 5 array element: 0
+   index: 6 array element: 0
+   index: 7 array element: 0
+   index: 8 array element: 0
+   index: 9 array element: 0
+   index: 10 array element: 0
+   index: 11 array element: 0
+   index: 12 array element: 0
+   index: 13 array element: 0
+   index: 14 array element: 0
+   index: 15 array element: 0
+   index: 16 array element: 0
+   index: 17 array element: 0
+   index: 18 array element: 0
+   index: 19 array element: 0
+   #+end_example
+
+3. Declare a character array named ~myArray~ with a size of 4, and
+   initialize the characters in the array to 'Z', 'a', 'c', and 'h'.
+   #+begin_src C++ :main yes :includes <iostream> :namespaces std :results output :exports both :comments both :tangle yes :noweb yes
+     char myArray[]={'Z','a','c','h'};
+     cout << myArray << endl;
+   #+end_src
+
+   #+RESULTS:
+   : Zach
+
+4. Create a program in which an integer array named ~myArray~ is
+   declared with a size of 10. Use a =for= loop to prompt the user to
+   store a value in every index of the array. Aer the array is given
+   values, output the values of the array to the screen using a =for=
+   loop. Output each value of the array on its own line.
+
+   #+begin_src bash :results output
+     echo "4 56 7 324 -4 0 21 -999 9 1" > data/array
+     cat data/array
+     cat data/array | wc -w
+   #+end_src
+
+   #+RESULTS:
+   : 4 56 7 324 -4 0 21 -999 9 1
+   : 10
+
+   #+begin_src C++ :cmdline < data/array :main yes :includes <iostream> :namespaces std :results output :exports both :comments both :tangle yes :noweb yes
+     int myArray[10]; // declare integer array of length 10
+
+     // initialize array values
+     for (int i = 0; i < 10; i++) {
+       cin >> myArray[i];
+      }
+
+     // Output array elements one per line
+     for (int i : myArray) cout << i << endl;
+   #+end_src
+
+   #+RESULTS:
+   #+begin_example
+   4
+   56
+   7
+   324
+   -4
+   0
+   21
+   -999
+   9
+   1
+   #+end_example
+
+* Chapter 14: Blocks, Functions, and Scope
+
+- You can overload function names, that is use the same name
+  but with different definitions. Example:
+  #+begin_example C++
+    int add(int num1, int num2);
+    double add(double num1, double num2);
+  #+end_example
+
+- The functions have the same (overloaded) name but different return
+  types and function parameters, which are locak in scope.
+  #+begin_src C++ :main yes :includes <iostream> :namespaces std :results output :exports both :comments both :tangle yes :noweb yes
+    // function 1
+    int add(int num1, int num2) {
+      return num1 + num2;
+    }
+    // function 2
+    double add(double num1, double num2) {
+      return num1 + num2;
+    }
+    int main() {
+      cout << "1 + 1 = " << add(1, 1) << endl;
+      cout << "3 + 0.14 = " << add(3., .14) << endl;
+      return 0;
+    }
+  #+end_src
+
+  #+RESULTS:
+  : 1 + 1 = 2
+  : 3 + 0.14 = 3.14
+
+** Review questions:
+
+1. What are the three parts of a function?
+   #+begin_quote
+   1. Return type
+   2. function name
+   3. function parameters
+   #+end_quote
+
+2. Can a =void= function return a value?
+   #+begin_quote
+   No. The =void= return type is defined as "no return value". The =void=
+   parameter is a placeholder for "no parameter/argument".
+   #+end_quote
+
+3. How many functions can one program have?
+   #+begin_quote
+   As many as you want (and as many as there is memory for your
+   programs): functions are sections of code that allow reuse and
+   modularization of your program.
+   #+end_quote
+
+4. What is the output of the following code snippet?
+   #+begin_src C++ :main yes :includes <iostream> :namespaces std :results output :exports both :comments both :tangle yes :noweb yes
+     #include <iostream>
+     using namespace std;
+
+     void example();
+
+     void example() {
+       cout << "Hello World";
+     }
+
+     int main() {
+       return 0;
+     }
+
+   #+end_src
+
+   #+RESULTS:
+
+   Answer:
+   #+begin_quote
+   There is no output:
+   - The first ~example~ function does nothing (no body)
+   - The second ~example~ function returns nothing but would print out
+     the string "Hello World" but it is never called (in =main=).
+   #+end_quote
+
+   Corrected code:
+   #+begin_src C++ :main yes :includes <iostream> :namespaces std :results output :exports both :comments both :tangle yes :noweb yes
+     #include <iostream>
+     using namespace std;
+
+     void example() {
+       cout << "Hello World";
+     }
+
+     int main() {
+       example();
+       return 0;
+     }
+
+   #+end_src
+
+   #+RESULTS:
+   : Hello World
+
+5. Write code using at least one function that will ask the user to
+   guess a “magic” number (of your choice) between 1 and 20 until they
+   get it right.  Aer a guess, the program should output whether the
+   number they guessed is higher or lower than the “magic” number. It
+   should also display how many guesses the user makes, and loop until
+   the guess is correct.
+
+   Solution:
+   - This is a guess-a-number program, or a game, which requires some
+     serious thought (in any language), so we'll begin with
+     pseudocode:
+     #+begin_example
+     /* Guess-a-number game; user must guess computer's number in a loop */
+     /* Input: integer number guess (from user) between 1 and 20                          */
+     /* Output: if guess higher/lower (each iteration), total guesses    */
+     /* (CC-BY-NC) Marcus Birkenkrahe modified from Rook's Guide (2013)  */
+     /* ---------------------------------------------------------------- */
+
+     // compare int function: pass guess and computer's number
+       // check if numbers are equal - return 0
+       // check if guess > number - msg "guess too high" & return 1
+       // check if guess < number - msg "guess too low"  & return 1
+
+     // main program
+       // declare user guess variable
+       // set computer number randomly with rand
+       // set counter to zero
+       // begin do-while loop
+         // get user guess
+         // increase counter
+         // compare (guess, number)
+         // if return 0 end game
+         // otherwise check if user wants to quit (Y)
+         // end while (input != 'Y')
+       // print counter (number of guesses)
+     #+end_example
+
+   - Code: tangle and compile as ~src/guess.cpp~
+     #+begin_src C++ :tangle src/guess.cpp :results silent :exports both
+       /* Guess-a-number game; user must guess computer's number in a loop */
+       /* Input: integer number guess (from user) between 1 and 20                         */
+       /* Output: if guess higher/lower (each iteration), total guesses    */
+       /* (CC-BY-NC) Marcus Birkenkrahe modified from Rook's Guide (2013)  */
+       /* ---------------------------------------------------------------- */
+       // include IO library
+       #include <iostream>
+       using namespace std;
+
+       // compare int function: pass guess and computer's number
+       int compare(int guess, int number) {
+         // check if numbers are equal - return 0
+         if (guess == number) {
+           return 0;
+         } // check if guess > number too high" & return 1
+         else if (guess > number) {
+           cout << "guess too high" << endl;
+           return 1;
+         } // check if guess < number - msg "guess too low"  & return 1
+         else {
+           cout << "guess too low" << endl;
+           return 1;
+         }
+       }
+       // main program
+       int main() {
+         // Seed the random number generator with the current time
+         srand(time(nullptr));
+         // set computer number [0,100] randomly with rand
+         int number = rand() % 20 + 1;
+         // set counter to zero
+         int counter = 1;
+         // declare user guess
+         int guess;
+         // variable for quitting
+         char quit;
+         // begin do-while loop
+         do {
+           // get user guess
+           cout << "[" << counter << "] "
+                << "Guess a number between 0 and 20: ";
+           cin >> guess;
+           // compare (guess, number)
+           if (!compare(guess,number)) { // returns 0 for same, 1 for not
+             cout << "You got it!" << endl;
+             break;
+           }
+           // increase counter
+           counter++;
+           // otherwise check if user wants to quit (Y)
+           cout << "Another guess? Type Y for yes or N for no:\n";
+           cin >> quit;
+         } while (quit!='N'); // end while (input != 'Y')
+         // print counter (number of guesses)
+         cout << "You guessed " << counter << " times." << endl;
+         return 0;
+       }
+     #+end_src
+
+   - Generating pseudorandom numbers:
+     #+begin_src C++ :main yes :includes <iostream> :namespaces std :results output :exports both :comments both :tangle yes :noweb yes
+       srand(time(nullptr));
+       int randomNumber = rand() % 100 + 1;
+       cout << randomNumber << endl;
+     #+end_src
+
+   - Testing ~compare(guess,number)~:
+     #+begin_src C++ :main yes :includes <iostream> :namespaces std :results output :exports both :comments both :tangle yes :noweb yes
+       // compare int function: pass guess and computer's number
+       int compare(int guess, int number) {
+         // check if numbers are equal - return 0
+         if (guess == number) {
+           return 0;
+         } // check if guess > number too high" & return 1
+         else if (guess > number) {
+           cout << "guess too high" << endl;
+           return 1;
+         } // check if guess < number - msg "guess too low"  & return 1
+         else {
+           cout << "guess too low" << endl;
+           return 1;
+         }
+       }
+       int main(){
+         cout << compare(1,0) << endl;
+       }
+     #+end_src
+
+     #+RESULTS:
+     : guess too high
+     : 1
+
+6. Using at least one function, write code that prompts the user for a
+   number of miles travelled and a number of hours, then calculates
+   the user’s speed in miles per hour.
+   #+begin_src C++ :cmdline < data/mph :main yes :includes <iostream> :namespaces std :results output :exports both
+     /* ---------------------------------------------------------------- */
+     /* Compute speed based on miles travelled and number of hours       */
+     /* User input: miles, hours                                         */
+     /* Output: With __ miles in __ hours, your average speed was __ mph */
+     /* (CC-BY-NC) Marcus Birkenkrahe modified from Rook's Guide (2013)  */
+     /* ---------------------------------------------------------------- */
+     #include <iostream>
+
+     double mph(double miles,double hours) {
+       return miles / hours;
+     }
+
+     int main() {
+
+       // variable declarations
+       double milesTravelled, hoursTravelled;
+
+       // Get user input
+       cout << "Enter miles and hours travelled: ";
+       cin >> milesTravelled >> hoursTravelled;
+       cout << endl;
+
+       //compute and print result
+       cout << "With " << milesTravelled << " miles in "
+            << hoursTravelled << " hours, your speed was "
+            << mph(milesTravelled,hoursTravelled) << " mph." << endl;
+       return 0;
+     }
+   #+end_src
+
+   #+RESULTS:
+   : Enter miles and hours travelled:
+   : With 740 miles in 11.5 hours, your speed was 64.3478 mph.
+
+   Testing:
+   #+begin_src bash :results output
+     echo "740 11.5" > data/mph
+     cat data/mph
+   #+end_src
+
+   #+RESULTS:
+   : 740 11.5
+
+* Chapter 15: Problem Solving & Troubleshooting
+
+** Review questions
+
+1. Consider the following function, which is supposed to add up four
+   floating-point numbers and divide their sum by 4:
+   #+begin_src C++ :main yes :includes <iostream> :namespaces std :results output :exports both :comments both :tangle yes :noweb yes
+     double average(double s1, double s2, double s3, s4);
+     {
+       retun s1+s2+s3+s4/4
+         }
+   #+end_src
+
+- Find the syntax errors in the function.
+  #+begin_quote
+  1) missing data type for s4 parameter [found by compiler]
+  2) superfluous semi-colon in the first line
+  3) misspelled =return= [found by compiler]
+  4) missing semi-colon
+  #+end_quote
+- ere is a logic error in the function. What is it? How does it
+  affect the output of the code?
+  #+begin_quote
+  The sum needs to be put in parentheses.
+  #+end_quote
+
+  Fixed program:
+  #+begin_src C++ :results output :exports both
+    // Add four floating-point numbers and divide their sum by 4
+    #include <iostream>
+    using namespace std;
+    // function definition
+    double average(double s1, double s2, double s3, double s4)
+    {
+      return (s1+s2+s3+s4)/4.0;
+    }
+    // main function
+    int main()
+    {
+      // function call and print out
+      cout << average(1.,2.,3.,4.) << endl; // should print 10/4=2.5
+      cout.precision(2); // set precision to 2
+      cout.setf(ios::showpoint); // show decimal point
+      cout << average(4.,4.,4.,4.) << endl; // should print 10/4=2.5
+      return 0;
+    }
+  #+end_src
+
+  #+RESULTS:
+  : 2.5
+  : 4.0
+
+2. The program below (same as: [[hockey]]) compiles, but does not get the
+   result the programmer wanted. Why?
+   #+begin_src C++ :cmdline < data/hockey :results output :exports both
+     #include <iostream>
+     using namespace std;
+
+     int main() {
+       int shots, goals, saves;
+       double save_perc;
+       char cont;
+
+       cout.unsetf(ios::fixed);
+       cout.unsetf(ios::showpoint);
+       cout << "Enter the number of shots on goal:\t";
+       cin >> shots;
+       cout << "Enter the number of goals scored:\t";
+       cin >> goals;
+       cout << endl;
+
+       saves = shots-goals;
+       // Hockey shows save % as decimal to three places
+       save_perc = (saves / shots);
+       cout << "If there were " << shots
+            << " shots and "    << goals
+            << " goals, "
+            << " then the goalie's save percentage was ";
+
+       cout.setf(ios::fixed);
+       cout.setf(ios::showpoint);
+       cout.precision(3);
+
+       cout << save_perc << endl << endl;
+       return 0;
+     }
+   #+end_src
+
+   #+RESULTS:
+   : Enter the number of shots on goal: Enter the number of goals scored:
+   : If there were 1000 shots and 999 goals,  then the goalie's save percentage was 0.000
+   :
+
+   Input file:
+   #+begin_src bash :results output
+     echo "1000 999" > data/hockey
+     cat data/hockey
+   #+end_src
+
+   #+RESULTS:
+   : 1000 999
+
+   Solution:
+   #+begin_quote
+   - Remove the unused variable ~cont~ and the =cout.unsetf= lines.
+   - Change data type for the input ~shots~, ~goals~ and the result ~saves~
+     to =double= (otherwise an integer result will be truncated).
+   #+end_quote
+
+   Corrected code:
+   #+begin_src C++ :cmdline < data/hockey :results output :exports both
+     #include <iostream>
+     using namespace std;
+
+     int main() {
+       double shots, goals, saves, save_perc;
+
+       cout << "Enter the number of shots on goal:\n";
+       cin >> shots;
+       cout << "Enter the number of goals scored:\n";
+       cin >> goals;
+       cout << endl;
+
+       saves = shots-goals;
+       // Hockey shows save % as decimal to three places
+       save_perc = (saves / shots);
+       cout << "If there were " << shots
+            << " shots and "    << goals
+            << " goals,\n"
+            << "then the goalie's save percentage was ";
+
+       cout.setf(ios::fixed);
+       cout.setf(ios::showpoint);
+       cout.precision(3);
+
+       cout << save_perc << endl;
+       return 0;
+     }
+   #+end_src
+
+   #+RESULTS:
+   : Enter the number of shots on goal:
+   : Enter the number of goals scored:
+   :
+   : If there were 1000 shots and 999 goals,
+   : then the goalie's save percentage was 0.001
+
+* Chapter 16: The Preprocessor
+
+- Some useful libraries and a sampling of what they provide
+  | Library    | Provides                    | Some common uses                      |
+  |------------+-----------------------------+---------------------------------------|
+  | =<iostream>= | Input/output stream objects | =cout=, =cin=                             |
+  | =<cstlib>=   | The C standard library      | =rand=, =abs=, =NULL=                       |
+  | =<cmath>=    | Mathematical functions      | =pow=, =sqrt=, =cos=, =tan=, =sin=              |
+  | =<iomanip>=  | Input/output manipulation   | =set_iosflags=, =setfill=, =setprecision=   |
+  | =<ctime>=    | Time-related functions      | =clock=, =time=                           |
+  | =string=     | The =string= class ([[https://cplusplus.com/reference/string/string/][doc]])      | =getline=, =substr=, =npos=, =+, =find=, =rfind= |
+
+- Check some =string= methods:
+  #+begin_src C++ :main yes :includes <iostream> :namespaces std :results output :exports both :comments both :tangle yes :noweb yes
+    #include <string>
+
+    string fname = "Marcus";
+    string lname = "Birkenkrahe";
+    string name = fname + " " + lname;
+
+    cout << name << endl;
+    cout << name.substr(0,6) << endl; // first name
+    cout << name.substr(name.find(" ")+1) << endl; // last name
+    cout << name.substr(name.rfind(" ")+1) << endl; // last name (from end)
+  #+end_src
+
+  #+RESULTS:
+  : Marcus Birkenkrahe
+  : Marcus
+  : Birkenkrahe
+  : Birkenkrahe
+
+** Review questions
+
+1. Which of the following demonstrate correct syntax for =#include=
+   statements? (Note: some of these may be syntactically correct but
+   not do what you would expect!)
+
+   - [ ] #include <aFile.txt>
+   - [ ] #include <iostream>;
+   - [ ] include <iostream>
+   - [ ] #include myFile.txt;
+   - [X] #include "myFile.txt"
+   - [ ] #include <cmath>;
+   - [ ] include <cmath>
+   - [ ] include "cmath"
+   - [X] #include <cmath>
+   - [ ] #include (iostream);
+   - [X] #include <iostream>
+
+2. Identify the the preprocessor statements in the following code:
+   #+begin_src C++ :results output :exports both
+     #include <cstdlib>
+     #include <iostream>
+     using namespace std;
+     int main(int argc, char *argv[])
+     {
+       cout << "Included!" << endl;
+       return 0;
+     }
+   #+end_src
+
+   #+RESULTS:
+   : Included!
+
+   Answer:
+   #+begin_quote
+   The first two lines only.
+   #+end_quote
+
+3. Which library is required to use the =cout= object?
+   #+begin_quote
+   The =iostream= library.
+   #+end_quote
+
+4. Is =using namespace std;= a preprocessor directive?
+   #+begin_quote
+   No. Preprocessor directives cannot have a semi-colon at the end.
+   #+end_quote
+5. If you want to be able to use the funtion =pow()=, which library do
+   you need?
+   #+begin_quote
+   The =cmath= library.
+   #+end_quote
+* Chapter 17: Advanced Arithmetic
+
+- Use =pow= to raise a value or variable to a power:
+  #+begin_src C++ :includes <iostream> :namespaces std :results output :exports both :comments both :tangle yes :noweb yes
+    #include <cmath>
+
+    int main() {
+      int x = 4;
+      cout << pow(x+1,3) << endl; // should print 5^3 = 125
+    }
+  #+end_src
+
+  #+RESULTS:
+  : 125
+
+- To calculate square roots, use =sqrt=:
+  #+begin_src C++ :main yes :includes <iostream> :namespaces std :results output :exports both :comments both :tangle yes :noweb yes
+    #include <cmath>
+
+    int main() {
+      int a = 25;
+      cout << sqrt(a) << endl; // should print sqrt(25) = 5
+    }
+  #+end_src
+
+  #+RESULTS:
+  : 5
+
+- Compute the distance between the two points (4,4) and (6,10) on a
+  plane:
+  #+begin_src C++ :main yes :includes <iostream> <cmath> :namespaces std :results output :exports both :comments both :tangle yes :noweb yes
+    int x1 , x2 , y1 , y2 ;
+    float dist ;
+    x1 = 4;
+    y1 = 4;
+    x2 = 6;
+    y2 = 10;
+    dist = sqrt(pow (x2-x1, 2) + pow (y2-y1, 2));
+    cout << dist; // output 6.342555
+  #+end_src
+
+  #+RESULTS:
+  : 6.32456
+
+- Do it with arrays:
+  #+begin_src C++ :results output :exports both :comments both :tangle yes :noweb yes
+    #include <iostream>
+    #include <cmath>
+    using namespace std;
+
+    int main() {
+      double x[2]={4.,6.};
+      double y[2]={4.,10.};
+      cout.setf(ios::showpoint);
+      cout << sqrt(pow(x[1]-x[0],2) + pow(y[1]-y[0],2)) << endl;
+    }
+  #+end_src
+
+  #+RESULTS:
+  : 6.32456
+
+- Do I need the =main= function? (No)
+  #+begin_src C++ :main yes :includes <iostream> <cmath> :namespaces std :results output :exports both :comments both :tangle yes :noweb yes
+    double x[2]={4.,6.};
+    double y[2]={4.,10.};
+    cout.setf(ios::showpoint);
+    cout << sqrt(pow(x[1]-x[0],2) + pow(y[1]-y[0],2)) << endl;
+  #+end_src
+
+  #+RESULTS:
+  : 6.32456
+
+- This program uses the modulo operator to find all primes that can be
+  held by an =int=: however, it does not require =cmath=.
+  #+begin_src C++ :main yes :includes <iostream> <limits> :namespaces std :results output :exports both :comments both :tangle yes :noweb yes
+    // declare divisor, remainder and largest integer that can be held
+    int divisor, remainder;
+    const int largest_signed_int = numeric_limits<int>::max();
+    // loop over whole numbers from 1 to largest signed integer
+    for (int test = 1; test < largest_signed_int; test++) {
+      // set isprime to true (assume test is prime)
+      bool isPrime = true;
+      // loop over divisions by divisor
+      for (divisor=2; divisor < test; divisor++) {
+        // store remainder of test/divisor
+        remainder = test % divisor;
+        if (remainder == 0) { // test is not prime
+          isPrime = false;
+          break; // next test number
+        }
+      } // end of division loop
+      if (isPrime) { // test is prime
+        cout << " " << test; // print the prime
+      }
+     }
+  #+end_src
+
+- This program will take forever. Run it only for the first 100 integers:
+  #+begin_src C++ :main yes :includes <iostream> <limits> :namespaces std :results output :exports both :comments both :tangle yes :noweb yes
+    // Test range
+    const int N = 100;
+    // declare divisor, remainder and largest integer that can be held
+    int divisor, remainder, primeCounter = 0;
+    // loop over whole numbers from 1 to largest signed integer
+    for (int test = 1; test < N; test++) {
+      // set isprime to true (assume test is prime)
+      bool isPrime = true;
+      // loop over divisions by divisor
+      for (divisor=2; divisor < test; divisor++) {
+        // store remainder of test/divisor
+        remainder = test % divisor;
+        if (remainder == 0) { // test is not prime
+          isPrime = false;
+          break; // next test number
+        }
+      } // end of division loop
+      if (isPrime) { // test is prime
+        cout << " " << test; // print the prime
+        primeCounter++;
+      }
+     }
+    cout << endl << primeCounter << " primes found between 1 and " << N << endl;
+  #+end_src
+
+  #+RESULTS:
+  :  1 2 3 5 7 11 13 17 19 23 29 31 37 41 43 47 53 59 61 67 71 73 79 83 89 97
+  : 26 primes found between 1 and 100
+
+- This could be a fun application to test the =ctime= functions and
+  time the algorithm.
+
+- Integer sizes
+  #+begin_src C++ :main yes :includes <iostream> :namespaces std :results output :exports both :comments both :tangle yes :noweb yes
+    size_t integer = 214783647;
+    cout << sizeof(integer) << endl;
+    cout << sizeof(int) << endl;
+  #+end_src
+
+  #+RESULTS:
+  : 8
+  : 4
+
+- Largest (signed) integer that can be held can be obtained like this:
+  #+begin_src C++ :main yes :includes <iostream> :namespaces std :results output :exports both :comments both :tangle yes :noweb yes
+    #include <limits>
+
+    int main() {
+      int largest_number = numeric_limits<int>::max();
+      cout << "Largest integer number for int data type: " << largest_number << endl;
+      return 0;
+    }
+  #+end_src
+
+  #+RESULTS:
+  : Largest integer number for int data type: 2147483647
+
+** Review questions
+
+1. Which =#include= library is needed to use advance arithmetic
+   operators?
+   #+begin_quote
+   =cmath=
+   #+end_quote
+2. Write C++ code to calculate 2^9:
+   #+begin_src C++ :main yes :includes <iostream> :namespaces std :results output :exports both :comments both :tangle yes :noweb yes
+     #include <cmath>
+
+     int main() {
+       cout << pow(2,9) << endl;
+       return 0;
+     }
+   #+end_src
+
+   #+RESULTS:
+   : 512
+
+3. Write a statement to set the value of a variable x of type =double=
+   to the square root of 10001.
+   #+begin_src C++ :includes <iostream> :namespaces std :results output :exports both :comments both :tangle yes :noweb yes
+     #include <cmath>
+
+     int main() {
+       double x = sqrt(10001);
+       cout << x << endl;
+       return 0;
+     }
+   #+end_src
+
+   #+RESULTS:
+   : 100.005
+
+4. Complete the code below to find the length of the hypotenuse of a
+   right triangle (remember that, with Pythagoras, a^2 + b^2 = c^2),
+   given the lengths of the other two sides. What is the final output
+   of your code?
+   #+begin_src C++ :includes <iostream> :namespaces std :results output :exports both :comments both :tangle yes :noweb yes
+     # include <cmath>
+
+     int main() {
+       double a=3.0, b=4.0;
+       double c;
+       // compute c = sqrt(a^2+b^2)
+       c = sqrt(pow(a,2)+pow(b,2));
+       // print result
+       cout << "The hypotenuse of the right triangle with sides "
+            << a << " and " << b << " is: " << c << endl;
+       return 0;
+     }
+   #+end_src
+
+   #+RESULTS:
+   : The hypotenuse of the right triangle with sides 3 and 4 is: 5
+
+* Chapter 18: File I/O
+** file data stream classes in the =fstream= library
+
+- A file can be opened for both reading and writing, and accessed by
+  both input and output streams.
+
+- C++ has the =ifstream=, =ofstream=, and =fstream= classes for reading from
+  and writing to files. They're available through the =fstream= library:
+  #+begin_src C++ :results silent :exports both
+    #include <iostream>
+    #include <fstream>
+
+    using namespace std;
+
+    int main() {
+      // Declare variable of type ifstream named inFile
+      ifstream inFile;
+
+      // Declare variable of type ofstream named outFile
+      ofstream outFile;
+
+      // open text file for input
+      inFile.open("InputTextFile");
+
+      // create text file for output
+      outFile.open("OutputTextFile");
+
+      // code here
+
+      // close input and output files:
+      inFile.close();
+      outFile.close();
+      return 0;
+    }
+  #+end_src
+
+- Was an output file created?
+  #+begin_src bash :results output
+    ls -lt *Text*
+  #+end_src
+
+  #+RESULTS:
+  : -rw-rw-r-- 1 marcus marcus 0 Jul  8 18:15 OutputTextFile
+  : -rw-rw-r-- 1 marcus marcus 5 Jul  8 18:12 InputTextFile.txt
+  : -rw-rw-r-- 1 marcus marcus 0 Jul  8 18:08 OutputTextFile.txt
+
+** Reading from file
+
+- Put a number into ~InputTextFile.txt~:
+  #+begin_src bash :results output
+    echo "1000" > InputTextFile
+    cat InputTextFile
+  #+end_src
+
+  #+RESULTS:
+  : 1000
+
+  - Now read data from an input file, use the insertion operator =>>=
+    with =inFile=:
+  #+begin_src C++ :results output :exports both
+    #include <iostream>
+    #include <fstream>
+    using namespace std;
+    int main() {
+      // declare and initialize variable with number
+      int number = 5;
+      cout << "Created in program: " << number << endl;
+      // declare and open input file
+      ifstream inFile;
+      inFile.open("InputTextFile");
+      inFile >> number; // insert number from the input file &
+                        // store it in the variable number
+      cout << "Inserted from file: " << number << endl;
+
+      // close input file
+      inFile.close();
+      return 0;
+    }
+  #+end_src
+
+  #+RESULTS:
+  : Created in program: 5
+  : Inserted from file: 1000
+
+** Writing to file
+
+- Reversely, write a character to the (empty) ~OutputTextFile~:
+  #+begin_src C++ :results output :exports both
+    #include <iostream>
+    #include <fstream>
+    using namespace std;
+    int main() {
+      // declare and initialize variable with letter
+      char Letter = 'A';
+      cout << "Created in program: " << Letter << endl;
+      // declare and open output file
+      ofstream outFile;
+      outFile.open("OutputTextFile");
+      outFile << Letter; // extract Letter & store it in the outFile
+      outFile.close();
+
+      // To check, you could open the file, or write it back here into
+      // another char variable:
+      char Letter2;
+      // declare and open input file
+      ifstream inFile;
+      inFile.open("OutputTextFile");
+      inFile >> Letter2;
+      inFile.close();
+
+      cout << "Read from OutputTextFile: " << Letter2 << endl;
+
+      return 0;
+    }
+  #+end_src
+
+  #+RESULTS:
+  : Created in program: A
+  : Read from OutputTextFile: A
+
+- How about doing this with Orgmode =:includes= and =:main=?
+  #+begin_src C++ :main yes :includes <iostream> <fstream> :namespaces std :results output :exports both
+    // declare and initialize variable with letter
+    char Letter = 'A';
+    cout << "Created in program: " << Letter << endl;
+    // declare and open output file
+    ofstream outFile;
+    outFile.open("OutputTextFile");
+    outFile << Letter; // extract Letter & store it in the outFile
+    outFile.close();
+
+    // To check, you could open the file, or write it back here into
+    // another char variable:
+    char Letter2;
+    // declare and open input file
+    ifstream inFile;
+    inFile.open("OutputTextFile");
+    inFile >> Letter2;
+    inFile.close();
+
+    cout << "Read from OutputTextFile: " << Letter2 << endl;
+  #+end_src
+
+  #+RESULTS:
+  : Created in program: A
+  : Read from OutputTextFile: A
+
+** Create char input and output functions (Practice)
+
+- Put these into functions: starting with =outFile=
+  #+begin_src C++ :includes <iostream> <fstream> :namespaces std :results output :exports both
+    # include <string>
+    // output function
+    void output(char var, string file) {
+      // declare and open output file
+      ofstream outFile;
+      outFile.open(file);
+      outFile << var; // extract Letter & store it in the outFile
+      outFile.close();
+    }
+    // main function
+    int main() {
+
+      // declare and initialize variable with letter
+      char Letter = 'A';
+      cout << "Created in program: " << Letter << endl;
+
+      // send output to file
+      output(Letter,"OutputTextFile");
+
+      // To check, you could open the file, or write it back here into
+      // another char variable:
+      char Letter2;
+      // declare and open input file
+      ifstream inFile;
+      inFile.open("OutputTextFile");
+      inFile >> Letter2;
+      inFile.close();
+
+      cout << "Read from OutputTextFile: " << Letter2 << endl;
+      return 0;
+    }
+  #+end_src
+
+  #+RESULTS:
+  : Created in program: A
+  : Read from OutputTextFile: A
+
+- Next: =inFile=
+  #+begin_src C++ :includes <iostream> <fstream> :namespaces std :results output :exports both
+    # include <string>
+    // character output function
+    void char_out(char var, string file) {
+      // declare and open output file
+      ofstream outFile;
+      outFile.open(file);
+      outFile << var; // extract Letter & store it in the outFile
+      outFile.close();
+    }
+    // character input function
+    char char_in(string file) {
+      char var;
+      // declare and open input file
+      ifstream inFile;
+      inFile.open(file);
+      inFile >> var;
+      inFile.close();
+      return var;
+    }
+    // main function
+    int main() {
+
+      // declare and initialize variable with letter
+      char Letter = 'A';
+      cout << "Created in program: " << Letter << endl;
+
+      // send output to file
+      char_out(Letter,"OutputTextFile");
+
+      // To check, you could open the file, or write it back here into
+      // another char variable:
+      char Letter2;
+
+      // insert input from file
+      Letter2 = char_in("OutputTextFile");
+
+      cout << "Read from OutputTextFile: " << Letter2 << endl;
+      return 0;
+    }
+  #+end_src
+
+  #+RESULTS:
+  : Created in program: A
+  : Read from OutputTextFile: A
+
+** Other File I/O functions: =fail=, =eof=, =get=, =put=
+
+- The =fstream::fail= function determines whether the file was opened
+  successfully or not:
+  #+begin_src C++ :main yes :includes <iostream> <fstream> :namespaces std :results output :exports both :comments both :tangle yes :noweb yes
+    ifstream inFile;
+    inFile.open("inputFile");
+    if (inFile.fail()) cout << "Failed to open!" << endl;
+  #+end_src
+
+  #+RESULTS:
+  : Failed to open!
+
+- Create ~inputFile~ first, then run code above again:
+  #+begin_src C++ :main yes :includes <iostream> <fstream> <filesystem> :namespaces std :results output :exports both :comments both :tangle yes :noweb yes
+    ofstream outFile;
+    outFile.open("inputFile");
+    // check if "inputFile" exists
+    cout << "inputFile exists: " << std::filesystem::exists("inputFile") << endl;
+    ifstream inFile;
+    inFile.open("inputFile");
+    if (inFile.fail()) {
+      cout << "Failed to open!" << endl;
+     } else {
+      cout << "File open!" << endl;
+     }
+  #+end_src
+
+  #+RESULTS:
+  : inputFile exists: 1
+  : File open!
+
+- The =eof= function tests to see if the stream has reached the end of
+  the file. This is useful to find out when to stop reading from the
+  file.
+
+  Let's put some stuff in the ~inputFile~:
+  #+begin_src bash :results output
+    echo "100 200 300" > inputFile
+    cat inputFile
+  #+end_src
+
+  #+RESULTS:
+  : 100 200 300
+
+  Try this now:
+  #+begin_src C++ :main yes :includes <iostream> <fstream> :namespaces std :results output :exports both :comments both :tangle yes :noweb yes
+    int number;
+    ifstream inFile;
+    inFile.open("inputFile");
+    inFile >> number;
+    while (!inFile.eof()) inFile >> number; // fetches the last number
+    cout << number << endl;
+  #+end_src
+
+  #+RESULTS:
+  : 400
+
+- =get= and =put= are the equivalent of C's =getchar= and =putchar= (in
+  =<stdio.h>=) and work with =ifstream= or =cin=, and =ofstream= or =cout=.
+
+- =get= reads the next character typed on the keyboard or from file
+  (including spaces, tabs or newline):
+  #+begin_src C++ :cmdline < InputTextFile :main yes :includes <iostream> <fstream> :namespaces std :results output :exports both :comments both :tangle yes :noweb yes
+    char c1,c2;
+    ifstream inFile;
+    inFile.open("InputTextFile");
+    // get character from keyboard
+    cin.get(c2);
+    // get character from file
+    inFile.get(c1);
+    inFile.close();
+    // print results
+    cout << "Keyboard char: " << c1 << endl;
+    cout << "File char: " << c2 << endl;
+  #+end_src
+
+  #+RESULTS:
+  : Keyboard char: B
+  : File char: B
+
+- =put= outputs one character:
+  #+begin_src C++ :main yes :includes <iostream> <fstream> :namespaces std :results output :exports both :comments both :tangle yes :noweb yes
+    char c = '\n';
+    ofstream outFile;
+    outFile.open("newline");
+
+    cout.put(c); // write to screen
+    outFile.put(c); // writes to file
+    outFile.close();
+  #+end_src
+
+  #+RESULTS:
+  :
+
+- Check that the output file contains a newline character:
+  #+begin_src bash :results output
+    cat -A newline
+    hexdump -C newline
+  #+end_src
+
+  #+RESULTS:
+  : $
+  : 00000000  0a                                                |.|
+  : 00000001
+
+** Review questions
+
+1. What do we call the type of object used to control data flowing
+   into your program?
+   #+begin_quote
+   It's called a /stream/ object of the =ifstream= class.
+   #+end_quote
+2. What do we call the type of object used to control data flowing out
+   of your program?
+   #+begin_quote
+   It's called a /stream/ object of the =ofstream= class.
+   #+end_quote
+3. What header file must you =#include= in order to use =ifstream= and
+   =ofstream=?
+   #+begin_quote
+   =<fstream>=
+   #+end_quote
+4. What are =ifstream= and =ofstream= used for?
+   #+begin_quote
+   They are types for input and output file objects.
+   #+end_quote
+5. How do you declare an =ifstream= object named =input= and an =ofstream=
+   object named =output=?
+   #+begin_src C++  :results none :exports both :comments both :tangle yes :noweb yes
+     #include <iostream>
+     #include <fstream>
+     using namespace std;
+
+     int main() {
+       ifstream input;
+       ofstream output;
+       return 0;
+     }
+   #+end_src
+
+6. How would you open a file named =TextFile.txt= with an =ifstream=
+   object called =input=?
+   #+begin_src C++  :results none :exports both :comments both :tangle yes :noweb yes
+     #include <iostream>
+     #include <fstream>
+     using namespace std;
+
+     int main() {
+       // declare input and output objects
+       ifstream input;
+       ofstream output;
+       // open a text file for input
+       input.open("Textfile.txt");
+
+       return 0;
+     }
+   #+end_src
+
+7. How would you close a file named =TextFile.txt= with an =ofstream=
+   object called =output=?
+   #+begin_src C++  :results none :exports both :comments both :tangle yes :noweb yes
+     #include <iostream>
+     #include <fstream>
+     using namespace std;
+
+     int main() {
+       // declare output objects
+       ofstream output;
+       // open a text file for output
+       output.open("Textfile.txt");
+       output << "Hello world";
+       // close the output text file
+       output.close();
+       return 0;
+     }
+   #+end_src
+   Check:
+   #+begin_src bash :results output
+     cat Textfile.txt
+   #+end_src
+
+   #+RESULTS:
+   : Hello world
+
+8. What kind of function is the =eof()= function and what does it do?
+   #+begin_quote
+   The =eof= function is a member function of the =istream= class in the
+   STD library =<fstream>=.  It checks if the end of a file is reached
+   during reading or writing.
+   #+end_quote
+   Example:
+   #+begin_src C++  :results output :exports both :comments both :tangle yes :noweb yes
+     #include <iostream>
+     #include <fstream>
+     #include <string>
+     using namespace std;
+
+     int main() {
+       string hw;
+       // declare input object
+       ifstream input;
+       // open a text file for input
+       input.open("Textfile.txt");
+       while (!input.eof()) input >> hw;
+       // output result
+       cout << hw << endl;
+       return 0;
+     }
+   #+end_src
+
+   #+RESULTS:
+   : world
+
+9. What are the benefits of using files for input and output?
+   #+begin_quote
+   Ability to store files permanently (output) and read from files
+   (input) many times over without having to recreate the data.
+   #+end_quote
+
+10. What is the difference between =cin >> c;= and =cin.get(c);= if c is
+    of type =char=?
+    #+begin_quote
+    =cin >> c= stores the next non-whitespace character, while
+    =cin.get(c)= stores the next character, whitespace or not.
+    #+end_quote
+11. Write a program that outputs the (numeric) contents of some file to the
+    screen.
+
+    Input file:
+    #+begin_src bash :results output
+      echo "100 200" > inputFile
+      cat input
+    #+end_src
+
+    #+RESULTS:
+    : 100 5
+
+    Solution:
+    #+begin_src C++ :results output :exports both :comments both :tangle yes :noweb yes
+      #include <iostream>
+      #include <fstream>
+      using namespace std;
+
+      int main() {
+        // declare numeric variable
+        int num;
+        // delare input file
+        ifstream input;
+        // open input file
+        input.open("inputFile");
+        // get input from file
+        input >> num;
+        // print result
+        cout << num << endl;
+        // check if there isn't more in the file
+        if (!input.eof()) {
+          input >> num;
+          cout << num << endl;
+        }
+        // end of main
+        return 0;
+      }
+    #+end_src
+
+    #+RESULTS:
+    : 100
+    : 200
+
+12. Write a program that reads in a text file and prints to the screen
+    the number of times the character 'e' shows up
+
+    Inputfile:
+    #+begin_src bash :results output
+      echo "Erfahrene Enten" > inputTextFile
+      cat inputTextFile
+    #+end_src
+
+    #+RESULTS:
+    : Erfahrene Enten
+
+    Solution:
+    #+begin_src C++ :results output :exports both :comments both :tangle yes :noweb yes
+      #include <iostream>
+      #include <fstream>
+      using namespace std;
+
+      int main() {
+        char character;
+        int counter = 0;
+        // open input file
+        ifstream input;
+        input.open("inputTextFile");
+        while(!input.eof()) {
+          input >> character;
+          //cout << character << " ";
+          if (character=='e' & !input.eof()) {
+            counter++;
+          }
+        }
+        cout << counter << endl;
+        return 0;
+      }
+
+    #+end_src
+
+    #+RESULTS:
+    : 3
+
+    Alternative solution with =get= and exception handling (if file
+    cannot be read):
+    #+begin_src C++ :main yes :includes <iostream> :namespaces std :results output :exports both :comments both :tangle yes :noweb yes
+      /* ------------------------------------------------------------------- */
+      /* Read text file and count number of times the character 'e' appears. */
+      /* Input: characters in file 'inputTextFile', e.g. "Entenhausen"
+         /* Output: The character 'e' appears 2 times in the file.
+         /* ------------------------------------------------------------------- */
+      #include <iostream>
+      #include <fstream>
+      using namespace std;
+
+      int main() {
+        // open file
+        ifstream file("inputTextFile");
+        // check if file can be read
+        if (!file.is_open()) {
+          cerr << "Unable to open file" << endl;
+          return 1;
+        }
+        // get each character and check if it's an 'e'
+        char ch;
+        int count = 0;
+        while (file.get(ch)) {
+          if (ch == 'e') {
+            count++; // increase counter
+          }
+        }
+        // close the file
+        file.close();
+
+        cout << "The character 'e' appears " << count << " times in the file." << endl;
+
+        return 0;
+      }
+    #+end_src
+
+    #+RESULTS:
+    : The character 'e' appears 3 times in the file.
+
+* Chapter 19: Pointers
+
+** Review questions
+
+1. What is the output of the following code? Copy the code and add comments.
+   #+begin_example C++
+     int *a, b, c;
+     a = &b;
+     b = 5;
+     c = 1;
+     b = b - b;
+     c = b * b;
+     *a = c - *a;
+     a = &c;
+     *a = c - 7;
+     c = c + c;
+     *a = *a + *b;
+     c = c + b;
+     b = c - 3;
+     c = *a - 7;
+     cout << *a << endl;
+     cout << b << endl;
+     cout << c << endl;
+   #+end_example
+
+   Solution:
+   #+begin_src C++ :main yes :includes <iostream> :namespaces std :results output :exports both :comments both :tangle yes :noweb yes
+     int *a, b, c; // declare integer pointer, and two integer variables
+     a = &b; // a = address of b (pointer to b)
+     b = 5; // b = 5 = a
+     c = 1; // c = 1
+     b = b - b; // b = 5 - 5 = 0
+     c = b * b; // c = 0 * 0 = 0
+     ,*a = c - *a; // *a = 0 - b = 0 - 0 = 0 (b = 0)
+     a = &c; // a = address of c (pointer to c): *a = 0
+     ,*a = c - 7; // *a = 0 - 7 = -7 (and c = -7)
+     c = c + c; // c = -7 -7 = -14 (*a = -14)
+     ,*a = *a + b; // *a = -14 (c = -14)
+     c = c + b; // c = -14 + 0 = -14
+     b = c - 3; // b = -14 - 3 = -17
+     c = *a - 7; // c = -14 -7 = -21
+     cout << *a << endl; // -21 (value of c)
+     cout << b << endl; // -17
+     cout << c << endl; // -21
+   #+end_src
+
+   #+RESULTS:
+   : -21
+   : -17
+   : -21
+
+2. What is the output of the following code: Copy the code and add comments.
+   #+begin_example C++
+     int a,b,*c;
+     a = 7;
+     b = 4;
+     c = &a;
+     a = *c - a;
+     *c = *c + 4;
+     a = b + a;
+     c = &b;
+     a = a - b;
+     *c = b + a;
+     *c = *c - 1;
+     a = a * 1;
+     a = b - *c;
+     a = a - *c;
+     cout << a << endl;
+     cout << b << endl;
+     cout << *c << endl;
+   #+end_example
+
+   Solution:
+   #+begin_src C++ :main yes :includes <iostream> :namespaces std :results output :exports both :comments both :tangle yes :noweb yes
+     int a,b,*c; // declare integer variables a, b, and integer pointer c
+     a = 7; // a = 7
+     b = 4; // b = 4
+     c = &a; // c = address of a (pointer to a)
+     a = *c - a; // a = 7 - 7 = 0 (since *c = 7 = a)
+     ,*c = *c + 4; // *c = 0 + 4 = 4 (since *c = a = 0)
+     a = b + a; // a = 4 + 4 = 8 (a = *c)
+     c = &b; // c = address of b (pointer to b)
+     a = a - b; // a = 8 - 4 = 4
+     ,*c = b + a; // *c = 4 + 4 = 8 (now b = 8)
+     ,*c = *c - 1; // *c = 8 - 1 = 7 (= b)
+     a = a * 1; // a = 4 * 1 = 4
+     a = b - *c; // a = 7 - 7 = 0
+     a = a - *c; // a = 0 - 7 = -7
+     cout << a << endl; // -7
+     cout << b << endl; // 7
+     cout << *c << endl; // 7 (value of b)
+   #+end_src
+
+   #+RESULTS:
+   : -7
+   : 7
+   : 7
+
+
+* References
+
+- Jensen, Rook's Guide to C++ (2013). [[https://rooksguide.org/wp-content/uploads/2013/12/rooks-guide-isbn-version.pdf][URL]]
+- Malik, C++ Programming with Data Structures (Cengage, 2016). [[https://www.vitalsource.com/products/c-programming-program-design-including-data-d-s-malik-v9798214339214][URL]]
+- Lospinoso, C++ Crash Course (NoStarch, 2019). [[https://ccc.codes/][URL]]
