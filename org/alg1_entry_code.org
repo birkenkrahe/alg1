@@ -1,8 +1,8 @@
-#+TITLE: 10 Entry Problems for Data Structures with C++ 
+#+TITLE: 10 Simple Entry Problems for Data Structures with C++ 
 #+AUTHOR: Marcus Birkenkrahe
 #+SUBTITLE: CSC 240 Lyon College Fall Term 2024
 #+startup: overview hideblocks indent entitiespretty:
-* Entry test: write 10 simple programs
+* Entry test: Write 10 simple C++  programs
 
 1. Declare two variables of type =int=, initialize them to appropriate
    values, and print them next to one another separated by a comma
