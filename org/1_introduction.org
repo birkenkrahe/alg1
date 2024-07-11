@@ -1,0 +1,471 @@
+#+TITLE: Introduction to the course and development tools
+#+AUTHOR: Marcus Birkenkrahe
+#+SUBTITLE: CSC 240 - Data structures with C++ - Lyon College, FA24
+#+STARTUP:overview hideblocks indent
+#+OPTIONS: toc:nil num:nil ^:nil
+#+PROPERTY: header-args:C++ :main yes :includes <iostream> :results output :exports both :noweb yes
+#+attr_html: :width 700px:
+[[../img/cover_alg1_emil_nolde_summer_clouds.png]]
+
+* Sources
+
+- Syllabus available on [[https://lyon.instructure.com/courses/2623/assignments/syllabus][Canvas]] and on [[https://github.com/birkenkrahe/alg1/blob/main/org/syllabus.org][GitHub]].
+- Morin, [[https://opendatastructures.org/ods-cpp/ods-cpp-html.html][Open Data Structures in C++]] (2024)
+- Rocca, [[https://livebook.manning.com/book/grokking-data-structures][Grokking Data Structures]] (2024)
+
+#+attr_html: :width 600px:
+[[../img/grokking_data_structures_cover.jpg]]
+* Course Overview
+#+attr_html: :width 400px:
+[[../img/poster.png]]
+
+1) *Instructor Introduction*
+   - Background and experience
+   - Course objectives and expectations
+
+2) *General Course Information*
+   - Meeting Times: Tue-Thu 9:30-10.45 AM
+   - Meeting place: Derby Science Building computer lab room 239
+   - Professor's Office: Derby Science Building 210
+   - Phone: (870) 307-7254 (office) / (501) 422-4725 (private)
+   - Office hours: [[https://calendar.app.google/yjr7tB7foMYowRJm7][by appointment]] MWF 4pm, Tue 3pm, Thu 11 am & 3 pm
+
+3) *Materials and Multimedia*
+   - 100-page C++ language reference: [[https://rooksguide.org/wp-content/uploads/2013/12/rooks-guide-isbn-version.pdf][Rook's Guide to C++]]
+   - Optional Textbooks:
+     + Helfrich, C++ Data Structures (KendallHunt, 2020)
+     + Kanetkar Y, Data Structures Through C++ 5th ed (bpb, 2024)
+     + Malik, C++ Programming - Program Design Including Data Structures (Cengage 2015)
+     + La Rocca, Grokking Data Structures (Manning 2023) - with Python
+     + Morin, Open Data Structures (in C++) (OpenText, 2013)
+   - Recommended Videos:
+     - "C++ Data Structures & Algorithms @[[https://scottbarrett.com/][Udemy]]
+     - [[https://www.youtube.com/@CPlusPlusDataStructures/videos][Helfrich's YouTube videos]] on C++ Data Structures
+     - [[https://youtu.be/B31LgI4Y4DQ?si=mu7z5qTupDg1Pu3x][freeCodeCamp course]] on Data Structures with C++
+
+4) *Course Objectives*
+   - Explore theory and application of data structures using C++
+   - Equip students with knowledge to store, process, and retrieve data
+     efficiently
+   - Emphasize algorithmic thinking and optimization techniques
+
+5) *Target Audience*
+   - Students with basic understanding of programming concepts
+   - Those interested in preparing for deeper study of algorithms
+   - Those interested in advancing their knowledge in data science
+
+6) *Student Learning Outcomes*
+   - Understand major data structures and their applications
+   - Implement various data structures in C++
+   - Analyze efficiency of data structures and algorithms
+   - Apply algorithmic thinking to solve complex problems
+   - Design and develop efficient software solutions
+   - Design UML class diagrams and BMPN models
+
+7) *Course Requirements*
+   - Prerequisites: Introduction to Programming (CSC100 or CSC115 or
+     CSC109, and MTH101)
+   - Willingness to engage in problem-solving and critical thinking
+   - Willingness to put in substantial time to program on your own
+
+8) *Grading*
+   - Weekly programming assignments: 50%
+   - Weekly multiple-choice tests: 25%
+   - Final exam (optional): 25%
+
+9) *Learning Management System*
+   - Use of Lyon's Canvas installation (use the calendar!)
+   - Course materials, assignments, grades, recorded sessions
+
+10) *GitHub, Linux & Emacs & Org-mode*
+    - Course materials in public GitHub repository: [[https://github.com/birkenkrahe/alg1][github.com/birkenkrahe/alg1]]
+    - Free subscription to GitHub Codespaces with AI coding assistant Copilot
+    - Emacs Power User Editor & Org-mode in a Linux programming environment
+
+* Data structures are everywhere
+#+attr_html: :width 600px:
+#+caption: Source: La Rocca, Grokking Data Structures (Manning, 2024)
+[[../img/01__image001.png]]
+
+Why?
+#+begin_quote
+- Data are everywhere.
+- Data need to be stored (permanently).
+- Data need to be processed (moved around, added and deleted)
+- Data need to be found (fast).
+#+end_quote
+
+* Which data structures do you already know from introductory programming?
+
+That is, if you think about data (numbers, names, characters, etc.)
+how would you store them?
+
+Examples:
+#+begin_quote
+1) Arrays like ~a[] = {1,2,3,4}~ in C/C++
+2) Lists like ~foo = [1,2,3,4]~ in Python
+3) Vectors like ~vec <- c(1,2,3,4}~ in R
+4) Matrices like ~M <- diag(4)~ in R
+5) Dictionaries like ~d = {"key":[1,2,3,4]}~ in Python
+6) Structures like ~struct Person { std::string name; int age;}~ in C++
+7) Enumeration like ~enum Color { RED, GREEN, BLUE }~ in C++
+8) Data frames like ~df = pd.DataFrame([1,2],["a","b"])~ in Python
+9) Class like ~public class Person~ in Java
+10) Table like ~CREATE TABLE t (int ID, name TEXT);~ in SQL
+#+end_quote
+
+What about media like videos, images, graphs etc.? Are these data, and
+how are they stored?
+#+begin_quote
+Also as arrays, lists or dictionaries (key-value pairs) in code and for storage:
+- Images: as files in different formats (PNG, JPG, GIF, etc.), or as
+  pixel matrices for programming and analytics purposes.
+- Videos: as sequences of images (frames) with audio data, in
+  different file formats (MP4, MOV, AVI, etc.)
+- Graphs: collections of nodes and edges. 
+#+end_quote
+
+* Data structures are necessary
+
+Data structures are necessary because of the large of information to
+be organized and searched through in the digital world.
+
+1) When you open a file, you use a *file system data structure*. Files
+   are stored in structures containing millions of blocks of memory.
+
+2) When you look up a contact on your phone, your phone uses partial
+   information to narrow down the search (and it's not powerful)
+   using a data structure (like a dictionary).
+
+3) When you log into a social network, the network servers check
+   your login information among possibly billions of users.
+
+4) When you do a web search, the search engine uses data structures
+   to find the web pages containing your search terms: among
+   (as of 2024) an estimated 50 billion index by Google alone.
+
+5) When you dial 911, the emergency services network looks up your
+   phone number in a data structure that maps phone numbers to
+   addresses so that someone can go to you right away.
+
+* Which data structures are used when searching for an address on Google Maps?
+
+Every one of these examples employs not one but half a dozen
+different data structures. E.g. An address search on Google Maps
+uses the following data structures (almost all of which you will
+learn about in this course):
+
+1. *Geospatial Indexing*
+   - *Quadtree*: A tree data structure in which each internal node has
+     exactly four children. Quadtrees are used to partition a
+     two-dimensional space by recursively subdividing it into four
+     quadrants or regions. This is useful for indexing geographical
+     locations efficiently.
+   - *R-tree*: A tree data structure used for spatial access methods,
+     i.e., for indexing multi-dimensional information. It is
+     commonly used for indexing spatial information such as
+     geographical coordinates, which is crucial for efficiently
+     querying map data.
+
+2. *Hash Maps and Tries*
+   - *Hash Map*: This data structure is used for quick lookups of
+     specific addresses or place names. It allows for constant time
+     complexity for search operations, which is important for
+     performance in real-time applications.
+   - *Trie (Prefix Tree)**: A specialized tree used to store
+     associative data structures. A trie is often used for
+     autocomplete features in search queries, allowing for quick
+     lookup of address prefixes and suggestions.
+
+3. *Graph Structures*
+   - *Graph*: Google Maps uses graph data structures to represent the
+     network of roads, intersections, and various routes. Each node
+     in the graph represents a geographic location (like an
+     intersection), and each edge represents a road segment
+     connecting two nodes. This is essential for route planning and
+     navigation.
+
+4. *KD-Trees*
+   - *KD-Tree (k-dimensional tree)*: A space-partitioning data
+     structure for organizing points in a k-dimensional
+     space. KD-trees are useful for nearest neighbor searches, which
+     are common in mapping applications when finding the closest
+     location or point of interest.
+
+5. *Spatial Databases*
+   - *Spatial Database*: Specialized databases designed to store and
+     query data related to objects in space, including points,
+     lines, and polygons. Google Maps relies on spatial databases to
+     manage large-scale geographic data efficiently.
+
+* Algorithms vs. Data Structures
+
+- An algorithm is a set of well-defined instructions, a step-by-step
+  procedure to solve a problem (e.g. compute 1 + 1) or perform a task
+  (e.g. say 'hello world').
+
+- Algorithms can be described using pseudocode (syntax-free code)[fn:1].
+
+- A data structure is a way of organizing and storing data in a
+  computer via a programming language. It defines the relationship
+  between the elements of the structure, the operations that can be
+  performed on the data, and the rules or constraints for accessing
+  and modifying the data.
+
+- Short formula: Algorithms transform data like verbs acting on nouns.
+  #+attr_html: :width 600px:
+  #+caption: Source: La Rocca, Grokking Data Structures (Manning, 2024)x
+  [[../img/01__image003.png]]
+
+- Some data structures are designed to allow efficient execution of
+  certain algorithms, e.g. hash tables for key-based search.
+
+- You automatically learn about algorithms when studying data
+  structures and vice versa ([[https://catalog.lyon.edu/computer-science/csc-240][CSC 240]] and  [[https://catalog.lyon.edu/computer-science/csc-265][CSC 265]]).
+
+* Data structures matter
+
+- Different data structures have wildly differing properties and
+  powers - compare for example arrays and vectors in C++.
+
+- C++ array vs. vector:
+  1) *Arrays* are collection of elements of the same type, stored in
+     contiguous memory locations. They are used to store multiple
+     values in one variable. Values can be accessed using an
+     index. The size of the array is determined at compile-time.
+  2) *Vectors* are dynamic arrays provided by the C++ Standard Template
+     Library (STL). They can grow and shrink in size dynamically as
+     elements are added or removed, that is at run-time. They offer
+     useful member functions.
+
+- *Array* code example: declare and initialize an array using a =for= loop.
+  #+begin_src C++ :main yes :includes <iostream> :namespaces std :results output :exports both
+    // declare array of 5 integers and initialize it to 0
+    int array[5]{};
+
+    // assign values to the array using a traditional for loop
+    for (int index=0; index < 5; index++) {
+      array[index] = index + 100;
+     }
+
+    // print initialized array using a range-based for loop
+    for (int value : array) cout << value << " ";
+  #+end_src
+
+  #+RESULTS:
+  : 100 101 102 103 104
+
+- *Vector* code example:
+  #+begin_src C++ :main yes :includes <iostream> :namespaces std :results output :exports both
+    #include <vector>
+
+    int main() {
+      // create integer vector
+      vector<int> myVector;
+
+      // Adding elements to the vector
+      for (int i = 0; i < 5; ++i) {
+        myVector.push_back(i + 100);
+      }
+
+      // Accessing and printing elements
+      for (int i = 0; i < myVector.size(); ++i) {
+        cout << myVector[i] << " ";
+      }
+
+      return 0;
+    }
+  #+end_src
+
+  #+RESULTS:
+  : 100 101 102 103 104
+
+- If C++ is not (yet) your mojo, think of the difference between
+  lists, tuples, and dictionaries in Python:
+  1) *list* elements can be of any data type, but *tuple* elements must
+     have the same data type.
+  2) *list* elements are ordered (indexed), but *dictionaries* are unordered.
+  3) *lists* are mutable (can be modified), but *tuples* are immutable.
+  4) *lists* are passed by reference, but *tuples* are passed by value.
+
+- Code examples:
+  #+begin_src python :python python3 :session *Python* :results output
+    # list elements can have any data type
+    foo = [1, "Hello", 'A', True]
+    # lists are ordered
+    print(foo[0], foo[1], foo[2], foo[3])
+    # lists are mutable
+    foo[2] = 'B'
+    print(foo)
+    # lists are passed by reference (not by value)
+    bar = foo; bar[1]=2; print(foo)
+  #+end_src
+
+  #+RESULTS:
+  : 1 Hello A True
+  : [1, 'Hello', 'B', True]
+  : [1, 2, 'B', True]
+
+* Why you should learn data structures
+
+- Learn an essential tool you cannot really do without (like editing)
+- ML progress requires new data structures (graph neural nets)
+- Database landscape is evolving (flexible indexing)
+- Avoid Maslow's hammer ("If your toolbelt only has a hammer, you will
+  be tempted to treat everything as a nail.") - What if you must
+  tighten a screw?
+
+* Example use cases
+
+1) Searching through a large collection of baseball cards (binary
+   search on sorted arrays)
+   
+2) Keeping track of logged-in users and their IP addresses (at scale,
+   and securely - hash tables).
+   
+3) Modeling relationships between social media network users
+   (persistent and scalable - graphs).
+
+* How do choose the right data structure
+
+By building up muscle: solve many problems in different ways.
+
+Example: "Hello" program that greets the user by name
+1) Input from the keyboard or from a file
+2) Output to the screen or to a file
+3) Output with =cout= or =printf=
+4) User name stored as =string= or as =char= array
+5) User name retrieved with =cin= or with =cin.get= or =scanf=
+6) Concatenate greeting message with =+= or stream with =<<=
+7) With a user-defined function or as standalone command
+8) With a user-defined =class= or =struct=
+
+   
+
+* A mental model for applying data structures
+#+attr_html: :width 700px:
+[[./img/identify_data_structure.svg]]
+
+* Extended use case: Pet emergency room
+
+- Problem: how to run an emergency waiting room for pets, in
+  particular the registration and admission of patients.
+
+- Constraints:
+  + multiple species of animals
+  + infinite capacity of the waiting room
+  + no other constraints
+
+- Input: time-ordered group of animals.
+
+- Output: ordered waiting list.
+
+- Process: register animals, then admit them in order.
+
+** Bag
+
+- 1st attempt: *bag* solution - all patient forms are put in the
+  container in random order.
+
+- Does solution work, and does it work well?
+  1) A bag is easy to implement.
+  2) You cannot keep control over the order.
+
+** Stack
+
+- 2nd attempt: *stack* solution - patient forms are stored in order, in
+  a pile with the oldest at the bottom and the newest at the
+  top. Forms are taken from the top.
+
+- Does solution work, and does it work well?
+  1) A stack is good to process the most recent entries first.
+  2) It's bad to handle a waiting line (prioritizes recent entries).
+
+** Queue
+
+- 3rd attempt: *queue* solution - patient forms are stored in order, in
+  a pile with the oldest at the bottom and the newest at the
+  top. Forms are taken from the bottom.
+
+- Does solution work, and does it work well?
+  1) The queue implements a first come, first serve policy.
+  2) But urgent entries are forced to wait.
+
+** Priority queue
+
+- 4th attempt: the *priority queue* takes more than arrival time into
+  account, it also contains information on *priority*. Patient forms are
+  ordered first by priority, and then by arrival.
+
+- Does solution work, and does it work well?
+  1) Urgent entries are now processed first.
+  2) This container is slower and more complex to implement.
+
+** Exercise: model each process in BPMN
+#+attr_html: :width 700px:
+[[./img/pet_emergency_room.svg]]
+
+* The need for efficiency ([[https://opendatastructures.org/ods-cpp/1_1_Need_Efficiency.html][Morin]])
+
+- If an application looks up a dataset with 1 mio (10^{6}) items, and if
+  each item needs to be looked up at least once, we have 10^{12} = 10^6 x
+  10^6 searches or number of operations.
+
+- If a processor can perform 1 bio (10^{9}) operations per second, it
+  will take it 10^{12}/10^{9} = 1000 seconds or 16 min 40 sec to search
+  through the dataset once.
+
+- Google indexes over 50 bio (50 x 10^9) web pages, which means that a
+  query over this data would take no less than 50 seconds. Google
+  received approximately 40,000 = 4 x 10^{5}^{} queries per second. This
+  requires at least 4 x 10^{5} x 50 = 2 x 10^{7} = 20,000,000
+  servers. Google operates no less than 40 data centers with no less
+  than 50,000 servers per data center (40 x 5 x 10^5 = 2 x 10^{7}) -
+  matching this current demand.
+
+- The examples show that obvious implementations of data structures do
+  not scale well if the number of items n in the data structure
+  (e.g. a table) and the number of operations m performed on it
+  (e.g. a search) are large because the time (measured in machine
+  instructions) is roughly n x m.
+
+- For example there are data structures where a search only needs to
+  look at two items on average independent on the number of items
+  stored - which means that a 1 bio instructions per second computer
+  can complete a search of 50 bio pages in 2 x 10-9 seconds, or 2 nano
+  seconds.
+
+- Then there are data structures where the number of items inspected
+  during an operation grows very slowly as a function of the number of
+  items.
+
+* Summary
+
+- A data structure is a way of organizing and storing data in a
+  computer or a programming language, defining the relationship
+  between data, operations that can be performed on the data, and
+  rules or constraints for accessing and modifying the data.
+- Data structures are fundamental to organizing and storing data
+  efficiently.
+- An algorithm is a set of well-defined instructions, a step-by-step
+  procedure designed to solve a specific problem or perform a
+  particular task.
+- Algorithms and data structures complement each other like nouns and
+  verbs complement each other in a sentence.
+- Choosing the wrong data structure can have dire consequences, such
+  as crashing your website or causing security hazards.
+- There is a step-by-step process that can help you decide which data
+  structures to use in a project.
+- The process is iterative and requires you to check the quality of
+  your solution until you meet all of your requirements.
+
+* References
+
+- [[https://en.wikipedia.org/wiki/Spatial_database#Spatial_index][Geospatial Indexing - Wikipedia]]
+- [[https://www.techrepublic.com/article/how-google-maps-works/][How Google Maps Works - TechRepublic]]
+- [[https://www.esri.com/library/bestpractices/spatial-database.pdf][Introduction to Spatial Databases - Esri]]
+- [[https://www.geeksforgeeks.org/trie-insert-and-search/][Trie Data Structure - GeeksforGeeks]]
+
+* Footnotes
+
+[fn:1]Still, efficient pseudocode is not completely arbitrary, compare  

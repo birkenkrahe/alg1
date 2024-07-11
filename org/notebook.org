@@ -1,0 +1,36 @@
+#+TITLE:Notebook
+#+AUTHOR:Marcus Birkenkrahe
+#+SUBTITLE:CSC 240 - Data structures with C++ - Lyon College, FA24
+#+STARTUP:overview hideblocks indent
+#+OPTIONS: toc:nil num:nil ^:nil
+#+PROPERTY: header-args:R :session *R* :results output :exports both :noweb yes
+#+PROPERTY: header-args:python :session *Python* :results output :exports both :noweb yes
+#+PROPERTY: header-args:C :main yes :includes <stdio.h> :results output :exports both :noweb yes
+#+PROPERTY: header-args:C++ :main yes :includes <iostream> :results output :exports both :noweb yes
+* Week 1
+* Week 2
+
+** Review of Last Session (10 minutes)
+
+- Brief review of Emacs + Org-mode basics
+  #+begin_quote
+  
+  #+end_quote
+- Overview of course objectives and importance of data structures
+  #+begin_quote
+
+  #+end_quote
+- Discuss any questions from the last session
+  #+begin_quote
+
+  #+end_quote
+
+** Test
+
+- Quick test on Emacs + Org-mode usage
+
+** In-class Programming Assignment Review
+
+- Set up Emacs for C++ development
+  
+- Write a simple C++ "Hello, World!" program using Emacs + Org-mode

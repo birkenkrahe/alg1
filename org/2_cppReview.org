@@ -1,0 +1,113 @@
+#+TITLE:C++ Basics review
+#+AUTHOR:Marcus Birkenkrahe
+#+SUBTITLE:CSC 240 - Data structures with C++ - Lyon College, FA24
+#+STARTUP:overview hideblocks indent
+#+OPTIONS: toc:nil num:nil ^:nil
+#+PROPERTY: header-args:C++ :main yes :includes <iostream> :results output :exports both :noweb yes
+* Sources
+* Overview
+
+** Presentation of Content (20 minutes)
+
+*** C++ Syntax
+
+
+#+begin_src C++ :main yes :includes <iostream> :namespaces std :results output :exports both
+  int main() {
+    cout << "Hello, World!" << endl;
+    return 0;
+  }
+#+end_src
+
+*** Variables and Data Types
+
+- Variables store data values in memory
+- Variables must be declared before they can be used.
+- Basic data types: =int=, =float=, =double=, =char=, =bool=
+
+#+begin_src C++ :main yes :includes <iostream> :namespaces std :results output :exports both
+  int main() {
+    int age = 25;
+    float height = 5.9;
+    double pi = 3.14159;
+    char grade = 'A';
+    bool is_student = true;
+
+    cout << "Age: " << age << endl;
+    cout << "Height: " << height << endl;
+    cout << "Pi: " << pi << endl;
+    cout << "Grade: " << grade << endl;
+    cout << "Is Student: " << is_student << endl;
+
+    return 0;
+  }
+#+end_src
+
+*** Operators
+- Arithmetic operators: +, -, *, /, %
+- Comparison operators: ==, !=, >, <, >=, <=
+- Logical operators: &&, ||, !
+
+#+begin_src C++ :main yes :includes <iostream> :namespaces std :results output :exports both
+  int main() {
+    int a = 10, b = 20;
+    cout << "a + b = " << (a + b) << endl;
+    cout << "a - b = " << (a - b) << endl;
+    cout << "a * b = " << (a * b) << endl;
+    cout << "a / b = " << (a / b) << endl;
+    cout << "a % b = " << (a % b) << endl;
+
+    cout << "a == b: " << (a == b) << endl;
+    cout << "a != b: " << (a != b) << endl;
+    cout << "a > b: " << (a > b) << endl;
+    cout << "a < b: " << (a < b) << endl;
+
+    bool result = (a < b) && (b > 15);
+    cout << "(a < b) && (b > 15): " << result << endl;
+
+    return 0;
+  }
+#+end_src
+
+
+** Practice Exercises (30 minutes)
+
+- Write a program to declare and initialize variables of different
+  (fundamental or primitive) data types and print them.
+
+- Write this as an Emacs .org file with a header (substitute [...]):
+  #+begin_example
+  #+TITLE: [title]
+  #+AUTHOR: [your name] (pledged)
+  #+SUBTITLE: [class and topic]
+  #+end_example  
+
+*** Solution:
+
+See file: tinyurl.com/alg1-first
+
+Fundamental data types in C++ are: integer =int=, floating-point =float=
+and =double=, character =char=, and Boolean =bool=.
+
+#+begin_src C++ :main yes :includes <iostream> :namespaces std :results output :exports both
+    
+#+end_src
+
+- Create a simple calculator program using arithmetic operators
+
+  Solution:
+
+- Compare two integers using comparison operators and print the
+  results
+
+  Solution:
+
+- Combine logical operators to evaluate and print the truth value of
+  expressions
+
+  Solution:
+
+** Q&A and Discussion (15 minutes)
+- Open floor for questions and clarifications
+- Discuss common issues faced during practice exercises
+- Provide additional examples or explanations as needed
