@@ -1,0 +1,78 @@
+#+TITLE: Introduction to the course and development tools
+#+AUTHOR: Marcus Birkenkrahe
+#+SUBTITLE: CSC 240 - Data structures with C++ - Lyon College, FA24
+#+STARTUP:overview hideblocks indent
+#+OPTIONS: toc:nil num:nil ^:nil
+#+PROPERTY: header-args:C++ :main yes :includes <iostream> :results output :exports both :noweb yes
+* Course Overview
+#+attr_html: :width 400px:
+[[../img/poster.png]]
+
+The syllabus is available on [[https://lyon.instructure.com/courses/2623/assignments/syllabus][Canvas]] and on [[https://github.com/birkenkrahe/alg1/blob/main/org/syllabus.org][GitHub]].
+
+1) *Instructor Introduction*
+   - Background and experience
+   - Course objectives and expectations
+
+2) *General Course Information*
+   - Meeting Times: Tue-Thu 9:30-10.45 AM
+   - Meeting place: Derby Science Building computer lab room 239
+   - Professor's Office: Derby Science Building 210
+   - Phone: (870) 307-7254 (office) / (501) 422-4725 (private)
+   - Office hours: [[https://calendar.app.google/yjr7tB7foMYowRJm7][by appointment]] MWF 4pm, Tue 3pm, Thu 11 am & 3 pm
+
+3) *Materials and Multimedia*
+   - 100-page C++ language reference: [[https://rooksguide.org/wp-content/uploads/2013/12/rooks-guide-isbn-version.pdf][Rook's Guide to C++]]
+   - Optional Textbooks:
+     + Helfrich, C++ Data Structures (KendallHunt, 2020)
+     + Kanetkar Y, Data Structures Through C++ 5th ed (bpb, 2024)
+     + Malik, C++ Programming - Program Design Including Data Structures (Cengage 2015)
+     + La Rocca, Grokking Data Structures (Manning 2023) - with Python
+     + Morin, Open Data Structures (in C++) (OpenText, 2013)
+   - Recommended Videos:
+     - "C++ Data Structures & Algorithms @[[https://scottbarrett.com/][Udemy]]
+     - [[https://www.youtube.com/@CPlusPlusDataStructures/videos][Helfrich's YouTube videos]] on C++ Data Structures
+     - [[https://youtu.be/B31LgI4Y4DQ?si=mu7z5qTupDg1Pu3x][freeCodeCamp course]] on Data Structures with C++
+
+4) *Course Objectives*
+   - Explore theory and application of data structures using C++
+   - Equip students with knowledge to store, process, and retrieve data
+     efficiently
+   - Emphasize algorithmic thinking and optimization techniques
+
+5) *Target Audience*
+   - Students with basic understanding of programming concepts
+   - Those interested in preparing for deeper study of algorithms
+   - Those interested in advancing their knowledge in data science
+
+6) *Student Learning Outcomes*
+   - Understand major data structures and their applications
+   - Implement various data structures in C++
+   - Analyze efficiency of data structures and algorithms
+   - Apply algorithmic thinking to solve complex problems
+   - Design and develop efficient software solutions
+   - Design UML class diagrams and BMPN models
+
+7) *Course Requirements*
+   - Prerequisites: Introduction to Programming (CSC100 or CSC115 or
+     CSC109, and MTH101)
+   - Willingness to engage in problem-solving and critical thinking
+   - Willingness to put in substantial time to program on your own
+
+8) *Grading*
+   - Weekly programming assignments: 50%
+   - Weekly multiple-choice tests: 25%
+   - Final exam (optional): 25%
+
+9) *Learning Management System*
+   - Use of Lyon's Canvas installation (use the calendar!)
+   - Course materials, assignments, grades, recorded sessions
+
+10) *GitHub, Linux & Emacs & Org-mode*
+    - Course materials in public GitHub repository: [[https://github.com/birkenkrahe/alg1][github.com/birkenkrahe/alg1]]
+    - Free subscription to GitHub Codespaces with AI coding assistant Copilot
+    - Emacs Power User Editor & Org-mode in a Linux programming environment
+
+* TODO Development tools
+
+

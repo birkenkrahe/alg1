@@ -1,86 +1,16 @@
-#+TITLE: Introduction to the course and development tools
+#+TITLE: Introduction to data structures
 #+AUTHOR: Marcus Birkenkrahe
 #+SUBTITLE: CSC 240 - Data structures with C++ - Lyon College, FA24
 #+STARTUP:overview hideblocks indent
 #+OPTIONS: toc:nil num:nil ^:nil
 #+PROPERTY: header-args:C++ :main yes :includes <iostream> :results output :exports both :noweb yes
-#+attr_html: :width 700px:
-[[../img/cover_alg1_emil_nolde_summer_clouds.png]]
-
 * Sources
 
-- Syllabus available on [[https://lyon.instructure.com/courses/2623/assignments/syllabus][Canvas]] and on [[https://github.com/birkenkrahe/alg1/blob/main/org/syllabus.org][GitHub]].
 - Morin, [[https://opendatastructures.org/ods-cpp/ods-cpp-html.html][Open Data Structures in C++]] (2024)
 - Rocca, [[https://livebook.manning.com/book/grokking-data-structures][Grokking Data Structures]] (2024)
 
 #+attr_html: :width 600px:
 [[../img/grokking_data_structures_cover.jpg]]
-* Course Overview
-#+attr_html: :width 400px:
-[[../img/poster.png]]
-
-1) *Instructor Introduction*
-   - Background and experience
-   - Course objectives and expectations
-
-2) *General Course Information*
-   - Meeting Times: Tue-Thu 9:30-10.45 AM
-   - Meeting place: Derby Science Building computer lab room 239
-   - Professor's Office: Derby Science Building 210
-   - Phone: (870) 307-7254 (office) / (501) 422-4725 (private)
-   - Office hours: [[https://calendar.app.google/yjr7tB7foMYowRJm7][by appointment]] MWF 4pm, Tue 3pm, Thu 11 am & 3 pm
-
-3) *Materials and Multimedia*
-   - 100-page C++ language reference: [[https://rooksguide.org/wp-content/uploads/2013/12/rooks-guide-isbn-version.pdf][Rook's Guide to C++]]
-   - Optional Textbooks:
-     + Helfrich, C++ Data Structures (KendallHunt, 2020)
-     + Kanetkar Y, Data Structures Through C++ 5th ed (bpb, 2024)
-     + Malik, C++ Programming - Program Design Including Data Structures (Cengage 2015)
-     + La Rocca, Grokking Data Structures (Manning 2023) - with Python
-     + Morin, Open Data Structures (in C++) (OpenText, 2013)
-   - Recommended Videos:
-     - "C++ Data Structures & Algorithms @[[https://scottbarrett.com/][Udemy]]
-     - [[https://www.youtube.com/@CPlusPlusDataStructures/videos][Helfrich's YouTube videos]] on C++ Data Structures
-     - [[https://youtu.be/B31LgI4Y4DQ?si=mu7z5qTupDg1Pu3x][freeCodeCamp course]] on Data Structures with C++
-
-4) *Course Objectives*
-   - Explore theory and application of data structures using C++
-   - Equip students with knowledge to store, process, and retrieve data
-     efficiently
-   - Emphasize algorithmic thinking and optimization techniques
-
-5) *Target Audience*
-   - Students with basic understanding of programming concepts
-   - Those interested in preparing for deeper study of algorithms
-   - Those interested in advancing their knowledge in data science
-
-6) *Student Learning Outcomes*
-   - Understand major data structures and their applications
-   - Implement various data structures in C++
-   - Analyze efficiency of data structures and algorithms
-   - Apply algorithmic thinking to solve complex problems
-   - Design and develop efficient software solutions
-   - Design UML class diagrams and BMPN models
-
-7) *Course Requirements*
-   - Prerequisites: Introduction to Programming (CSC100 or CSC115 or
-     CSC109, and MTH101)
-   - Willingness to engage in problem-solving and critical thinking
-   - Willingness to put in substantial time to program on your own
-
-8) *Grading*
-   - Weekly programming assignments: 50%
-   - Weekly multiple-choice tests: 25%
-   - Final exam (optional): 25%
-
-9) *Learning Management System*
-   - Use of Lyon's Canvas installation (use the calendar!)
-   - Course materials, assignments, grades, recorded sessions
-
-10) *GitHub, Linux & Emacs & Org-mode*
-    - Course materials in public GitHub repository: [[https://github.com/birkenkrahe/alg1][github.com/birkenkrahe/alg1]]
-    - Free subscription to GitHub Codespaces with AI coding assistant Copilot
-    - Emacs Power User Editor & Org-mode in a Linux programming environment
 
 * Data structures are everywhere
 #+attr_html: :width 600px:
@@ -204,7 +134,11 @@ learn about in this course):
   procedure to solve a problem (e.g. compute 1 + 1) or perform a task
   (e.g. say 'hello world').
 
-- Algorithms can be described using pseudocode (syntax-free code)[fn:1].
+- Algorithms can be described using pseudocode (syntax-free
+  code)[fn:1]. Here are three examples for a "fizzbuzz" function:
+  #+attr_html: :width 700px:
+  #+caption: Source: Wikipedia
+  [[../img/pseudocodeExamples.png]]
 
 - A data structure is a way of organizing and storing data in a
   computer via a programming language. It defines the relationship
@@ -221,7 +155,7 @@ learn about in this course):
   certain algorithms, e.g. hash tables for key-based search.
 
 - You automatically learn about algorithms when studying data
-  structures and vice versa ([[https://catalog.lyon.edu/computer-science/csc-240][CSC 240]] and  [[https://catalog.lyon.edu/computer-science/csc-265][CSC 265]]).
+  structures and vice versa ([[https://catalog.lyon.edu/computer-science/csc-240][CSC 240]] and [[https://catalog.lyon.edu/computer-science/csc-265][CSC 265]]).
 
 * Data structures matter
 
@@ -328,7 +262,7 @@ learn about in this course):
 
 * How do choose the right data structure
 
-By building up muscle: solve many problems in different ways.
+By building up muscle: solve *many problems* in *different ways* and in *.
 
 Example: "Hello" program that greets the user by name
 1) Input from the keyboard or from a file
@@ -340,42 +274,49 @@ Example: "Hello" program that greets the user by name
 7) With a user-defined function or as standalone command
 8) With a user-defined =class= or =struct=
 
-   
+These solutions differ by performance, flexibility, readability,
+nstandardization, style, and portability.
 
 * A mental model for applying data structures
 #+attr_html: :width 700px:
-[[./img/identify_data_structure.svg]]
+[[../img/identify_data_structure.svg]]
 
-* Extended use case: Pet emergency room
+- The implementation comes after everything else.
+- The days of finding solutions through "tinkering" are over.
+- Computer programs can be formally proven to be correct[fn:2].
 
-- Problem: how to run an emergency waiting room for pets, in
+* Extended use case: "Pet emergency room"
+
+- *Problem:* how to run an emergency waiting room for pets, in
   particular the registration and admission of patients.
 
-- Constraints:
+- *Constraints:*
   + multiple species of animals
   + infinite capacity of the waiting room
   + no other constraints
 
-- Input: time-ordered group of animals.
+- *Input:* time-ordered group of animals.
 
-- Output: ordered waiting list.
+- *Output:* ordered waiting list.
 
-- Process: register animals, then admit them in order.
+- *Process:* register animals, then admit them in order.
+
+There are (at least) four different solutions to choose from:
 
 ** Bag
 
-- 1st attempt: *bag* solution - all patient forms are put in the
-  container in random order.
+- Data structure: *Bag*. All patient forms are put in the container in
+  random order.
 
-- Does solution work, and does it work well?
+- *Check:* Does solution work, and does it work well?
   1) A bag is easy to implement.
   2) You cannot keep control over the order.
 
 ** Stack
 
-- 2nd attempt: *stack* solution - patient forms are stored in order, in
-  a pile with the oldest at the bottom and the newest at the
-  top. Forms are taken from the top.
+- Data structure: *Stack*. All patient forms are stored in order, in a
+  pile with the oldest at the bottom and the newest at the top. Forms
+  are taken from the top.
 
 - Does solution work, and does it work well?
   1) A stack is good to process the most recent entries first.
@@ -383,33 +324,42 @@ Example: "Hello" program that greets the user by name
 
 ** Queue
 
-- 3rd attempt: *queue* solution - patient forms are stored in order, in
-  a pile with the oldest at the bottom and the newest at the
-  top. Forms are taken from the bottom.
+- Data structure: : *Queue.* All patient forms are stored in order, in a
+  pile with the oldest at the bottom and the newest at the top. Forms
+  are taken from the bottom.
 
 - Does solution work, and does it work well?
   1) The queue implements a first come, first serve policy.
-  2) But urgent entries are forced to wait.
+  2) Problem: urgent entries are forced to wait.
 
 ** Priority queue
 
-- 4th attempt: the *priority queue* takes more than arrival time into
-  account, it also contains information on *priority*. Patient forms are
-  ordered first by priority, and then by arrival.
+- Data structure: *Priority queue*. A queue that t akes more than
+  arrival time into account. It also contains information on
+  *priority*. Patient forms are ordered first by priority, and then by
+  arrival.
 
 - Does solution work, and does it work well?
   1) Urgent entries are now processed first.
   2) This container is slower and more complex to implement.
 
-** Exercise: model each process in BPMN
+** Model each process in BPMN
+
+BPMN (Business Process Model and Notation) is a diagrammatic language
+to create process models that represent the flow of an action from
+start to end for every participant of a process.
+
+In this case, the participant is the Pet ER Receptionist who interacts
+with the patients by getting forms from the patient, sorts the forms,
+and pulls them from the stack before calling upon the next patient.
 #+attr_html: :width 700px:
-[[./img/pet_emergency_room.svg]]
+[[../img/pet_emergency_room.svg]]
 
 * The need for efficiency ([[https://opendatastructures.org/ods-cpp/1_1_Need_Efficiency.html][Morin]])
 
-- If an application looks up a dataset with 1 mio (10^{6}) items, and if
-  each item needs to be looked up at least once, we have 10^{12} = 10^6 x
-  10^6 searches or number of operations.
+- Example: If an application looks up a dataset with 1 mio (10^{6})
+  items, and if each item needs to be looked up at least once, we have
+  10^{12} = 10^6 x 10^6 searches or number of operations.
 
 - If a processor can perform 1 bio (10^{9}) operations per second, it
   will take it 10^{12}/10^{9} = 1000 seconds or 16 min 40 sec to search
@@ -417,11 +367,10 @@ Example: "Hello" program that greets the user by name
 
 - Google indexes over 50 bio (50 x 10^9) web pages, which means that a
   query over this data would take no less than 50 seconds. Google
-  received approximately 40,000 = 4 x 10^{5}^{} queries per second. This
-  requires at least 4 x 10^{5} x 50 = 2 x 10^{7} = 20,000,000
-  servers. Google operates no less than 40 data centers with no less
-  than 50,000 servers per data center (40 x 5 x 10^5 = 2 x 10^{7}) -
-  matching this current demand.
+  received approximately 40,000 = 4 x 10^{5} queries per second. Google
+  operates no less than 40 data centers with no less than 50,000
+  servers per data center (40 x 5 x 10^5 = 2 x 10^{7}) - to match this
+  demand.
 
 - The examples show that obvious implementations of data structures do
   not scale well if the number of items n in the data structure
@@ -461,6 +410,11 @@ Example: "Hello" program that greets the user by name
 
 * References
 
+- [[B. A. Ulate-Caballero, A. Berrocal-Rojas and J. Hidalgo-Céspedes,
+  "Concurrent and Distributed Pseudocode: A Systematic Literature
+  Review," 2021 XLVII Latin American Computing Conference (CLEI),
+  Cartago, Costa Rica, 2021, pp. 1-10, doi:
+  10.1109/CLEI53233.2021.9640222.][Pseudocode Literature Review - IEEE]]
 - [[https://en.wikipedia.org/wiki/Spatial_database#Spatial_index][Geospatial Indexing - Wikipedia]]
 - [[https://www.techrepublic.com/article/how-google-maps-works/][How Google Maps Works - TechRepublic]]
 - [[https://www.esri.com/library/bestpractices/spatial-database.pdf][Introduction to Spatial Databases - Esri]]
@@ -468,4 +422,11 @@ Example: "Hello" program that greets the user by name
 
 * Footnotes
 
-[fn:1]Still, efficient pseudocode is not completely arbitrary, compare  
+[fn:1]Though there is no standard, efficient pseudocode is not
+completely arbitrary, cp. Helfrich (Appendix A), "Pseudocode Standard"
+([[https://users.csc.calpoly.edu/~jdalbey/SWE/pdl_std.html][J Dalbey]]), and this pseudocode literature review ([[https://ieeexplore.ieee.org/document/9640222][2021]]).
+
+[fn:2]Step-by-step proofs include: (1) error-free compilation, logical
+correctness, edge case handling; (2) code analysis with includes,
+namespace, main function, variable declarations, input and output
+handling, (3) Code testing with various inputs (see example).
