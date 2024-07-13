@@ -1,0 +1,185 @@
+#+title: Data structures with C++
+#+author: Marcus Birkenkrahe
+#+startup: overview hideblocks indent
+#+subtitle: CSC 240 - Data structures with C++ - Syllabus - Fall 2024
+* General Course Information
+#+attr_html: :width 400px:
+[[../img/poster.png]]
+
+- Course title: Data structures with C++
+- Course number and section: CSC 240.01
+- Meeting Times: Tue-Thu 9:30-10.45 AM
+- Meeting place: Derby Science Building computer lab room 239
+- Professor: Marcus Birkenkrahe
+- Professor's Office: Derby Science Building 210
+- Phone: (870) 307-7254 (office) / (501) 422-4725 (private)
+- Office hours: [[https://calendar.app.google/yjr7tB7foMYowRJm7][by appointment]] MWF 4pm, Tue 3pm, Thu 11 am & 3 pm
+
+* Materials and multimedia
+
+- 100-page C++ language reference (written by a group of student
+  volunteers over a weekend!): "Rook's Guide to C++" (Hansen, 2013) -
+  [[https://rooksguide.org/wp-content/uploads/2013/12/rooks-guide-isbn-version.pdf][Online]]. The equivalent material in a complete textbook
+  (e.g. Malik, 2015) covers no less than 1,000 pages.
+  
+- Textbook (optional): Helfrich, C++ Data Structures (KendallHunt,
+  2020). Recommended: Kanetkar Y, Data Structures Through C++ 5th ed
+  (bpb,2024). Malik, C++ Programming - Program Design Including Data
+  Structures (Cengage 2015); La Rocca, Grokking Data Structures
+  (Manning 2023) - with Python; Morin, Open Data Structures (in C++)
+  (OpenText, 2013).
+
+- Videos: The [[https://scottbarrett.com/][Udemy course]] "C++ Data Structures & Algorithms +
+  LEETCODE Exercises" is very good (nice animations). I've used this
+  as well as [[https://www.youtube.com/@CPlusPlusDataStructures/videos][Helfrich's YouTube videos]] (for his book). Animations can
+  be helpful for this topic to visualize multi-dimensional, dynamic
+  processes. The [[https://youtu.be/B31LgI4Y4DQ?si=mu7z5qTupDg1Pu3x][freeCodeCamp course]] is more teacher-centric but OK.
+
+- There is a gazillion sources available online and offline on the
+  topics of data structures and algorithms. Many of the books are
+  great for the first 10, good for the next 30, and disappointing for
+  the lats 300 pages. Many of the videos are great for the first 5 and
+  lousy for the last 15-30 minutes.
+
+- I have looked at dozens of books, videos, courses, and
+  tutorials. Ask me if you found a specific source - I may know it, or
+  I may want to learn more about it!
+
+* Objectives
+
+This course on "Data Structures with C++" offers an in-depth
+exploration into the theory and application of data structures using
+the C++ programming language. It aims to equip students with the
+knowledge to efficiently store, process, and retrieve data using
+various data structures such as arrays, linked lists, stacks, queues,
+trees, and graphs. The curriculum emphasizes the importance of
+algorithmic thinking and optimization techniques, providing a solid
+foundation for understanding the complexities and capabilities of
+modern computing systems.
+
+* Target audience
+
+ Ideal participants are those who have a basic understanding of
+ programming concepts and are interested in advancing their knowledge
+ in data structuring to improve software efficiency and performance.
+
+* Student Learning Outcomes
+
+Students who complete this course will be able to:
+- Demonstrate a thorough understanding of major data structures and
+  their applications.
+- Implement various data structures in C++, including arrays, linked
+  lists, stacks, queues, trees, and graphs.
+- Analyze the efficiency of data structures and algorithms in terms of
+  time and space complexity.
+- Apply algorithmic thinking to solve complex problems using
+  appropriate data structures.
+- Design and develop efficient software solutions for real-world
+  applications.
+- Critically evaluate the choice of data structures in software
+  development projects.
+- Employ advanced C++ features and object-oriented programming
+  techniques in the context of data structures.
+- Enhance problem-solving skills through the design and analysis of
+  algorithms for data manipulation.
+- Prepare to contribute effectively to technology-driven environments
+  with a strong foundation in data structuring.
+
+Students, who complete CSC 240 will have fulfilled the prerequisites
+for CSC 265 Algorithms.
+
+* Course requirements
+
+Formal prerequisites: Introduction to Programming (either CSC100 or
+CSC115 or CSC109, and MTH101 (College Algebra).
+
+Course requirements include a foundational knowledge of programming
+principles and familiarity with any programming language. Students
+are expected to have completed introductory courses in computer
+science or possess equivalent practical experience. A willingness to
+engage in complex problem-solving and the ability to think critically
+about algorithm design and data manipulation are essential for success
+in this course.
+
+* Grading
+
+| WHEN   | DESCRIPTION             | IMPACT |
+|--------+-------------------------+--------|
+| Weekly | Programming assignments |    50% |
+| Weekly | Multiple choice tests   |    25% |
+| TBD    | Final exam (optional)   |    25% |
+
+- Programming assignments are given for home completion
+- Tests are open-book multiple choice exams for home
+- The final exam is optional if you want to improve your grade
+
+* Rubric
+
+#+attr_html: :width 600px:
+[[../img/rubric.png]]
+
+* Learning management system
+
+- We use Lyon's Canvas installation for this course.
+- The home page contains: assignments, grades, pages, people,
+  syllabus, quizzes, Google Drive, Course evaluation and Zoom.
+- The Zoom page includes cloud recordings of all past sessions.
+- Recorded sessions will be deleted after the last class.
+
+* GitHub
+
+All course materials are available in a public GitHub repository
+([[https://github.com/birkenkrahe/alg1][github.com/birkenkrahe/alg1]]). Registration for students includes a
+free subscription to GitHub codespaces with the AI coding assistant
+Copilot. GitHub is the worldwide largest online platform for software
+development.
+
+* Lyon College Standard Policies
+
+- [[https://tinyurl.com/LyonPolicyOnline][tinyurl.com/LyonPolicyOnline]], see also [[https://catalog.lyon.edu/class-attendance][Class Attendance]] policy
+
+* Schedule
+
+"Data structures" and "algorithms" are a little hard to separate:
+- "Data structures" is concerned with storing and organizing data.
+- "Algorithms" is concerned with using data to solve problems.
+
+Both topics can be taught language-agnostic (without referencing a
+particular language) but your understanding will benefit greatly from
+examples and programming assignments.
+
+| Week | Content                                 | Dates      | Home Assignment | Tests |
+|------+-----------------------------------------+------------+-----------------+-------|
+|    1 | Introduction to course & dev tools      | Aug 16     | Emacs, GitHub   |     1 |
+|------+-----------------------------------------+------------+-----------------+-------|
+|    2 | C++ Basics review                       | Aug 20, 22 | Programs 1-2    |     2 |
+|------+-----------------------------------------+------------+-----------------+-------|
+|    3 | Fundamental types and arrays            | Aug 27, 29 | Programs 3-4    |     3 |
+|------+-----------------------------------------+------------+-----------------+-------|
+|    4 | User-defined types                      | Sep 3, 5   | Programs 5-6    |     4 |
+|------+-----------------------------------------+------------+-----------------+-------|
+|    5 | Reference types                         | Sep 10, 12 | Programs 7-8    |     5 |
+|------+-----------------------------------------+------------+-----------------+-------|
+|    6 | The object life cycle                   | Sep 17, 19 | Programs 9-10   |     6 |
+|------+-----------------------------------------+------------+-----------------+-------|
+|    7 | Linked lists                            | Sep 24, 26 | Program 11-12   |     7 |
+|------+-----------------------------------------+------------+-----------------+-------|
+|    8 | Doubly linked lists                     | Oct 1, 3   | Program 13-14   |     8 |
+|------+-----------------------------------------+------------+-----------------+-------|
+|    9 | Stacks & queues                         | Oct 8, 10  | Program 15-16   |     9 |
+|------+-----------------------------------------+------------+-----------------+-------|
+|   10 | Trees                                   | Oct 15, 17 | Program 17-18   |    10 |
+|------+-----------------------------------------+------------+-----------------+-------|
+|   11 | Hash tables                             | Oct 22, 29 | Program 19-20   |    11 |
+|------+-----------------------------------------+------------+-----------------+-------|
+|   12 | Graphs                                  | Nov 5, 7   | Program 21-22   |    12 |
+|------+-----------------------------------------+------------+-----------------+-------|
+|   13 | Heaps                                   | Nov 12, 14 | Program 23-24   |    13 |
+|------+-----------------------------------------+------------+-----------------+-------|
+|   14 | Recursion                               | Nov 19, 21 | Program 25-26   |    14 |
+|------+-----------------------------------------+------------+-----------------+-------|
+|   15 | Hash tables, AVL trees, red-black trees | Dec 3, 5   |                 |    15 |
+|------+-----------------------------------------+------------+-----------------+-------|
+
+
+
