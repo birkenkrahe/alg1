@@ -8,7 +8,6 @@
 * Overview
 
 ** Presentation of Content (20 minutes)
-
 *** C++ Syntax
 
 
@@ -68,7 +67,6 @@
     return 0;
   }
 #+end_src
-
 
 ** Practice Exercises (30 minutes)
 
