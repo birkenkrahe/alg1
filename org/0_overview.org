@@ -399,6 +399,7 @@ github.com in your browser (Google Chrome is best) and login.
 - Now go back to your profile, find =Customize your pins= and pin
   =hello-world= to the profile as you see it on my GitHub profile.
 
+
 * Footnotes
 
 [fn:1]Lyon College has a classroom at DataCamp, and if you're
