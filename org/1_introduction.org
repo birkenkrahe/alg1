@@ -4,14 +4,6 @@
 #+STARTUP:overview hideblocks indent
 #+OPTIONS: toc:nil num:nil ^:nil
 #+PROPERTY: header-args:C++ :main yes :includes <iostream> :results output :exports both :noweb yes
-* Sources
-
-- Morin, [[https://opendatastructures.org/ods-cpp/ods-cpp-html.html][Open Data Structures in C++]] (2024)
-- Rocca, [[https://livebook.manning.com/book/grokking-data-structures][Grokking Data Structures]] (2024)
-
-#+attr_html: :width 600px:
-[[../img/grokking_data_structures_cover.jpg]]
-
 * Data structures are everywhere
 #+attr_html: :width 600px:
 #+caption: Source: La Rocca, Grokking Data Structures (Manning, 2024)
@@ -136,7 +128,7 @@ learn about in this course):
 
 - Algorithms can be described using pseudocode (syntax-free
   code)[fn:1]. Here are three examples for a "fizzbuzz" function:
-  #+attr_html: :width 700px:
+  #+attr_html: :width 600px:
   #+caption: Source: Wikipedia
   [[../img/pseudocodeExamples.png]]
 
@@ -148,7 +140,7 @@ learn about in this course):
 
 - Short formula: Algorithms transform data like verbs acting on nouns.
   #+attr_html: :width 600px:
-  #+caption: Source: La Rocca, Grokking Data Structures (Manning, 2024)x
+  #+caption: Source: La Rocca, Grokking Data Structures (Manning, 2024)
   [[../img/01__image003.png]]
 
 - Some data structures are designed to allow efficient execution of
@@ -279,7 +271,8 @@ nstandardization, style, and portability.
 
 * A mental model for applying data structures
 #+attr_html: :width 700px:
-[[../img/identify_data_structure.svg]]
+#+caption: BPMN model for using data structures
+[[../img/identify_data_structure.png]]
 
 - The implementation comes after everything else.
 - The days of finding solutions through "tinkering" are over.
@@ -352,8 +345,9 @@ start to end for every participant of a process.
 In this case, the participant is the Pet ER Receptionist who interacts
 with the patients by getting forms from the patient, sorts the forms,
 and pulls them from the stack before calling upon the next patient.
-#+attr_html: :width 700px:
-[[../img/pet_emergency_room.svg]]
+#+attr_html: :width 400px:
+#+caption: BPMN models for "Pet Emergency Room" use case
+[[../img/pet_emergency_room.png]]
 
 * The need for efficiency ([[https://opendatastructures.org/ods-cpp/1_1_Need_Efficiency.html][Morin]])
 
@@ -410,16 +404,18 @@ and pulls them from the stack before calling upon the next patient.
 
 * References
 
-- [[B. A. Ulate-Caballero, A. Berrocal-Rojas and J. Hidalgo-Céspedes,
-  "Concurrent and Distributed Pseudocode: A Systematic Literature
-  Review," 2021 XLVII Latin American Computing Conference (CLEI),
-  Cartago, Costa Rica, 2021, pp. 1-10, doi:
-  10.1109/CLEI53233.2021.9640222.][Pseudocode Literature Review - IEEE]]
+- Pseudocode Literature Review - IEEE
 - [[https://en.wikipedia.org/wiki/Spatial_database#Spatial_index][Geospatial Indexing - Wikipedia]]
 - [[https://www.techrepublic.com/article/how-google-maps-works/][How Google Maps Works - TechRepublic]]
 - [[https://www.esri.com/library/bestpractices/spatial-database.pdf][Introduction to Spatial Databases - Esri]]
 - [[https://www.geeksforgeeks.org/trie-insert-and-search/][Trie Data Structure - GeeksforGeeks]]
+- Morin, [[https://opendatastructures.org/ods-cpp/ods-cpp-html.html][Open Data Structures in C++]] (2024)
+- Rocca, [[https://livebook.manning.com/book/grokking-data-structures][Grokking Data Structures]] (2024)
 
+#+attr_html: :width 250px:
+#+caption: Cover De Rocca, Grokking Data Structures (Manning, 2024)
+[[../img/bookCover.jpg]]
+  
 * Footnotes
 
 [fn:1]Though there is no standard, efficient pseudocode is not

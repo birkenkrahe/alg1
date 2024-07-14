@@ -60,7 +60,7 @@ The syllabus is available on [[https://lyon.instructure.com/courses/2623/assignm
    - Willingness to engage in problem-solving and critical thinking
    - Willingness to put in substantial time to program on your own
 
-8) *Grading* (see also *Rubric*)
+8) *Grading* (see also [[https://github.com/birkenkrahe/alg1/blob/main/img/rubric.png][Rubric]])
    - Weekly programming assignments: 50%
    - Weekly multiple-choice tests: 25%
    - Final exam (optional): 25%
@@ -83,7 +83,9 @@ The syllabus is available on [[https://lyon.instructure.com/courses/2623/assignm
    quite different (and quite a bit more complicated, too).
 
    Make sure you take the (optional ) entry quiz and complete the
-   (optional) entry programming assignment if you didn't do it yet.
+   (optional) entry programming assignment if you didn't do it yet. If
+   you meet the August 19, 11:50 pm deadline, you get some bonus
+   points, too.
 
    If you have any weaknesses in the basics (or if you haven't studied
    C++ yet at all), read "The Rook's Guide to C++" for free and answer
@@ -100,8 +102,9 @@ The syllabus is available on [[https://lyon.instructure.com/courses/2623/assignm
    connection.
 
    If that doesn't work for you for whatever reason (connection,
-   convenience etc.) then you can easily install Linux via dual boot
-   or as a virtual machine on your PC.
+   convenience etc.) then you can easily install Linux via dual boot,
+   as a virtual machine on your PC, or on Windows with the WSL
+   system. On MacOS, you have a form of Unix already, so you're set.
 
    In this case, you can put your GitHub skills to good use: create a
    repository for this course where you keep the latest version of all
@@ -143,26 +146,281 @@ The syllabus is available on [[https://lyon.instructure.com/courses/2623/assignm
    #+end_quote
 5. How should you study for this course?
    #+begin_quote
-   
+   1) Code every day no matter how little.
+   2) Review lecture notes and notebooks.
+   3) Participate actively in the class.
+   4) Form study groups and/or join Lyon's Programming Club.
+   5) Complete assignments well before the deadline.
+   6) Practice literate programming by documenting your process.
+   7) Focus on fundamentals, simple examples, solid understanding.
+   8) Drill yourself using the weekly quizzes, make small examples.
+   9) Seek help when needed, on the chat or during office hours.
+   10) Build a code & notebook repository at GitHub for your resume.
    #+end_quote
 
-* IN PROGRESS Development tools
+* Development tools
 
-- Three tools are central to succeeding in this course:
-  1) The Linux operating system
-  2) The Emacs editor with thOrg-mode package
+This section is shared across my courses. Apologies if you have to
+hear/do it twice but remember: imitation/repetition creates mastery!
+
+** Pep talk for developers
+
+- Computer and data science courses are "maker spaces": you're
+  supposed to make stuff rather than only listen and be passive. Your
+  "making" is "developing software", and flex your programming
+  muscles. It's like weight training or running: 15 minutes per day
+  beats 1 hour once a week.
+
+- In computer and data science, your professional development is only
+  as good as your toolkit. Your toolkit for this course includes:
+  1) The Linux operating system and the shell
+  2) The Emacs editor with the Org-mode package
   3) The GitHub software engineering platform
 
-** Linux
+** Linux - the world's premier OS
 
-** Emacs
+- A summer research grant 2024, and the gracious professional support
+  of Lyon's IT Services enabled us to establish a Linux server for
+  exclusive use in computer and data science courses.
+
+- If you completed my Operating Systems course or if you were exposed
+  to Linux in some other way (e.g. via WSL, the Windows Subsystem for
+  Linux), you know more than enough Linux to feel comfortable.
+
+- For the duration of the term, you get your own virtual Linux PC
+  running Ubuntu LTS 22.04. This is where we will do all our
+  work. Emacs, R, Python, C++, SQLite are pre-installed on your PC.
+
+- You can access this PC from anywhere with an Internet connection.
+
+- Having used Linux daily will give you an edge in the job market (esp
+  for server-related jobs), and you should mention it on your resume.
+
+** Emacs - the world's most customizable hacking power tool
 
 - You've most likely worked with Emacs + Org-mode and the literate
   programming approach in my other data science or computing courses.
 
 - Test your memory with a few review questions:
-  1. What is special about Emacs?
-  2. What is Org-mode?
-  3. What is Literate Programming?
 
-** GitHub
+  1. What is special about Emacs?
+     #+begin_quote
+     *Emacs* is a self-extensible, free, open source editor written in a
+     Lisp dialect, and first published in the 1980s by Richard
+     Stallman. It is a hacker- and power-user tool because of its
+     customizability and openess. The vanilla version can be
+     downloaded from [[https://www.gnu.org/software/emacs][gnu.org/software/emacs]]. Famous applications:
+     [[https://orgmode.org][Org-mode]] (for literate programming) and [[https://magit.vc/][magit]] (for
+     Git). Additional resource: [[https://www.gnu.org/software/emacs/refcards/pdf/refcard.pdf][Emacs Reference Card]].
+     #+end_quote
+
+  2. What is Org-mode?
+     #+begin_quote
+     *Org-mode* is an Emacs mode (plugin or extension package) for
+     plain-text note-taking, task management, documentation. It was
+     first released in 2003 by Carsten Dominik. More information at
+     [[https://orgmode.org/][orgmode.org]]. Famous application: [[http://literateprogramming.com/][literate programming]],
+     [[https://orgmode.org/worg/org-tutorials/org-spreadsheet-intro.html][spreadsheets]]. Additional resource: [[https://www.gnu.org/software/emacs/refcards/pdf/orgcard.pdf][Org-mode Reference Card]].
+     #+end_quote
+
+  3. What is Literate Programming?
+     #+begin_quote
+     *Literate Programming* is a programming paradigm introduced by
+     Donald Knuth in the 1970. It emphasises writing code and
+     documentation together to make programs better structured and
+     more enjoyable to read and understand by humans. More information
+     at [[http://literateprogramming.com/][literateprogramming.com]].  Famous application: The
+     [[https://www.ctan.org/starter][TeX typesetting system]].
+     #+end_quote
+
+  4. How can you run the "Hello World" program in C++ inside Emacs?
+     #+begin_src C++ :main yes :includes <iostream> :namespaces std :results output :exports both
+       cout << "Hello, World!" << endl;
+     #+end_src
+     This code chunk is a souped-up (by way of header arguments)
+     version of this complete program:
+     #+begin_src C++ :results output :exports both
+       // include input/output library
+       #include <iostream> 
+       // use standard namespace for cout, endl
+       using namespace std; 
+       int main() { // begin of main function
+         // stream string to standard output then print newline
+         cout << "Hello, world!" << endl;
+         // return 0 when program ran successfully         
+         return 0; 
+       } // end of main function
+     #+end_src
+     The only header arguments left are: =C++= for the language,
+     =:results output= to stream output to the screen, and =:exports both=
+     to export both source code and output (e.g. to LaTeX, Markdown or
+     HTML).
+
+  5. Why are we using Emacs + Org-mode instead of the VSCode or
+     Code::Blocks IDEs?
+     #+begin_quote
+     While VSCode and Code::Blocks are excellent IDEs with their own
+     strengths, Emacs + Org-mode provides a unique combination of
+     customizability, integrated task management, support for literate
+     programming, and a powerful text editing environment that can
+     lead to a more efficient and personalized workflow, and that
+     teaches you important file management and productivity
+     techniques - with a much higher transfer value than other tools.
+     #+end_quote
+
+- Having mastered and used Emacs daily will give you an edge in the
+  job market (esp for programming jobs) and you should mention it as
+  "Literate Programming with Emacs/Org-mode" on your resume.
+
+** GitHub - the world's largest development platform
+
+*[If you are in more than one of my courses, do this only once.]*
+
+- GitHub is the premier software engineering platform. An early user
+  (since 2010) I use it for course materials, but most users are
+  software developers and teams who use Git for version control.
+
+- Besides software development, you can also use it to share code
+  snippets called "gists" (cp. [[https://gist.github.com/search?q=birkenkrahe][my gists]]), and (as students or paying
+  pro subscribers) for AI-assisted code development ("[[https://github.com/codespaces][codespaces]]").
+
+- My course materials were always on GitHub (so that I can develop
+  them on different computers and use it as a central Git-controlled
+  hub). From fall'24, you'll take another step towards software
+  engineering. You must:
+
+  1) [[https://github.com/join][Register with GitHub]] (use your Lyon email address/Google) at
+     [[https://github.com/join][github.com/join]]. You can use this registration with many
+     coding-related sites as login.
+
+  2) Complete (or re-do) the GitHub [[https://docs.github.com/en/get-started/start-your-journey/hello-world][Hello World exercise]] in class. The
+     repo that you create should be called =hello-world=, include a
+     =README= file, a =.gitignore= C++ template, and the =GNU General
+     Public License v3.0=. Writing the =README= will teach you to write
+     Markdown and use the markdown editor. When you are done with the
+     description, you "Commit changes..." to save the file.
+
+  3) [[https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/working-with-forks/fork-a-repo][Fork my course materials]] from [[https://github.com/birkenkrahe/alg1/tree/main][github.com/birkenkrahe/alg1]]. You
+     find the "fork" option at the top of the dashboard. The owner of
+     the forked repo will be notified. Whenever he makes changes, you
+     can update your fork (that'll be almost daily in my case, at
+     least during the term).
+
+  4) [[https://docs.github.com/en/repositories/creating-and-managing-repositories/creating-a-new-repository][Create a (public) repo]] for the code you generate in the course,
+     change your avatar, edit your profile, customize your pins
+
+  5) Submit a screenshot of your GitHub profile that shows the forked
+     course repo, the hello-world repo, your (professional) profile
+     pic and description, like this (=hello-world= is pinned).
+     #+attr_html: :width 600px:
+     [[../img/githubRepo.png]]
+
+  6) Org-mode files from my repos are automatically rendered as markdown
+     in GitHub on the desktop. Footnotes and special layout does not
+     render well, and the mobile GitHub app does not render Org-mode at
+     all.
+
+  7) What the Hello World exercise does not show you is how you use
+     GitHub for your own code across *remote* locations as I do it. For
+     that you need to *clone* your own repo to a remote computer. This is
+     explained in the freeCodeCamp tutorial
+     ([[https://tinyurl.com/guide-to-git][tinyurl.com/guide-to-git]]). There is also a short course (4 hr)
+     [[https://www.datacamp.com/courses/introduction-to-git]["Introduction to Git"]][fn:1] and a [[https://www.datacamp.com/blog/all-about-git][short tutorial]].
+
+  8) How are you going to use GitHub?
+     - You'll regularly update your fork of my course repo.
+     - In this way you have automatic access to the latest materials.
+     - If you have a PC, you can install =git= and =clone= the repo.
+
+  9) Having used GitHub like a professional daily will give you an edge
+     in the job market (esp. for software engineering jobs) and you
+     should mention it (as "GitHub/Git") on your resume.
+
+*** GitHub Hello World Exercise
+
+You've got to be registered at GitHub (github.com/join). Open
+github.com in your browser (Google Chrome is best) and login.
+
+**** Step 1: Create hello-world repo and set it up
+
+- Click on your profile image in the upper right corner, and pick
+  "Your repositories".
+- Click on the green "New" button to create a new repo
+- In the form, choose =hello-world= as repo name
+- Write a minimal description (="Hello World exercise for CSC 240"=)
+- Check ="Public"= (everybody can see this)
+- Check ="Add a README file"=
+- Choose the =.gitignore template: C++=
+- Choose the ="GNU General Public License v3.0"=
+- Click ="Create repository"= at the bottom of the page.
+- If you checked "Add a README file", the Markdown editor will open:
+  enter a description (plain-text), then click on =Preview= to see how
+  it will look like[fn:2].
+- Click on the green ="Commit changes..."= button. A second window
+  appears - make sure you check ="Commit directly to the ~main~ branch"=,
+  and click on ="Commit changes"=.
+- Your repo appears with three auto-created files, =.gitignore=,
+  =LICENSE=, and =README.md=[fn:3].
+
+**** Step 2: Create a branch
+- Go back to the exercise and continue with step 2. Make sure you read
+  the explanation on what a "branch" exactly is. If this is Chinese to
+  you (and you're not Chinese), check out the freeCodeCamp tutorial at
+  [[https://tinyurl.com/guide-to-git][tinyurl.com/guide-to-git]].
+- Essentially, you're posing as a developer who creates a new branch
+  called =readme-edits= besides the =main= branch. Once you've added the
+  branch, you'll see both branches in the =Code= dashboard of your repo.
+
+**** Step 3: Make and commit changes
+
+- You're now asked to make a change to your code base in the new
+  branch using the =README.md= file (a change to any file would be
+  equivalent).
+- Once you made the change, you commit it[fn:4]. You can make as many
+  changes and commits as you like.
+- Your two branches, =main= and =readme-edits= have now diverged.
+
+**** Step 4: Open a pull request
+
+- A "pull request" is a request for the maintainer of =main= to consider
+  using your changes in the =main= code base. Follow the steps of the
+  exercise.
+- After creating a =New pull request=, you can check out the changes in
+  the well-known Linux "diff" format[fn:5], a line-by-line comparison.
+
+**** Step 5: merge your pull request
+
+- The GitHub dashboards seem a little crowded. When you ="View the pull
+  request"=, you find the ="Merge pull request"= button, and since the
+  branches do not report a "conflict", you can go ahead and merge.
+- The pull request is now closed. You can delete the =readme-edits=
+  branch (e.g. by clicking on the branch symbol next to the branch
+  name in the repo dashboard).
+- Now go back to your profile, find =Customize your pins= and pin
+  =hello-world= to the profile as you see it on my GitHub profile.
+
+* Footnotes
+
+[fn:1]Lyon College has a classroom at DataCamp, and if you're
+enrolled, you can ask me to get access to this online
+platform. DataCamp is not for C++ but for SQL, Python and R, as well
+as for tools like Git and the shell.
+
+[fn:2]Markdown is simple layout language: for example =#= gives you a
+headline, =`= (backtick) choose code font, =*= gives you bold face, and =_=
+gives you italics.
+
+[fn:3]Explanation: =.gitignore= contains file types that Git will
+ignore - especially those created in the process of compiling C++
+code - you can add other file types here, e.g. =*.*~= for backup, or
+=*.html= for HTML files; the LICENSE specifies the copyright for
+everything in your repo; the =README.md= file is markdown with a
+description of the repository.
+
+[fn:4]On the shell, the equivalent =git= command is =git commit -m
+"[message]"= following a =git add .= for all changed files. To push a
+commit to the remote code base (=origin=), use =git push=.
+
+[fn:5]That's not a coincidence: both Linux and Git were created by
+Linus Torvalds, a Finnish programmer and (still) leader of the global
+Linux kernel development
