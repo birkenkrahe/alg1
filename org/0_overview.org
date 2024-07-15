@@ -331,6 +331,7 @@ hear/do it twice but remember: imitation/repetition creates mastery!
      - You'll regularly update your fork of my course repo.
      - In this way you have automatic access to the latest materials.
      - If you have a PC, you can install =git= and =clone= the repo.
+     - If you have Emacs, you can install =magit= and use Git that way.
 
   9) Having used GitHub like a professional daily will give you an edge
      in the job market (esp. for software engineering jobs) and you
