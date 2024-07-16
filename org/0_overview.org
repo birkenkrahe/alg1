@@ -131,18 +131,19 @@ The syllabus is available on [[https://lyon.instructure.com/courses/2623/assignm
 4. What are your favorite programming languages?
    #+begin_quote
    Though I have (passing) knowledge of many programming languages,
-   C++ and Python are becoming my main go-to languages for performance
-   (C++) and data science (Python), and SQL for database applications.
+   C++, Python, SQL and Lisp are becoming my main go-to languages for
+   performance (C++), data science (Python), database applications
+   (SQL), and Emacs customization (Lisp).
 
    R is great for visualization and stats, and was another one of my
    favorite languages but it has fallen out of my quality world
    because of the dominance of the "Tidyverse" ([[https://github.com/matloff/TidyverseSkeptic][see here]]).
 
-   I learnt these languages at different times in my life: C++ in the
-   1990s (shortly after it was invented), SQL in 2005, R in 2019, and
-   Python in 2023. C++ has developed massively since then though and I
-   am more comfortable with its subset C than with many of the modern
-   developments of the language - but I'm keen to learn!
+   I learnt these languages at different times in my life: Lisp
+   because of Emacs (late 1980s), C++ in the 1990s, SQL in 2005, R in
+   2019, and Python in 2022. C++ has developed massively since then
+   though and I am more comfortable with its subset C than with many
+   of the modern developments of the language - but I'm keen to learn!
    #+end_quote
 5. How should you study for this course?
    #+begin_quote
