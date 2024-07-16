@@ -6,9 +6,21 @@
 #+PROPERTY: header-args:C++ :main yes :includes <iostream> :results output :exports both :noweb yes
 * Overview
 
-Fast paced C++ review and overview including:
+*Fast paced C++ review and overview including:*
 1) Structure of C++ programs
-2) "Hello world" sample program
+2) "Hello world" sample program 
+3) =main= function, =#include= and =namespace=
+4) Declaring and initializing variables
+5) Conditional control statements
+6) Functions
+7) Printing format specifiers
+8) Comments
+9) Debugging with =gdb= and pythontutor.
+10) Simple Exercises for class and home assignments
+
+Just enough to be able to follow the rest of the course!
+
+You should code along for a large part of this lecture!
 
 * The Structure of a Basic C++ Program
 
@@ -154,7 +166,9 @@ and code along. To create a C++ code block, enter ~<s TAB C++~.
 
 - When you define your own functions (or classes and their member
   functions), you need to declare them before =main= (you can define
-  them after):
+  them later).
+
+- In this code, ~hello~ is declared as a prototype, and defined later:
   #+begin_src C++ :tangle hw2.cpp :main no :includes <iostream> :namespaces std :results output :exports both
     void hello(); // function declaration (prototype)
 
@@ -171,9 +185,87 @@ and code along. To create a C++ code block, enter ~<s TAB C++~.
   #+RESULTS:
   : hello
 
-* NEXT =#include=
+* =#include=
+
+- Most programming languages incorporate library functions. Libraries
+  are often sizeable and must be installed, sometimes compiled from
+  source, and they're linked to the language version used.
+
+- Python, Go and Java have =import=. Here's a Python example:
+  #+begin_src python :results output :session *Python* :python python3 :exports both
+    import numpy # import library (install with `pip`)
+    [print(_) for _ in globals()]
+  #+end_src
+
+  #+RESULTS:
+  #+begin_example
+  __name__
+  __doc__
+  __package__
+  __loader__
+  __spec__
+  __annotations__
+  __builtins__
+  codecs
+  os
+  __pyfile
+  __code
+  __org_babel_python_format_value
+  __PYTHON_EL_native_completion_setup
+  f
+  np
+  x
+  math
+  numpy
+  #+end_example
+
+- R has =library=:
+  #+begin_src R :session *R* :results output :exports both
+    library(MASS) # import stats library (install with `install.packages`
+    search()
+  #+end_src
+
+  #+RESULTS:
+  : [1] ".GlobalEnv"        "package:MASS"      "ESSR"              "package:stats"    
+  :  [5] "package:graphics"  "package:grDevices" "package:utils"     "package:datasets" 
+  :  [9] "package:methods"   "Autoloads"         "package:base"
+
+- Rust and C# have =use=, JavaScript, Lua, Perl and PHP have =require=,
+  and C/C++ have =include=.
+
+- In the C++ examples so far, we included =iostream= (for =cout= and =<<=),
+  and =cstdio= (for =printf=).
+
+- The command =#include= is only one of many possible /preprocessor/
+  directives
 
 * =namespace=
+
+- Namespaces prevent naming conflicts. For example, when importing
+  libraries, namespaces are essential for identifying symbols.
+
+- The keyword =cout= to direct output to standard output devices (like a
+  screen) is defined in the =std= namespace ('standard'). Its full name
+  is therefore =std::cout=.
+
+- You can employ a =using= (preprocessor) directive to avoid a lot of
+  typing:
+  #+begin_src C++ :main yes :includes <iostream> :results output :exports both
+    using namespace std;
+    cout << "Much shorter than..." << endl;
+    std::cout << "...this statement." << std::endl;    
+  #+end_src
+
+  #+RESULTS:
+  : Much shorter than...
+  : ...this statement.
+  
+- This is the same thing that's going on when using =import= in Python
+  and choosing an alias:
+  #+begin_src python :results output :session *Python* :python python3 :exports both
+    import random
+  #+end_src
+ 
 
 * The C++ Type System
 * Declaring Variables
@@ -183,7 +275,30 @@ and code along. To create a C++ code block, enter ~<s TAB C++~.
 * Print format specifiers
 * Comments
 * Debugging
+* Exercises
 * Glossary
+
+| Term         | Definition                                                              |
+|--------------+-------------------------------------------------------------------------|
+| main         | Program entry point in C++                                              |
+| #include     | Preprocessor directive to include libraries                             |
+| printf       | Function to print formatted output                                      |
+| cout         | Standard output stream                                                  |
+| endl         | Add new line                                                            |
+| int          | Integer data type in                                                    |
+| void         | Specifies that a function takes no arguments or returns no value        |
+| std::endl    | Manipulator to insert a newline character and flush the stream          |
+| gcc          | GNU Compiler Collection for compiling C/C++ programs                    |
+| Emacs        | Editor for creating source code                                         |
+| bash         | Shell for running executable files                                      |
+| linker       | Tool to link libraries to the source code                               |
+| compiler     | Tool to turn source code into executable code                           |
+| library      | Collection of pre-compiled routines used in programming                 |
+| Org-mode     | An Emacs mode for keeping notes, planning, and authoring documents      |
+| code chunk   | A block of code within a document (Org-mode)                            |
+| header       | The beginning part of a code chunk specifying its parameters (Org-mode) |
+| return       | Statement to exit a function and optionally pass back a value           |
+| function     | A block of code designed to perform a specific task                     |
 
 * Summary
 
