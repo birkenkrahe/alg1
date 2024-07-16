@@ -140,8 +140,8 @@ development.
 
 * Lyon College Standard Policies
 
-- [[https://tinyurl.com/LyonPolicyOnline][tinyurl.com/LyonPolicyOnline]], see also [[https://catalog.lyon.edu/class-attendance][Class Attendance]] policy
-
+- [[https://tinyurl.com/LyonPolicyOnline][tinyurl.com/LyonPolicyOnline]], see also [[https://catalog.lyon.edu/class-attendance][Class Attendance]] policy  
+  
 * Schedule
 
 "Data structures" and "algorithms" are a little hard to separate:
