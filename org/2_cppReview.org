@@ -5,7 +5,187 @@
 #+OPTIONS: toc:nil num:nil ^:nil
 #+PROPERTY: header-args:C++ :main yes :includes <iostream> :results output :exports both :noweb yes
 * Sources
-* Overview
+
+- This section losely follows chapter 1 (pp. 50-76) of the "C++ Crash
+  Course: A Fast-Pace Introduction" by J Lospinoso (NoStarch, 2019).
+
+* The Structure of a Basic C++ Program
+
+- What is required to create and run a C++ program?
+  #+begin_quote
+  1. An editor to create the source code (like Emacs).
+  2. A compiler to turn the source code into executable code (like GCC).
+  3. A linker to link libraries (like =iostream=) to the source code file.
+  4. A shell (or an IDE with a shell) to run the executable (like =bash=).
+  #+end_quote
+
+- What must every C++ program have?
+  #+begin_quote
+  A =main= function. Optional: Preprocessor directives (like =#include=).
+  #+end_quote
+
+* A first C++ program in six incarnations
+
+For this section, fire up Emacs, open a file (~C-x C-f first.org RET)~
+and code along. To create a C++ code block, enter ~<s TAB C++~.
+
+1) Example: "Hello world" program - can you explain every line?
+   #+begin_src C++ :results output :exports both
+     #include <cstdio>
+
+     int main() {
+
+       printf("Hello, world!");
+
+       return 0;
+     }
+   #+end_src
+
+   #+RESULTS:
+   : Hello, world!
+
+2) A good habit: Provide ample comments (espcially at the beginning)
+   #+begin_src C++ :results output :exports both
+     /* --------------------------------------------*/
+     /* Print a string to a standard output device  */
+     /* --------------------------------------------*/
+     // include standard input/output library
+     #include <cstdio>
+     // main program
+     int main() {  // return integer, take no argument (void)
+       // print string
+       printf("Hello, world!");
+       // return 0 if successful
+       return 0;
+     } // end of main program
+   #+end_src
+
+   #+RESULTS:
+   : Hello, world!
+
+3) Here is another version: What's different?
+   #+begin_src C++ :results output :exports both
+     /* --------------------------------------------*/
+     /* Print a string to a standard output device  */
+     /* Use character array and formatted printing  */
+     /* --------------------------------------------*/
+     #include <cstdio>
+     // main program
+     int main() {  // return integer, take no argument (void)
+       // declare and initialize character array
+       char greeting[] = {"Hello, world!"};
+       // print string
+       printf("%s\n", greeting);
+       // return 0 if successful
+       return 0;
+     } // end of main program
+   #+end_src
+
+   #+RESULTS:
+   : Hello, world!
+
+4) And another version: What's different?
+   #+begin_src C++ :results output :exports both
+     /* --------------------------------------------*/
+     /* Print a string to a standard output device  */
+     /* Use iostream and stream extraction cout <<  */
+     /* --------------------------------------------*/
+     #include <iostream>
+     // main program
+     int main() {  // return integer, take no argument (void)
+       // print string
+       std::cout << "Hello, world!" << std::endl;
+       // return 0 if successful
+       return 0;
+     } // end of main program
+   #+end_src
+
+   #+RESULTS:
+   : Hello, world!
+
+5) With the magic of Emacs + Org-mode, one could almost believe that
+   C++ was Python or R - what's different?
+   #+begin_src C++ :main yes :includes <iostream> :namespaces std :tangle hw.cpp :results output :exports both
+     // print string to standard output device
+     cout << "Hello, world!" << endl;
+   #+end_src
+
+   #+RESULTS:
+   : Hello, world!
+
+6) Literate programming: The last code block can be "tangled" into
+   source code:
+   #+begin_src bash :results output :exports both
+     cat hw.cpp
+   #+end_src
+
+7) The source code file can be compiled and run on the command line (or
+   in a shell in this Org-mode file):
+   #+begin_src bash :results output :exports both
+     g++ -o hello hw.cpp
+     ./hello
+   #+end_src
+
+   #+RESULTS:
+   : Hello, world!
+
+* =main=
+
+- All C++ programs have a single entry point called the =main= function.
+
+- Functions are blocks of code that can take input and return results:
+  #+begin_src C++ :tangle hw2.cpp :main no :includes <iostream> :namespaces std :results output :exports both
+    void hello() { // function declaration and definition
+      cout << "hello" << endl;
+    }
+    main() { // program entry point
+      hello();  // function call
+    }
+  #+end_src
+
+  #+RESULTS:
+  : hello
+
+- Look at the tangled file:
+  #+begin_src bash :results output :exports both
+    cat hw2.cpp
+  #+end_src
+
+- When you define your own functions (or classes and their member
+  functions), you need to declare them before =main= (you can define
+  them after):
+  #+begin_src C++ :tangle hw2.cpp :main no :includes <iostream> :namespaces std :results output :exports both
+    void hello(); // function declaration (prototype)
+
+    int main() { // program entry point
+      hello();  // function call
+      return 0;
+    }
+
+    void hello() { // function definition
+      cout << "hello" << endl;
+    }
+  #+end_src
+
+  #+RESULTS:
+  : hello
+
+* NEXT =#include=
+
+* =namespace=
+
+* The C++ Type System
+* Declaring Variables
+* Initializing a Variable's State
+* Conditional Statements
+* Functions
+* Print format specifiers
+* Comments
+* Debugging
+* Glossary
+
+* Summary
+
 
 ** Presentation of Content (20 minutes)
 *** C++ Syntax
@@ -78,7 +258,7 @@
   #+TITLE: [title]
   #+AUTHOR: [your name] (pledged)
   #+SUBTITLE: [class and topic]
-  #+end_example  
+  #+end_example
 
 *** Solution:
 
@@ -88,7 +268,7 @@ Fundamental data types in C++ are: integer =int=, floating-point =float=
 and =double=, character =char=, and Boolean =bool=.
 
 #+begin_src C++ :main yes :includes <iostream> :namespaces std :results output :exports both
-    
+
 #+end_src
 
 - Create a simple calculator program using arithmetic operators
