@@ -8,7 +8,7 @@
 
 *Fast paced C++ review and overview including:*
 1) Structure of C++ programs
-2) "Hello world" sample program 
+2) "Hello world" sample program
 3) =main= function, =#include= and =namespace=
 4) Declaring and initializing variables
 5) Conditional control statements
@@ -40,7 +40,8 @@ You should code along for a large part of this lecture!
 * A first C++ program in six incarnations
 
 For this section, fire up Emacs, open a file (~C-x C-f first.org RET)~
-and code along. To create a C++ code block, enter ~<s TAB C++~.
+and code along. To create a C++ code block, enter ~<s TAB C++~, to run
+it, ~C-c C-c~. What happens when you run a code block?[fn:2]
 
 1) Example: "Hello world" program - can you explain every line?
    #+begin_src C++ :results output :exports both
@@ -57,7 +58,7 @@ and code along. To create a C++ code block, enter ~<s TAB C++~.
    #+RESULTS:
    : Hello, world!
 
-2) A good habit: Provide ample comments (espcially at the beginning)
+2) A good habit: Provide ample comments (especially at the beginning)
    #+begin_src C++ :results output :exports both
      /* --------------------------------------------*/
      /* Print a string to a standard output device  */
@@ -107,7 +108,7 @@ and code along. To create a C++ code block, enter ~<s TAB C++~.
      // main program
      int main() {  // return integer, take no argument (void)
        // print string
-       std::cout << "Hello, world!" << std::endl;
+       std::cout << "Hello, world!" << std::endl; // << "\n"; would also work
        // return 0 if successful
        return 0;
      } // end of main program
@@ -226,8 +227,8 @@ and code along. To create a C++ code block, enter ~<s TAB C++~.
   #+end_src
 
   #+RESULTS:
-  : [1] ".GlobalEnv"        "package:MASS"      "ESSR"              "package:stats"    
-  :  [5] "package:graphics"  "package:grDevices" "package:utils"     "package:datasets" 
+  : [1] ".GlobalEnv"        "package:MASS"      "ESSR"              "package:stats"
+  :  [5] "package:graphics"  "package:grDevices" "package:utils"     "package:datasets"
   :  [9] "package:methods"   "Autoloads"         "package:base"
 
 - Rust and C# have =use=, JavaScript, Lua, Perl and PHP have =require=,
@@ -253,52 +254,348 @@ and code along. To create a C++ code block, enter ~<s TAB C++~.
   #+begin_src C++ :main yes :includes <iostream> :results output :exports both
     using namespace std;
     cout << "Much shorter than..." << endl;
-    std::cout << "...this statement." << std::endl;    
+    std::cout << "...this statement." << std::endl;
   #+end_src
 
   #+RESULTS:
   : Much shorter than...
   : ...this statement.
-  
+
 - This is the same thing that's going on when using =import= in Python
-  and choosing an alias:
+  and choosing an alias: =np= allows you to access all members of the
+  =numpy= library, e.g. the =array= function.
   #+begin_src python :results output :session *Python* :python python3 :exports both
-    import random
+    import numpy as np
+    x = np.array([1,2,3,4,5]) # define
+    print(x)
   #+end_src
- 
+
+  #+RESULTS:
+  : [1 2 3 4 5]
+
+- In Emacs Lisp (the language most of Emacs is written in),
+  =org-version= is a member of two namespaces: it's the name of a
+  variable, and a function of the same name:
+  #+begin_src emacs-lisp :results value
+    (message org-version) ;; extract variable - prints 9.7.7
+    (org-version)  ;; run function - prints 9.7.7
+  #+end_src
+
+  #+RESULTS:
+  : 9.7.7
+
+- By default, all symbols you declare go into the global namespace.
+  In C++, you can define your own namespace and place your symbols
+  into it - this affords additional /encapsulation/, an important
+  principle of object-oriented programming.
 
 * The C++ Type System
-* Declaring Variables
-* Initializing a Variable's State
+
+- C++ is an object-oriented (OO) programming language. What does that
+  mean?
+
+- Everything in C++ has a state and a behavior, something it is
+  (attribute, feature), and something it can do (method, function).
+
+- Example: A car.
+  1. The car's states are moving or standing.
+  2. The car has a certain weight, a color, a brand.
+  3. The car can move, accelerate, stop, honk.
+
+- In addition, some of the properties of the car can be considered
+  "private" or hidden (e.g. the fuel state - empty or full, or the
+  mileage) while others are "public" or visible (e.g. the color and
+  the brand).
+
+- The Unified Modeling Language (UML) has a diagram ("class diagram")
+  just for the description of objects and their relationships, like
+  this[fn:1]:
+  #+BEGIN_SRC dot :file car_class_diagram.png :exports results
+    digraph G {
+    node [shape=record];
+    Car [
+    label="{Car|
+    - fuel: bool\n
+    - mileage: float\n
+    + color: string\n
+    + brand: string|
+    + honk(): void\n
+    + move(): void\n
+    + stop(): void
+    }"
+    ];
+    }
+  #+END_SRC
+
+#+RESULTS:
+[[file:car_class_diagram.png]]
+
+- A data type is the collection of behaviors and states that describe
+  an object. In our example, the =car= is a user-defined data type.
+
+- C++ is a /strongly typed language/, which means that each object has a
+  predefined data type.
+
+- Example: =int= represents the built-in integer type.
+  1. An =int= object can store whole numbers (state).
+  2. An =int= object represents a certain amount of memory (state).
+  3. An =int= object supports math operations (behavior).
+  4. An =int= object is printed with the =%d= format specifier (state).
+
+- To do anything with objects, you need to name them. Named objects
+  become variables.
+
+* Declaring and Initializing Variables
+
+- You declare variables by providing their type, followed by their
+  name, followed by a semicolon:
+  #+begin_src C++ :main yes :includes <iostream> :namespaces std :results output :exports both
+    int foo;  // declare integer variable named `foo`
+  #+end_src
+
+- When you declare a variable, you initialize it - set its initial
+  state such as setting its value and/or reserving memory for later
+  assignment of a value:
+  #+begin_src C++ :main yes :includes <iostream> :namespaces std :results output :exports both
+    // declare
+    int foo;
+    // define
+    foo = 42;
+    // declare and define
+    int bar = 2;
+
+    // declare and define after evaluating an expression
+    int baz = foo * bar;
+
+    // print all variables
+    cout << foo << " * " << bar << " = " << baz << " " << endl;
+  #+end_src
+
+  #+RESULTS:
+  : 42 * 2 = 84
+
+- What happens if you divide two integers and the numerator is not a
+  multiple of the denominator?
+  #+begin_src C++ :main yes :includes <iostream> :namespaces std :results output :exports both
+    int foo = 42, bar = 4;
+    cout << foo/bar << endl; // 42 / 4 = 40/4 + 2/4 = 10 1/2 = 10.5
+  #+end_src
+
+  #+RESULTS:
+  : 10
+
+- Answer:
+  #+begin_src C++ :main yes :includes <iostream> :namespaces std :results output :exports both
+    // Widening conversion
+    int foo = 42, bar = 4;
+    cout << float(foo)/float(bar) << endl; // 42 / 4 = 40/4 + 2/4 = 10 1/2 = 10.5
+  #+end_src
+
+  #+RESULTS:
+  : 10.5
+
+- The other common built-in data types besides =int= are =float= and =bool=.
+
 * Conditional Statements
+
+- Conditional statements allow you to make decisions based on Boolean
+  expressions, which evaluate to true or false.
+
+- You can use comparison operators like ==== or =<== to build up Boolean
+  expressions that represent logical choices: "When the sun shines,
+  the weather is good," can be translated into this C++ code:
+  #+begin_src C++ :main yes :includes <iostream> :namespaces std :results output :exports both
+    // premise
+    bool sun = false; // true = 1 or false = 0 also works
+    // conclusion
+    if (sun == true) {
+      // good weather: sun is shining
+      cout << "The weather is good" << endl;
+     } else {
+      // bad weather: sun is not shining
+      cout << "The weather is bad" << endl;
+     }
+  #+end_src
+
+  #+RESULTS:
+  : The weather is good
+
+- Can you change the program to represent the following statement:
+  "When the sun shines and there's rain, we're getting rainbows."
+  #+begin_src C++ :main yes :includes <iostream> :namespaces std :results output :exports both
+    // premise
+    bool sun = true, rain = true;
+    // conclusion
+    if (sun == true and rain == true) { // && would also work instead of `and`
+      // good weather: sun is shining
+      cout << "We're getting rainbows" << endl;
+     } else {
+      // bad weather: sun is not shining
+      cout << "We're not getting rainbows" << endl;
+     }
+  #+end_src
+
+  #+RESULTS:
+  : We're getting rainbows
+
+- If the first =if= condition is not true, the =else= statement is
+  executed. You can also have any number of choices tested in
+  cascading =else if= conditions (the =else= is optional):
+  #+begin_src C++ :main yes :includes <iostream> :namespaces std :results output :exports both
+    int x = 0;
+    if (x > 0) printf("Positive.");  // branch one
+     else if (x < 0) printf("Negative."); // branch two
+     else printf("Zero."); // default branch
+  #+end_src
+
+  #+RESULTS:
+  : Zero.
+
 * Functions
 * Print format specifiers
 * Comments
 * Debugging
 * Exercises
+
+1. fix program (syntax)
+
+2. fix code chunk (missing main)
+
+3. Print the integer 5 in two different ways.
+
+   Solution:
+   #+begin_src C++ :main yes :includes <iostream> :namespaces std :results output :exports both
+     printf("%d\n", 5);
+     cout << 5 << endl;
+   #+end_src
+
+   #+RESULTS:
+   : 5
+   : 5
+
+4. Declare and initialize the following variables in as few lines as
+   possible: c as 'a', i as -1000, k as 150, x as 2.5, b as false, and
+   then print them using =cout=.
+
+   Solution:
+   #+begin_src C++ :main yes :includes <iostream> :namespaces std :results output :exports both
+     char c = 'a';
+     int i = -1000, k = 150, b = 0;
+     float x = 2.5;
+     // bool b = false;
+     cout << c << " " << i << " " << k << " " << x << " " << b << endl;
+   #+end_src
+
+   #+RESULTS:
+   : a -1000 150 2.5 0
+
+5. Can you change the program to represent the following statement:
+   "When the sun shines, it's sunny; otherwise, when it rains, it's
+   rainy; otherwise, it's neither sunny nor rainy." Run the program
+   with these values:
+   1) no sun, no rain
+   2) no sun, but rain
+   3) both sun and rain
+   #+begin_src C++ :main yes :includes <iostream> :namespaces std :results output :exports both
+     bool sun = false, rain = true;
+     if (sun == true) printf("It's sunny.");
+      else if (rain == true) printf("It's rainy");
+      else printf("It's neither sunny nor rainy.");
+   #+end_src
+
+   #+RESULTS:
+   : It's rainy
+
+6. Put this into code using Boolean variables and condition
+   statements: "Socrates is a man. All men are mortal. Therefore,
+   Socrates is mortal."
+      #+begin_src C++ :main yes :includes <iostream> :namespaces std :results output :exports both
+        // premise
+        bool SocratesIsAman = true, menAreMortal = true;
+        // conclusion
+        if (SocratesIsAman == true and menAreMortal == true) {
+          printf("Socrates is mortal.");
+         }
+      #+end_src
+
+      #+RESULTS:
+      : Socrates is mortal.
+
+7. functions
+
+8. format specs
+
+9. comments
+
+10. debugging
+
+* Review questions
+
+1) What's the difference between these three statements, and what will
+   the output be?
+   #+begin_src C++ :main yes :includes <iostream> :namespaces std :results output :exports both
+     cout << "One" << endl;
+     cout << "Two" << "\n";
+     std::cout << "Three" << std::endl;
+   #+end_src
+
+   #+RESULTS:
+   : One
+   : Two
+   : Three
+
+2) What is a named object also called?
+   #+begin_quote
+   A variable.
+   #+end_quote
+
+3) What's the meaning of =public= and =private= states?
+   #+begin_quote
+   Public states are visible, private states are hidden.
+   #+end_quote
+
+4) What's a "class diagram"?
+   #+begin_quote
+   A static structure diagram in the Unified Modeling Language (UML)
+   that describes the structure of a system by showing attributes (or
+   states), methods (or behavior), and the relationships among
+   objects, and indicates if attributes and methods are public or
+   private.
+   #+end_quote
+
 * Glossary
 
-| Term         | Definition                                                              |
-|--------------+-------------------------------------------------------------------------|
-| main         | Program entry point in C++                                              |
-| #include     | Preprocessor directive to include libraries                             |
-| printf       | Function to print formatted output                                      |
-| cout         | Standard output stream                                                  |
-| endl         | Add new line                                                            |
-| int          | Integer data type in                                                    |
-| void         | Specifies that a function takes no arguments or returns no value        |
-| std::endl    | Manipulator to insert a newline character and flush the stream          |
-| gcc          | GNU Compiler Collection for compiling C/C++ programs                    |
-| Emacs        | Editor for creating source code                                         |
-| bash         | Shell for running executable files                                      |
-| linker       | Tool to link libraries to the source code                               |
-| compiler     | Tool to turn source code into executable code                           |
-| library      | Collection of pre-compiled routines used in programming                 |
-| Org-mode     | An Emacs mode for keeping notes, planning, and authoring documents      |
-| code chunk   | A block of code within a document (Org-mode)                            |
-| header       | The beginning part of a code chunk specifying its parameters (Org-mode) |
-| return       | Statement to exit a function and optionally pass back a value           |
-| function     | A block of code designed to perform a specific task                     |
+| Term           | Definition                                                       |
+|----------------+------------------------------------------------------------------|
+| main           | Program entry point in C++                                       |
+| #include       | Preprocessor directive to include libraries                      |
+| printf         | Function to print formatted output                               |
+| cout           | Standard output stream                                           |
+| endl           | Add new line                                                     |
+| int            | Integer data type in                                             |
+| void           | Specifies that a function takes no arguments or returns no value |
+| std::endl      | Manipulator to insert a newline character and flush the stream   |
+| gcc            | GNU Compiler Collection for compiling C/C++ programs             |
+| Emacs          | Editor for creating source code                                  |
+| bash           | Shell for running executable files                               |
+| linker         | Tool to link libraries to the source code                        |
+| compiler       | Tool to turn source code into executable code                    |
+| library        | Collection of pre-compiled routines used in programming          |
+| Org-mode       | An Emacs mode for keeping notes, planning, authoring documents   |
+| code chunk     | A block of code within a document (Org-mode)                     |
+| header         | The top of a code chunk specifying its parameters (Org-mode)     |
+| return         | Statement to exit a function and optionally pass back a value    |
+| function       | A block of code designed to perform a specific task              |
+| C++            | An object-oriented (OO) programming language.                    |
+| OOP language   | A programming language that supports objects                     |
+| object         | Abstract entity with a state (attribute) and behaviour (method)  |
+| state          | The attribute or feature of an object, representing what it is   |
+| behavior       | The method or function of an object, representing what it can do |
+| type           | The collection of behaviors and states that describe an object   |
+| strongly typed | A language in which each object has a predefined data type       |
+| int            | Represents the built-in integer type in C++                      |
+| variable       | A named object used to store data                                |
+| class diagram  | Static structure diagram in the Unified Modeling Language (UML)  |
 
 * Summary
 
@@ -413,3 +710,16 @@ and =double=, character =char=, and Boolean =bool=.
 - Bastani, Hamsa and Bastani, Osbert and Sungu, Alp and Ge, Haosen and
   Kabakcı, Özge and Mariman, Rei, Generative AI Can Harm Learning
   (July 15, 2024). [[https://papers.ssrn.com/sol3/papers.cfm?abstract_id=4895486&s=03#][Available at ssrn.com]].
+
+* Footnotes
+
+[fn:2]The source code is completed using the header arguments (if any)
+to create a source file, which is handed over to the compiler. If this
+file is syntactically correct, it will compile, and then run. Emacs
+does all of this in the background. Since C++ is a compiled, not an
+interpreted language (like Python or R), there is no continuous
+session.
+
+[fn:1]To render the =dot= language in Emacs, you need to install
+graphviz (=sudo apt install graphviz=), and add =(dot . t)= to the other
+languages already loaded in your =.emacs= configuration file.
