@@ -693,9 +693,48 @@ it, ~C-c C-c~. What happens when you run a code block?[fn:1]
 
 * Debugging
 
-- Let's write a simple program and step through it using the GNU
-  debugger, =gdb=.
+- Let's update the ~step~ function with =prinf= commands for output, and
+  then step through it with the GNU debugger, =gdb=.
 
+- You have to install =gdb= in terminal (=M-x shell=) with the following
+  super-user command (after an update):
+  #+begin_example bash
+    sudo apt update -y
+    sudo apt install gdb -y
+  #+end_example
+
+- Now =gdb --version= should work:
+  #+begin_example
+  aletheia@pop-os:~/GitHub$ gdb --version
+  GNU gdb (Ubuntu 12.1-0ubuntu1~22.04.2) 12.1
+  Copyright (C) 2022 Free Software Foundation, Inc.
+  License GPLv3+: GNU GPL version 3 or later <http://gnu.org/licenses/gpl.html>
+  This is free software: you are free to change and redistribute it.
+  There is NO WARRANTY, to the extent permitted by law.
+  #+end_example
+
+- The code now includes 
+  #+begin_src C++ :main no :includes <iostream> :namespaces std :results output :exports both
+    /* ---------------------------------------------------------- */
+    /* step function:                                             */
+    /* set y=-1 for negative x, y=1 for positive x, y=0 for x=0   */
+    /* ---------------------------------------------------------- */
+    // function definition
+    int step(int x) {
+      int result = 0;
+      if (x < 0) {
+        result = -1;
+      } else if (x > 0) {
+        result = 1;
+      }
+      return result;
+    } // end of function
+    // main program
+    int main() {
+      
+  #+end_src
+
+  #+RESULTS:
   
 
 - XCode (on MacOS) and VSCode have debuggers that you can use in a
