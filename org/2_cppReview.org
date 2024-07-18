@@ -41,7 +41,7 @@ You should code along for a large part of this lecture!
 
 For this section, fire up Emacs, open a file (~C-x C-f first.org RET)~
 and code along. To create a C++ code block, enter ~<s TAB C++~, to run
-it, ~C-c C-c~. What happens when you run a code block?[fn:2]
+it, ~C-c C-c~. What happens when you run a code block?[fn:1]
 
 1) Example: "Hello world" program - can you explain every line?
    #+begin_src C++ :results output :exports both
@@ -309,7 +309,7 @@ it, ~C-c C-c~. What happens when you run a code block?[fn:2]
 
 - The Unified Modeling Language (UML) has a diagram ("class diagram")
   just for the description of objects and their relationships, like
-  this[fn:1]:
+  this[fn:2]:
   #+BEGIN_SRC dot :file car_class_diagram.png :exports results
     digraph G {
     node [shape=record];
@@ -942,9 +942,17 @@ it, ~C-c C-c~. What happens when you run a code block?[fn:2]
    #+end_src
 
    #+RESULTS:
-   : 100 200 300 400 500 
+   : 100 200 300 400 500
 
-10) [debugger]
+10) What is pseudocode good for?
+    #+begin_quote
+    - Understanding your problem before coding a solution
+    - Check the logic of your algorithm (in abstracto = without detail)
+    - Plan your program (without being bothered by syntax issues)
+    - Create text that you can reuse to comment your code
+    #+end_quote
+
+11) [debugger]
 
 * Glossary
 
@@ -1104,21 +1112,21 @@ and =double=, character =char=, and Boolean =bool=.
 
 * Footnotes
 
-[fn:4]These constants are: Pi, the Euler number (exp(1)), and the
-fine-structure (or Sommerfeld) constant, the strength of the
-electromagnetic interaction between elementary charged particles.
-
-[fn:3]Step functions are important e.g. as activation functions for
-neural nets, in signal processing and digital circuits, and wherever
-abrupt changes are being modeled.
-
-[fn:2]The source code is completed using the header arguments (if any)
+[fn:1]The source code is completed using the header arguments (if any)
 to create a source file, which is handed over to the compiler. If this
 file is syntactically correct, it will compile, and then run. Emacs
 does all of this in the background. Since C++ is a compiled, not an
 interpreted language (like Python or R), there is no continuous
 session.
 
-[fn:1]To render the =dot= language in Emacs, you need to install
+[fn:2]To render the =dot= language in Emacs, you need to install
 graphviz (=sudo apt install graphviz=), and add =(dot . t)= to the other
 languages already loaded in your =.emacs= configuration file.
+
+[fn:3]Step functions are important e.g. as activation functions for
+neural nets, in signal processing and digital circuits, and wherever
+abrupt changes are being modeled.
+
+[fn:4]These constants are: Pi, the Euler number (exp(1)), and the
+fine-structure (or Sommerfeld) constant, the strength of the
+electromagnetic interaction between elementary charged particles.
