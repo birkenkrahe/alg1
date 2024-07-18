@@ -691,7 +691,16 @@ it, ~C-c C-c~. What happens when you run a code block?[fn:1]
      #+RESULTS:
      : 65
 
-* IN PROGRESS Debugging
+* Debugging
+
+- Let's write a simple program and step through it using the GNU
+  debugger, =gdb=.
+
+  
+
+- XCode (on MacOS) and VSCode have debuggers that you can use in a
+  similar way.
+
 * IN PROGRESS Exercises
 
 1. fix program (syntax)
