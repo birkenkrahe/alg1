@@ -551,10 +551,145 @@ it, ~C-c C-c~. What happens when you run a code block?[fn:2]
   #+RESULTS:
   :     3.1459
   : |----|----|
-    
-* Comments
 
+- 
+  #+begin_src C++ :main yes :includes <iostream> :namespaces std :results output :exports both
 
+  #+end_src
+
+- People have strong opinions when it comes to teaching C++ I/O:
+  1) =cstdio::printf= goes back to C and has a lot more flexibility but
+     is also more error prone.
+  2) =iostream::cout= is part of the C++ standard library but involves a
+     lot of complicated concepts (stream buffers, =<<= operator, =flush=
+     into a /destructor/ method, =setf= etc.).
+
+* Comments (and Pseudocode)
+
+- Comments (like pseudocode) are non-standard and subjective.
+
+- You can't overdo it with comments when learning a language
+
+- Professional commenting is different (for code sharing)
+
+- When you use literate programming techniques and apps (like Emacs +
+  Org-mode, or Jupyter, or noweb), you don't need any comments at all.
+
+- At the start, you should write pseudocode for every new algorithm,
+  and your pseudocode should turn into comments
+
+- The most important comment is the multi-line description of your
+  program at the top.
+
+- Example (Smith, 2023): write pseudocode for the following problem.
+  #+begin_quote
+  This program will request a student's score from the user. If the
+  score is above 60 then a "passed" message will be delivered; if not,
+  a "failed" message will be delivered.
+  #+end_quote
+
+- Sample solution:
+  
+  1) First attempt - what are the pros and cons?
+     #+begin_example   
+     // load I/O library
+   
+     // get user input
+   
+     // compute result
+
+     // print result
+     #+end_example
+
+     #+begin_quote
+     - Pros: task completely covered (start-end), syntax-free
+     - Cons: lacks necessary detail, especially for algorithm
+     #+end_quote
+
+  2) Second attempt - what are the pros and cons?
+     #+begin_example
+     /* ------------------------------------------------------------ */
+     /* Get score from user and return "passed" or "failed" message. */
+     /* Sample input: 65                                             */
+     /* Sample output: "passed"                                      */
+     /* ------------------------------------------------------------ */
+   
+     // include I/O library
+
+     // declare variables: float score
+   
+     // ask for score between 0 and 100
+
+     // get user input from keyboard
+       
+     // compute result
+
+     // stream result to screen
+     #+end_example
+
+     #+begin_quote
+     - Pros: program header useful (later), includes input/output,
+       variable detail; good for planning the whole program
+     - Cons: lacks focus on algorithm (still no detail here); detail
+       obscures logic of the solution
+     #+end_quote
+
+  3) Third attempt:
+     #+begin_example
+     // If grade is greater or equal to 60
+        // print "passed"
+
+     // else
+        // print "failed"
+     #+end_example
+
+     #+begin_quote
+     - Pros: clarifies algorithm without getting bogged down in syntax
+       (but suggests enough syntax to remember/structure the code)
+     - Cons: Leaves out "standard stuff" (like I/O), problematic for
+       beginners only.
+     #+end_quote
+
+  4) Implementation with comments:
+     #+begin_src C++ :cmdline < ../data/score :main no :includes <iostream> :namespaces std :results output :exports both
+       /* ------------------------------------------------------------ */
+       /* Get score from user and return "passed" or "failed" message. */
+       /* Sample input: 65                                             */
+       /* Sample output: "passed"                                      */
+       /* ------------------------------------------------------------ */
+       #include <iostream> // include I/O library
+
+       int main() { 
+         // declare variables: float score
+         float score;
+         // ask for score between 0 and 100
+         cout << "Enter score between 0 and 100: ";
+         // get user input from keyboard
+         cin >> score;
+         // compute result
+         cout.precision(3); // set output precision
+         // If grade is greater or equal to 60
+         if (score >= 60) {
+           cout << "\n" << score << ": passed" << endl;  // print "passed"
+         } else {
+           cout << "\n" << score << ": failed" << endl;  // print "failed"
+         }
+         return 0;
+       }
+     #+end_src
+
+     #+RESULTS:
+     : Enter score between 0 and 100: 
+     : 65: passed
+
+     Input file:
+     #+begin_src bash :results output :exports both
+       echo "65" > ../data/score
+       cat ../data/score
+     #+end_src
+
+     #+RESULTS:
+     : 65
 
 * IN PROGRESS Debugging
 * IN PROGRESS Exercises
@@ -656,8 +791,7 @@ it, ~C-c C-c~. What happens when you run a code block?[fn:2]
    : 1
 
 8. Print the following constants[fn:4] (and the corresponding
-   headlines) using first =printf= and then =cout=. /Tip:/ you can fix the
-   precision of =cout= with =cout.precision(p)=.
+   headlines) using first =printf= and then =cout=. 
    #+begin_example
      Print with `cout`:
      3.141592654
@@ -666,7 +800,7 @@ it, ~C-c C-c~. What happens when you run a code block?[fn:2]
     
      Print with `printf`
      3.14159265
-     2.71828183
+     2.7182818
      7.297352564300e-03
    #+end_example
 
@@ -687,7 +821,7 @@ it, ~C-c C-c~. What happens when you run a code block?[fn:2]
      // print values with printf
      printf("Print with `printf`\n"); 
      printf("%.8f\n",pi);
-     printf("%.8f\n",e);
+     printf("%.7f\n",e);
      printf("%.12e\n",a);     
    #+end_src
 
@@ -699,7 +833,7 @@ it, ~C-c C-c~. What happens when you run a code block?[fn:2]
    : 
    : Print with `printf`
    : 3.14159265
-   : 2.71828183
+   : 2.7182818
    : 7.297352564300e-03
 
 9. Create a commented version of the ~step~ function program written
@@ -810,6 +944,7 @@ it, ~C-c C-c~. What happens when you run a code block?[fn:2]
    #+RESULTS:
    : 100 200 300 400 500 
 
+10) [debugger]
 
 * Glossary
 
@@ -953,11 +1088,19 @@ and =double=, character =char=, and Boolean =bool=.
 * References
 
 - This section losely follows chapter 1 (pp. 50-76) of the "C++ Crash
-  Course: A Fast-Pace Introduction" by J Lospinoso (NoStarch, 2019).
+  Course: A Fast-Pace Introduction" by J Lospinoso (NoStarch,
+  2019). The section "Comments (and Pseudocode)" uses an example by
+  Smith (2023). "The Rook's Guide to C++" by Jensen (2013) was also
+  used.
 
 - Bastani, Hamsa and Bastani, Osbert and Sungu, Alp and Ge, Haosen and
   Kabakcı, Özge and Mariman, Rei, Generative AI Can Harm Learning
   (July 15, 2024). [[https://papers.ssrn.com/sol3/papers.cfm?abstract_id=4895486&s=03#][Available at ssrn.com]].
+
+- Jensen (2013). The Rook's Guide to C++. URL: [[https://rooksguide.org/wp-content/uploads/2013/12/rooks-guide-isbn-version.pdf][rooksguide.org]].
+
+- Smith (February 23, 2023). Learn to Write Pseudocode: What It Is and
+  Why You Need It. URL: [[https://wikihow.com/Write-Pseudocode][wikihow.com/Write-Pseudocode]].
 
 * Footnotes
 
