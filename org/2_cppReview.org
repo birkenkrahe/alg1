@@ -453,86 +453,86 @@ it, ~C-c C-c~. What happens when you run a code block?[fn:1]
 
 * Functions
 
-      - Functions are code blocks that accept any number of input objects
-        called /parameters/ or /arguments/, and that can =return= output objects
-        when called.
+- Functions are code blocks that accept any number of input objects
+  called /parameters/ or /arguments/, and that can =return= output objects
+  when called.
 
-      - They have a =return= type. If no such type is specified, they are =void=
-        (better to specify that, too).
+- They have a =return= type. If no such type is specified, they are =void=
+  (better to specify that, too).
 
-      - Example: A mathematical step Function. What is it? Is it
-        important[fn:3]?
-        #+begin_quote
-        The step function is -1 for all arguments smaller than zero, 1 for all
-        arguments greater than zero, and zero for a zero argument.
-        #+end_quote
+- Example: A mathematical step Function. What is it? Is it
+  important[fn:3]?
+  #+begin_quote
+  The step function is -1 for all arguments smaller than zero, 1 for all
+  arguments greater than zero, and zero for a zero argument.
+  #+end_quote
 
-      - It's useful to plot functions in 2D if you can:
-        #+begin_src python :file ../img/step.png :results file graphics output :session *Python2* :python python3 :exports both
-          ## Plot a step function - mathematically:
-          ## \forall x \in [-1,0): f(x) = -1, \forall x \in (0,1]: f(x) = 1
-          ## -------------------------------------------------
-          # import graphics library
-          import matplotlib.pyplot as plt
-          # x and f(x) = y
-          x = [-1,0,0,1]
-          y = [-1,-1,1,1]
-          # plot f(x)
-          plt.clf() # clear graphics
-          #plt.plot(x,y,marker='o',linestyle="")  # shows the four points
-          plt.plot(x,y,linewidth=2) # draws a line between them
-          plt.axhline(0,color="black")
-          plt.xlabel("x")
-          plt.ylabel("f(x)")
-          plt.title("Step Function")
-          plt.savefig("../img/step.png")
-        #+end_src
+- It's useful to plot functions in 2D if you can:
+  #+begin_src python :file ../img/step.png :results file graphics output :session *Python2* :python python3 :exports both
+    ## Plot a step function - mathematically:
+    ## \forall x \in [-1,0): f(x) = -1, \forall x \in (0,1]: f(x) = 1
+    ## -------------------------------------------------
+    # import graphics library
+    import matplotlib.pyplot as plt
+    # x and f(x) = y
+    x = [-1,0,0,1]
+    y = [-1,-1,1,1]
+    # plot f(x)
+    plt.clf() # clear graphics
+    #plt.plot(x,y,marker='o',linestyle="")  # shows the four points
+    plt.plot(x,y,linewidth=2) # draws a line between them
+    plt.axhline(0,color="black")
+    plt.xlabel("x")
+    plt.ylabel("f(x)")
+    plt.title("Step Function")
+    plt.savefig("../img/step.png")
+  #+end_src
 
-        #+RESULTS:
-        [[file:../img/step.png]]
+  #+RESULTS:
+  [[file:../img/step.png]]
 
-      - Before writing the code, let's understand what we're after:
-        1) the function should take one integer argument
-        2) the function should return one of: -1, 0, 1
-        3) the return value depends on the argument
-        #+begin_example
-          // define function
-          int step(int x) {
-              // compute result for x < 0
-              // compute result for x = 0
-              // compute result for x > 0
-              // return result
-          }
-        #+end_example
+- Before writing the code, let's understand what we're after:
+  1) the function should take one integer argument
+  2) the function should return one of: -1, 0, 1
+  3) the return value depends on the argument
+  #+begin_example
+    // define function
+    int step(int x) {
+        // compute result for x < 0
+        // compute result for x = 0
+        // compute result for x > 0
+        // return result
+    }
+  #+end_example
 
-      - We call the function from =main=
-        #+begin_src C++ :main no :includes <iostream> :namespaces std :results output :exports both
-          // define step function
-          int step(int x) {
-            int y = 0; // initialize y
-            if (x < 0) { // compute y for negative x
-              y = -1;
-            } else if (x > 0) { // compute y for positive x
-              y = 1;
-            }
-            return y;
-          }
-          // main function
-          int main() {
-            // call function for negative integer
-            cout << step(-10) << endl;
-            // call function for zero 
-            cout << step(0) << endl;
-            // call function for positive integer
-            cout << step(100) << endl;
-            return 0;
-          }
-        #+end_src
+- We call the function from =main=
+  #+begin_src C++ :main no :includes <iostream> :namespaces std :results output :exports both
+    // define step function
+    int step(int x) {
+      int y = 0; // initialize y
+      if (x < 0) { // compute y for negative x
+        y = -1;
+      } else if (x > 0) { // compute y for positive x
+        y = 1;
+      }
+      return y;
+    }
+    // main function
+    int main() {
+      // call function for negative integer
+      cout << step(-10) << endl;
+      // call function for zero
+      cout << step(0) << endl;
+      // call function for positive integer
+      cout << step(100) << endl;
+      return 0;
+    }
+  #+end_src
 
-        #+RESULTS:
-        : -1
-        : 0
-        : 1
+  #+RESULTS:
+  : -1
+  : 0
+  : 1
 
 * Print format specifiers
 
@@ -552,7 +552,7 @@ it, ~C-c C-c~. What happens when you run a code block?[fn:1]
   :     3.1459
   : |----|----|
 
-- 
+-
   #+begin_src C++ :main yes :includes <iostream> :namespaces std :results output :exports both
 
   #+end_src
@@ -589,13 +589,13 @@ it, ~C-c C-c~. What happens when you run a code block?[fn:1]
   #+end_quote
 
 - Sample solution:
-  
+
   1) First attempt - what are the pros and cons?
-     #+begin_example   
+     #+begin_example
      // load I/O library
-   
+
      // get user input
-   
+
      // compute result
 
      // print result
@@ -613,15 +613,15 @@ it, ~C-c C-c~. What happens when you run a code block?[fn:1]
      /* Sample input: 65                                             */
      /* Sample output: "passed"                                      */
      /* ------------------------------------------------------------ */
-   
+
      // include I/O library
 
      // declare variables: float score
-   
+
      // ask for score between 0 and 100
 
      // get user input from keyboard
-       
+
      // compute result
 
      // stream result to screen
@@ -659,7 +659,7 @@ it, ~C-c C-c~. What happens when you run a code block?[fn:1]
        /* ------------------------------------------------------------ */
        #include <iostream> // include I/O library
 
-       int main() { 
+       int main() {
          // declare variables: float score
          float score;
          // ask for score between 0 and 100
@@ -679,7 +679,7 @@ it, ~C-c C-c~. What happens when you run a code block?[fn:1]
      #+end_src
 
      #+RESULTS:
-     : Enter score between 0 and 100: 
+     : Enter score between 0 and 100:
      : 65: passed
 
      Input file:
@@ -713,13 +713,9 @@ it, ~C-c C-c~. What happens when you run a code block?[fn:1]
   There is NO WARRANTY, to the extent permitted by law.
   #+end_example
 
-- The code now includes 
-  #+begin_src C++ :main no :includes <iostream> :namespaces std :results output :exports both
-    /* ---------------------------------------------------------- */
-    /* step function:                                             */
-    /* set y=-1 for negative x, y=1 for positive x, y=0 for x=0   */
-    /* ---------------------------------------------------------- */
-    // function definition
+- The code now includes =<cstdio>= for =printf= and the declaration and
+  definition of a few variables in the =main= program:
+  #+begin_src C++ :tangle main.cpp :main no :includes <iostream> :namespaces std :results output :exports both
     int step(int x) {
       int result = 0;
       if (x < 0) {
@@ -728,17 +724,62 @@ it, ~C-c C-c~. What happens when you run a code block?[fn:1]
         result = 1;
       }
       return result;
-    } // end of function
-    // main program
+    }
     int main() {
-      
+
+      int num1 = 42;
+      int result1 = step(num1);
+
+      int num2 = 0;
+      int result2 = step(num2);
+
+      int num3 = -32767;
+      int result3 = step(num3);
+
+      printf("Num1: %d, Step: %d\n", num1, result1);
+      printf("Num2: %d, Step: %d\n", num1, result2);
+      printf("Num3: %d, Step: %d\n", num1, result3);
+
+      return 0;
+    }
   #+end_src
 
   #+RESULTS:
-  
+  : Num1: 42, Step: 1
+  : Num2: 42, Step: 0
+  : Num3: 42, Step: -1
 
-- XCode (on MacOS) and VSCode have debuggers that you can use in a
-  similar way.
+- Before you can step into =gdb=, tangle (=C-u C-c C-v t=) and compile
+  your source code using this command:
+  #+begin_src bash :results output :exports both
+    g++ main.cpp -o step -g
+  #+end_src
+
+- The =-g= flag generates debugging information for =gdb=.
+
+- Now split the Emacs screen into two windows with =C-x 2=. Keep the
+  source code of ~main.cpp~ in the upper window while you step into the
+  debugger in the lower window. Switch on line number mode with ~M-x
+  global-linum-mode~ (toggles):
+  #+attr_html: :width 600px
+  [[../img/gdb.png]]
+
+- Commands:
+  #+begin_example sh
+  $ gdb step      # step into debugger
+  (gdb) break main # set breakpoint at start of main
+  (gdb) break main.cpp:17 # set breakpoint at line 17 of main.cpp
+  (gdb) run  # run program until next breakpoint
+  (gdb) step # step into function
+  (gdb) next # execute next command but do not step into function
+  (gdb) finish # step back out of a function call
+  (gdb) continue # continue to next breakpoint or until finish
+  (gdb) info local # current value of variables
+  (gdb) help  # gdb help system with lots more information
+  (gdb) quit  # leave debugger
+  #+end_example
+
+- Switch global line number mode off again (~M-x global-linum-mode~).
 
 * IN PROGRESS Exercises
 
@@ -839,13 +880,13 @@ it, ~C-c C-c~. What happens when you run a code block?[fn:1]
    : 1
 
 8. Print the following constants[fn:4] (and the corresponding
-   headlines) using first =printf= and then =cout=. 
+   headlines) using first =printf= and then =cout=.
    #+begin_example
      Print with `cout`:
      3.141592654
      2.718281828
      0.007297352564
-    
+
      Print with `printf`
      3.14159265
      2.7182818
@@ -857,7 +898,7 @@ it, ~C-c C-c~. What happens when you run a code block?[fn:1]
      // define constants
      const double pi = 3.141592653589793; // pi
      const double e  = 2.718281828459045; // Euler number
-     const double a  = 7.2973525643E-03; // fine structure constant     
+     const double a  = 7.2973525643E-03; // fine structure constant
      //const double a  = 0.0072973525643; // fine structure constant
      // print values with cout
      cout.precision(10);
@@ -867,10 +908,10 @@ it, ~C-c C-c~. What happens when you run a code block?[fn:1]
      << a  << endl;
      cout << endl;
      // print values with printf
-     printf("Print with `printf`\n"); 
+     printf("Print with `printf`\n");
      printf("%.8f\n",pi);
      printf("%.7f\n",e);
-     printf("%.12e\n",a);     
+     printf("%.12e\n",a);
    #+end_src
 
    #+RESULTS:
@@ -878,7 +919,7 @@ it, ~C-c C-c~. What happens when you run a code block?[fn:1]
    : 3.141592654
    : 2.718281828
    : 0.007297352564
-   : 
+   :
    : Print with `printf`
    : 3.14159265
    : 2.7182818
@@ -896,7 +937,7 @@ it, ~C-c C-c~. What happens when you run a code block?[fn:1]
      /* Sample input: x = {-0.5, 0, 0.5}            */
      /* Author: Marcus Birkenkrahe (2024)           */
      /* ------------------------------------------- */
-     // define step function: 
+     // define step function:
      int step(double x) { // return one integer, take one double argument
        if (x > 0) return 1; // when x is positive, return the value 1
        else if (x == 0) return 0; // when x is zero, return the value 0
@@ -911,9 +952,142 @@ it, ~C-c C-c~. What happens when you run a code block?[fn:1]
      } // end of main function
    #+end_src
 
-10. (debugging)
+10. Write a short program for debugging purposes:
+    - Remove all header arguments except ~C++ :results output~.
+    - Before the =main= function: define function ~add~ that adds two =int=.
+    - In =main=, define two sample =int= values 2, 3, then call ~add~ and
+      print the result using =cout=.
+    - Tangle the program as ~main.cpp~ and compile an executable ~add~.
+    - Toggle global line number mode
+    - Run the debugger on the program.
+    - Set breakpoint before calling the function and before printing.
+    - Check the values of your variables.
+    - Run the program.
+    - Step into the function and out of it.
+    - Continue and check the values at the next break point.
+    - Exit the debugger.
 
-* IN PROGRESS Review questions
+    - Solution code:
+      #+begin_src C++ :tangle main.cpp :results output
+        #include <iostream>
+        using namespace std;
+        int add(int a, int b) {
+          return a+b;
+        }
+        int main() {
+          int x = 2, y = 3;
+          cout << add(x,y) << endl;
+          return 0;
+        }
+      #+end_src
+
+    #+RESULTS:
+    : 5
+
+    - Debugging session script:
+      #+begin_example
+    aletheia@pop-os:~/GitHub/alg1/org$ g++ main.cpp -o add -g
+    aletheia@pop-os:~/GitHub/alg1/org$ gdb add
+    GNU gdb (Ubuntu 12.1-0ubuntu1~22.04.2) 12.1
+    Copyright (C) 2022 Free Software Foundation, Inc.
+    License GPLv3+: GNU GPL version 3 or later <http://gnu.org/licenses/gpl.html>
+    This is free software: you are free to change and redistribute it.
+    There is NO WARRANTY, to the extent permitted by law.
+    Type "show copying" and "show warranty" for details.
+    This GDB was configured as "x86_64-linux-gnu".
+    Type "show configuration" for configuration details.
+    For bug reporting instructions, please see:
+    <https://www.gnu.org/software/gdb/bugs/>.
+    Find the GDB manual and other documentation resources online at:
+        <http://www.gnu.org/software/gdb/documentation/>.
+
+    For help, type "help".
+    Type "apropos word" to search for commands related to "word"...
+    Reading symbols from add...
+    (gdb) break 6
+    Breakpoint 1 at 0x11cd: file main.cpp, line 7.
+    (gdb) run
+    Starting program: /home/aletheia/GitHub/alg1/org/add
+    [Thread debugging using libthread_db enabled]
+    Using host libthread_db library "/lib/x86_64-linux-gnu/libthread_db.so.1".
+
+    Breakpoint 1, main () at main.cpp:7
+    7         int x = 2, y = 3;
+    (gdb) info locals
+    x = -137238220
+    y = 32767
+    (gdb) next
+    8         cout << add(x,y) << endl;
+    (gdb) step
+    add (a=2, b=3) at main.cpp:4
+    4         return a+b;
+    (gdb) step
+    5       }
+    (gdb) continue
+    Continuing.
+    5
+    [Inferior 1 (process 185899) exited normally]
+    (gdb) info locals
+    No frame selected.
+    (gdb) run
+    Starting program: /home/aletheia/GitHub/alg1/org/add
+    [Thread debugging using libthread_db enabled]
+    Using host libthread_db library "/lib/x86_64-linux-gnu/libthread_db.so.1".
+
+    Breakpoint 1, main () at main.cpp:7
+    7         int x = 2, y = 3;
+    (gdb) next
+    8         cout << add(x,y) << endl;
+    (gdb) info locals
+    x = 2
+    y = 3
+    (gdb) next
+    5
+    9         return 0;
+    (gdb) run
+    The program being debugged has been started already.
+    Start it from the beginning? (y or n) y
+    Starting program: /home/aletheia/GitHub/alg1/org/add
+    [Thread debugging using libthread_db enabled]
+    Using host libthread_db library "/lib/x86_64-linux-gnu/libthread_db.so.1".
+
+    Breakpoint 1, main () at main.cpp:7
+    7         int x = 2, y = 3;
+    (gdb) step
+    8         cout << add(x,y) << endl;
+    (gdb) info locals
+    x = 2
+    y = 3
+    (gdb) step
+    add (a=2, b=3) at main.cpp:4
+    4         return a+b;
+    (gdb) info locals
+    No locals.
+    (gdb) step
+    5       }
+    (gdb) info locals
+    No locals.
+    (gdb) finish
+    Run till exit from #0  add (a=2, b=3) at main.cpp:5
+    0x00005555555551ea in main () at main.cpp:8
+    8         cout << add(x,y) << endl;
+    Value returned is $1 = 5
+    (gdb) quit
+    A debugging session is active.
+
+            Inferior 1 [process 185979] will be killed.
+
+    Quit anyway? (y or n) n
+    Not confirmed.
+    (gdb) continue
+    Continuing.
+    5
+    [Inferior 1 (process 185979) exited normally]
+    (gdb) quit
+    aletheia@pop-os:~/GitHub/alg1/org$
+    #+end_example
+
+* Review questions
 
 1) [Emacs and Org-mode]
 
@@ -943,7 +1117,7 @@ it, ~C-c C-c~. What happens when you run a code block?[fn:1]
    - The premise: "The student studies."
    - The conclusion: "The grade will be good."
    #+end_quote
-   
+
 6) What's the meaning of =public= and =private= states?
    #+begin_quote
    Public states are visible, private states are hidden.
@@ -1000,7 +1174,11 @@ it, ~C-c C-c~. What happens when you run a code block?[fn:1]
     - Create text that you can reuse to comment your code
     #+end_quote
 
-11) [debugger]
+11) What do you have to do to be able to debug a C++ program with =gdb=?
+    #+begin_quote
+    You have to set the =-g= flag when compiling the program to gather
+    information for the debugger.
+    #+end_quote
 
 * Glossary
 
@@ -1035,6 +1213,14 @@ it, ~C-c C-c~. What happens when you run a code block?[fn:1]
 | int            | Represents the built-in integer type in C++                      |
 | variable       | A named object used to store data                                |
 | class diagram  | Static structure diagram in the Unified Modeling Language (UML)  |
+| gdb            | GNU debugging program (compile with -g flag)                     |
+| (gdb) break ln | Set breakpoint at line number                                    |
+| (gdb) run      | Run program                                                      |
+| (gdb) step     | Step into function                                               |
+| (gdb) next     | Next statement (do not step into function)                       |
+| (gdb) continue | Continue execution                                               |
+| (gdb) finish   | Finish running the program                                       |
+| (gdb) quit     | Exit debugger                                                    |
 
 * Summary
 
