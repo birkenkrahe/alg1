@@ -781,11 +781,29 @@ it, ~C-c C-c~. What happens when you run a code block?[fn:1]
 
 - Switch global line number mode off again (~M-x global-linum-mode~).
 
-* IN PROGRESS Exercises
+* Exercises
 
-1. fix program (syntax)
+1. Fix the syntax of the following program.
+   #+begin_src C++ :results output :exports both
+     #include <iostream>;
+     using namespace std
+          
+     main() { // begin main function
 
-2. fix code chunk (missing main)
+       // print greeting followed by new line
+       cout << "Hello there!" << endl;
+       
+       return 0;
+     } // end main function
+   #+end_src
+
+   #+RESULTS:
+
+2. The code is correct but it won't compile with =C-c C-c= as it
+   should. Fix the code. Tip: tangle the chunk to see what's going on.
+   #+begin_src C++ :tangle test.cpp :main yes :namespaces std :results output :exports both
+     printf("Hello there");
+   #+end_src
 
 3. Print the integer 5 in two different ways.
 
@@ -1089,23 +1107,55 @@ it, ~C-c C-c~. What happens when you run a code block?[fn:1]
 
 * Review questions
 
-1) [Emacs and Org-mode]
+1) What does Emacs + Org-mode let us do when programming in C++?
+   #+begin_quote
+   It enables literate programming: we can put documentation and code
+   in one and the same .org file, run code and see the output right
+   away without having to open the command line, and we can export the
+   documentation into multiple formats.
+   #+end_quote
 
-2) [code chunk]
+2) Explain the following Org-mode header arguments:
+   #+begin_example org
+   :main no
+   :namespaces std
+   C++
+   :includes <cstdio>
+   :results silent
+   :exports both
+   #+end_example
+
+   - Solution:
+     | =:main no=           | do not generate `int main() ...`             |
+     | =:namespaces std=    | use `cout`, `cin` and `endl` without `std::` |
+     | =C++=                | use C++                                      |
+     | =:includes <cstdio>= | #include <cstdio>                            |
+     | =:results none=      | do not show any output                       |
+     | =:exports both=      | export code and output (e.g. to HTML)        |
+     | =#+end_src=          | end of code block                            |
 
 3) What's the difference between these three statements, and what will
    the output be?
-   #+begin_src C++ :main yes :includes <iostream> :namespaces std :results output :exports both
+   #+begin_example C++
      cout << "One" << endl;
      cout << "Two" << "\n";
      std::cout << "Three" << std::endl;
+   #+end_example
+
+   #+begin_src C++ :main yes :includes <iostream> :namespaces std :results output :exports both
+     cout << "One" << endl;
+     cout << "Two" << "\n"; 
+     std::cout << "Three" << std::endl;
    #+end_src
 
-   #+RESULTS:
-   : One
-   : Two
-   : Three
-
+   #+begin_quote
+   - All three statements print a string and add a new line after it.
+   - The first one uses the =endl= keyword from =<iostream>=
+   - The second one uses the escape character =\n=
+   - The third one specifies that =cout= and =endl= are in the =std=
+     namespace.
+   #+end_quote
+   
 4) What is a named object also called?
    #+begin_quote
    A variable.
@@ -1224,109 +1274,25 @@ it, ~C-c C-c~. What happens when you run a code block?[fn:1]
 
 * Summary
 
+- Requirements for creating and running a C++ program: editor (e.g.,
+  Emacs), compiler (e.g., GCC), linker, and shell or IDE with a shell
+  (e.g., bash).
+- Every C++ program must have a =main= function and may include
+  preprocessor directives (e.g., =#include=).
+- Functions take input (arguments/parameters), can return results, and
+  must be declared before =main=.
+- Namespaces are used to prevent naming conflicts. Use the =using=
+  directive to simplify code.
+- C++ is an object-oriented language with a focus on state and behavior.
+- The =if=, =else=, and =else if= statements are used to make logical
+  choices.
+- You can use =cout= (easier) or =printf= (more flexible) for output formatting.
+- Comments and pseudocode are important for learning and professional
+  coding.
+- You can debug programs with =gdb=, set breakpoints, read out variable
+  values, step in and out of functions. Must compile program with =-g=
+  flag.
 
-** Presentation of Content (20 minutes)
-*** C++ Syntax
-
-
-#+begin_src C++ :main yes :includes <iostream> :namespaces std :results output :exports both
-  int main() {
-    cout << "Hello, World!" << endl;
-    return 0;
-  }
-#+end_src
-
-*** Variables and Data Types
-
-- Variables store data values in memory
-- Variables must be declared before they can be used.
-- Basic data types: =int=, =float=, =double=, =char=, =bool=
-
-#+begin_src C++ :main yes :includes <iostream> :namespaces std :results output :exports both
-  int main() {
-    int age = 25;
-    float height = 5.9;
-    double pi = 3.14159;
-    char grade = 'A';
-    bool is_student = true;
-
-    cout << "Age: " << age << endl;
-    cout << "Height: " << height << endl;
-    cout << "Pi: " << pi << endl;
-    cout << "Grade: " << grade << endl;
-    cout << "Is Student: " << is_student << endl;
-
-    return 0;
-  }
-#+end_src
-
-*** Operators
-- Arithmetic operators: +, -, *, /, %
-- Comparison operators: ==, !=, >, <, >=, <=
-- Logical operators: &&, ||, !
-
-#+begin_src C++ :main yes :includes <iostream> :namespaces std :results output :exports both
-  int main() {
-    int a = 10, b = 20;
-    cout << "a + b = " << (a + b) << endl;
-    cout << "a - b = " << (a - b) << endl;
-    cout << "a * b = " << (a * b) << endl;
-    cout << "a / b = " << (a / b) << endl;
-    cout << "a % b = " << (a % b) << endl;
-
-    cout << "a == b: " << (a == b) << endl;
-    cout << "a != b: " << (a != b) << endl;
-    cout << "a > b: " << (a > b) << endl;
-    cout << "a < b: " << (a < b) << endl;
-
-    bool result = (a < b) && (b > 15);
-    cout << "(a < b) && (b > 15): " << result << endl;
-
-    return 0;
-  }
-#+end_src
-
-** Practice Exercises (30 minutes)
-
-- Write a program to declare and initialize variables of different
-  (fundamental or primitive) data types and print them.
-
-- Write this as an Emacs .org file with a header (substitute [...]):
-  #+begin_example
-  #+TITLE: [title]
-  #+AUTHOR: [your name] (pledged)
-  #+SUBTITLE: [class and topic]
-  #+end_example
-
-*** Solution:
-
-See file: tinyurl.com/alg1-first
-
-Fundamental data types in C++ are: integer =int=, floating-point =float=
-and =double=, character =char=, and Boolean =bool=.
-
-#+begin_src C++ :main yes :includes <iostream> :namespaces std :results output :exports both
-
-#+end_src
-
-- Create a simple calculator program using arithmetic operators
-
-  Solution:
-
-- Compare two integers using comparison operators and print the
-  results
-
-  Solution:
-
-- Combine logical operators to evaluate and print the truth value of
-  expressions
-
-  Solution:
-
-** Q&A and Discussion (15 minutes)
-- Open floor for questions and clarifications
-- Discuss common issues faced during practice exercises
-- Provide additional examples or explanations as needed
 * References
 
 - This section losely follows chapter 1 (pp. 50-76) of the "C++ Crash
