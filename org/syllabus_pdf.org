@@ -46,6 +46,11 @@
   tutorials. Ask me if you found a specific source - I may know it, or
   I may want to learn more about it!
 
+- The book that I liked most, that is specifically for C++, and that
+  teaches C++20 (the latest stable version of C++) is "[[https://www.manning.com/books/learning-c-plus-plus][Learning C++]]"
+  by Michael and Ruth Haephrati (cybersecurity experts). This book
+  (started in 2022) is scheduled for publication in September 2024.
+
 * Objectives
 
 This course on "Data Structures with C++" offers an in-depth
