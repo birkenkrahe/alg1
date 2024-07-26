@@ -17,17 +17,22 @@
 
 * Materials and multimedia
 
+- After much deliberation, I'm probably going to work most with David
+  Zingaro's "Algorithmic Thinking" (2nd ed), NoStarch Press 2024. This
+  book uses the C subset of C++, avoids OOP, really pushes competitive
+  programming, writing correct code, and is very well written.
+
 - 100-page C++ language reference (written by a group of student
   volunteers over a weekend!): "Rook's Guide to C++" (Hansen, 2013) -
   [[https://rooksguide.org/wp-content/uploads/2013/12/rooks-guide-isbn-version.pdf][Online]]. The equivalent material in a complete textbook
   (e.g. Malik, 2015) covers no less than 1,000 pages.
   
-- Textbook (optional): Helfrich, C++ Data Structures (KendallHunt,
-  2020). Recommended: Kanetkar Y, Data Structures Through C++ 5th ed
-  (bpb,2024). Malik, C++ Programming - Program Design Including Data
-  Structures (Cengage 2015); La Rocca, Grokking Data Structures
-  (Manning 2023) - with Python; Morin, Open Data Structures (in C++)
-  (OpenText, 2013).
+- Textbook suggestions (optional): Helfrich, C++ Data Structures
+  (KendallHunt, 2020). Recommended: Kanetkar Y, Data Structures
+  Through C++ 5th ed (bpb,2024). Malik, C++ Programming - Program
+  Design Including Data Structures (Cengage 2015); La Rocca, Grokking
+  Data Structures (Manning 2023) - with Python; Morin, Open Data
+  Structures (in C++) (OpenText, 2013).
 
 - Videos: The [[https://scottbarrett.com/][Udemy course]] "C++ Data Structures & Algorithms +
   LEETCODE Exercises" is very good (nice animations). I've used this
