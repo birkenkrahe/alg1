@@ -18,6 +18,17 @@
 
 * Materials and multimedia
 
+- After much deliberation, I'm probably going to work most with David
+  Zingaro's "Algorithmic Thinking" (2nd ed), NoStarch Press 2024. This
+  book uses the C subset of C++, avoids OOP, really pushes competitive
+  programming, writing correct code, and is very well written.
+
+- To learn or brush up on C, I recommend the fairly short "Learn C the
+  hard way" by Zach Shaw ([[https://learncodethehardway.com][URL]]). I enjoy all of his books (which also
+  come with online courses and videos). Simply work through all his
+  exercises and you'll have learnt C as best you can ([[https://www.amazon.com/Learn-Hard-Way-Practical-Computational-ebook/dp/B013PNU6VQ/][ebook]]). This is
+  probably the book that I'll use if I overhaul the intro C course!
+
 - 100-page C++ language reference (written by a group of student
   volunteers over a weekend!): "Rook's Guide to C++" (Hansen, 2013) -
   [[https://rooksguide.org/wp-content/uploads/2013/12/rooks-guide-isbn-version.pdf][Online]]. The equivalent material in a complete textbook
