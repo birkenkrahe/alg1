@@ -4,6 +4,7 @@
 #+STARTUP:overview hideblocks indent
 #+OPTIONS: toc:nil num:nil ^:nil
 #+PROPERTY: header-args:C++ :main yes :includes <iostream> :results output :exports both :noweb yes
+* TODO Overview
 * Data structures are everywhere
 #+attr_html: :width 600px:
 #+caption: Source: La Rocca, Grokking Data Structures (Manning, 2024)
@@ -351,7 +352,7 @@ and pulls them from the stack before calling upon the next patient.
 
 * The need for efficiency ([[https://opendatastructures.org/ods-cpp/1_1_Need_Efficiency.html][Morin]])
 
-- Example: If an application looks up a dataset with 1 mio (10^{6})
+- *Example:* If an application looks up a dataset with 1 mio (10^{6})
   items, and if each item needs to be looked up at least once, we have
   10^{12} = 10^6 x 10^6 searches or number of operations.
 

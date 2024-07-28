@@ -22,6 +22,7 @@ The syllabus is available on [[https://lyon.instructure.com/courses/2623/assignm
    - Office hours: [[https://calendar.app.google/yjr7tB7foMYowRJm7][by appointment]] MWF 4pm, Tue 3pm, Thu 11 am & 3 pm
 
 3) *Materials and Multimedia*
+   - Algorithmic Thinking (2e) by Daniel Zingaro (NoStarch,2024)
    - 100-page C++ language reference: [[https://rooksguide.org/wp-content/uploads/2013/12/rooks-guide-isbn-version.pdf][Rook's Guide to C++]]
    - 800-page C++ language reference: [[https://ccc.codes/][C++ Crash Course]]
    - Optional Textbooks:
