@@ -15,10 +15,10 @@
 - Professor's Office: Derby Science Building 210
 - Phone: (870) 307-7254 (office) / (501) 422-4725 (private)
 - Office hours: [[https://calendar.app.google/yjr7tB7foMYowRJm7][by appointment]] MWF 4pm, Tue/Thu 3pm, Fri 4 pm
-- Textbook (optional): Zingaro, Algorithmic Thinking (2e),
-  NoStarch 2024.  Also very good: Shaw, Learn C the Hard Way,
-  Addison-Wesley, 2015. The complete C reference: King, C Programming
-  (2e) W W Norton (2008).
+- Textbooks (optional/recommended): Zingaro, Algorithmic Thinking
+  (2e), NoStarch 2024.  Shaw, Learn C the Hard Way,
+  Addison-Wesley, 2015. King, C Programming (2e) W W Norton (2008),
+  Griffiths & Griffiths, Head First, O'Reilly (2012).
 
 * Objectives
 

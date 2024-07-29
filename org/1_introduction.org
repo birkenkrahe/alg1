@@ -2,8 +2,9 @@
 #+AUTHOR: Marcus Birkenkrahe
 #+SUBTITLE: CSC 240 - Data structures with C++ - Lyon College, FA24
 #+STARTUP:overview hideblocks indent
-#+OPTIONS: toc:nil num:nil ^:nil
+#+OPTIONS: toc:1 num:1 ^:nil
 #+PROPERTY: header-args:C++ :main yes :includes <iostream> :results output :exports both :noweb yes
+#+PROPERTY: header-args:C :main yes :includes <stdio.h> :results output :exports both :noweb yes
 * Overview
 
 This is an introductory "theoretical" chapter with a little code but
@@ -14,7 +15,7 @@ important everywhere.
 - Understand the importance of data structures
 - See some examples of data structures
 - Understand the relationship between algorithms and data structures
-- Discuss an extended sample use case ("Pet Emergency Clinic")
+- Discuss an extended sample use case ("Pet Emergency Room")
 
 * Data structures are everywhere
 #+attr_html: :width 600px:
@@ -373,16 +374,37 @@ There are (at least) four different solutions to choose from:
 
 ** Model each process in BPMN
 
-BPMN (Business Process Model and Notation) is a diagrammatic language
+- BPMN (Business Process Model and Notation) is a diagrammatic language
 to create process models that represent the flow of an action from
 start to end for every participant of a process.
 
-In this case, the participant is the Pet ER Receptionist who interacts
-with the patients by getting forms from the patient, sorts the forms,
-and pulls them from the stack before calling upon the next patient.
-#+attr_html: :width 400px:
-#+caption: BPMN models for "Pet Emergency Room" use case
-[[../img/pet_emergency_room.png]]
+- In this case, the participant is the Pet ER Receptionist who
+  interacts with the patients by getting forms from the patient, sorts
+  the forms, and pulls them from the stack before calling upon the
+  next patient.
+
+- "Bag" solution  
+   #+attr_html: :width 600px:
+   #+caption: BPMN models for "Pet Emergency Room" use case: Bag
+   [[../img/bag.png]]
+
+- "Stack" solution    
+  #+attr_html: :width 600px:
+  #+caption: BPMN models for "Pet Emergency Room" use case: Stack
+  [[../img/stack.png]]
+
+- "Queue" solution  
+  #+attr_html: :width 600px:
+  #+caption: BPMN models for "Pet Emergency Room" use case: Queue
+  [[../img/queue.png]]
+
+- "Priority queue" solution  
+  #+attr_html: :width 600px:
+  #+caption: BPMN models for "Pet Emergency Room" use case: Priority Queue
+  [[../img/priority_queue.png]]
+
+- You can see that the procedural shape of these processes is much the
+  same.
 
 * The need for efficiency ([[https://opendatastructures.org/ods-cpp/1_1_Need_Efficiency.html][Morin]])
 
