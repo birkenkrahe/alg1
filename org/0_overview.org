@@ -4,6 +4,7 @@
 #+STARTUP:overview hideblocks indent
 #+OPTIONS: toc:nil num:nil ^:nil
 #+PROPERTY: header-args:C++ :main yes :includes <iostream> :results output :exports both :noweb yes
+#+PROPERTY: header-args:C :main yes :includes <stdio.h> :results output :exports both :noweb yes
 * Course Overview
 #+attr_html: :width 400px:
 [[../img/poster.png]]
@@ -78,8 +79,6 @@ The syllabus is available on [[https://lyon.instructure.com/courses/2623/assignm
     - Emacs Power User Editor & Org-mode in a Linux programming environment
 
 * Q & A
-
-See also the "New FAQ" for fall '24 courses [[https://github.com/birkenkrahe/org/blob/master/fall24/newFAQ.org][available on GitHub]].
 
 1. What if you don't know C or C++?
    #+begin_quote
@@ -203,6 +202,8 @@ See also the "New FAQ" for fall '24 courses [[https://github.com/birkenkrahe/org
    10) Build a code & notebook repository at GitHub for your resume.
    #+end_quote
 
+[See also the "New FAQ" for fall '24 courses [[https://github.com/birkenkrahe/org/blob/master/fall24/newFAQ.org][available on GitHub]].]
+
 * Development tools
 
 This section is shared across my courses. Apologies if you have to
@@ -301,7 +302,21 @@ hear/do it twice but remember: imitation/repetition creates mastery!
      to export both source code and output (e.g. to LaTeX, Markdown or
      HTML).
 
-  5. Why are we using Emacs + Org-mode instead of the VSCode or
+  5. How can you run "Hello World" in C inside Emacs?
+     #+begin_src C 
+       puts("Hello, World!");
+     #+end_src
+
+     #+RESULTS:
+     : Hello, World!
+
+     This code chunk works only because of the =#+property:= header at
+     the top of the file (run it with C-c C-c):
+     #+begin_example
+     #+property
+     #+end_example
+
+  6. Why are we using Emacs + Org-mode instead of the VSCode or
      Code::Blocks IDEs?
      #+begin_quote
      While VSCode and Code::Blocks are excellent IDEs with their own
