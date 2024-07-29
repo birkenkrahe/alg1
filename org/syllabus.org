@@ -14,53 +14,11 @@
 - Professor's Office: Derby Science Building 210
 - Phone: (870) 307-7254 (office) / (501) 422-4725 (private)
 - Office hours: [[https://calendar.app.google/yjr7tB7foMYowRJm7][by appointment]] MWF 4pm, Tue/Thu 3pm, Fri 4 pm
-
-* Materials and multimedia
-
-- After much deliberation, I'm probably going to work most with David
-  Zingaro's "Algorithmic Thinking" (2nd ed), NoStarch Press 2024. This
-  book uses the C subset of C++, avoids OOP, really pushes competitive
-  programming, writing correct code, and is very well written.
-
-- To learn or brush up on C, I recommend the fairly short "Learn C the
-  hard way" by Zach Shaw ([[https://learncodethehardway.com][URL]]). I enjoy all of his books (which also
-  come with online courses and videos). Simply work through all his
-  exercises and you'll have learnt C as best you can ([[https://www.amazon.com/Learn-Hard-Way-Practical-Computational-ebook/dp/B013PNU6VQ/][ebook]]). This is
-  probably the book that I'll use if I overhaul the intro C course!
-
-- 100-page C++ language reference (written by a group of student
-  volunteers over a weekend!): "Rook's Guide to C++" (Hansen, 2013) -
-  [[https://rooksguide.org/wp-content/uploads/2013/12/rooks-guide-isbn-version.pdf][Online]]. The equivalent material in a complete textbook
-  (e.g. Malik, 2015) covers no less than 1,000 pages.
+- Textbook (optional): Zingaro, Algorithmic Thinking (2e),
+  NoStarch 2024.  Also very good: Shaw, Learn C the Hard Way,
+  Addison-Wesley, 2015. The complete C reference: King, C Programming
+  (2e) W W Norton (2008).
   
-- Textbook suggestions (optional): Helfrich, C++ Data Structures
-  (KendallHunt, 2020). Recommended: Kanetkar Y, Data Structures
-  Through C++ 5th ed (bpb,2024). Malik, C++ Programming - Program
-  Design Including Data Structures (Cengage 2015); La Rocca, Grokking
-  Data Structures (Manning 2023) - with Python; Morin, Open Data
-  Structures (in C++) (OpenText, 2013).
-
-- Videos: The [[https://scottbarrett.com/][Udemy course]] "C++ Data Structures & Algorithms +
-  LEETCODE Exercises" is very good (nice animations). I've used this
-  as well as [[https://www.youtube.com/@CPlusPlusDataStructures/videos][Helfrich's YouTube videos]] (for his book). Animations can
-  be helpful for this topic to visualize multi-dimensional, dynamic
-  processes. The [[https://youtu.be/B31LgI4Y4DQ?si=mu7z5qTupDg1Pu3x][freeCodeCamp course]] is more teacher-centric but OK.
-
-- There is a gazillion sources available online and offline on the
-  topics of data structures and algorithms. Many of the books are
-  great for the first 10, good for the next 30, and disappointing for
-  the lats 300 pages. Many of the videos are great for the first 5 and
-  lousy for the last 15-30 minutes.
-
-- I have looked at dozens of books, videos, courses, tutorials. Ask me
-  if you found a specific source - I may know it, or I may want to
-  learn more about it!
-
-- The book that I liked most, that is specifically for C++, and that
-  teaches C++20 (the latest stable version of C++) is "Learning C++"
-  by Michael and Ruth Haephrati (cybersecurity experts). This book
-  (started in 2022) is scheduled for publication in September 2024.
-
 * Objectives
 
 This course on "Data Structures with C++" offers an in-depth
