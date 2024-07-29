@@ -1,4 +1,4 @@
-#+TITLE:C++ Basics review
+#+TITLE:C/C++ Basics review
 #+AUTHOR:Marcus Birkenkrahe
 #+SUBTITLE:CSC 240 - Data structures with C++ - Lyon College, FA24
 #+STARTUP:overview hideblocks indent
@@ -6,8 +6,8 @@
 #+PROPERTY: header-args:C++ :main yes :includes <iostream> :results output :exports both :noweb yes
 * Overview
 
-*Fast paced C++ review and overview including:*
-1) Structure of C++ programs
+*Fast paced C/C++ review and overview including:*
+1) Structure of C/C++ programs
 2) "Hello world" sample program
 3) =main= function, =#include= and =namespace=
 4) Declaring and initializing variables
