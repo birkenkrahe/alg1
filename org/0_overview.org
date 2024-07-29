@@ -311,10 +311,32 @@ hear/do it twice but remember: imitation/repetition creates mastery!
      : Hello, World!
 
      This code chunk works only because of the =#+property:= header at
-     the top of the file (run it with C-c C-c):
+     the top of the file:
      #+begin_example
-     #+property
+       #+property: header-args:C :main yes :includes <stdio.h> :results output
      #+end_example
+
+     To make use of it, you only need to open the file or run it with
+     =C-c C-c=. If you work with code that includes functions outside of
+     =main=, you need to change the header arguments. Example:
+
+     #+begin_src C :main no
+       void hello(void); // prototype definition
+
+       int main(void)
+       {
+         hello();
+         return 0;
+       }
+
+       void hello(void)
+       {
+         puts("Hello, World!");
+       }
+     #+end_src
+
+     #+RESULTS:
+     : Hello, World!
 
   6. Why are we using Emacs + Org-mode instead of the VSCode or
      Code::Blocks IDEs?
