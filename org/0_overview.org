@@ -2,7 +2,7 @@
 #+AUTHOR: Marcus Birkenkrahe
 #+SUBTITLE: CSC 240 - Data structures with C++ - Lyon College, FA24
 #+STARTUP:overview hideblocks indent
-#+OPTIONS: toc:nil num:nil ^:nil
+#+OPTIONS: toc:1 num:1 ^:nil
 #+PROPERTY: header-args:C++ :main yes :includes <iostream> :results output :exports both :noweb yes
 #+PROPERTY: header-args:C :main yes :includes <stdio.h> :results output :exports both :noweb yes
 * Course Overview
@@ -23,9 +23,14 @@ The syllabus is available on [[https://lyon.instructure.com/courses/2623/assignm
    - Office hours: [[https://calendar.app.google/yjr7tB7foMYowRJm7][by appointment]] MWF 4pm, Tue 3pm, Thu 11 am & 3 pm
 
 3) *Materials and Multimedia*
-   - Algorithmic Thinking (2e) by Zingaro (NoStarch,2024)
-   - Learn C the Hard Way by Shaw (Addison-Wesley, 2015)
+
+   Primary sources:
    - C Programming by King (W W Norton, 2008)
+   - Learn C the Hard Way by Shaw (Addison-Wesley, 2015)
+   - Algorithmic Thinking (2e) by Zingaro (NoStarch,2024)
+   - Mastering algorithms with C by Loudon (O'Reilly, 1999)
+
+   Secondary sources:
    - 100-page C++ language reference: [[https://rooksguide.org/wp-content/uploads/2013/12/rooks-guide-isbn-version.pdf][Rook's Guide to C++]]
    - 800-page C++ language reference: [[https://ccc.codes/][C++ Crash Course]]
    - Optional Textbooks:
@@ -40,7 +45,7 @@ The syllabus is available on [[https://lyon.instructure.com/courses/2623/assignm
      - [[https://youtu.be/B31LgI4Y4DQ?si=mu7z5qTupDg1Pu3x][freeCodeCamp course]] on Data Structures with C++
 
 4) *Course Objectives*
-   - Explore theory and application of data structures using C++
+   - Explore theory and application of data structures using mainly C
    - Equip students with knowledge to store, process, and retrieve data
      efficiently
    - Emphasize algorithmic thinking and optimization techniques
@@ -52,7 +57,7 @@ The syllabus is available on [[https://lyon.instructure.com/courses/2623/assignm
 
 6) *Student Learning Outcomes*
    - Understand major data structures and their applications
-   - Implement various data structures in C++
+   - Implement various data structures in C and C++
    - Analyze efficiency of data structures and algorithms
    - Apply algorithmic thinking to solve complex problems
    - Design and develop efficient software solutions
@@ -78,7 +83,7 @@ The syllabus is available on [[https://lyon.instructure.com/courses/2623/assignm
     - Free subscription to GitHub Codespaces with AI coding assistant Copilot
     - Emacs Power User Editor & Org-mode in a Linux programming environment
 
-* Q & A
+* Questions with Answers
 
 1. What if you don't know C or C++?
    #+begin_quote
@@ -146,7 +151,7 @@ The syllabus is available on [[https://lyon.instructure.com/courses/2623/assignm
    efficiently." This question is largely language-independent, and so
    we want that the language does not get in the way to our solving
    problems algorithmically.
-   
+
    The arguments given by Zingaro in favor of C in his 2024 book
    "Algorithmic Thinking" resonated with me, too. Once you understand
    this stuff in C, you can take your knowledge anywhere, to any other
@@ -176,7 +181,7 @@ The syllabus is available on [[https://lyon.instructure.com/courses/2623/assignm
    Python has some serious deficiencies compared to C/C++, most
    importantly speed. Here is an interesting paper that shows that
    Python consumes 76 times more energy and is 72 times slower than C.
-   #+attr_html: :width 400px: 
+   #+attr_html: :width 400px:
    [[../img/python_vs_C.png]]
    But more importantly for the purpose of learning about data
    structures: Python abstracts away many details such as memory
@@ -203,6 +208,111 @@ The syllabus is available on [[https://lyon.instructure.com/courses/2623/assignm
    #+end_quote
 
 [See also the "New FAQ" for fall '24 courses [[https://github.com/birkenkrahe/org/blob/master/fall24/newFAQ.org][available on GitHub]].]
+
+* Course content - Data Types and Data Structures
+
+This is a vast topic. If you're anything like me, you like a clear
+roadmap with code examples. So here's all of what we'll cover in the
+briefest form possible, including definitions + code.
+
+** Data Types
+
+Data types classify the type of data a variable can hold, and the
+operations that can be performed on it.
+
+*** Primitive Data Types
+
+- =int=: Integer type
+- =float=: Floating-point type
+- =double=: Double-precision floating-point type
+- =char=: Character type
+- =void=: Special purpose type
+
+*** Derived Data Types
+
+- *Array*: Collection of elements of the same type
+  #+begin_src C  :results none
+    int arr[10];
+  #+end_src
+- *Function*: Represents a function
+  #+begin_src C  :results none
+    int func(int, float);
+  #+end_src
+- *Pointer*: Stores the address of another variable
+  #+begin_src C :results none
+    int *ptr;
+  #+end_src
+- *Structure*: Groups variables of different types
+  #+begin_src C  :results none
+    struct Person {
+      char name[50];
+      int age;
+    };
+  #+end_src
+- *Union*: Similar to structures, but with shared memory
+  #+begin_src C  :results none
+    union Data {
+      int i;
+      float f;
+      char str[20];
+    };
+  #+end_src
+- *Enumeration*: Consists of named integer constants
+  #+begin_src C  :results none
+    enum Color {RED, GREEN, BLUE};
+  #+end_src
+
+** Data Structures
+
+Data structures organize and store data for efficient access and
+modification. 
+
+*** Common Data Structures
+- *Arrays*: Collection of elements of the same type
+  #+begin_src C :results none
+    int arr[10];
+  #+end_src
+- *Linked Lists*: Each element points to the next element
+  #+begin_src C :results none
+    struct Node {
+      int data;
+      struct Node *next;
+    };
+  #+end_src
+- *Stacks*: Follows the LIFO (Last In First Out) principle
+  #+begin_src C :results none
+    #define MAX 100
+    int stack[MAX];
+    int top = -1;
+  #+end_src
+- *Queues*: Follows the FIFO (First In First Out) principle
+  #+begin_src C :results none
+    #define MAX 100
+    int queue[MAX];
+    int front = -1, rear = -1;
+  #+end_src
+- *Trees*: Hierarchical data structure
+  #+begin_src C :results none
+    struct TreeNode {
+      int data;
+      struct TreeNode *left;
+      struct TreeNode *right;
+    };
+  #+end_src
+- *Graphs*: Collection of nodes and edges
+  #+begin_src C :results none
+    struct Graph {
+      int numVertices;
+      int *adjMatrix;
+    };
+  #+end_src
+- *Hash Tables*: Implements an associative array
+  #+begin_src C :results none
+    struct HashTable {
+      int size;
+      int *table;
+    };
+  #+end_src
 
 * Development tools
 
@@ -287,14 +397,14 @@ hear/do it twice but remember: imitation/repetition creates mastery!
      version of this complete program:
      #+begin_src C++ :results output :exports both
        // include input/output library
-       #include <iostream> 
+       #include <iostream>
        // use standard namespace for cout, endl
-       using namespace std; 
+       using namespace std;
        int main() { // begin of main function
          // stream string to standard output then print newline
          cout << "Hello, world!" << endl;
-         // return 0 when program ran successfully         
-         return 0; 
+         // return 0 when program ran successfully
+         return 0;
        } // end of main function
      #+end_src
      The only header arguments left are: =C++= for the language,
@@ -303,7 +413,7 @@ hear/do it twice but remember: imitation/repetition creates mastery!
      HTML).
 
   5. How can you run "Hello World" in C inside Emacs?
-     #+begin_src C 
+     #+begin_src C
        puts("Hello, World!");
      #+end_src
 
@@ -482,6 +592,19 @@ github.com in your browser (Google Chrome is best) and login.
 - Now go back to your profile, find =Customize your pins= and pin
   =hello-world= to the profile as you see it on my GitHub profile.
 
+* Summary
+
+- You only need basic programming skills to succeed in this course.
+- There will be 2 programming assignments and 1 quiz per week, with
+  an optional final exam.
+- We will make excessive use of Linux, Emacs + Org-mode, and GitHub.
+- We will mostly use the C programming language
+- We will review several derived data types: pointers, functions,
+  structures, unions and enums
+- You will learn common data structures: arrays, linked lists, stacks,
+  queues, trees, graphs and hash tables.
+- You don't need to buy a textbook for this course but the book by
+  King (C Programming 2e, W W Norton 2008) is worth having anyway.
 
 * Footnotes
 

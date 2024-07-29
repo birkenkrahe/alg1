@@ -1,0 +1,56 @@
+#+TITLE: Review of C/C++ Basics
+#+AUTHOR: Marcus Birkenkrahe
+#+SUBTITLE: CSC 240 - Data structures with C++ - Lyon College, FA24
+#+STARTUP:overview hideblocks indent
+#+OPTIONS: toc:1 num:1 ^:nil
+#+PROPERTY: header-args:C++ :main yes :includes <iostream> :results output :exports both :noweb yes
+#+PROPERTY: header-args:C :main yes :includes <stdio.h> :results output :exports both :noweb yes
+* IN PROGRESS Overview
+
+We review C by continuing with derived data types that you should
+already know: arrays, pointers, functions. We review by coding and
+analyzing code.
+
+*Objectives:*
+- ...
+
+Next, we learn some new derived data types, structures, unions and
+enums.
+
+* Problem Descriptions and Solution Process
+
+Each problem begins with three components:
+1) The problem context as a short description.
+2) The problem input in the form of test cases which must be passed.
+3) The problem output in the exact form required (with time limit).
+
+Each solution includes:
+1) A short description how we tackle the problem.
+2) Minimal comments in the source code.
+3) Program organization:
+   1. Preprocessor directives
+   2. Type definitions
+   3. Declarations of external variables
+   4. Prototypes for functions other than =main=
+   5. Definition of =main=
+   6. Definitions of other functions
+4) Review questions and notes.
+
+* Arrays: Reversing a Series of Numbers
+
+- *Problem:* Prompt the user to enter a series of numbers, then write
+  the numbers in reverse order.
+
+  
+
+
+
+* TODO Glossary
+* TODO Summary
+* IN PROGRESS Sources
+
+- C Programming by King (W W Norton, 2008)
+  1) Reversing a Series of Numbers: Ch. 8.1, p. 164
+- Learn C the Hard Way by Shaw (Addison-Wesley, 2015)
+- Algorithmic Thinking (2e) by Zingaro (NoStarch,2024)
+- Mastering algorithms with C by Loudon (O'Reilly, 1999)
