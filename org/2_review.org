@@ -1,4 +1,4 @@
-#+TITLE: Review of C/C++ Basics
+#+TITLE: Review of C/C++ Basics: Arrays
 #+AUTHOR: Marcus Birkenkrahe
 #+SUBTITLE: CSC 240 - Data structures with C++ - Lyon College, FA24
 #+STARTUP:overview hideblocks indent
@@ -11,12 +11,19 @@ We review C by continuing with derived data types that you should
 already know: arrays, pointers, functions. We review by coding and
 analyzing code.
 
-*Objectives:*
-- Review problems, solutions, and coding rules
-- Review 1-dim arrays, =for= loops, =scanf= and =printf=
+In this section, we focus on one-dimensional array data structures. We
+don't spend much time on multi-dimensional arrays because 
 
-Next, we learn some new derived data types, structures, unions and
-enums.
+*Objectives:*
+- Tackling problems, solutions, and coding rules
+- Different ways of developing and running code
+- One-dimensional arrays, =for= loops, =scanf= and =printf=
+- Use of macros and =sizeof= to set/read array lengths
+- Variable-sized arrays (new!) and new basic data types
+- Application: Reversing series of numbers
+- Application: Checking numbers for repeated digits
+- Code along and solve different exercises
+- Review questions, glossary, and summary
 
 *Code along:*
 1. Open Emacs from the command line with =emacs &=
@@ -32,32 +39,38 @@ Each problem begins with three components:
 1) The problem context as a short description including potential
    constraints.
 2) The problem input in the form of test cases which must be passed.
-3) The problem output in the exact form required (with time
+3) The problem output in the exact form required (optionally with time
    limit[fn:1]).
 
 Each solution includes:
 1) A short description how we tackle the problem.
 2) Minimal comments in the source code.
-3) Program organization:
+3) Functions should be accompanied by a short summary at the top:
+   - Name and purpose of the function
+   - Return type and parameters
+   - Anything noteworthy (for example, edge cases, or ways to break
+     the code, or version dependencies)
+4) Program organization:
    1. Preprocessor directives
    2. Type definitions
    3. Declarations of external variables
    4. Prototypes for functions other than =main=
    5. Definition of =main=
    6. Definitions of other functions
-4) Review (not in the code blocks):
+5) Review (not in the code blocks):
    - Anything you learnt that you may have forgotten
    - Additional code snippets for illustration
    - Open questions
    - Short summary and/or glossary of terms/commands
+   - Edge cases (special situations or values)
 
 Coding rules:
-1) You should be able to explain every part of your code.
-2) Functions should be accompanied by a short summary at the top:
-   - Name and purpose of the function
-   - Return type and parameters
-   - Anything noteworthy (for example, edge cases, or ways to break
-     the code, or version dependencies)
+1) You should always write your own code (not just copy and paste)
+   though you may use secondary sources to help you.
+2) You should stay away from using AI for code generation, debugging,
+   etc. until you've spent an appropriate length of time trying to
+   crack a problem yourself[fn:2].
+3) You should be able to explain every part of your code.
 
 * Arrays: Reversing a Series of Numbers
 
@@ -80,7 +93,7 @@ Coding rules:
 - *Strategy*: ...
 
 - *Program* =reverse.c=:
-  
+
 ** Solution (complete)
 
 - *Strategy:* The numbers are stored in an array of N = 10 elements. N
@@ -122,7 +135,7 @@ Coding rules:
   : Enter 10 numbers: 34 82 49 102 2 94 23 11 50 31
   : In reverse order: 31 50 11 23 94 2 102 49 82 34
 
-- To compile and run this program, you have three options[fn:2]:
+- To compile and run this program, you have three options[fn:3]:
   1. Add the header argument =:cmdline < input= where =input= is a text
      file containing the test input data. Then run the code block with
      =C-c C-c=. You can create an input file in a shell code block.
@@ -138,8 +151,8 @@ Coding rules:
      #+end_src
 
      #+RESULTS:
-     : Enter 10 numbers: 34 82 49 102 2 94 23 11 50 31 
-     : In reverse order: 31 50 11 23 94 2 102 49 82 34 
+     : Enter 10 numbers: 34 82 49 102 2 94 23 11 50 31
+     : In reverse order: 31 50 11 23 94 2 102 49 82 34
 
      Let's see how this works:
      1) =gcc reverse.c -o rev= compiles the file and creates an output
@@ -150,7 +163,7 @@ Coding rules:
      4) =./rev= receives the input from the left and runs with it.
      5) The =./= is necessary for the shell to find the executable file
         =rev= in the current directory.
-  
+
 - *Notes:*
   1. Is the program proofed against wrong input? Try to break it using
      the command-line executable entering characters or words instead,
@@ -179,7 +192,7 @@ Coding rules:
        echo 4 5 4 3 2 | ./rev2  # output: 2 3 4 5
      #+end_src
   3. We can compute the length of an array =a= using the =sizeof=
-     operator, which is useful if we don't know the length[fn:3].
+     operator, which is useful if we don't know the length[fn:4].
      #+begin_src C :main no
        #define N 10
        #define SIZE (int)(sizeof(a)/sizeof(a[0]))
@@ -201,7 +214,41 @@ Coding rules:
      : SIZE = 10
      : 1 2 3 4 5 6 7 8 9 10
 
-* TODO Arrays: Checking a Number for Repeated Digits
+  4. Macros can also have parameters. Here are two examples:
+     #+begin_src C
+       #define MAX(x,y) ((x)>(y) ? (x):(y))
+       #define IS_EVEN(n) ((n)%2==0)
+
+       printf("Max value: %d\n", MAX(100,200)); // use parametrized macro
+       printf("Is 100 even? %d\n", IS_EVEN(100)); // use parametrized macro
+     #+end_src  
+
+     #+RESULTS:
+     : Max value: 200
+     : Is 100 even? 1
+
+     In the definition of =MAX=, =x > y ? x : y= is a short version of
+     =if...else=:
+     #+begin_example C
+     if (x > y) 
+        x
+     else
+        y
+     #+end_example
+
+     You can also use macros to create aliases for commands you're
+     tired of typing, like =printf("%d\n",i);=
+     #+begin_src C
+       #define PRINT_INT(n) printf("%d\n",n);
+
+       int i = 200, j = 100;
+       PRINT_INT(i/j);
+     #+end_src
+
+     #+RESULTS:
+     : 2
+
+* Arrays: Checking a Number for Repeated Digits
 
 - *Problem:* Checks whether any of the digits in a number appear more
   than once. After the user enters a number, the program prints either
@@ -257,11 +304,11 @@ Coding rules:
       // variable declarations and initialization
       bool digit_seen[10] = {false}; // initialized to zeros = false
       int digit;
-      unsigned long int n; // a long unsigned integer type
+      unsigned long int n; // an unsigned long integer type
 
       // getting user input
       printf("Enter a number: ");
-      scanf("%ld", &n);
+      scanf("%lu", &n);
       puts("");
 
       // scan input number digit by digit
@@ -271,14 +318,14 @@ Coding rules:
           break; // leave loop
         digit_seen[digit] = true;
         n /= 10; // example output: (int) (28212/10) = (int) 2821.2 = 2821
-        } // finishes when (int) single digit / 10 = 0
+      } // finishes when (int) single digit / 10 = 0
 
       // print result
       if (n > 0) // found repeat digit before scanning whole number
         printf("Repeated digit\n");
       else  // n = 0 means scanning finished = all digits seen
         printf("No repeated digit\n");
-          
+
       return 0;
     }
   #+end_src
@@ -294,8 +341,123 @@ Coding rules:
   : Repeated digit
 
 - *Notes*:
+  1. You don't need to load =<stdbool.h>=, you can also =#define= Boolean
+     values and use C's =typedef= keyword to create a synonym for
+     previously defined types:
+     #+begin_src C :results none
+       #define true 1
+       #define false 0
+       typedef int bool;
+     #+end_src
+  2. C has a number of different =int= types. On a 64-bit machine,
+     =unsigned long int= can hold positive whole numbers up to
+     18,446,744,073,709,551,615. Do you know why that is?
+     #+begin_quote
+     The largest value is 2^64-1: 64 bits (or 8 words/bytes of 8 bit
+     length) can be used to represent a value in binary number 0,1.
 
-* IN PROGRESS Glossary
+     For example, with 3 bits you can represent 2^3=8 values ranging
+     from (000) to (111). Likewise, for an n-bit unsigned integer, the
+     values range from 0 to 2^n-1. For n=64 that's the number given.
+
+     Can you guess what the range of values will be for =long int=
+     (which allows positive and negative integers)?[fn:5]
+     #+end_quote
+     #+begin_src C :main no
+       #include <stdio.h>
+       #include <limits.h> // contains definition of ULONG_MAX
+
+       int main() {
+         unsigned long int max_value = ULONG_MAX; // maximum value for unsigned long int
+         printf("The largest value for unsigned long int is: %lu\n", max_value);
+         return 0;
+       }
+     #+end_src
+
+     #+RESULTS:
+     : The largest value for unsigned long int is: 18446744073709551615
+  3. To capture =unsigned long int= numbers, =scanf= requires the =%lu=
+     format specification.
+     
+
+* TODO Review questions
+
+1. What constitutes a problem?
+   #+begin_quote
+   1) Problem context description with constraints.
+   2) Input in the form of test cases that must be passed.
+   3) Output in exact format with time limit (optional)
+   #+end_quote
+
+2. What does a solution include:
+   #+begin_quote
+   1) A solution strategy describing how you tackled the problem.
+   2) Code comments, program and function headers.
+   3) Standard program organization.
+   4) Solution review with a discussion of edge cases.
+   #+end_quote   
+
+3. What are the coding rules?
+   #+begin_quote
+   1) Write code yourself (minimize AI assistance)
+   2) Give yourself time to understand and solve a problem.
+   3) Be able to explain every part of your code.
+   #+end_quote
+
+4. What's a "macro" definition?
+   #+begin_quote
+   A macro is a directive for the preprocessor to define a constant or
+   a name, e.g. =#define PI 3.14=, which is replaced everywhere in the
+   code. There are also /parametrized/ or /function-like/ macros like
+   =#define PRINT_INT(n) print("%d\n",n)=.
+   #+end_quote
+
+5. How can you run a C program in an Org-mode code block (provided the
+   program compiles) if the program requires you to give one character
+   as input?
+   #+begin_quote
+   Tangle the file with a header argument =:tangle main.c= and the
+   keyboard commands =C-u C-c C-v t=; then create a shell (=bash=) code
+   block. In this code block, compile the file and run it by piping
+   the input to the executable, which must be called with the relative
+   path:
+      #+end_quote
+   #+begin_example
+      gcc main.c -o main
+      echo 'a' | ./main
+   #+end_example
+   
+6. What is a variable-length array? What are the constraints on a VLA?
+   #+begin_quote
+   A VLA is an array whose memory (aka length) is computed and
+   allocated at runtime - for example, you can prompt the user for
+   it. The primary restriction is that they cannot be
+   initialized. Also, they can't have =static= storage duration.
+   #+end_quote
+
+7. What does the =(int)= do in the following preprocessor directive for
+   an array =a=, and what is its output?
+   #+begin_example C
+     #define SIZE (int)(sizeof(a)/sizeof(a[0]))
+   #+end_example
+   #+begin_quote
+   The directive defines =SIZE= so that wherever the compiler finds
+   =SIZE=, it is replaced by =(int)(sizeof(a)/sizeof(a[0]))=. In this
+   expression, the length of an array =a= is computed, and the result is
+   converted into a (signed) integer because =sizeof= returns an
+   =unsigned int=, to avoid compiler warnings.
+
+   Another question might be: what if I change the name of the array
+   from =b= to =a=? Then the macro does no longer apply and must be
+   changed, or a parametrized macro has to be used: =#define
+   SIZE(array) (int)(sizeof(a)/sizeof(a[0]))= which works with any
+   array name.
+   #+end_quote
+
+* TODO Exercises
+
+
+* Glossary
 
 | Term                  | Explanation                                                  |
 |-----------------------+--------------------------------------------------------------|
@@ -317,7 +479,7 @@ Coding rules:
 | =puts=                  | Function to print a string followed by a newline.            |
 | =gcc=                   | GNU Compiler Collection, used to compile C programs.         |
 | Command-line          | Interface for typing commands directly to the OS.            |
-| Shell                 | A program that interprets command-line input.                |
+| Shell (=bash=)          | A program that interprets command-line input.                |
 | Input                 | Data provided to a program for processing.                   |
 | Output                | Data produced by a program.                                  |
 | External variable     | Variable declared outside of any function.                   |
@@ -326,21 +488,23 @@ Coding rules:
 | Edge case             | A problem that occurs only in an extreme case                |
 | Debugging             | The process of finding and resolving defects in software.    |
 | Compilation           | The process of converting source code into executable code.  |
+| =unsigned long int=     | Integer type that can hold a max value of 2^64-1             |
+| =long int=              | Integer type that can hold a max value of (2^63-1)/2         |
+| (=%lu) =%ld=             | Format specifier for (un)signed long integer values          |
 
-* IN PROGRESS Summary
+* Summary
 
-- The use of macros and =sizeof= ensures flexible and maintainable code.
-- Proper program organization includes clear structure and minimal comments.
-- Using =sizeof= dynamically determines array size, enhancing robustness.
 - Coding rules focus on understanding code, function summaries, and robustness.
-- The program reads input numbers, stores them in an array, and prints them in reverse order.
-- Variable-sized arrays allow dynamic memory allocation, offering
-  flexibility.
+- Proper program organization includes clear structure and minimal comments.
+- The use of macros and =sizeof= ensures flexible and maintainable code.
+- Using =sizeof= dynamically determines array size, enhancing robustness.
+- Variable-sized arrays allow more flexible dynamic memory allocation.
+- Besides =int= there are other data types like =unsigned long int=.
+- Run Emacs code blocks in =bash= code blocks in the same Org-mode file.
 
-* IN PROGRESS Sources
+* Sources
 
 - C Programming by King (W W Norton, 2008)
-  1) Reversing a Series of Numbers: Ch. 8.1, p. 164
 - Learn C the Hard Way by Shaw (Addison-Wesley, 2015)
 - Algorithmic Thinking (2e) by Zingaro (NoStarch,2024)
 - Mastering algorithms with C by Loudon (O'Reilly, 1999)
@@ -351,13 +515,24 @@ Coding rules:
 efficient code, which depends on the size of the data and the exact
 use case, and is highly influenced by the chosen data structures.
 
-[fn:2]If this was R, Julia or Python (interpreted rather than compiled
+[fn:2]An "appropriate amount of time trying to solve a problem" is
+very personal - if you really want to learn this stuff, you need to
+spend time mulling things over, perhaps for hours or even days. This
+usually implies developing strategies for finding and absorbing
+technical information - e.g. function or compiler documentation.
+
+[fn:3]If this was R, Julia or Python (interpreted rather than compiled
 languages), you'd have another open, namely opening the source file in
 a dedicated buffer with =C-c '= and then running all or part of it in
 the console (the R, Julia or Python shell), and returning to Org-mode
 with =C-c C-k=.
 
-[fn:3] =sizeof(a)= returns the size of =a= in bytes as an unsigned =int=. If
+[fn:4] =sizeof(a)= returns the size of =a= in bytes as an unsigned =int=. If
 you divide by the byte-size of a single element, you get the number of
 elements. We use =(int)= to cast the unsigned =int= of the =sizeof= result,
 to avoid compiler warnings.
+
+[fn:5]The range of values for signed long integers is (-2^63-1,2^63-1)
+because one bit is lost for the sign, and there are now twice as many
+numbers, so the maximum value on a 64-bit machine is (2^63-1)/2 or
+4,611,686,018,427,387,904.
