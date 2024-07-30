@@ -11,11 +11,11 @@ int main(void)
   // variable declarations and initialization
   bool digit_seen[10] = {false}; // initialized to zeros = false
   int digit;
-  unsigned long int n; // a long unsigned integer type
+  unsigned long int n; // an unsigned long integer type
 
   // getting user input
   printf("Enter a number: ");
-  scanf("%ld", &n);
+  scanf("%lu", &n);
   puts("");
 
   // scan input number digit by digit
@@ -25,13 +25,13 @@ int main(void)
       break; // leave loop
     digit_seen[digit] = true;
     n /= 10; // example output: (int) (28212/10) = (int) 2821.2 = 2821
-    } // finishes when (int) single digit / 10 = 0
+  } // finishes when (int) single digit / 10 = 0
 
   // print result
   if (n > 0) // found repeat digit before scanning whole number
     printf("Repeated digit\n");
   else  // n = 0 means scanning finished = all digits seen
     printf("No repeated digit\n");
-      
+
   return 0;
 }
