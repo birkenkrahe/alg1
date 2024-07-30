@@ -12,17 +12,28 @@ already know: arrays, pointers, functions. We review by coding and
 analyzing code.
 
 *Objectives:*
-- ...
+- Review problems, solutions, and coding rules
+- Review 1-dim arrays, =for= loops, =scanf= and =printf=
 
 Next, we learn some new derived data types, structures, unions and
 enums.
 
-* Problem Descriptions and Solution Process
+*Code along:*
+1. Open Emacs from the command line with =emacs &=
+2. Create an Org-mode file with =C-x C-f 2_review.org=
+3. Create a C code chunk with =<s <TAB> C=
+4. Add header arguments: ~:main yes :includes <stdio.h> :results output~
+5. Write and run a "hello world" test program: =puts("hello world");=
+6. If any of these steps don't work for you, let me know!
+
+* Problem Descriptions, Solution Process, and Coding Rules
 
 Each problem begins with three components:
-1) The problem context as a short description.
+1) The problem context as a short description including potential
+   constraints.
 2) The problem input in the form of test cases which must be passed.
-3) The problem output in the exact form required (with time limit).
+3) The problem output in the exact form required (with time
+   limit[fn:1]).
 
 Each solution includes:
 1) A short description how we tackle the problem.
@@ -34,19 +45,298 @@ Each solution includes:
    4. Prototypes for functions other than =main=
    5. Definition of =main=
    6. Definitions of other functions
-4) Review questions and notes.
+4) Review (not in the code blocks):
+   - Anything you learnt that you may have forgotten
+   - Additional code snippets for illustration
+   - Open questions
+   - Short summary and/or glossary of terms/commands
+
+Coding rules:
+1) You should be able to explain every part of your code.
+2) Functions should be accompanied by a short summary at the top:
+   - Name and purpose of the function
+   - Return type and parameters
+   - Anything noteworthy (for example, edge cases, or ways to break
+     the code, or version dependencies)
 
 * Arrays: Reversing a Series of Numbers
 
 - *Problem:* Prompt the user to enter a series of numbers, then write
-  the numbers in reverse order.
+  the numbers in reverse order. Store the numbers in an array and use
+  a preprocessing directive to set the size of the array. In the =main=
+  function, initialize the array's elements to zero.
 
+- *Input* and *Output*:
+  #+begin_example
+  Enter 10 numbers: 34 82 49 102 2 94 23 11 50 31
+  In reverse order: 31 50 11 23 94 2 102 49 82 34
+  #+end_example
+
+- Ask yourself if you could write this program right away or not!
+  Whatever the answer, let's do it together from scratch.
+
+** Solution (codealong)
+
+- *Strategy*: ...
+
+- *Program* =reverse.c=:
   
+** Solution (complete)
 
+- *Strategy:* The numbers are stored in an array of N = 10 elements. N
+  is defined at the start with =#define=. The array is initialized with
+  zeros. The numbers are retrieved from standard input with =scanf=
+  counting up with a =for= loop, and printed in reverse order with
+  =printf= counting down with a =for= loop.
 
+- *Program* =reverse.c=:
+  #+begin_src C :tangle reverse.c :main no :includes :cmdline < input
+    /**************************************************************/
+    // reverse.c: reverse a series of numbers entered by the user
+    // Store numbers as int array with scanf in a for loop
+    // Print numbers in reverse order with printf in a for loop
+    /**************************************************************/
+    #include <stdio.h> // include input/output header file
+    #define N 10  // define constant array length with directive
 
-* TODO Glossary
-* TODO Summary
+    int main() // main program
+    {
+      int i;           // declare loop variable
+      int a[N] = {0};  // macro definition (uses constant N)
+      printf("Enter 10 numbers: "); // ask for input
+      for ( i = 0; i < N; i++) { // loop over array (counting up)
+        scanf("%d", &a[i]); // get the i-th array element from stdin
+        printf("%d ", a[i]); // print the i-th array element to stdout
+      }
+      puts("");  // add new line
+      printf("In reverse order: ");
+      for ( i = N-1; i >= 0; i--) { // loop over array (counting down)
+        printf("%d ", a[i]);
+      }
+      puts("");
+      return 0; // confirm program ran successfully
+    } // end of main program
+  #+end_src
+
+  #+RESULTS:
+  : Enter 10 numbers: 34 82 49 102 2 94 23 11 50 31
+  : In reverse order: 31 50 11 23 94 2 102 49 82 34
+
+- To compile and run this program, you have three options[fn:2]:
+  1. Add the header argument =:cmdline < input= where =input= is a text
+     file containing the test input data. Then run the code block with
+     =C-c C-c=. You can create an input file in a shell code block.
+  2. Tangle the source code for compilation, debugging and execution
+     on the command-line, add the header argument =:tangle reverse.c=,
+     tangle with =C-u C-c C-v t= and run it on the command-line shell
+     with the chain command: =gcc reverse.c -o rev && ./rev=.
+  3. You can also tangle the file as ~reverse.c~ (=C-u C-c C-v t=) and run
+     it in a shell code block with the test input:
+     #+begin_src bash :results output :exports both
+       gcc reverse.c -o rev
+       echo 34 82 49 102 2 94 23 11 50 31 | ./rev
+     #+end_src
+
+     #+RESULTS:
+     : Enter 10 numbers: 34 82 49 102 2 94 23 11 50 31 
+     : In reverse order: 31 50 11 23 94 2 102 49 82 34 
+
+     Let's see how this works:
+     1) =gcc reverse.c -o rev= compiles the file and creates an output
+        file called =rev=
+     2) =echo= prints its arguments (the test series) to stdout
+     3) The pipe symbol =|= takes the output on its left and serves it
+        as stdin on the right.
+     4) =./rev= receives the input from the left and runs with it.
+     5) The =./= is necessary for the shell to find the executable file
+        =rev= in the current directory.
+  
+- *Notes:*
+  1. Is the program proofed against wrong input? Try to break it using
+     the command-line executable entering characters or words instead,
+     or leave out numbers.
+  2. You can use /variable-length arrays/ if you don't want to fix the
+     length of the array - but you cannot initialize it (since the
+     length of the array is not known at compile-time):
+     #+begin_src C :tangle reverse2.c :main yes :includes <stdio.h> :results none :exports both
+       int i, n;
+       printf("How many numbers do you want to reverse: ");
+       scanf("%d", &n);
+       int a[n];
+       printf("Enter %d numbers: ", n);
+       for ( i = 0; i < n; i++) {
+         scanf("%d", &a[i]);
+        }; puts("");
+       printf("In reverse order: ");
+       for ( i = n-1; i >= 0; i--) {
+         printf("%d ", a[i]);
+        }; puts("");
+     #+end_src
+
+     Tangle the source file =reverse2.c=, and on the command-line, run:
+     #+begin_src bash :results output :exports both
+       gcc reverse2.c -o rev2
+       echo 4 5 4 3 2 | ./rev2  # output: 2 3 4 5
+     #+end_src
+  3. We can compute the length of an array =a= using the =sizeof=
+     operator, which is useful if we don't know the length[fn:3].
+     #+begin_src C :main no
+       #define N 10
+       #define SIZE (int)(sizeof(a)/sizeof(a[0]))
+
+       int main (void)
+       {
+         int i;
+         int a[N];
+         printf("SIZE = %d\n", SIZE);
+         for (i = 0; i < SIZE; i++) {
+           a[i] = i+1;
+           printf("%d ", a[i]);
+         }
+         return 0;
+       }
+     #+end_src
+
+     #+RESULTS:
+     : SIZE = 10
+     : 1 2 3 4 5 6 7 8 9 10
+
+* TODO Arrays: Checking a Number for Repeated Digits
+
+- *Problem:* Checks whether any of the digits in a number appear more
+  than once. After the user enters a number, the program prints either
+  =Repeated digit= or =No repeated digit=:
+
+- *Input* and *Output*:
+  #+begin_example
+  Enter a number: 28212
+  Repeated digit
+  #+end_example
+
+- Ask yourself if you could write this program right away or not!
+  Whatever the answer, let's do it together from scratch.
+
+** Solution (codealong)
+
+- *Strategy*: The program uses an array of Boolean values =digits_seen= to
+  keep track of which digits 0-9 xappear in a number. Initially, every
+  element of the array is =false=. When given a number =n=, the program
+  examines its digits one at a time, storing each into the =digit=
+  variable, and then using it as an index into =digit_seen=. if
+  =digit_seen[digit]= is =true=, then =digit= appears at least twice in
+  =n=. If =digit_seen[digit]= is =false=, then =digit= has not been seen
+  before, so the program sets =digit_seen[digit= to =true= and keeps
+  going.
+
+- *Program* =repdigit.c=:
+
+** NEXT Solution (complete)
+
+- *Strategy*: The program uses an array of Boolean values =digits_seen= to
+  keep track of which digits 0-9 xappear in a number. Initially, every
+  element of the array is =false=. When given a number =n=, the program
+  examines its digits one at a time, storing each into the =digit=
+  variable, and then using it as an index into =digit_seen=. if
+  =digit_seen[digit]= is =true=, then =digit= appears at least twice in
+  =n=. If =digit_seen[digit]= is =false=, then =digit= has not been seen
+  before, so the program sets =digit_seen[digit= to =true= and keeps
+  going.
+
+- *Program* =repdigit.c=:
+  #+begin_src C :tangle repdigit.c :main no :includes :results none :exports both
+    /*********************************************************/
+    // repdigit.c: checks numbers for repeated digits.
+    // Input: number with (without) repeated digits.
+    // Output: Print "Repeated digit" or "No repeated digit."
+    /*********************************************************/
+    #include <stdbool.h> // defines `bool` type
+    #include <stdio.h>
+
+    int main(void)
+    {
+      // variable declarations and initialization
+      bool digit_seen[10] = {false}; // initialized to zeros = false
+      int digit;
+      unsigned long int n; // a long unsigned integer type
+
+      // getting user input
+      printf("Enter a number: ");
+      scanf("%ld", &n);
+      puts("");
+
+      // scan input number digit by digit
+      while (n > 0) { // loop while n positive
+        digit = n % 10; // example output: 28212 % 10 = 3
+        if (digit_seen[digit]) // if true then digit repeats
+          break; // leave loop
+        digit_seen[digit] = true;
+        n /= 10; // example output: (int) (28212/10) = (int) 2821.2 = 2821
+        } // finishes when (int) single digit / 10 = 0
+
+      // print result
+      if (n > 0) // found repeat digit before scanning whole number
+        printf("Repeated digit\n");
+      else  // n = 0 means scanning finished = all digits seen
+        printf("No repeated digit\n");
+          
+      return 0;
+    }
+  #+end_src
+
+- Testing:
+  #+begin_src bash :results output :exports both
+    gcc repdigit.c -o rep
+    echo 1987654321 | ./rep
+  #+end_src
+
+  #+RESULTS:
+  : Enter a number: 
+  : Repeated digit
+
+- *Notes*:
+
+* IN PROGRESS Glossary
+
+| Term                  | Explanation                                                  |
+|-----------------------+--------------------------------------------------------------|
+| Array                 | A collection of contiguosly stored elements of the same type |
+| Preprocessor          | Directives that provide instructions to the compiler.        |
+| Macro                 | A fragment of code which is given a name.                    |
+| =#define=               | Used to define macros or constants.                          |
+| =sizeof=                | Operator that returns the size of a variable or datatype.    |
+| =scanf=                 | Function to read formatted input from stdin.                 |
+| =printf=                | Function to print formatted output to stdout.                |
+| Loop                  | A programming construct that repeats a block of code.        |
+| =for= loop              | A control flow statement for specifying iteration.           |
+| Array length          | The number of elements in an array.                          |
+| Variable-length array | An array where the length is determined at runtime.          |
+| Compile-time          | The period when source code is being compiled.               |
+| Runtime               | The period when a program is running.                        |
+| Tangle                | Exporting source code from an Org-mode file.                 |
+| =main= function         | The entry point of a C program.                              |
+| =puts=                  | Function to print a string followed by a newline.            |
+| =gcc=                   | GNU Compiler Collection, used to compile C programs.         |
+| Command-line          | Interface for typing commands directly to the OS.            |
+| Shell                 | A program that interprets command-line input.                |
+| Input                 | Data provided to a program for processing.                   |
+| Output                | Data produced by a program.                                  |
+| External variable     | Variable declared outside of any function.                   |
+| Function              | A block of code that performs a specific task.               |
+| Prototype             | Declaration of a function's interface.                       |
+| Edge case             | A problem that occurs only in an extreme case                |
+| Debugging             | The process of finding and resolving defects in software.    |
+| Compilation           | The process of converting source code into executable code.  |
+
+* IN PROGRESS Summary
+
+- The use of macros and =sizeof= ensures flexible and maintainable code.
+- Proper program organization includes clear structure and minimal comments.
+- Using =sizeof= dynamically determines array size, enhancing robustness.
+- Coding rules focus on understanding code, function summaries, and robustness.
+- The program reads input numbers, stores them in an array, and prints them in reverse order.
+- Variable-sized arrays allow dynamic memory allocation, offering
+  flexibility.
+
 * IN PROGRESS Sources
 
 - C Programming by King (W W Norton, 2008)
@@ -54,3 +344,20 @@ Each solution includes:
 - Learn C the Hard Way by Shaw (Addison-Wesley, 2015)
 - Algorithmic Thinking (2e) by Zingaro (NoStarch,2024)
 - Mastering algorithms with C by Loudon (O'Reilly, 1999)
+
+* Footnotes
+
+[fn:1]"Time limit" is important if we're looking for the most
+efficient code, which depends on the size of the data and the exact
+use case, and is highly influenced by the chosen data structures.
+
+[fn:2]If this was R, Julia or Python (interpreted rather than compiled
+languages), you'd have another open, namely opening the source file in
+a dedicated buffer with =C-c '= and then running all or part of it in
+the console (the R, Julia or Python shell), and returning to Org-mode
+with =C-c C-k=.
+
+[fn:3] =sizeof(a)= returns the size of =a= in bytes as an unsigned =int=. If
+you divide by the byte-size of a single element, you get the number of
+elements. We use =(int)= to cast the unsigned =int= of the =sizeof= result,
+to avoid compiler warnings.
