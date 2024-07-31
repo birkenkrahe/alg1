@@ -5,14 +5,16 @@
 #+OPTIONS: toc:1 num:1 ^:nil
 #+PROPERTY: header-args:C++ :main yes :includes <iostream> :results output :exports both :noweb yes
 #+PROPERTY: header-args:C :main yes :includes <stdio.h> :results output :exports both :noweb yes
-* IN PROGRESS Overview
+* Overview
 
 We review C by continuing with derived data types that you should
 already know: arrays, pointers, functions. We review by coding and
 analyzing code.
 
-In this section, we focus on one-dimensional array data structures. We
-don't spend much time on multi-dimensional arrays because 
+In this section, we focus on one-dimensional array data
+structures. Multi-dimensional arrays are less important in C because
+/arrays of pointers/ are a more flexible way to store multi-dimensional
+data.
 
 *Objectives:*
 - Tackling problems, solutions, and coding rules
@@ -88,13 +90,7 @@ Coding rules:
 - Ask yourself if you could write this program right away or not!
   Whatever the answer, let's do it together from scratch.
 
-** Solution (codealong)
-
-- *Strategy*: ...
-
-- *Program* =reverse.c=:
-
-** Solution (complete)
+* Solution
 
 - *Strategy:* The numbers are stored in an array of N = 10 elements. N
   is defined at the start with =#define=. The array is initialized with
@@ -164,89 +160,90 @@ Coding rules:
      5) The =./= is necessary for the shell to find the executable file
         =rev= in the current directory.
 
-- *Notes:*
-  1. Is the program proofed against wrong input? Try to break it using
-     the command-line executable entering characters or words instead,
-     or leave out numbers.
-  2. You can use /variable-length arrays/ if you don't want to fix the
-     length of the array - but you cannot initialize it (since the
-     length of the array is not known at compile-time):
-     #+begin_src C :tangle reverse2.c :main yes :includes <stdio.h> :results none :exports both
-       int i, n;
-       printf("How many numbers do you want to reverse: ");
-       scanf("%d", &n);
-       int a[n];
-       printf("Enter %d numbers: ", n);
-       for ( i = 0; i < n; i++) {
-         scanf("%d", &a[i]);
-        }; puts("");
-       printf("In reverse order: ");
-       for ( i = n-1; i >= 0; i--) {
+* Notes
+
+1. Is the program proofed against wrong input? Try to break it using
+   the command-line executable entering characters or words instead,
+   or leave out numbers.
+2. You can use /variable-length arrays/ if you don't want to fix the
+   length of the array - but you cannot initialize it (since the
+   length of the array is not known at compile-time):
+   #+begin_src C :tangle reverse2.c :main yes :includes <stdio.h> :results none :exports both
+     int i, n;
+     printf("How many numbers do you want to reverse: ");
+     scanf("%d", &n);
+     int a[n];
+     printf("Enter %d numbers: ", n);
+     for ( i = 0; i < n; i++) {
+       scanf("%d", &a[i]);
+      }; puts("");
+     printf("In reverse order: ");
+     for ( i = n-1; i >= 0; i--) {
+       printf("%d ", a[i]);
+      }; puts("");
+   #+end_src
+
+   Tangle the source file =reverse2.c=, and on the command-line, run:
+   #+begin_src bash :results output :exports both
+     gcc reverse2.c -o rev2
+     echo 4 5 4 3 2 | ./rev2  # output: 2 3 4 5
+   #+end_src
+3. We can compute the length of an array =a= using the =sizeof=
+   operator, which is useful if we don't know the length[fn:4].
+   #+begin_src C :main no
+     #define N 10
+     #define SIZE (int)(sizeof(a)/sizeof(a[0]))
+
+     int main (void)
+     {
+       int i;
+       int a[N];
+       printf("SIZE = %d\n", SIZE);
+       for (i = 0; i < SIZE; i++) {
+         a[i] = i+1;
          printf("%d ", a[i]);
-        }; puts("");
-     #+end_src
-
-     Tangle the source file =reverse2.c=, and on the command-line, run:
-     #+begin_src bash :results output :exports both
-       gcc reverse2.c -o rev2
-       echo 4 5 4 3 2 | ./rev2  # output: 2 3 4 5
-     #+end_src
-  3. We can compute the length of an array =a= using the =sizeof=
-     operator, which is useful if we don't know the length[fn:4].
-     #+begin_src C :main no
-       #define N 10
-       #define SIZE (int)(sizeof(a)/sizeof(a[0]))
-
-       int main (void)
-       {
-         int i;
-         int a[N];
-         printf("SIZE = %d\n", SIZE);
-         for (i = 0; i < SIZE; i++) {
-           a[i] = i+1;
-           printf("%d ", a[i]);
-         }
-         return 0;
        }
-     #+end_src
+       return 0;
+     }
+   #+end_src
 
-     #+RESULTS:
-     : SIZE = 10
-     : 1 2 3 4 5 6 7 8 9 10
+   #+RESULTS:
+   : SIZE = 10
+   : 1 2 3 4 5 6 7 8 9 10
 
-  4. Macros can also have parameters. Here are two examples:
-     #+begin_src C
-       #define MAX(x,y) ((x)>(y) ? (x):(y))
-       #define IS_EVEN(n) ((n)%2==0)
+4. Macros can also have parameters. Here are two examples:
+   #+begin_src C
+     #define MAX(x,y) ((x)>(y) ? (x):(y))
+     #define IS_EVEN(n) ((n)%2==0)
 
-       printf("Max value: %d\n", MAX(100,200)); // use parametrized macro
-       printf("Is 100 even? %d\n", IS_EVEN(100)); // use parametrized macro
-     #+end_src  
+     printf("Max value: %d\n", MAX(100,200)); // use parametrized macro
+     printf("Is 100 even? %d\n", IS_EVEN(100)); // use parametrized macro
+   #+end_src
 
-     #+RESULTS:
-     : Max value: 200
-     : Is 100 even? 1
+   #+RESULTS:
+   : Max value: 200
+   : Is 100 even? 1
 
-     In the definition of =MAX=, =x > y ? x : y= is a short version of
-     =if...else=:
-     #+begin_example C
-     if (x > y) 
-        x
-     else
-        y
-     #+end_example
+   In the definition of =MAX=, =x > y ? x : y= is a short version of
+   =if...else=:
+   #+begin_example C
+   if (x > y)
+      x
+   else
+      y
+   #+end_example
 
-     You can also use macros to create aliases for commands you're
-     tired of typing, like =printf("%d\n",i);=
-     #+begin_src C
-       #define PRINT_INT(n) printf("%d\n",n);
+   You can also use macros to create aliases for commands you're
+   tired of typing, like =printf("%d\n",i);=
+   #+begin_src C
+     #define PRINT_INT(n) printf("%d\n",n);
 
-       int i = 200, j = 100;
-       PRINT_INT(i/j);
-     #+end_src
+     int i = 200, j = 100;
+     PRINT_INT(i/j);
+   #+end_src
 
-     #+RESULTS:
-     : 2
+   #+RESULTS:
+   : 2
 
 * Arrays: Checking a Number for Repeated Digits
 
@@ -263,21 +260,7 @@ Coding rules:
 - Ask yourself if you could write this program right away or not!
   Whatever the answer, let's do it together from scratch.
 
-** Solution (codealong)
-
-- *Strategy*: The program uses an array of Boolean values =digits_seen= to
-  keep track of which digits 0-9 xappear in a number. Initially, every
-  element of the array is =false=. When given a number =n=, the program
-  examines its digits one at a time, storing each into the =digit=
-  variable, and then using it as an index into =digit_seen=. if
-  =digit_seen[digit]= is =true=, then =digit= appears at least twice in
-  =n=. If =digit_seen[digit]= is =false=, then =digit= has not been seen
-  before, so the program sets =digit_seen[digit= to =true= and keeps
-  going.
-
-- *Program* =repdigit.c=:
-
-** NEXT Solution (complete)
+* Solution
 
 - *Strategy*: The program uses an array of Boolean values =digits_seen= to
   keep track of which digits 0-9 xappear in a number. Initially, every
@@ -313,7 +296,7 @@ Coding rules:
 
       // scan input number digit by digit
       while (n > 0) { // loop while n positive
-        digit = n % 10; // example output: 28212 % 10 = 3
+        digit = n % 10; // example output: 28212 % 10 = 2
         if (digit_seen[digit]) // if true then digit repeats
           break; // leave loop
         digit_seen[digit] = true;
@@ -337,50 +320,75 @@ Coding rules:
   #+end_src
 
   #+RESULTS:
-  : Enter a number: 
+  : Enter a number:
   : Repeated digit
 
-- *Notes*:
-  1. You don't need to load =<stdbool.h>=, you can also =#define= Boolean
-     values and use C's =typedef= keyword to create a synonym for
-     previously defined types:
-     #+begin_src C :results none
-       #define true 1
-       #define false 0
-       typedef int bool;
-     #+end_src
-  2. C has a number of different =int= types. On a 64-bit machine,
-     =unsigned long int= can hold positive whole numbers up to
-     18,446,744,073,709,551,615. Do you know why that is?
-     #+begin_quote
-     The largest value is 2^64-1: 64 bits (or 8 words/bytes of 8 bit
-     length) can be used to represent a value in binary number 0,1.
+* Notes
 
-     For example, with 3 bits you can represent 2^3=8 values ranging
-     from (000) to (111). Likewise, for an n-bit unsigned integer, the
-     values range from 0 to 2^n-1. For n=64 that's the number given.
+1. Make sure you understand the algorithm:
+   1) =digit_seen= is a Boolean vector of 10 values initialized to be
+      =false= when none of the digits of =n= have been visited yet.
+   2) The first =digit= is =n % 10=, that is the remainder of dividing =n=
+      by 10. For example for 28212 = 2821 * 10 + 2, 28212 % 10 = 2.
+   3) The array element corresponding to =digit = 2= is
+      =digit_seen[digit] = digit_seen[2]=. It is 0 (=false=) if the
+      digit has not been seen yet, and it is 1 (=true=) if it has been
+      seen.
+   4) In the latter case (1), the =break= command leads out of the
+      =while= loop, because the answer "Are there any repeated digits"
+      has been answered.
+   5) In the former case (0), =digit_seen[true]= is now set to 1
+      (because the digit has been seen), and we move on to the next
+      digit: =n / 10= removes the last digit, e.g. =28212 / 10 = 2821.2=
+      but =int(2821.2) = 2821=, and the loop starts over for the next
+      digit.
+   6) If the loop was left early because a repeated digit was found,
+      =n > 0=, and ="Repeated digit"= is printed.
+   7) If the loop ran through all digits, no repeated digits were
+      found, and =n=0= because the last digit divided by 10 is smaller
+      than 10, hence its integer part is 0, and =No repeated digit= is
+      printed.
 
-     Can you guess what the range of values will be for =long int=
-     (which allows positive and negative integers)?[fn:5]
-     #+end_quote
-     #+begin_src C :main no
-       #include <stdio.h>
-       #include <limits.h> // contains definition of ULONG_MAX
+2. You don't need to load =<stdbool.h>=, you can also =#define= Boolean
+   values and use C's =typedef= keyword to create a synonym for
+   previously defined types:
+   #+begin_src C :results none
+     #define true 1
+     #define false 0
+     typedef int bool;
+   #+end_src
+3. C has a number of different =int= types. On a 64-bit machine,
+   =unsigned long int= can hold positive whole numbers up to
+   $18,446,744,073,709,551,615$. Do you know why that is?
+   #+begin_quote
+   The largest value is 2^64-1: 64 bits (or 8 words/bytes of 8 bit
+   length) can be used to represent a value in binary number 0,1.
 
-       int main() {
-         unsigned long int max_value = ULONG_MAX; // maximum value for unsigned long int
-         printf("The largest value for unsigned long int is: %lu\n", max_value);
-         return 0;
-       }
-     #+end_src
+   For example, with 3 bits you can represent 2^3=8 values ranging
+   from (000) to (111). Likewise, for an n-bit unsigned integer, the
+   values range from 0 to 2^n-1. For n=64 that's the number given.
 
-     #+RESULTS:
-     : The largest value for unsigned long int is: 18446744073709551615
-  3. To capture =unsigned long int= numbers, =scanf= requires the =%lu=
-     format specification.
-     
+   Can you guess what the range of values will be for =long int=
+   (which allows positive and negative integers)?[fn:5]
+   #+end_quote
+   #+begin_src C :main no
+     #include <stdio.h>
+     #include <limits.h> // contains definition of ULONG_MAX
 
-* TODO Review questions
+     int main() {
+       unsigned long int max_value = ULONG_MAX; // max value for unsigned
+       // long int
+       printf("The largest value for unsigned long int is: %lu\n", max_value);
+       return 0;
+     }
+   #+end_src
+
+   #+RESULTS:
+   : The largest value for unsigned long int is: 18446744073709551615
+4. To capture =unsigned long int= numbers, =scanf= requires the =%lu=
+   format specification.
+
+* Review questions
 
 1. What constitutes a problem?
    #+begin_quote
@@ -395,7 +403,7 @@ Coding rules:
    2) Code comments, program and function headers.
    3) Standard program organization.
    4) Solution review with a discussion of edge cases.
-   #+end_quote   
+   #+end_quote
 
 3. What are the coding rules?
    #+begin_quote
@@ -421,12 +429,12 @@ Coding rules:
    block. In this code block, compile the file and run it by piping
    the input to the executable, which must be called with the relative
    path:
-      #+end_quote
+   #+end_quote
    #+begin_example
       gcc main.c -o main
       echo 'a' | ./main
    #+end_example
-   
+
 6. What is a variable-length array? What are the constraints on a VLA?
    #+begin_quote
    A VLA is an array whose memory (aka length) is computed and
@@ -454,8 +462,37 @@ Coding rules:
    array name.
    #+end_quote
 
-* TODO Exercises
+* Exercises
 
+Submit your solution as an Org-mode file. The code should pass the
+test case, and the required output should be part of the Org-mode
+file. Since user input is required, compile and run the file in a =bash=
+code block.
+
+1. Modify the =repdigit.c= program, which checked a number for repeated
+   digits so that it shows which digits (if any) were repeated.
+
+   Sample input and output:
+   #+begin_example
+   Enter a number: 939577
+   Repeated digit(s): 7 9
+   #+end_example
+p
+2. Modify the =repdigit.c= program, which checked a number for repeated
+   digits so that it prints a table showing how many times each digit
+   appears in the number:
+
+   Sample input and output:
+   #+begin_example
+   Enter a number: 41271092
+   Digit:        0  1  2  3  4  5  6  7  8  9
+   Occurrences:  1  2  2  0  1  0  0  1  0  1
+   #+end_example
+
+3. Modify the =repdigit.c= program, which checked a number for repeated
+   digits so that the user can enter more than one number to be tested
+   for repeated digits. The program should terminate when the user
+   enters a number that's less than or equal to 0.
 
 * Glossary
 
@@ -504,10 +541,7 @@ Coding rules:
 
 * Sources
 
-- C Programming by King (W W Norton, 2008)
-- Learn C the Hard Way by Shaw (Addison-Wesley, 2015)
-- Algorithmic Thinking (2e) by Zingaro (NoStarch,2024)
-- Mastering algorithms with C by Loudon (O'Reilly, 1999)
+- C Programming by King (W W Norton, 2008), chapter 8
 
 * Footnotes
 
