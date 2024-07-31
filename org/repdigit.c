@@ -16,11 +16,11 @@ int main(void)
   // getting user input
   printf("Enter a number: ");
   scanf("%lu", &n);
-  puts("");
+  printf("%ld\n", n);
 
   // scan input number digit by digit
   while (n > 0) { // loop while n positive
-    digit = n % 10; // example output: 28212 % 10 = 3
+    digit = n % 10; // example output: 28212 % 10 = 2
     if (digit_seen[digit]) // if true then digit repeats
       break; // leave loop
     digit_seen[digit] = true;
