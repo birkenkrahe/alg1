@@ -292,7 +292,7 @@ Coding rules:
       // getting user input
       printf("Enter a number: ");
       scanf("%lu", &n);
-      puts("");
+      printf("%ld\n", n);
 
       // scan input number digit by digit
       while (n > 0) { // loop while n positive
@@ -320,7 +320,7 @@ Coding rules:
   #+end_src
 
   #+RESULTS:
-  : Enter a number:
+  : Enter a number: 1987654321
   : Repeated digit
 
 * Notes
@@ -388,6 +388,44 @@ Coding rules:
 4. To capture =unsigned long int= numbers, =scanf= requires the =%lu=
    format specification.
 
+
+* Debugging with =gdb=
+
+- Check that you have the GNU debugger with =gdb --version=. If this
+  does not work, you have to install =gdb= with =sudo apt install gdb=.
+
+  #+begin_src bash :results output :exports both
+  gdb --version
+  #+end_src
+
+  #+RESULTS:
+  : GNU gdb (Ubuntu 12.1-0ubuntu1~22.04.2) 12.1
+  : Copyright (C) 2022 Free Software Foundation, Inc.
+  : License GPLv3+: GNU GPL version 3 or later <http://gnu.org/licenses/gpl.html>
+  : This is free software: you are free to change and redistribute it.
+  : There is NO WARRANTY, to the extent permitted by law.
+
+- To debug files, you must compile the source code file with the
+  additional flag =-g=:
+  #+begin_src bash :results none
+    gcc repdigit.c -o rep -g
+  #+end_src
+
+- For the debugging session, you need to open a shell in Emacs with
+  =M-x shell= and run =gdb ./rep=.
+
+- Once you're in the debugger, you can set break points with =break=
+  (for example, =break main= will break at the start of =main=, or =break
+  19= will break at line 19 of the source code file), execute the file
+  with =run=, go from statement to statement with =next=, get variables
+  with =print= (e.g. =print n=), or all local variables with =info locals=.
+
+- Let's do this together to understand the =repdigit.c= program better!
+
+- The debugger is the more useful the more moving parts your program
+  has, and we'll use it often when we start building larger programs
+  with functions and data structures.
+    
 * Review questions
 
 1. What constitutes a problem?
@@ -466,8 +504,12 @@ Coding rules:
 
 Submit your solution as an Org-mode file. The code should pass the
 test case, and the required output should be part of the Org-mode
-file. Since user input is required, compile and run the file in a =bash=
-code block.
+file. Since user input is required, compile and run the tangled file
+in a =bash= code block for problems 1-2, and for problem 3, tangle the
+file, and open a shell in Emacs (=M-x shell=) to compile and run it.
+
+If you run into trouble, remember that you can debug your code with
+=gdb= if you compile the file with =-g=.
 
 1. Modify the =repdigit.c= program, which checked a number for repeated
    digits so that it shows which digits (if any) were repeated.
@@ -477,7 +519,7 @@ code block.
    Enter a number: 939577
    Repeated digit(s): 7 9
    #+end_example
-p
+
 2. Modify the =repdigit.c= program, which checked a number for repeated
    digits so that it prints a table showing how many times each digit
    appears in the number:
@@ -528,6 +570,7 @@ p
 | =unsigned long int=     | Integer type that can hold a max value of 2^64-1             |
 | =long int=              | Integer type that can hold a max value of (2^63-1)/2         |
 | (=%lu) =%ld=             | Format specifier for (un)signed long integer values          |
+| =gdb=                   | GNU debugger                                                 |
 
 * Summary
 
@@ -538,6 +581,7 @@ p
 - Variable-sized arrays allow more flexible dynamic memory allocation.
 - Besides =int= there are other data types like =unsigned long int=.
 - Run Emacs code blocks in =bash= code blocks in the same Org-mode file.
+- Debug your files step-by-step with =gdb= after compiling with =-g=.
 
 * Sources
 
