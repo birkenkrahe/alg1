@@ -69,15 +69,15 @@ be organized and searched through in the digital world.
    are stored in structures containing millions of blocks of memory.
 
 2) When you look up a contact on your phone, your phone uses partial
-   information to narrow down the search (and it's not powerful)
-   using a data structure (like a dictionary).
+   information to narrow down the *search* (and it's not powerful) using
+   a data structure (like a dictionary).
 
-3) When you log into a social network, the network servers check
-   your login information among possibly billions of users.
+3) When you log into a social network, the network servers *check* your
+   login information among possibly billions of users.
 
-4) When you do a web search, the search engine uses data structures
-   to find the web pages containing your search terms: among
-   (as of 2024) an estimated 50 billion index by Google alone.
+4) When you do a web *search*, the search engine uses data structures to
+   find the web pages containing your search terms: among (as of 2024)
+   an estimated 50 billion index by Google alone.
 
 5) When you dial 911, the emergency services network looks up your
    phone number in a data structure that maps phone numbers to
@@ -85,10 +85,10 @@ be organized and searched through in the digital world.
 
 * Which data structures are used when searching for an address on Google Maps?
 
-Every one of these examples employs not one but half a dozen
-different data structures. E.g. An address search on Google Maps
-uses the following data structures (almost all of which you will
-learn about in this course):
+Every one of these examples employs not one but half a dozen different
+data structures. E.g. An address search on Google Maps uses the
+following data structures (almost all of which you will learn about in
+this course):
 
 1. *Geospatial Indexing*
    - *Quadtree*: A tree data structure in which each internal node has
@@ -97,41 +97,39 @@ learn about in this course):
      quadrants or regions. This is useful for indexing geographical
      locations efficiently.
    - *R-tree*: A tree data structure used for spatial access methods,
-     i.e., for indexing multi-dimensional information. It is
-     commonly used for indexing spatial information such as
-     geographical coordinates, which is crucial for efficiently
-     querying map data.
+     i.e., for indexing multi-dimensional information. It is commonly
+     used for indexing spatial information such as geographical
+     coordinates, which is crucial for efficiently querying map data.
 
 2. *Hash Maps and Tries*
    - *Hash Map*: This data structure is used for quick lookups of
      specific addresses or place names. It allows for constant time
      complexity for search operations, which is important for
      performance in real-time applications.
-   - *Trie (Prefix Tree)**: A specialized tree used to store
-     associative data structures. A trie is often used for
-     autocomplete features in search queries, allowing for quick
-     lookup of address prefixes and suggestions.
+   - *Trie (Prefix Tree)*: A specialized tree used to store associative
+     data structures. A trie is often used for autocomplete features
+     in search queries, allowing for quick lookup of address prefixes
+     and suggestions.
 
 3. *Graph Structures*
    - *Graph*: Google Maps uses graph data structures to represent the
-     network of roads, intersections, and various routes. Each node
-     in the graph represents a geographic location (like an
-     intersection), and each edge represents a road segment
-     connecting two nodes. This is essential for route planning and
-     navigation.
+     network of roads, intersections, and various routes. Each node in
+     the graph represents a geographic location (like an
+     intersection), and each edge represents a road segment connecting
+     two nodes. This is essential for route planning and navigation.
 
 4. *KD-Trees*
-   - *KD-Tree (k-dimensional tree)*: A space-partitioning data
-     structure for organizing points in a k-dimensional
-     space. KD-trees are useful for nearest neighbor searches, which
-     are common in mapping applications when finding the closest
-     location or point of interest.
+   - *KD-Tree (k-dimensional tree)*: A space-partitioning data structure
+     for organizing points in a k-dimensional space. KD-trees are
+     useful for nearest neighbor searches, which are common in mapping
+     applications when finding the closest location or point of
+     interest.
 
 5. *Spatial Databases*
    - *Spatial Database*: Specialized databases designed to store and
-     query data related to objects in space, including points,
-     lines, and polygons. Google Maps relies on spatial databases to
-     manage large-scale geographic data efficiently.
+     query data related to objects in space, including points, lines,
+     and polygons. Google Maps relies on spatial databases to manage
+     large-scale geographic data efficiently.
 
 * Algorithms vs. Data Structures
 
