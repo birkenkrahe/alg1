@@ -33,7 +33,10 @@ data.
 3. Create a C code chunk with =<s <TAB> C=
 4. Add header arguments: ~:main yes :includes <stdio.h> :results output~
 5. Write and run a "hello world" test program: =puts("hello world");=
-6. If any of these steps don't work for you, let me know!
+6. Keep running chunks with =C-c C=c= to check for syntax errors.
+7. If any of these steps don't work for you, let me know!
+
+*Hello World* - see YouTube for a short literate programming tutorial.
 
 * Problem Descriptions, Solution Process, and Coding Rules
 
@@ -388,7 +391,6 @@ Coding rules:
 4. To capture =unsigned long int= numbers, =scanf= requires the =%lu=
    format specification.
 
-
 * Debugging with =gdb=
 
 - Check that you have the GNU debugger with =gdb --version=. If this
@@ -420,7 +422,7 @@ Coding rules:
   with =run=, go from statement to statement with =next=, get variables
   with =print= (e.g. =print n=), or all local variables with =info locals=.
 
-- Let's do this together to understand the =repdigit.c= program better!
+- Let's do it together to understand the =repdigit.c= program better!
 
 - The debugger is the more useful the more moving parts your program
   has, and we'll use it often when we start building larger programs
