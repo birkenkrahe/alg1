@@ -1,4 +1,4 @@
-#+TITLE: Review of C/C++ Basics: Arrays
+#+TITLE: C/C++ Basics: Arrays
 #+AUTHOR: Marcus Birkenkrahe
 #+SUBTITLE: CSC 240 - Data structures with C++ - Lyon College, FA24
 #+STARTUP:overview hideblocks indent
@@ -36,10 +36,12 @@ data.
 6. Keep running chunks with =C-c C=c= to check for syntax errors.
 7. If any of these steps don't work for you, let me know!
 
-*Hello World* - see YouTube for a short literate programming tutorial.
+[[https://youtu.be/Oq83ZCu8FUI?si=qQGQPFrjq2RvhWln][See my YouTube channel]] (=@Literate Programming with Emacs and Org-mode=)
+for a short literate programming tutorial: [[https://tinyurl.com/first-lit-prog][tinyurl.com/first-lit-prog]].
 
 * Problem Descriptions, Solution Process, and Coding Rules
 
+** Problem Components
 Each problem begins with three components:
 1) The problem context as a short description including potential
    constraints.
@@ -47,6 +49,7 @@ Each problem begins with three components:
 3) The problem output in the exact form required (optionally with time
    limit[fn:1]).
 
+** Solution Components   
 Each solution includes:
 1) A short description how we tackle the problem.
 2) Minimal comments in the source code.
@@ -69,7 +72,21 @@ Each solution includes:
    - Short summary and/or glossary of terms/commands
    - Edge cases (special situations or values)
 
-Coding rules:
+** General Problem-Solving Techniques
+These should always be part of your problem-solving approach:
+1) Always have a plan
+2) Restate the problem
+3) Divide the problem
+4) Start with what you know
+5) Reduce the problem
+6) Look for analogies
+7) Experiment
+8) Don't get frustrated
+9) Review your solution
+10) Develop an alternate solution
+
+** Coding Rules     
+There are a few Coding rules:
 1) You should always write your own code (not just copy and paste)
    though you may use secondary sources to help you.
 2) You should stay away from using AI for code generation, debugging,
@@ -427,7 +444,10 @@ Coding rules:
 - The debugger is the more useful the more moving parts your program
   has, and we'll use it often when we start building larger programs
   with functions and data structures.
-    
+
+- For more information, see the =gdb(1)= man page (=M-x man gdb RET= in
+  Emacs, or [[https://www.man7.org/linux/man-pages/man1/gdb.1.html][online]]).
+  
 * Review questions
 
 1. What constitutes a problem?
@@ -540,39 +560,39 @@ If you run into trouble, remember that you can debug your code with
 
 * Glossary
 
-| Term                  | Explanation                                                  |
-|-----------------------+--------------------------------------------------------------|
-| Array                 | A collection of contiguosly stored elements of the same type |
-| Preprocessor          | Directives that provide instructions to the compiler.        |
-| Macro                 | A fragment of code which is given a name.                    |
-| =#define=               | Used to define macros or constants.                          |
-| =sizeof=                | Operator that returns the size of a variable or datatype.    |
-| =scanf=                 | Function to read formatted input from stdin.                 |
-| =printf=                | Function to print formatted output to stdout.                |
-| Loop                  | A programming construct that repeats a block of code.        |
-| =for= loop              | A control flow statement for specifying iteration.           |
-| Array length          | The number of elements in an array.                          |
-| Variable-length array | An array where the length is determined at runtime.          |
-| Compile-time          | The period when source code is being compiled.               |
-| Runtime               | The period when a program is running.                        |
-| Tangle                | Exporting source code from an Org-mode file.                 |
-| =main= function         | The entry point of a C program.                              |
-| =puts=                  | Function to print a string followed by a newline.            |
-| =gcc=                   | GNU Compiler Collection, used to compile C programs.         |
-| Command-line          | Interface for typing commands directly to the OS.            |
-| Shell (=bash=)          | A program that interprets command-line input.                |
-| Input                 | Data provided to a program for processing.                   |
-| Output                | Data produced by a program.                                  |
-| External variable     | Variable declared outside of any function.                   |
-| Function              | A block of code that performs a specific task.               |
-| Prototype             | Declaration of a function's interface.                       |
-| Edge case             | A problem that occurs only in an extreme case                |
-| Debugging             | The process of finding and resolving defects in software.    |
-| Compilation           | The process of converting source code into executable code.  |
-| =unsigned long int=     | Integer type that can hold a max value of 2^64-1             |
-| =long int=              | Integer type that can hold a max value of (2^63-1)/2         |
-| (=%lu) =%ld=             | Format specifier for (un)signed long integer values          |
-| =gdb=                   | GNU debugger                                                 |
+|    | Term                  | Explanation                                                  |
+|----+-----------------------+--------------------------------------------------------------|
+|  1 | Array                 | A collection of contiguosly stored elements of the same type |
+|  2 | Preprocessor          | Directives that provide instructions to the compiler.        |
+|  3 | Macro                 | A fragment of code which is given a name.                    |
+|  4 | =#define=               | Used to define macros or constants.                          |
+|  5 | =sizeof=                | Operator that returns the size of a variable or datatype.    |
+|  6 | =scanf=                 | Function to read formatted input from stdin.                 |
+|  7 | =printf=                | Function to print formatted output to stdout.                |
+|  8 | Loop                  | A programming construct that repeats a block of code.        |
+|  9 | =for= loop              | A control flow statement for specifying iteration.           |
+| 10 | Array length          | The number of elements in an array.                          |
+| 11 | Variable-length array | An array where the length is determined at runtime.          |
+| 12 | Compile-time          | The period when source code is being compiled.               |
+| 13 | Runtime               | The period when a program is running.                        |
+| 14 | Tangle                | Exporting source code from an Org-mode file.                 |
+| 15 | =main= function         | The entry point of a C program.                              |
+| 16 | =puts=                  | Function to print a string followed by a newline.            |
+| 17 | =gcc=                   | GNU Compiler Collection, used to compile C programs.         |
+| 18 | Command-line          | Interface for typing commands directly to the OS.            |
+| 19 | Shell (=bash=)          | A program that interprets command-line input.                |
+| 20 | Input                 | Data provided to a program for processing.                   |
+| 21 | Output                | Data produced by a program.                                  |
+| 22 | External variable     | Variable declared outside of any function.                   |
+| 23 | Function              | A block of code that performs a specific task.               |
+| 24 | Prototype             | Declaration of a function's interface.                       |
+| 25 | Edge case             | A problem that occurs only in an extreme case                |
+| 26 | Debugging             | The process of finding and resolving defects in software.    |
+| 27 | Compilation           | The process of converting source code into executable code.  |
+| 28 | =unsigned long int=     | Integer type that can hold a max value of 2^64-1             |
+| 29 | =long int=              | Integer type that can hold a max value of (2^63-1)/2         |
+| 30 | (=%lu) =%ld=             | Format specifier for (un)signed long integer values          |
+| 31 | =gdb=                   | GNU debugger                                                 |
 
 * Summary
 
@@ -587,7 +607,8 @@ If you run into trouble, remember that you can debug your code with
 
 * Sources
 
-- C Programming by King (W W Norton, 2008), chapter 8
+- C Programming by K N King (W W Norton, 2008), chapter 8
+- Think Like a Programmer by V Anton Spraul (NoStarch, chapter 1)
 
 * Footnotes
 
