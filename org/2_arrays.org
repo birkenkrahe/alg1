@@ -522,7 +522,26 @@ There are a few Coding rules:
    array name.
    #+end_quote
 
-* Exercises
+* Practice exercises
+
+1. Write a declaration of an array named =weekend= containing seven =bool=
+   values. Include an initializer that makes the first and last values
+   =true=; all other values should be =false=.
+
+2. The Fibonacci numbers are 0,1,1,2,3,4,5,13,... where each number is
+   the sum of the two preceding numbers. Write a program that declares
+   an array named =fib= of length =20= and fills the array with the first
+   20 Fibonacci numbers.
+
+3. Initialize a 2 x 2 identity matrix and print it:
+   #+begin_example
+     1 0 
+     0 1 
+   #+end_example
+
+   /Hint:/ A two-dimensional array =a= is defined as =a[M][N]=.
+
+* Programming assignments
 
 Submit your solution as an Org-mode file. The code should pass the
 test case, and the required output should be part of the Org-mode
