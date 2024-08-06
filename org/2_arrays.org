@@ -1,4 +1,4 @@
-#+TITLE: C/C++ Basics: Arrays
+#+TITLE: Arrays
 #+AUTHOR: Marcus Birkenkrahe
 #+SUBTITLE: CSC 240 - Data structures with C++ - Lyon College, FA24
 #+STARTUP:overview hideblocks indent
@@ -29,7 +29,7 @@ data.
 
 *Code along:*
 1. Open Emacs from the command line with =emacs &=
-2. Create an Org-mode file with =C-x C-f 2_review.org=
+2. Create an Org-mode file with =C-x C-f 2_arrays.org=
 3. Create a C code chunk with =<s <TAB> C=
 4. Add header arguments: ~:main yes :includes <stdio.h> :results output~
 5. Write and run a "hello world" test program: =puts("hello world");=
