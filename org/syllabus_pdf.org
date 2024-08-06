@@ -112,7 +112,7 @@ development.
 
 - [[https://tinyurl.com/LyonPolicyOnline][tinyurl.com/LyonPolicyOnline]], see also [[https://catalog.lyon.edu/class-attendance][Class Attendance]] policy  
   
-* Schedule
+* Weekly schedule
 
 "Data structures" and "algorithms" are a little hard to separate:
 - "Data structures" is concerned with storing and organizing data.
