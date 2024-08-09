@@ -145,7 +145,7 @@ The syllabus is available on [[https://lyon.instructure.com/courses/2623/assignm
      (like large-scale multi-player network games, network
      communication, or space exploration and communications).
    #+end_quote
-4. But all the programs are in C not in C++ - why is that?
+4. But most programs are in C not in C++ - why is that?
    #+begin_quote
    After working out many lectures in C++ only, I realized that
    Object-orientation and the extra layers of abstraction that C++
@@ -153,7 +153,7 @@ The syllabus is available on [[https://lyon.instructure.com/courses/2623/assignm
    data structures.
 
    This essence is not "what can this language do?" but "how can you
-   stroe, organize, and access data to solve a given problem most
+   store, organize, and access data to solve a given problem most
    efficiently." This question is largely language-independent, and so
    we want that the language does not get in the way to our solving
    problems algorithmically.
@@ -162,6 +162,10 @@ The syllabus is available on [[https://lyon.instructure.com/courses/2623/assignm
    "Algorithmic Thinking" resonated with me, too. Once you understand
    this stuff in C, you can take your knowledge anywhere, to any other
    language, wherever problems can be solved computationally.
+
+   Another data point: tell Wyatt's story (2014 metal sheet cutter)
+   #+attr_html: :width 600px: 
+   [[../img/machine.jpg]]
    #+end_quote
 5. What are your favorite programming languages?
    #+begin_quote
@@ -207,7 +211,6 @@ The syllabus is available on [[https://lyon.instructure.com/courses/2623/assignm
 
    #+attr_html: :width 600px: 
    [[../img/c_vs_cpp_vs_c_hash.png]]
-
 
 8. Can this course help me break into Game Programming?
    #+begin_quote
