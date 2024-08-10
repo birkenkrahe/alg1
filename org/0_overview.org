@@ -413,13 +413,13 @@ hear/do it twice but remember: imitation/repetition creates mastery!
   3. What is Literate Programming?
      #+begin_quote
      *Literate Programming* is a programming paradigm introduced by
-     Donald Knuth in the 1970. It emphasises writing code and
+     Donald Knuth in the 1970[fn:1]. It emphasises writing code and
      documentation together to make programs better structured and
      more enjoyable to read and understand by humans. More information
-     at [[http://literateprogramming.com/][literateprogramming.com]].  Famous application: The
-     [[https://www.ctan.org/starter][TeX typesetting system]].
+     at [[http://literateprogramming.com/][literateprogramming.com]].  Famous application: The [[https://www.ctan.org/starter][TeX]]
+     typesetting system, which dominates technical and scientific
+     publishing.
      #+end_quote
-
   4. How can you run the "Hello World" program in C++ inside Emacs?
      #+begin_src C++ :main yes :includes <iostream> :namespaces std :results output :exports both
        cout << "Hello, World!" << endl;
@@ -486,11 +486,11 @@ hear/do it twice but remember: imitation/repetition creates mastery!
      | C++                  | C             |
      |----------------------+---------------|
      | =<iostream>=           | =<stdio.h>=     |
-     | =using namespace std=  | [fn:7]        |
+     | =using namespace std=  | [fn:2]        |
      | =cout <<= ... =<< endl;= | =puts("...");=  |
      | header-args:C++      | header-args:C |
 
-     What does the =<>= mean in the =#include= statements?[fn:1]
+     What does the =<>= mean in the =#include= statements?[fn:3]
      #+end_quote
 
   7. Why are we using Emacs + Org-mode instead of the VSCode or
@@ -562,7 +562,7 @@ hear/do it twice but remember: imitation/repetition creates mastery!
      that you need to *clone* your own repo to a remote computer. This is
      explained in the freeCodeCamp tutorial
      ([[https://tinyurl.com/guide-to-git][tinyurl.com/guide-to-git]]). There is also a short course (4 hr)
-     [[https://www.datacamp.com/courses/introduction-to-git]["Introduction to Git"]][fn:2] and a [[https://www.datacamp.com/blog/all-about-git][short tutorial]].
+     [[https://www.datacamp.com/courses/introduction-to-git]["Introduction to Git"]][fn:4] and a [[https://www.datacamp.com/blog/all-about-git][short tutorial]].
 
   8) How are you going to use GitHub?
      - You'll regularly update your fork of my course repo.
@@ -593,12 +593,12 @@ github.com in your browser (Google Chrome is best) and login.
 - Click ="Create repository"= at the bottom of the page.
 - If you checked "Add a README file", the Markdown editor will open:
   enter a description (plain-text), then click on =Preview= to see how
-  it will look like[fn:3].
+  it will look like[fn:5].
 - Click on the green ="Commit changes..."= button. A second window
   appears - make sure you check ="Commit directly to the ~main~ branch"=,
   and click on ="Commit changes"=.
 - Your repo appears with three auto-created files, =.gitignore=,
-  =LICENSE=, and =README.md=[fn:4].
+  =LICENSE=, and =README.md=[fn:6].
 
 **** Step 2: Create a branch
 - Go back to the exercise and continue with step 2. Make sure you read
@@ -614,7 +614,7 @@ github.com in your browser (Google Chrome is best) and login.
 - You're now asked to make a change to your code base in the new
   branch using the =README.md= file (a change to any file would be
   equivalent).
-- Once you made the change, you commit it[fn:5]. You can make as many
+- Once you made the change, you commit it[fn:7]. You can make as many
   changes and commits as you like.
 - Your two branches, =main= and =readme-edits= have now diverged.
 
@@ -624,7 +624,7 @@ github.com in your browser (Google Chrome is best) and login.
   using your changes in the =main= code base. Follow the steps of the
   exercise.
 - After creating a =New pull request=, you can check out the changes in
-  the well-known Linux "diff" format[fn:6], a line-by-line comparison.
+  the well-known Linux "diff" format[fn:8], a line-by-line comparison.
 
 **** Step 5: merge your pull request
 
@@ -652,35 +652,41 @@ github.com in your browser (Google Chrome is best) and login.
   King (C Programming 2e, W W Norton 2008) is worth having anyway.
 
 * Footnotes
-[fn:7]C does not have namespaces like C++ to encapsulate names and
+
+[fn:1]Literate Programming "Knuth-style" is a little different from
+what we're doing. You'll see it in some lectures and assignment sample
+solutions, when I use the =noweb= macro processor to split code into
+small pieces and link them back together later.
+
+[fn:2]C does not have namespaces like C++ to encapsulate names and
 organize code, instead it has prefixes, =static=, and =struct= objects to
 avoid name conflicts and group related functions and variables.
 
-[fn:1]It means that the header file or library is in the computers
+[fn:3]It means that the header file or library is in the computers
 =PATH=, the set of locations where the computer looks for
 programs. Alternatively, you need to put the complete (absolute) path
 to the file in between ="..."=.
 
-[fn:2]Lyon College has a classroom at DataCamp, and if you're
+[fn:4]Lyon College has a classroom at DataCamp, and if you're
 enrolled, you can ask me to get access to this online
 platform. DataCamp is not for C++ but for SQL, Python and R, as well
 as for tools like Git and the shell.
 
-[fn:3]Markdown is simple layout language: for example =#= gives you a
+[fn:5]Markdown is simple layout language: for example =#= gives you a
 headline, =`= (backtick) choose code font, =*= gives you bold face, and =_=
 gives you italics.
 
-[fn:4]Explanation: =.gitignore= contains file types that Git will
+[fn:6]Explanation: =.gitignore= contains file types that Git will
 ignore - especially those created in the process of compiling C++
 code - you can add other file types here, e.g. =*.*~= for backup, or
 =*.html= for HTML files; the LICENSE specifies the copyright for
 everything in your repo; the =README.md= file is markdown with a
 description of the repository.
 
-[fn:5]On the shell, the equivalent =git= command is =git commit -m
+[fn:7]On the shell, the equivalent =git= command is =git commit -m
 "[message]"= following a =git add .= for all changed files. To push a
 commit to the remote code base (=origin=), use =git push=.
 
-[fn:6]That's not a coincidence: both Linux and Git were created by
+[fn:8]That's not a coincidence: both Linux and Git were created by
 Linus Torvalds, a Finnish programmer and (still) leader of the global
 Linux kernel development
