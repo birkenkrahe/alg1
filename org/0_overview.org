@@ -212,6 +212,12 @@ The syllabus is available on [[https://lyon.instructure.com/courses/2623/assignm
    #+attr_html: :width 600px: 
    [[../img/c_vs_cpp_vs_c_hash.png]]
 
+   Here is a [[https://youtu.be/sNMtjs_wQiE?si=yI86h-gvonkJ5gDG][short video]] that summarizes C vs. C++ vs. C# (conaticus,
+   2022). And here is [[https://youtu.be/juKv1aHEikI?si=lrEIoJb11ABAz38h][another one]] by a YouTuber who specializes in
+   coding interview preparation, and who prefers C because it is
+   devoid of external dependencies - essentially useful on its own
+   (NeedCode, 2024).
+
 8. Can this course help me break into Game Programming?
    #+begin_quote
    Only in so far as data structures and algorithms are performance
