@@ -1,6 +1,6 @@
-#+TITLE: Introduction to the course and development tools
+#+TITLE: Introduction to the course
 #+AUTHOR: Marcus Birkenkrahe
-#+SUBTITLE: CSC 240 - Data structures with C++ - Lyon College, FA24
+#+SUBTITLE: Data structures with C++ (CSC 240)
 :REVEAL_PROPERTIES:
 #+REVEAL_ROOT: https://cdn.jsdelivr.net/npm/reveal.js
 #+REVEAL_REVEAL_JS_VERSION: 4
@@ -17,238 +17,294 @@
 
 The syllabus is available on [[https://lyon.instructure.com/courses/2623/assignments/syllabus][Canvas]] and on [[https://github.com/birkenkrahe/alg1/blob/main/org/syllabus.org][GitHub]].
 
-1) *Instructor Introduction*
-   - Background and experience
-   - Course objectives and expectations
+** *Instructor Introduction*
+- Background and experience
+- Course objectives and expectations
 
-2) *General Course Information*
-   - Meeting Times: Tue-Thu 9:30-10.45 AM (75 min)
-   - Meeting place: Derby Science Building computer lab room 239
-   - Professor's Office: Derby Science Building 210
-   - Phone: (870) 307-7254 (office) / (501) 422-4725 (private)
-   - Office hours: [[https://calendar.app.google/yjr7tB7foMYowRJm7][by appointment]] MWF 4pm, Tue 3pm, Thu 11 am & 3 pm
+** *General Course Information*
+- Meeting Times: Tue-Thu 9:30-10.45 AM (75 min)
+- Meeting place: Derby Science Building computer lab room 239
+- Professor's Office: Derby Science Building 210
+- Phone: (870) 307-7254 (office) / (501) 422-4725 (private)
+- Office hours: [[https://calendar.app.google/yjr7tB7foMYowRJm7][by appointment]] MWF 4pm, Tue 3pm, Thu 11 am & 3 pm
 
-3) *Materials and Multimedia*
+** Books that I used
 
-   - Primary sources:
-     + C Programming by King (W W Norton, 2008) - Aug-Oct
-     + Mastering algorithms with C by Loudon (O'Reilly, 1999) Nov
-     + Algorithmic Thinking (2e) by Zingaro (NoStarch,2024) Nov-Dec
++ C Programming by King (W W Norton, 2008) - Aug-Oct
++ Mastering algorithms with C by Loudon (O'Reilly, 1999) Nov
++ Algorithmic Thinking (2e) by Zingaro (NoStarch,2024) Nov-Dec
++ Little Book of Pointers by Collingworth (bitwisebooks, 2019)
 
-   - Secondary sources (recommended):
-     + Learn C the Hard Way by Shaw (Addison-Wesley, 2015)
-     + 100-page C++ language reference: [[https://rooksguide.org/wp-content/uploads/2013/12/rooks-guide-isbn-version.pdf][Rook's Guide to C++]]
-     + 800-page C++ language reference: [[https://ccc.codes/][C++ Crash Course]]
-     + Optional Textbooks:
-       * Helfrich, C++ Data Structures (KendallHunt, 2020)
-       * Kanetkar Y, Data Structures Through C++ 5th ed (bpb, 2024)
-       * Malik, C++ Programming - Program Design Including Data Structures (Cengage 2015)
-       * La Rocca, Grokking Data Structures (Manning 2023) - with Python
-       * Morin, Open Data Structures (in C++) (OpenText, 2013)
-     + Recommended Videos:
-       * C Programming for Beginners @[[https://www.udemy.com/share/101YbQ3@z51ev2j9L2tex43TEy8QZv9SOdzfmNWit0dYx3Xax9jdEIzysZI0m1VqduiOAXk=/][Udemy]]
-       * Advanced pointers @[[https://www.udemy.com/share/10256M3@iB9e4nCDuRgUQ9DBoiKaZ06TNbmJr_rLFZ675BTUDtbQjVFUfMImeYM7SqzcEqs=/][Udemy]]
-       * "C++ Data Structures & Algorithms @[[https://scottbarrett.com/][Udemy]]
-       * [[https://www.youtube.com/@CPlusPlusDataStructures/videos][Helfrich's YouTube videos]] on C++ Data Structures
-       * [[https://youtu.be/B31LgI4Y4DQ?si=mu7z5qTupDg1Pu3x][freeCodeCamp course]] on Data Structures with C++
+  #+begin_notes
 
-4) *Course Objectives*
-   - Explore theory and application of data structures using mainly C
-   - Emphasize algorithmic thinking and optimization techniques
-   - Equip students with knowledge to store, process, and retrieve data
-     efficiently
-   - Help you understand how data structures help you solve
-     programming problems.
+1. Secondary sources (recommended):
+   + Learn C the Hard Way by Shaw (Addison-Wesley, 2015)
+   + 100-page C++ language reference: [[https://rooksguide.org/wp-content/uploads/2013/12/rooks-guide-isbn-version.pdf][Rook's Guide to C++]]
+   + 800-page C++ language reference: [[https://ccc.codes/][C++ Crash Course]]
 
-5) *Target Audience*
-   - Students with basic understanding of programming concepts
-   - Those interested in preparing for deeper study of algorithms
-   - Those interested in advancing their knowledge in data science
-   - Those interested in system and network programming (cybersec)
-   - Those interested in moving on to C++/C# (game programming)
+2. Optional Textbooks:
+   - Helfrich, C++ Data Structures (KendallHunt, 2020)
+   - Kanetkar Y, Data Structures Through C++ 5th ed (bpb, 2024)
+   - Malik, C++ Programming - Program Design Including Data Structures (Cengage 2015)
+   - La Rocca, Grokking Data Structures (Manning 2023) - with Python
+   - Morin, Open Data Structures (in C++) (OpenText, 2013)
 
-6) *Student Learning Outcomes*
-   - Understand major data structures and their applications
-   - Implement various data structures in C and C++
-   - Analyze efficiency of data structures and algorithms
-   - Apply algorithmic thinking to solve complex problems
-   - Design and develop efficient software solutions
-   - Design UML class diagrams and BMPN models
+3. Recommended Videos:
+   - C Programming for Beginners @[[https://www.udemy.com/share/101YbQ3@z51ev2j9L2tex43TEy8QZv9SOdzfmNWit0dYx3Xax9jdEIzysZI0m1VqduiOAXk=/][Udemy]]
+   - Advanced pointers @[[https://www.udemy.com/share/10256M3@iB9e4nCDuRgUQ9DBoiKaZ06TNbmJr_rLFZ675BTUDtbQjVFUfMImeYM7SqzcEqs=/][Udemy]]
+   - "C++ Data Structures & Algorithms @[[https://scottbarrett.com/][Udemy]]
+   - [[https://www.youtube.com/@CPlusPlusDataStructures/videos][Helfrich's YouTube videos]] on C++ Data Structures
+   - [[https://youtu.be/B31LgI4Y4DQ?si=mu7z5qTupDg1Pu3x][freeCodeCamp course]] on Data Structures with C++
 
-7) *Course Requirements*
-   - Prerequisites: Introduction to Programming (CSC100 or CSC115 or
-     CSC109, and MTH101)
-   - Willingness to engage in problem-solving and critical thinking
-   - Willingness to put in substantial time to program on your own
+  #+end_notes
 
-8) *Grading* (see also [[https://github.com/birkenkrahe/alg1/blob/main/img/rubric.png][Rubric]])
-   - Weekly programming assignments: 50%
-   - Weekly multiple-choice tests: 25%
-   - Final exam (optional): 25%
+** *Course Objectives*
+- Explore theory and application of data structures using mainly C
+- Emphasize algorithmic thinking and optimization techniques
+- Equip students with knowledge to store, process, and retrieve data
+  efficiently
+- Help you understand how data structures help you solve
+  programming problems.
 
-9) *Learning Management System*
-   - Use of Lyon's Canvas installation (use the calendar!)
-   - Course materials, assignments, grades, recorded sessions
+** *Target Audience*
+- Students with basic understanding of programming concepts
+- Those interested in preparing for deeper study of algorithms
+- Those interested in advancing their knowledge in data science
+- Those interested in system and network programming (cybersec)
+- Those interested in moving on to C++/C# (game programming)
 
-10) *GitHub, Linux & Emacs & Org-mode*
-    - Course materials in public GitHub repository: [[https://github.com/birkenkrahe/alg1][github.com/birkenkrahe/alg1]]
-    - Free subscription to GitHub Codespaces with AI coding assistant Copilot
-    - Emacs Power User Editor & Org-mode in a Linux programming environment
+** *Student Learning Outcomes*
+- Understand major data structures and their applications
+- Implement various data structures in C (C++ / Python / R / Java)
+- Analyze efficiency of data structures and algorithms
+- Apply algorithmic thinking to solve complex problems
+- Design and develop efficient software solutions
+
+** *Course Requirements*
+- Prerequisites: Introduction to Programming (CSC100 or CSC115 or
+  CSC109, and MTH101)
+- Willingness to engage in problem-solving and critical thinking
+- Willingness to put in substantial time to program on your own
+
+** *Grading* (see also [[https://github.com/birkenkrahe/alg1/blob/main/img/rubric.png][Rubric]])
+- Weekly programming assignments: 50%
+- Weekly multiple-choice tests: 25%
+- Final exam (optional): 25%
+
+** *Learning Management System*
+- Use of Lyon's Canvas installation (use the calendar!)
+- Course materials, assignments, grades, recorded sessions
+
+** *GitHub, Linux & Emacs & Org-mode*
+- Course materials in public GitHub repository: [[https://github.com/birkenkrahe/alg1][github.com/birkenkrahe/alg1]]
+- Free subscription to GitHub Codespaces with AI coding assistant Copilot
+- Emacs Power User Editor & Org-mode in a Linux programming environment
 
 * Questions with Answers
 
-1. What if you don't know C or C++?
-   #+begin_quote
-   You should have taken introductory programming in Java or Python or
-   C/C++: Both Java and Python are high-level languages, but C++ is
-   quite different (and quite a bit more complicated, too).
+** What if you don't know C or C++?
 
-   Make sure you take the (optional ) entry quiz and complete the
-   (optional) entry programming assignment if you didn't do it yet. If
-   you meet the August 19, 11:50 pm deadline, you get some bonus
-   points, too.
+- Any introductory programming class is OK
+- Complete the entry quiz (Aug 19, 11:50pm)
+- Weaknesses: freeCodeCamp (3h) / The Rook's Guide to C++ (100p)
 
-   If you have any weaknesses in the basics (or if you haven't studied
-   C++ yet at all), read "The Rook's Guide to C++" for free and answer
-   the review questions. Sample solutions available online in GitHub.
+#+begin_notes
+You should have taken introductory programming in Java or Python or
+C/C++: Both Java and Python are high-level languages, but C++ is
+quite different (and quite a bit more complicated, too).
 
-   Otherwise we'll be reviewing (and adding to) our knowledge of C/C++
-   in the first 4 weeks of the course (including some OOP aspects).
-   #+end_quote
-2. Will I be able to work on this course from home?
-   #+begin_quote
-   Absolutely. You'll be using a personal virtual Linux box on our
-   dedicated Lyon computer and data science server, and you can login
-   to this system from anywhere as long as you've got an Internet
-   connection.
+Make sure you take the (optional ) entry quiz and complete the
+(optional) entry programming assignment if you didn't do it yet. If
+you meet the August 19, 11:50 pm deadline, you get some bonus
+points, too.
 
-   If that doesn't work for you for whatever reason (connection,
-   convenience etc.) then you can easily install Linux via dual boot,
-   as a virtual machine on your PC, or on Windows with the WSL
-   system. On MacOS, you have a form of Unix already, so you're set.
+If you have any weaknesses in the basics (or if you haven't studied
+C++ yet at all), read "The Rook's Guide to C++" for free and answer
+the review questions. Sample solutions available online in GitHub.
 
-   In this case, you can put your GitHub skills to good use: create a
-   repository for this course where you keep the latest version of all
-   your files, and clone it to your local PC. This is what I do, too:
-   I'm working on my files in different locations, and I use Git to
-   maintain the latest version on any machine at any time.
-   #+end_quote
-3. Why did you choose C/C++ for "data structures"?
-   #+begin_quote
-   I did not choose it, the catalog (and wiser, older professors
-   before me) did. But I'm on board with it for a number of reasons:
-   - C/C++ is *compiled* (unlike Python) and offers high performance,
-     which you need for big data and *complex* algorithms (like machine
-     learning).
-   - C/C++ offers explicit *control* over memory allocation and
-     deallocation, which is essential to know how data structures work
-     under the hood.
-   - C++ in particular has a Standard Template Library (STL) which
-     offers template classes for *common* data structures (vectors,
-     lists, queues, stacks) and algorithms, which saves time and helps
-     you learn.
-   - C/C++ is used in industry for performance-*critical* applications
-     (like large-scale multi-player network games, network
-     communication, or space exploration and communications).
-   #+end_quote
-4. But most programs are in C not in C++ - why is that?
-   #+begin_quote
-   After working out many lectures in C++ only, I realized that
-   Object-orientation and the extra layers of abstraction that C++
-   brings, are actually in the way of understanding the essence of
-   data structures.
+Otherwise we'll be reviewing (and adding to) our knowledge of C/C++
+in the first 4 weeks of the course (including some OOP aspects).
+#+end_notes
+** Will I be able to work on this course from home?
 
-   This essence is not "what can this language do?" but "how can you
-   store, organize, and access data to solve a given problem most
-   efficiently." This question is largely language-independent, and so
-   we want that the language does not get in the way to our solving
-   problems algorithmically.
+- You can use your personal virtual Linux box from anywhere
+- You can install Linux via dual boot or as WSL (Windows)
+- Use GitHub as a central repo and clone to local machine
 
-   The arguments given by Zingaro in favor of C in his 2024 book
-   "Algorithmic Thinking" resonated with me, too. Once you understand
-   this stuff in C, you can take your knowledge anywhere, to any other
-   language, wherever problems can be solved computationally.
+#+begin_notes
+Absolutely. You'll be using a personal virtual Linux box on our
+dedicated Lyon computer and data science server, and you can login
+to this system from anywhere as long as you've got an Internet
+connection.
 
-   Another data point: tell Wyatt's story (2014 metal sheet cutter)
-   #+attr_html: :width 600px: 
-   [[../img/machine.jpg]]
-   #+end_quote
-5. What are your favorite programming languages?
-   #+begin_quote
-   Though I have (passing) knowledge of many programming languages,
-   C/C++, Python, SQL and Lisp are becoming my main go-to languages
-   for performance (C++), data science (Python), database applications
-   (SQL), and Emacs customization (Lisp).
+If that doesn't work for you for whatever reason (connection,
+convenience etc.) then you can easily install Linux via dual boot,
+as a virtual machine on your PC, or on Windows with the WSL
+system. On MacOS, you have a form of Unix already, so you're set.
 
-   R is great for visualization and stats, and was another one of my
-   favorite languages but it is slowly falling out of my quality world
-   because of the dominance of the "Tidyverse" ([[https://github.com/matloff/TidyverseSkeptic][see here]]). The data
-   science intro courses are however still in R (with some Python).
+In this case, you can put your GitHub skills to good use: create a
+repository for this course where you keep the latest version of all
+your files, and clone it to your local PC. This is what I do, too:
+I'm working on my files in different locations, and I use Git to
+maintain the latest version on any machine at any time.
+#+end_notes
+** Why did you choose C/C++ for "data structures"?
 
-   I learnt these languages at different times in my life: Lisp
-   because of Emacs (late 1980s), C++ in the 1990s, SQL in 2005, R in
-   2019, and Python in 2022. C++ has developed massively since then
-   though and I am more comfortable with its subset C than with many
-   of the modern developments of the language - but I'm keen to learn!
-   #+end_quote
-6. Why did you not choose Python given that it's the most popular
-   programming language?
-   #+begin_quote
-   Python has some serious deficiencies compared to C/C++, most
-   importantly speed. Here is an interesting paper that shows that
-   Python consumes 76 times more energy and is 72 times slower than C.
-   #+attr_html: :width 400px:
-   [[../img/python_vs_C.png]]
-   But more importantly for the purpose of learning about data
-   structures: Python abstracts away many details such as memory
-   management, which are crucial to understanding why to choose one
-   data structure over another. C gives you much more control over
-   system resources. The only real reason to pick Python is that it's
-   easier to learn and use.
+- C/C++ is compiled & much faster than Python or R
+- Offers memory allocation and freeing control
+- C/C++ have large Standard (Template) Libraries
+- Used in industry for performance-critical apps
 
-   But at the end of the day, it's a personal decision. In my case,
-   I'm also better at C than Python, and I like the control it gives.
-   #+end_quote
-7. What's the difference between C, C++ and C#?
+#+begin_notes
+I did not choose it, the catalog (and wiser, older professors
+before me) did. But I'm on board with it for a number of reasons:
+- C/C++ is *compiled* (unlike Python) and offers high performance,
+  which you need for big data and *complex* algorithms (like machine
+  learning).
+- C/C++ offers explicit *control* over memory allocation and
+  deallocation, which is essential to know how data structures work
+  under the hood.
+- C++ in particular has a Standard Template Library (STL) which
+  offers template classes for *common* data structures (vectors,
+  lists, queues, stacks) and algorithms, which saves time and helps
+  you learn.
+- C/C++ is used in industry for performance-*critical* applications
+  (like large-scale multi-player network games, network
+  communication, or space exploration and communications).
+#+end_notes
+** But most programs are in C not in C++ - why is that?
 
-   The list shows the simplicity of C vs. C++ vs. C#, and the
-   independence on complicated paradigms and commercial solutions -
-   which translates into deeper understanding and freedom from fads.
+- Object-orientation adds layers of abstraction
+- Language should not get in the way of problem solving
+- Once you get it in C, you can take your knowledge anywhere
 
-   #+attr_html: :width 600px: 
-   [[../img/c_vs_cpp_vs_c_hash.png]]
+#+begin_notes
+After working out many lectures in C++ only, I realized that
+Object-orientation and the extra layers of abstraction that C++
+brings, are actually in the way of understanding the essence of
+data structures.
 
-   Here is a [[https://youtu.be/sNMtjs_wQiE?si=yI86h-gvonkJ5gDG][short video]] that summarizes C vs. C++ vs. C# (conaticus,
-   2022). And here is [[https://youtu.be/juKv1aHEikI?si=lrEIoJb11ABAz38h][another one]] by a YouTuber who specializes in
-   coding interview preparation, and who prefers C because it is
-   devoid of external dependencies - essentially useful on its own
-   (NeedCode, 2024).
+This essence is not "what can this language do?" but "how can you
+store, organize, and access data to solve a given problem most
+efficiently." This question is largely language-independent, and so
+we want that the language does not get in the way to our solving
+problems algorithmically.
 
-8. Can this course help me break into Game Programming?
-   #+begin_quote
-   Only in so far as data structures and algorithms are performance
-   enhancing choices, which are critical when programming games. Other
-   than that, C++ and C# are more directly relevant for game
-   development.
-   #+end_quote 
-9. Can this course help me break into Cybersecurity?
-   #+begin_quote
-   Absolutely: the mixture of Emacs + Linux + C is the winning
-   solution for cybersecurity.
-   #+end_quote
-10. How should you study for this course?
-    #+begin_quote
-    1) Code every day no matter how little.
-    2) Review lecture notes and notebooks.
-    3) Participate actively in the class.
-    4) Form study groups and/or join Lyon's Programming Club.
-    5) Complete assignments well before the deadline.
-    6) Practice literate programming by documenting your process.
-    7) Focus on fundamentals, simple examples, solid understanding.
-    8) Drill yourself using the weekly quizzes, make small examples.
-    9) Seek help when needed, on the chat or during office hours.
-    10) Build a code & notebook repository at GitHub for your resume.
-    #+end_quote
+The arguments given by Zingaro in favor of C in his 2024 book
+"Algorithmic Thinking" resonated with me, too. Once you understand
+this stuff in C, you can take your knowledge anywhere, to any other
+language, wherever problems can be solved computationally.
+
+Another data point: tell Wyatt's story (2014 metal sheet cutter)
+#+attr_html: :width 600px:
+[[../img/machine.jpg]]
+#+end_notes
+** What are your favorite programming languages?
+
+- Lisp (Emacs - 1980s)
+- C++ (computational physics - 1990s)
+- SQL (databases - 2005)
+- R (data science - 2019)
+- Python (machine learning - 2022)
+
+#+begin_notes
+Though I have (passing) knowledge of many programming languages,
+C/C++, Python, SQL and Lisp are becoming my main go-to languages
+for performance (C++), data science (Python), database applications
+(SQL), and Emacs customization (Lisp).
+
+R is great for visualization and stats, and was another one of my
+favorite languages but it is slowly falling out of my quality world
+because of the dominance of the "Tidyverse" ([[https://github.com/matloff/TidyverseSkeptic][see here]]). The data
+science intro courses are however still in R (with some Python).
+
+I learnt these languages at different times in my life: Lisp
+because of Emacs (late 1980s), C++ in the 1990s, SQL in 2005, R in
+2019, and Python in 2022. C++ has developed massively since then
+though and I am more comfortable with its subset C than with many
+of the modern developments of the language - but I'm keen to learn!
+#+end_notes
+** Why did you not choose Python given that it's the most popular programming language?
+
+- Python consumes 76 x more energy than C
+- Python is 72 x slower than C
+- Python abstracts memory management away
+
+#+begin_notes
+Python has some serious deficiencies compared to C/C++, most
+importantly speed. Here is an interesting paper that shows that
+Python consumes 76 times more energy and is 72 times slower than C.
+#+attr_html: :width 400px:
+[[../img/python_vs_C.png]]
+But more importantly for the purpose of learning about data
+structures: Python abstracts away many details such as memory
+management, which are crucial to understanding why to choose one
+data structure over another. C gives you much more control over
+system resources. The only real reason to pick Python is that it's
+easier to learn and use.
+
+But at the end of the day, it's a personal decision. In my case,
+I'm also better at C than Python, and I like the control it gives.
+#+end_notes
+** What's the difference between C, C++ and C#?
+#+attr_html: :width 800px:
+[[../img/c_vs_cpp_vs_c_hash.png]]
+
+#+begin_notes
+The list shows the simplicity of C vs. C++ vs. C#, and the
+independence on complicated paradigms and commercial solutions -
+which translates into deeper understanding and freedom from fads.
+
+Here is a [[https://youtu.be/sNMtjs_wQiE?si=yI86h-gvonkJ5gDG][short video]] that summarizes C vs. C++ vs. C# (conaticus,
+2022). And here is [[https://youtu.be/juKv1aHEikI?si=lrEIoJb11ABAz38h][another one]] by a YouTuber who specializes in
+coding interview preparation, and who prefers C because it is
+devoid of external dependencies - essentially useful on its own
+(NeedCode, 2024).
+#+end_notes
+
+** Can this course help me break into Game Programming?
+
+- Data structures and algorithms enhance performance
+- Speed is critical for (multiplayer) games
+- C/C# more directly relevant
+
+#+begin_notes
+Only in so far as data structures and algorithms are performance
+enhancing choices, which are critical when programming games. Other
+than that, C++ and C# are more directly relevant for game
+development.
+#+end_notes
+
+** Can this course help me break into Cybersecurity?
+
+- Emacs = hacker editor
+- Linux = server operating system
+- C = system programming language
+
+#+begin_notes
+Absolutely: the mixture of Emacs + Linux + C is the winning
+solution for cybersecurity.
+#+end_notes
+
+** How should you study for this course?
+
+- Code every day and participate actively
+- Complete assignments early and expand them
+- Focus on fundamentals, simple examples, drills
+- Build a code & notebook repo on GitHub
+
+#+begin_notes
+1) Code every day no matter how little.
+2) Review lecture notes and notebooks.
+3) Participate actively in the class.
+4) Form study groups and/or join Lyon's Programming Club.
+5) Complete assignments well before the deadline.
+6) Practice literate programming by documenting your process.
+7) Focus on fundamentals, simple examples, solid understanding.
+8) Drill yourself using the weekly quizzes, make small examples.
+9) Seek help when needed, on the chat or during office hours.
+10) Build a code & notebook repository at GitHub for your resume.
+#+end_notes
 
 [See also the "New FAQ" for fall '24 courses [[https://github.com/birkenkrahe/org/blob/master/fall24/newFAQ.org][available on GitHub]].]
 
@@ -263,7 +319,7 @@ briefest form possible, including definitions + code.
 Data types classify the type of data a variable can hold, and the
 operations that can be performed on it.
 
-*** Primitive Data Types
+** Primitive Data Types
 
 - =int=: Integer type
 - =float=: Floating-point type
@@ -271,91 +327,90 @@ operations that can be performed on it.
 - =char=: Character type
 - =void=: Special purpose type
 
-*** Derived Data Types
+** Derived Data Types
 
-- *Array*: Collection of elements of the same type
-  #+begin_src C  :results none
-    int arr[10];
-  #+end_src
-- *Function*: Represents a function
-  #+begin_src C  :results none
-    int func(int, float);
-  #+end_src
-- *Pointer*: Stores the address of another variable
-  #+begin_src C :results none
-    int *ptr;
-  #+end_src
-- *Structure*: Groups variables of different types
-  #+begin_src C  :results none
-    struct Person {
-      char name[50];
-      int age;
-    };
-  #+end_src
-- *Union*: Similar to structures, but with shared memory
-  #+begin_src C  :results none
-    union Data {
-      int i;
-      float f;
-      char str[20];
-    };
-  #+end_src
-- *Enumeration*: Consists of named integer constants
-  #+begin_src C  :results none
-    enum Color {RED, GREEN, BLUE};
-  #+end_src
+*** *Array*: Collection of elements of the same type
+#+begin_src C  :results none
+  int arr[10];
+#+end_src
+*** *Function*: Represents a function
+#+begin_src C  :results none
+  int func(int, float);
+#+end_src
+*** *Pointer*: Stores the address of another variable
+#+begin_src C :results none
+  int *ptr;
+#+end_src
+*** *Structure*: Groups variables of different types
+#+begin_src C  :results none
+  struct Person {
+    char name[50];
+    int age;
+  };
+#+end_src
+*** *Union*: Similar to structures, but with shared memory
+#+begin_src C  :results none
+  union Data {
+    int i;
+    float f;
+    char str[20];
+  };
+#+end_src
+*** *Enumeration*: Consists of named integer constants
+#+begin_src C  :results none
+  enum Color {RED, GREEN, BLUE};
+#+end_src
 
 ** Data Structures
 
 Data structures organize and store data for efficient access and
-modification. 
+modification.
 
-*** Common Data Structures
-- *Arrays*: Collection of elements of the same type
-  #+begin_src C :results none
-    int arr[10];
-  #+end_src
-- *Linked Lists*: Each element points to the next element
-  #+begin_src C :results none
-    struct Node {
-      int data;
-      struct Node *next;
-    };
-  #+end_src
-- *Stacks*: Follows the LIFO (Last In First Out) principle
-  #+begin_src C :results none
-    #define MAX 100
-    int stack[MAX];
-    int top = -1;
-  #+end_src
-- *Queues*: Follows the FIFO (First In First Out) principle
-  #+begin_src C :results none
-    #define MAX 100
-    int queue[MAX];
-    int front = -1, rear = -1;
-  #+end_src
-- *Trees*: Hierarchical data structure
-  #+begin_src C :results none
-    struct TreeNode {
-      int data;
-      struct TreeNode *left;
-      struct TreeNode *right;
-    };
-  #+end_src
-- *Graphs*: Collection of nodes and edges
-  #+begin_src C :results none
-    struct Graph {
-      int numVertices;
-      int *adjMatrix;
-    };
-  #+end_src
-- *Hash Tables*: Implements an associative array
-  #+begin_src C :results none
-    struct HashTable {
-      int size;
-      int *table;
-    };
-  #+end_src
+*** *Arrays*: Collection of elements of the same type
+#+begin_src C :results none
+  int arr[10];
+#+end_src
+*** *Linked Lists*: Each element points to the next element
+#+begin_src C :results none
+  struct Node {
+    int data;
+    struct Node *next;
+  };
+#+end_src
+*** *Stacks*: Follows the LIFO (Last In First Out) principle
+#+begin_src C :results none
+  #define MAX 100
+  int stack[MAX];
+  int top = -1;
+#+end_src
+*** *Queues*: Follows the FIFO (First In First Out) principle
+#+begin_src C :results none
+  #define MAX 100
+  int queue[MAX];
+  int front = -1, rear = -1;
+#+end_src
+*** *Trees*: Hierarchical data structure
+#+begin_src C :results none
+  struct TreeNode {
+    int data;
+    struct TreeNode *left;
+    struct TreeNode *right;
+  };
+#+end_src
+*** *Graphs*: Collection of nodes and edges
+#+begin_src C :results none
+  struct Graph {
+    int numVertices;
+    int *adjMatrix;
+  };
+#+end_src
+*** *Hash Tables*: Implements an associative array
+#+begin_src C :results none
+  struct HashTable {
+    int size;
+    int *table;
+  };
+#+end_src
 
 * Development tools
 
@@ -364,6 +419,11 @@ hear/do it twice but remember: imitation/repetition creates mastery!
 
 ** Pep talk for developers
 
+- Computer & data science = "maker spaces"
+- 15 minutes per day beats 1 hour per week
+- Professionals rely on good toolkits
+
+#+begin_notes
 - Computer and data science courses are "maker spaces": you're
   supposed to make stuff rather than only listen and be passive. Your
   "making" is "developing software", and flex your programming
@@ -376,8 +436,17 @@ hear/do it twice but remember: imitation/repetition creates mastery!
   2) The Emacs editor with the Org-mode package
   3) The GitHub software engineering platform
 
+#+end_notes
+
 ** Linux - the world's premier OS
 
+- Linux server for exclusive use by CS and DS
+- If you had CSC 420 (OS) you're well prepared
+- You get your own Ubuntu LTS 22.04 system
+- Access from anywhere with Internet
+- Daily use = edge in job market
+
+#+begin_notes
 - A summer research grant 2024, and the gracious professional support
   of Lyon's IT Services enabled us to establish a Linux server for
   exclusive use in computer and data science courses.
@@ -395,6 +464,7 @@ hear/do it twice but remember: imitation/repetition creates mastery!
 - Having used Linux daily will give you an edge in the job market (esp
   for server-related jobs), and you should mention it on your resume.
 
+#+end_notes
 ** Emacs - the world's most customizable hacking power tool
 
 - You've most likely worked with Emacs + Org-mode and the literate
