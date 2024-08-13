@@ -1,39 +1,39 @@
-#+TITLE: Introduction to the course
+#+TITLE: Overview
 #+AUTHOR: Marcus Birkenkrahe
 #+SUBTITLE: Data structures with C++ (CSC 240)
 :REVEAL_PROPERTIES:
 #+REVEAL_ROOT: https://cdn.jsdelivr.net/npm/reveal.js
 #+REVEAL_REVEAL_JS_VERSION: 4
 #+REVEAL_INIT_OPTIONS: transition: 'cube'
-#+REVEAL_THEME: black
+#+REVEAL_THEME: night
 :END:
 #+STARTUP:overview hideblocks indent
-#+OPTIONS: toc:1 num:1 ^:nil
+#+OPTIONS: toc:nil num:nil ^:nil
 #+PROPERTY: header-args:C++ :main yes :includes <iostream> :results output :exports both :noweb yes
 #+PROPERTY: header-args:C :main yes :includes <stdio.h> :results output :exports both :noweb yes
 * Course Overview
 #+attr_html: :width 400px:
 [[../img/poster.png]]
 
-The syllabus is available on [[https://lyon.instructure.com/courses/2623/assignments/syllabus][Canvas]] and on [[https://github.com/birkenkrahe/alg1/blob/main/org/syllabus.org][GitHub]].
+Syllabus is available on [[https://lyon.instructure.com/courses/2623/assignments/syllabus][Canvas]] and on [[https://github.com/birkenkrahe/alg1/blob/main/org/syllabus.org][GitHub]].
 
 ** *Instructor Introduction*
 - Background and experience
 - Course objectives and expectations
 
 ** *General Course Information*
-- Meeting Times: Tue-Thu 9:30-10.45 AM (75 min)
+- Meeting Times: Tuesday & Thursday at 9:30-10.45 AM (75 min)
 - Meeting place: Derby Science Building computer lab room 239
-- Professor's Office: Derby Science Building 210
+- Professor's Office: Lyon Building computer lab room 104
 - Phone: (870) 307-7254 (office) / (501) 422-4725 (private)
 - Office hours: [[https://calendar.app.google/yjr7tB7foMYowRJm7][by appointment]] MWF 4pm, Tue 3pm, Thu 11 am & 3 pm
 
 ** Books that I used
 
-+ C Programming by King (W W Norton, 2008) - Aug-Oct
-+ Mastering algorithms with C by Loudon (O'Reilly, 1999) Nov
-+ Algorithmic Thinking (2e) by Zingaro (NoStarch,2024) Nov-Dec
-+ Little Book of Pointers by Collingworth (bitwisebooks, 2019)
+- C Programming - A Modern Approach by King (W W Norton, 2008)
+- Mastering algorithms with C by Loudon (O'Reilly, 1999)
+- Algorithmic Thinking (2e) by Zingaro (NoStarch,2024)
+- Little Book of Pointers by Collingworth (bitwisebooks, 2019)
 
   #+begin_notes
 
@@ -75,14 +75,16 @@ The syllabus is available on [[https://lyon.instructure.com/courses/2623/assignm
 
 ** *Student Learning Outcomes*
 - Understand major data structures and their applications
-- Implement various data structures in C (C++ / Python / R / Java)
-- Analyze efficiency of data structures and algorithms
-- Apply algorithmic thinking to solve complex problems
-- Design and develop efficient software solutions
+- Implement various data structures in C (with some C++ / Python / R /
+  Java)
+- Analyze the efficiency of data structures and algorithms
+- Apply algorithmic thinking to understand and solve complex problems
+- Design and develop efficient software solutions in a realistic
+  infrastructure setting
 
 ** *Course Requirements*
-- Prerequisites: Introduction to Programming (CSC100 or CSC115 or
-  CSC109, and MTH101)
+- Prerequisites: Introduction to Programming (CSC 100 or CSC 115 or
+  CSC 109, and MTH 101)
 - Willingness to engage in problem-solving and critical thinking
 - Willingness to put in substantial time to program on your own
 
@@ -92,8 +94,14 @@ The syllabus is available on [[https://lyon.instructure.com/courses/2623/assignm
 - Final exam (optional): 25%
 
 ** *Learning Management System*
-- Use of Lyon's Canvas installation (use the calendar!)
-- Course materials, assignments, grades, recorded sessions
+- Use of Lyon's Canvas installation (use the calendar to keep time!)
+- Course materials, Assignments, Gradebook, Zoom recordings
+- Course links, Syllabus, Announcements, Course Links
+
+** Google Chat Space
+- Much preferred over email for questions
+- I'm online and working most of the time
+- Use Google chat to share stuff
 
 ** *GitHub, Linux & Emacs & Org-mode*
 - Course materials in public GitHub repository: [[https://github.com/birkenkrahe/alg1][github.com/birkenkrahe/alg1]]
@@ -106,7 +114,8 @@ The syllabus is available on [[https://lyon.instructure.com/courses/2623/assignm
 
 - Any introductory programming class is OK
 - Complete the entry quiz (Aug 19, 11:50pm)
-- Weaknesses: freeCodeCamp (3h) / The Rook's Guide to C++ (100p)
+- Update with freeCodeCamp (3 hoursh) / The Rook's Guide to C++ (100
+  pages)
 
 #+begin_notes
 You should have taken introductory programming in Java or Python or
@@ -127,9 +136,11 @@ in the first 4 weeks of the course (including some OOP aspects).
 #+end_notes
 ** Will I be able to work on this course from home?
 
-- You can use your personal virtual Linux box from anywhere
-- You can install Linux via dual boot or as WSL (Windows)
-- Use GitHub as a central repo and clone to local machine
+- You can use your personal virtual Linux box from anywhere using =ssh=
+  and graphics
+- You can install Linux via dual boot / VirtualBox or (on Windows)
+  with WSL
+- Use GitHub as a central repo and clone to your local machine(s)
 
 #+begin_notes
 Absolutely. You'll be using a personal virtual Linux box on our
@@ -150,10 +161,11 @@ maintain the latest version on any machine at any time.
 #+end_notes
 ** Why did you choose C/C++ for "data structures"?
 
-- C/C++ is compiled & much faster than Python or R
-- Offers memory allocation and freeing control
-- C/C++ have large Standard (Template) Libraries
-- Used in industry for performance-critical apps
+- C/C++ is compiled & much, much faster than Python or R
+- C/C++ offers memory allocation and deallocation control
+- C/C++ have large Standard (Template) Libraries available
+- C/C++ used in industry for performance-critical applications (games,
+  space, robotics)
 
 #+begin_notes
 I did not choose it, the catalog (and wiser, older professors
@@ -174,9 +186,10 @@ before me) did. But I'm on board with it for a number of reasons:
 #+end_notes
 ** But most programs are in C not in C++ - why is that?
 
-- Object-orientation adds layers of abstraction
-- Language should not get in the way of problem solving
-- Once you get it in C, you can take your knowledge anywhere
+- Object-orientation adds (unnecessary) layers of abstraction
+- The programming language should not get in the way of problem
+  solving
+- Once you understand it in C, you can take your knowledge anywhere
 
 #+begin_notes
 After working out many lectures in C++ only, I realized that
@@ -199,13 +212,13 @@ Another data point: tell Wyatt's story (2014 metal sheet cutter)
 #+attr_html: :width 600px:
 [[../img/machine.jpg]]
 #+end_notes
-** What are your favorite programming languages?
+** What are my favorite programming languages?
 
 - Lisp (Emacs - 1980s)
-- C++ (computational physics - 1990s)
-- SQL (databases - 2005)
-- R (data science - 2019)
-- Python (machine learning - 2022)
+- C/C++ (computational physics - 1990s)
+- SQL (databases - 2000s)
+- R (data analytics & visualization)
+- Python (automation & machine learning)
 
 #+begin_notes
 Though I have (passing) knowledge of many programming languages,
@@ -247,7 +260,7 @@ But at the end of the day, it's a personal decision. In my case,
 I'm also better at C than Python, and I like the control it gives.
 #+end_notes
 ** What's the difference between C, C++ and C#?
-#+attr_html: :width 800px:
+#+attr_html: :width 900px:
 [[../img/c_vs_cpp_vs_c_hash.png]]
 
 #+begin_notes
@@ -264,9 +277,9 @@ devoid of external dependencies - essentially useful on its own
 
 ** Can this course help me break into Game Programming?
 
-- Data structures and algorithms enhance performance
+- Data structures and algorithms enhance computing performance
 - Speed is critical for (multiplayer) games
-- C/C# more directly relevant
+- C/C# are more directly relevant
 
 #+begin_notes
 Only in so far as data structures and algorithms are performance
@@ -277,9 +290,9 @@ development.
 
 ** Can this course help me break into Cybersecurity?
 
-- Emacs = hacker editor
-- Linux = server operating system
-- C = system programming language
+- Emacs = the ultimate hacker editor
+- Linux = the dominant server OS
+- C = the system programming language
 
 #+begin_notes
 Absolutely: the mixture of Emacs + Linux + C is the winning
@@ -289,8 +302,10 @@ solution for cybersecurity.
 ** How should you study for this course?
 
 - Code every day and participate actively
-- Complete assignments early and expand them
-- Focus on fundamentals, simple examples, drills
+- Complete assignments early
+- Make up your own exercises and programs
+- Focus on fundamentals, simple examples
+- Drill yourself with tests & memorize
 - Build a code & notebook repo on GitHub
 
 #+begin_notes
@@ -322,33 +337,45 @@ operations that can be performed on it.
 ** Primitive Data Types
 
 - =int=: Integer type
-- =float=: Floating-point type
-- =double=: Double-precision floating-point type
+- =float= / =double=: Floating-point types
 - =char=: Character type
 - =void=: Special purpose type
 
 ** Derived Data Types
 
-*** *Array*: Collection of elements of the same type
+*** *Array*: Collection of elements of one type
+#+attr_html: :width 600px:
+[[../img/array.png]]
 #+begin_src C  :results none
   int arr[10];
 #+end_src
-*** *Function*: Represents a function
+*** *Function*: Does a job
+#+attr_html: :width 500px:
+[[../img/function.png]]
 #+begin_src C  :results none
   int func(int, float);
 #+end_src
-*** *Pointer*: Stores the address of another variable
+*** *Pointer*: Stores memory address
+#+attr_html: :width 400px:
+[[../img/malloc.png]]
 #+begin_src C :results none
   int *ptr;
+  int **ptrPtr;
+  int ***ptrPtrPtr;
 #+end_src
 *** *Structure*: Groups variables of different types
+#+attr_html: :width 500px:
+[[../img/structure.png]]
 #+begin_src C  :results none
   struct Person {
     char name[50];
-    int age;
+    int roll;
+    bool mark;
   };
 #+end_src
-*** *Union*: Similar to structures, but with shared memory
+*** *Union*: Shared memory structures
+#+attr_html: :width 400px:
+[[../img/union.png]]
 #+begin_src C  :results none
   union Data {
     int i;
@@ -356,7 +383,10 @@ operations that can be performed on it.
     char str[20];
   };
 #+end_src
-*** *Enumeration*: Consists of named integer constants
+*** *Enumeration*: Collection of constants
+#+attr_html: :width 400px:
+[[../img/enum.png]]
+
 #+begin_src C  :results none
   enum Color {RED, GREEN, BLUE};
 #+end_src
@@ -366,11 +396,15 @@ operations that can be performed on it.
 Data structures organize and store data for efficient access and
 modification.
 
-*** *Arrays*: Collection of elements of the same type
+*** *Arrays*: Collection of same type elements
+#+attr_html: :width 600px:
+[[../img/string.png]]
 #+begin_src C :results none
   int arr[10];
 #+end_src
 *** *Linked Lists*: Each element points to the next element
+#+attr_html: :width 600px:
+[[../img/linkedList.png]]
 #+begin_src C :results none
   struct Node {
     int data;
@@ -378,18 +412,24 @@ modification.
   };
 #+end_src
 *** *Stacks*: Follows the LIFO (Last In First Out) principle
+#+attr_html: :width 600px:
+[[../img/stack1.png]]
 #+begin_src C :results none
   #define MAX 100
   int stack[MAX];
   int top = -1;
 #+end_src
 *** *Queues*: Follows the FIFO (First In First Out) principle
+#+attr_html: :width 500px:
+[[../img/queue1.png]]
 #+begin_src C :results none
   #define MAX 100
   int queue[MAX];
   int front = -1, rear = -1;
 #+end_src
 *** *Trees*: Hierarchical data structure
+#+attr_html: :width 400px:
+[[../img/tree.gif]]
 #+begin_src C :results none
   struct TreeNode {
     int data;
@@ -398,6 +438,8 @@ modification.
   };
 #+end_src
 *** *Graphs*: Collection of nodes and edges
+#+attr_html: :width 600px:
+[[../img/graph.png]]
 #+begin_src C :results none
   struct Graph {
     int numVertices;
@@ -405,6 +447,7 @@ modification.
   };
 #+end_src
 *** *Hash Tables*: Implements an associative array
+[[../img/hashtable.jpg]]
 #+begin_src C :results none
   struct HashTable {
     int size;
@@ -438,10 +481,10 @@ hear/do it twice but remember: imitation/repetition creates mastery!
 
 #+end_notes
 
-** Linux - the world's premier OS
+** Linux - the world's premier Operating System
 
 - Linux server for exclusive use by CS and DS
-- If you had CSC 420 (OS) you're well prepared
+- If you completed CSC 420 you're well prepared
 - You get your own Ubuntu LTS 22.04 system
 - Access from anywhere with Internet
 - Daily use = edge in job market
@@ -465,135 +508,160 @@ hear/do it twice but remember: imitation/repetition creates mastery!
   for server-related jobs), and you should mention it on your resume.
 
 #+end_notes
-** Emacs - the world's most customizable hacking power tool
+** Emacs - the world's best hacking power tool
 
 - You've most likely worked with Emacs + Org-mode and the literate
   programming approach in my other data science or computing courses.
 
 - Test your memory with a few review questions:
 
-  1. What is special about Emacs?
-     #+begin_quote
-     *Emacs* is a self-extensible, free, open source editor written in a
-     Lisp dialect, and first published in the 1980s by Richard
-     Stallman. It is a hacker- and power-user tool because of its
-     customizability and openess. The vanilla version can be
-     downloaded from [[https://www.gnu.org/software/emacs][gnu.org/software/emacs]]. Famous applications:
-     [[https://orgmode.org][Org-mode]] (for literate programming) and [[https://magit.vc/][magit]] (for
-     Git). Additional resource: [[https://www.gnu.org/software/emacs/refcards/pdf/refcard.pdf][Emacs Reference Card]].
-     #+end_quote
+*** What is special about Emacs?
+#+attr_html: :width 500px:
+[[../img/gnuemacs.png]]
 
-  2. What is Org-mode?
-     #+begin_quote
-     *Org-mode* is an Emacs mode (plugin or extension package) for
-     plain-text note-taking, task management, documentation. It was
-     first released in 2003 by Carsten Dominik. More information at
-     [[https://orgmode.org/][orgmode.org]]. Famous application: [[http://literateprogramming.com/][literate programming]],
-     [[https://orgmode.org/worg/org-tutorials/org-spreadsheet-intro.html][spreadsheets]]. Additional resource: [[https://www.gnu.org/software/emacs/refcards/pdf/orgcard.pdf][Org-mode Reference Card]].
-     #+end_quote
+#+begin_notes
+*Emacs* is a self-extensible, free, open source editor written in a
+Lisp dialect, and first published in the 1980s by Richard
+Stallman. It is a hacker- and power-user tool because of its
+customizability and openess. The vanilla version can be
+downloaded from [[https://www.gnu.org/software/emacs][gnu.org/software/emacs]]. Famous applications:
+[[https://orgmode.org][Org-mode]] (for literate programming) and [[https://magit.vc/][magit]] (for
+Git). Additional resource: [[https://www.gnu.org/software/emacs/refcards/pdf/refcard.pdf][Emacs Reference Card]].
+#+end_notes
 
-  3. What is Literate Programming?
-     #+begin_quote
-     *Literate Programming* is a programming paradigm introduced by
-     Donald Knuth in the 1970[fn:1]. It emphasises writing code and
-     documentation together to make programs better structured and
-     more enjoyable to read and understand by humans. More information
-     at [[http://literateprogramming.com/][literateprogramming.com]].  Famous application: The [[https://www.ctan.org/starter][TeX]]
-     typesetting system, which dominates technical and scientific
-     publishing.
-     #+end_quote
-  4. How can you run the "Hello World" program in C++ inside Emacs?
-     #+begin_src C++ :main yes :includes <iostream> :namespaces std :results output :exports both
-       cout << "Hello, World!" << endl;
-     #+end_src
-     This code chunk is a souped-up (by way of header arguments)
-     version of this complete program:
-     #+begin_src C++ :results output :exports both
-       // include input/output library
-       #include <iostream>
-       // use standard namespace for cout, endl
-       using namespace std;
-       int main() { // begin of main function
-         // stream string to standard output then print newline
-         cout << "Hello, world!" << endl;
-         // return 0 when program ran successfully
-         return 0;
-       } // end of main function
-     #+end_src
-     The only header arguments left are: =C++= for the language,
-     =:results output= to stream output to the screen, and =:exports both=
-     to export both source code and output (e.g. to LaTeX, Markdown or
-     HTML).
+*** What is Org-mode?
+#+attr_html: :width 300px:
+[[../img/orgmode1.png]]
+#+begin_notes
+*Org-mode* is an Emacs mode (plugin or extension package) for
+plain-text note-taking, task management, documentation. It was
+first released in 2003 by Carsten Dominik. More information at
+[[https://orgmode.org/][orgmode.org]]. Famous application: [[http://literateprogramming.com/][literate programming]],
+[[https://orgmode.org/worg/org-tutorials/org-spreadsheet-intro.html][spreadsheets]]. Additional resource: [[https://www.gnu.org/software/emacs/refcards/pdf/orgcard.pdf][Org-mode Reference Card]].
+#+end_notes
 
-  5. How can you run "Hello World" in C inside Emacs?
-     #+begin_src C
-       puts("Hello, World!");
-     #+end_src
+*** What is Literate Programming?
+#+attr_html: :width 600px:
+[[../img/knuth.jpg]]
+#+begin_notes
+*Literate Programming* is a programming paradigm introduced by
+Donald Knuth in the 1970. It emphasises writing code and
+documentation together to make programs better structured and
+more enjoyable to read and understand by humans. More information
+at [[http://literateprogramming.com/][literateprogramming.com]].  Famous application: The [[https://www.ctan.org/starter][TeX]]
+typesetting system, which dominates technical and scientific
+publishing.
+#+end_notes
+*** How can you run the "Hello World" program in C++ inside Emacs?
 
-     #+RESULTS:
-     : Hello, World!
+*** -----
+#+begin_example C++
+#+begin_src C++ :main yes :includes <iostream> :namespaces std :results output
+  cout << "Hello, World!" << endl;
+#+end_src
+#+end_example
+This is what you're saving:
+#+begin_src C++ :results output :exports both
+  // include input/output library
+  #include <iostream>
+  // use standard namespace for cout, endl
+  using namespace std;
+  int main() { // begin of main function
+    // stream string to standard output then print newline
+    cout << "Hello, world!" << endl;
+    // return 0 when program ran successfully
+    return 0;
+  } // end of main function
+#+end_src
 
-     This code chunk works only because of the =#+property:= header at
-     the top of the file:
-     #+begin_example
-       #+property: header-args:C :main yes :includes <stdio.h> :results output
-     #+end_example
+#+begin_notes
+The only header arguments left are: =C++= for the language, =:results
+output= to stream output to the screen, and =:exports both= to export
+both source code and output (e.g. to LaTeX, Markdown or HTML).
+#+end_notes
 
-     To make use of it, you only need to open the file or run it with
-     =C-c C-c=. If you work with code that includes functions outside of
-     =main=, you need to change the header arguments. Example:
+*** How can you run "Hello World" in C inside Emacs?
+*** -----
+#+begin_example C
+#+begin_src C
+  puts("Hello, World!");
+#+end_src
 
-     #+begin_src C :main no
-       void hello(void); // prototype definition
+#+RESULTS:
+: Hello, World!
+#+end_example
+Works because of the =#+property:= file header:
+#+begin_example
+  #+property: header-args:C :main yes :includes <stdio.h> :results output
+#+end_example
 
-       int main(void)
-       {
-         hello();
-         return 0;
-       }
+#+begin_notes
+To make use of it, you only need to open the file or run it with
+=C-c C-c=. If you work with code that includes functions outside of
+=main=, you need to change the header arguments. Example:
 
-       void hello(void)
-       {
-         puts("Hello, World!");
-       }
-     #+end_src
+#+begin_src C :main no
+  void hello(void); // prototype definition
 
-     #+RESULTS:
-     : Hello, World!
+  int main(void)
+  {
+    hello();
+    return 0;
+  }
 
-     Nt
+  void hello(void)
+  {
+    puts("Hello, World!");
+  }
+#+end_src
 
-  6. What are the differences between the C and the C++ versions?
-     #+begin_quote
-     | C++                  | C             |
-     |----------------------+---------------|
-     | =<iostream>=           | =<stdio.h>=     |
-     | =using namespace std=  | [fn:2]        |
-     | =cout <<= ... =<< endl;= | =puts("...");=  |
-     | header-args:C++      | header-args:C |
+#+RESULTS:
+: Hello, World!
 
-     What does the =<>= mean in the =#include= statements?[fn:3]
-     #+end_quote
+#+end_notes
 
-  7. Why are we using Emacs + Org-mode instead of the VSCode or
-     Code::Blocks IDEs?
-     #+begin_quote
-     While VSCode and Code::Blocks are excellent IDEs with their own
-     strengths, Emacs + Org-mode provides a unique combination of
-     customizability, integrated task management, support for literate
-     programming, and a powerful text editing environment that can
-     lead to a more efficient and personalized workflow, and that
-     teaches you important file management and productivity
-     techniques - with a much higher transfer value than other tools.
-     #+end_quote
+*** What are the differences between C and C++ blocks?
+
+| C++                  | C             |
+|----------------------+---------------|
+| =<iostream>=           | =<stdio.h>=     |
+| =using namespace std=  |               |
+| =cout <<= ... =<< endl;= | =puts("...");=  |
+| header-args:C++      | header-args:C |
+
+What does the =<>= mean in the =#include= statements?
+
+*** Why are we using Emacs + Org-mode (not VSCode or Code::Blocks IDEs)?
+
+- Customizability and extensibility
+- Integrated file management and shell
+- Literate programming support
+- Powerful text editing environment
+
+#+begin_notes
+- While VSCode and Code::Blocks are excellent IDEs with their own
+  strengths, Emacs + Org-mode provides a unique combination of
+  customizability, integrated task management, support for literate
+  programming, and a powerful text editing environment that can lead
+  to a more efficient and personalized workflow, and that teaches you
+  important file management and productivity techniques - with a much
+  higher transfer value than other tools.
 
 - Having mastered and used Emacs daily will give you an edge in the
   job market (esp for programming jobs) and you should mention it as
   "Literate Programming with Emacs/Org-mode" on your resume.
+#+end_notes
 
 ** GitHub - the world's largest development platform
 
-*[If you are in more than one of my courses, do this only once.]*
+*If you are in more than one of my courses, do this only once.*
+
+- Premier software engineering platform
+- I used it since 2010 for development
+- Uses Git for development version control
+- Used for code sharing and AI assisted coding
+
+#+begin_notes
 
 - GitHub is the premier software engineering platform. An early user
   (since 2010) I use it for course materials, but most users are
@@ -602,7 +670,17 @@ hear/do it twice but remember: imitation/repetition creates mastery!
 - Besides software development, you can also use it to share code
   snippets called "gists" (cp. [[https://gist.github.com/search?q=birkenkrahe][my gists]]), and (as students or paying
   pro subscribers) for AI-assisted code development ("[[https://github.com/codespaces][codespaces]]").
+#+end_notes
 
+*** GitHub Todo Now
+
+1. Register with GitHub
+2. Complete Hello World Exercise
+3. Fork my course materials
+4. Create public repo for your code
+5. Submit screenshot of forked repo
+
+#+begin_notes
 - My course materials were always on GitHub (so that I can develop
   them on different computers and use it as a central Git-controlled
   hub). From fall'24, you'll take another step towards software
@@ -633,142 +711,125 @@ hear/do it twice but remember: imitation/repetition creates mastery!
      pic and description, like this (=hello-world= is pinned).
      #+attr_html: :width 600px:
      [[../img/githubRepo.png]]
+#+end_notes
+*** How are you going to use GitHub?
 
-  6) Org-mode files from my repos are automatically rendered as markdown
-     in GitHub on the desktop. Footnotes and special layout does not
-     render well, and the mobile GitHub app does not render Org-mode at
-     all.
+- You'll regularly update your fork of my course repo.
+- In this way you have automatic access to the latest materials.
+- If you have a PC, you can install =git= and =clone= the repo.
+- If you have Emacs, you can install =magit= and use Git that way.
 
-  7) What the Hello World exercise does not show you is how you use
-     GitHub for your own code across *remote* locations as I do it. For
-     that you need to *clone* your own repo to a remote computer. This is
-     explained in the freeCodeCamp tutorial
-     ([[https://tinyurl.com/guide-to-git][tinyurl.com/guide-to-git]]). There is also a short course (4 hr)
-     [[https://www.datacamp.com/courses/introduction-to-git]["Introduction to Git"]][fn:4] and a [[https://www.datacamp.com/blog/all-about-git][short tutorial]].
+#+begin_notes
 
-  8) How are you going to use GitHub?
-     - You'll regularly update your fork of my course repo.
-     - In this way you have automatic access to the latest materials.
-     - If you have a PC, you can install =git= and =clone= the repo.
-     - If you have Emacs, you can install =magit= and use Git that way.
+6) Org-mode files from my repos are automatically rendered as markdown
+   in GitHub on the desktop. Footnotes and special layout does not
+   render well, and the mobile GitHub app does not render Org-mode at
+   all.
 
-  9) Having used GitHub like a professional daily will give you an edge
-     in the job market (esp. for software engineering jobs) and you
-     should mention it (as "GitHub/Git") on your resume.
+7) What the Hello World exercise does not show you is how you use
+   GitHub for your own code across *remote* locations as I do it. For
+   that you need to *clone* your own repo to a remote computer. This is
+   explained in the freeCodeCamp tutorial
+   ([[https://tinyurl.com/guide-to-git][tinyurl.com/guide-to-git]]). There is also a short course (4 hr)
+   [[https://www.datacamp.com/courses/introduction-to-git]["Introduction to Git"]] and a [[https://www.datacamp.com/blog/all-about-git][short tutorial]].
+
+8) How are you going to use GitHub?
+   - You'll regularly update your fork of my course repo.
+   - In this way you have automatic access to the latest materials.
+   - If you have a PC, you can install =git= and =clone= the repo.
+   - If you have Emacs, you can install =magit= and use Git that way.
+
+9) Having used GitHub like a professional daily will give you an edge
+   in the job market (esp. for software engineering jobs) and you
+   should mention it (as "GitHub/Git") on your resume.
+
+#+end_notes
 
 *** GitHub Hello World Exercise
 
+1. Create hello-world repo and set it up
+2. Create a branch
+3. Make a commit changes
+4. Open a pull request
+5. Merge your pull request
+
+#+begin_notes
 You've got to be registered at GitHub (github.com/join). Open
 github.com in your browser (Google Chrome is best) and login.
 
-**** Step 1: Create hello-world repo and set it up
+1. Step 1: Create hello-world repo and set it up
 
-- Click on your profile image in the upper right corner, and pick
-  "Your repositories".
-- Click on the green "New" button to create a new repo
-- In the form, choose =hello-world= as repo name
-- Write a minimal description (="Hello World exercise for CSC 240"=)
-- Check ="Public"= (everybody can see this)
-- Check ="Add a README file"=
-- Choose the =.gitignore template: C++=
-- Choose the ="GNU General Public License v3.0"=
-- Click ="Create repository"= at the bottom of the page.
-- If you checked "Add a README file", the Markdown editor will open:
-  enter a description (plain-text), then click on =Preview= to see how
-  it will look like[fn:5].
-- Click on the green ="Commit changes..."= button. A second window
-  appears - make sure you check ="Commit directly to the ~main~ branch"=,
-  and click on ="Commit changes"=.
-- Your repo appears with three auto-created files, =.gitignore=,
-  =LICENSE=, and =README.md=[fn:6].
+   - Click on your profile image in the upper right corner, and pick
+     "Your repositories".
+   - Click on the green "New" button to create a new repo
+   - In the form, choose =hello-world= as repo name
+   - Write a minimal description (="Hello World exercise for CSC 240"=)
+   - Check ="Public"= (everybody can see this)
+   - Check ="Add a README file"=
+   - Choose the =.gitignore template: C++=
+   - Choose the ="GNU General Public License v3.0"=
+   - Click ="Create repository"= at the bottom of the page.
+   - If you checked "Add a README file", the Markdown editor will open:
+     enter a description (plain-text), then click on =Preview= to see how
+     it will look like.
+   - Click on the green ="Commit changes..."= button. A second window
+     appears - make sure you check ="Commit directly to the ~main~ branch"=,
+     and click on ="Commit changes"=.
+   - Your repo appears with three auto-created files, =.gitignore=,
+     =LICENSE=, and =README.md=.
 
-**** Step 2: Create a branch
-- Go back to the exercise and continue with step 2. Make sure you read
-  the explanation on what a "branch" exactly is. If this is Chinese to
-  you (and you're not Chinese), check out the freeCodeCamp tutorial at
-  [[https://tinyurl.com/guide-to-git][tinyurl.com/guide-to-git]].
-- Essentially, you're posing as a developer who creates a new branch
-  called =readme-edits= besides the =main= branch. Once you've added the
-  branch, you'll see both branches in the =Code= dashboard of your repo.
+2. Step 2: Create a branch
+   - Go back to the exercise and continue with step 2. Make sure you read
+     the explanation on what a "branch" exactly is. If this is Chinese to
+     you (and you're not Chinese), check out the freeCodeCamp tutorial at
+     [[https://tinyurl.com/guide-to-git][tinyurl.com/guide-to-git]].
+   - Essentially, you're posing as a developer who creates a new branch
+     called =readme-edits= besides the =main= branch. Once you've added the
+     branch, you'll see both branches in the =Code= dashboard of your repo.
 
-**** Step 3: Make and commit changes
+3. Step 3: Make and commit changes
 
-- You're now asked to make a change to your code base in the new
-  branch using the =README.md= file (a change to any file would be
-  equivalent).
-- Once you made the change, you commit it[fn:7]. You can make as many
-  changes and commits as you like.
-- Your two branches, =main= and =readme-edits= have now diverged.
+   - You're now asked to make a change to your code base in the new
+     branch using the =README.md= file (a change to any file would be
+     equivalent).
+   - Once you made the change, you commit it. You can make as many
+     changes and commits as you like.
+   - Your two branches, =main= and =readme-edits= have now diverged.
 
-**** Step 4: Open a pull request
+4. Step 4: Open a pull request
 
-- A "pull request" is a request for the maintainer of =main= to consider
-  using your changes in the =main= code base. Follow the steps of the
-  exercise.
-- After creating a =New pull request=, you can check out the changes in
-  the well-known Linux "diff" format[fn:8], a line-by-line comparison.
+   - A "pull request" is a request for the maintainer of =main= to consider
+     using your changes in the =main= code base. Follow the steps of the
+     exercise.
+   - After creating a =New pull request=, you can check out the changes
+     in the well-known Linux "diff" format, a line-by-line comparison.
 
-**** Step 5: merge your pull request
+5. Step 5: merge your pull request
 
-- The GitHub dashboards seem a little crowded. When you ="View the pull
-  request"=, you find the ="Merge pull request"= button, and since the
-  branches do not report a "conflict", you can go ahead and merge.
-- The pull request is now closed. You can delete the =readme-edits=
-  branch (e.g. by clicking on the branch symbol next to the branch
-  name in the repo dashboard).
-- Now go back to your profile, find =Customize your pins= and pin
-  =hello-world= to the profile as you see it on my GitHub profile.
+   - The GitHub dashboards seem a little crowded. When you ="View the pull
+     request"=, you find the ="Merge pull request"= button, and since the
+     branches do not report a "conflict", you can go ahead and merge.
+   - The pull request is now closed. You can delete the =readme-edits=
+     branch (e.g. by clicking on the branch symbol next to the branch
+     name in the repo dashboard).
+   - Now go back to your profile, find =Customize your pins= and pin
+     =hello-world= to the profile as you see it on my GitHub profile.
 
-* Summary
+#+end_notes
+
+* Summary I
 
 - You only need basic programming skills to succeed in this course.
 - There will be 2 programming assignments and 1 quiz per week, with
   an optional final exam.
 - We will make excessive use of Linux, Emacs + Org-mode, and GitHub.
 - We will mostly use the C programming language
+
+* Summary II
+
 - We will review several derived data types: pointers, functions,
   structures, unions and enums
 - You will learn common data structures: arrays, linked lists, stacks,
   queues, trees, graphs and hash tables.
 - You don't need to buy a textbook for this course but the book by
   King (C Programming 2e, W W Norton 2008) is worth having anyway.
-
-* Footnotes
-
-[fn:1]Literate Programming "Knuth-style" is a little different from
-what we're doing. You'll see it in some lectures and assignment sample
-solutions, when I use the =noweb= macro processor to split code into
-small pieces and link them back together later.
-
-[fn:2]C does not have namespaces like C++ to encapsulate names and
-organize code, instead it has prefixes, =static=, and =struct= objects to
-avoid name conflicts and group related functions and variables.
-
-[fn:3]It means that the header file or library is in the computers
-=PATH=, the set of locations where the computer looks for
-programs. Alternatively, you need to put the complete (absolute) path
-to the file in between ="..."=.
-
-[fn:4]Lyon College has a classroom at DataCamp, and if you're
-enrolled, you can ask me to get access to this online
-platform. DataCamp is not for C++ but for SQL, Python and R, as well
-as for tools like Git and the shell.
-
-[fn:5]Markdown is simple layout language: for example =#= gives you a
-headline, =`= (backtick) choose code font, =*= gives you bold face, and =_=
-gives you italics.
-
-[fn:6]Explanation: =.gitignore= contains file types that Git will
-ignore - especially those created in the process of compiling C++
-code - you can add other file types here, e.g. =*.*~= for backup, or
-=*.html= for HTML files; the LICENSE specifies the copyright for
-everything in your repo; the =README.md= file is markdown with a
-description of the repository.
-
-[fn:7]On the shell, the equivalent =git= command is =git commit -m
-"[message]"= following a =git add .= for all changed files. To push a
-commit to the remote code base (=origin=), use =git push=.
-
-[fn:8]That's not a coincidence: both Linux and Git were created by
-Linus Torvalds, a Finnish programmer and (still) leader of the global
-Linux kernel development
