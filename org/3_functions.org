@@ -242,9 +242,9 @@ for a short literate programming tutorial: [[https://tinyurl.com/first-lit-prog]
         {
           //puts("");
           for (int j=0;j<2;j++)
-    	{
-    	  printf("%d \n", a[i][j]);
-    	}
+        {
+          printf("%d \n", a[i][j]);
+        }
         }
       printf("Sum of 2d array: %d\n", sum2(a,2));
       return 0;
@@ -252,11 +252,11 @@ for a short literate programming tutorial: [[https://tinyurl.com/first-lit-prog]
   #+end_src
 
   #+RESULTS: sum2
-  : 1 
-  : 0 
-  : 0 
-  : 1 
-  :  
+  : 1
+  : 0
+  : 0
+  : 1
+  :
   : Sum of 2d array: 4096
 
 - How can the 2d array be printed in matrix format?
@@ -267,16 +267,16 @@ for a short literate programming tutorial: [[https://tinyurl.com/first-lit-prog]
       for (int i=0;i<2;i++) {
         if (i!=0) puts(" ");
         for (int j=0;j<2;j++) {
-    	printf("%d ", a[i][j]);
-          }
+          printf("%d ", a[i][j]);
+        }
       }
       return 0;
     }
   #+end_src
 
   #+RESULTS:
-  : 1 0  
-  : 0 1 
+  : 1 0
+  : 0 1
 
 * Variable-Length Array Parameters
 
@@ -1237,13 +1237,12 @@ You can use this program that does the job without a function:
 Testing:
 #+begin_src bash :results output :exports both
   gcc gcd.c -o gcd
-  echo 12 28 | ./gcd
+  echo 12 20 | ./gcd
 #+end_src
 
 #+RESULTS:
-: Enter two integer numbers: m = 12, n = 28
+: Enter two integer numbers: m = 12, n = 20
 : GCD = 4
-
 
 \pagebreak
 
@@ -1295,6 +1294,44 @@ Testing:
    integers. Here's the strategy to use for computing =gcd(m,n)=: If =n=
    is 0, =return =m=. Otherwise, call =gcd= recursively, passing =n= as the
    first argument and =m % n= as the second.
+
+   In the =example= block below, sketch what happens for m=12, n=28 when
+   the function =gcd_r= is called
+   #+begin_example
+     call gcd_r(12,28) ...
+          call gcd_r(...)...
+     ...     
+   #+end_example
+
+   Here is the =gcd= function with a =main= function and a shell block to
+   test it (tangle =gcd.c= first):
+   #+begin_src C :main no :tangle gcd.c :results none
+     int gcd(int a, int b)
+     {
+       while (b != 0) {
+         int temp = b;
+         b = a % b;
+         a = temp;
+       }
+       return a;
+     }
+
+     int main(void)
+     {
+       int m, n;
+       scanf("%d%d",&m,&n);
+       printf("GCD of %d and %d: %d\n",m,n,gcd(m,n));
+       return 0;
+     }
+   #+end_src
+
+   #+begin_src bash :results output :exports both
+     gcc gcd.c -o gcd
+     echo 12 28 | ./gcd
+   #+end_src
+
+   #+RESULTS:
+   : GCD of 12 and 28: 4
 
 * Glossary
 
@@ -1365,9 +1402,9 @@ Testing:
 * Footnotes
 
 [fn:1]Euclid's algorithm is based on the fact that the GCD of
-   two numbers does not change if the larger number is replaced by its
-   difference with the smaller number. The instructions shortcuts
-   these steps, instead replacing the larger of the two numbers by its
-   remainder when divided by the smaller of the two. With this
-   version, the algorithm never requires more steps than five times
-   the number of digits (base 10) of the smaller integer  
+two numbers does not change if the larger number is replaced by its
+difference with the smaller number. The instructions shortcuts
+these steps, instead replacing the larger of the two numbers by its
+remainder when divided by the smaller of the two. With this
+version, the algorithm never requires more steps than five times
+the number of digits (base 10) of the smaller integer
