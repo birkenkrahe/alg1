@@ -162,6 +162,7 @@ We'll up our GitHub game this term, as well as our Linux and Emacs
 game. More details later.
 #+end_notes
 * Questions with Answers
+Some questions that I ask myself, and that I needed answers for.
 #+begin_notes
 When I wrote this, I had several questions that I needed to answer
 myself - here they are - the long answers are in the PDF. Please ask
@@ -401,6 +402,7 @@ solution for cybersecurity.
 - Build a code & notebook repo on GitHub
 
 #+begin_notes
+The complete list:
 1) Code every day no matter how little.
 2) Review lecture notes and notebooks.
 3) Participate actively in the class.
@@ -581,13 +583,16 @@ hash tables.
 * Development tools
 
 This section is shared across my courses. Apologies if you have to
-hear/do it twice but remember: imitation/repetition creates mastery!
+hear/do it twice but remember: imitation, repetition, and memorization
+will help you master this stuff!
 
 ** Pep talk for developers
 
 - Computer & data science = "maker spaces"
 - 15 minutes per day beats 1 hour per week
-- Professionals rely on good toolkits
+- Professionals rely on excellent tool kits
+- Your tools include: Linux, Emacs, GitHub, GNU C Compiler (=gcc=), GNU
+  Debugger (=gdb=)
 
 #+begin_notes
 - Computer and data science courses are "maker spaces": you're
@@ -601,16 +606,16 @@ hear/do it twice but remember: imitation/repetition creates mastery!
   1) The Linux operating system and the shell
   2) The Emacs editor with the Org-mode package
   3) The GitHub software engineering platform
-
 #+end_notes
 
 ** Linux - the world's premier Operating System
 
 - Linux server for exclusive use by CS and DS
-- If you completed CSC 420 you're well prepared
+- If you completed CSC 420 you're well prepared (if not, CSC 420 will
+  be easy!)
 - You get your own Ubuntu LTS 22.04 system
-- Access from anywhere with Internet
-- Daily use = edge in job market
+- Access from anywhere with Internet (=ssh=)
+- Daily use = massive edge in job market
 
 #+begin_notes
 - A summer research grant 2024, and the gracious professional support
@@ -627,20 +632,38 @@ hear/do it twice but remember: imitation/repetition creates mastery!
 
 - You can access this PC from anywhere with an Internet connection.
 
+- You can use this PC in all your classes - no need to look back to
+  Windoze...
+
 - Having used Linux daily will give you an edge in the job market (esp
   for server-related jobs), and you should mention it on your resume.
 
 #+end_notes
 ** Emacs - the world's best hacking power tool
+#+attr_html: :width 400px:
+[[../img/emacslogo.png]]
 
+Questions with answers
+
+#+begin_notes
 - You've most likely worked with Emacs + Org-mode and the literate
   programming approach in my other data science or computing courses.
 
-- Test your memory with a few review questions:
+- Test your memory with a few review questions!
+#+end_notes
 
 *** What is special about Emacs?
-#+attr_html: :width 500px:
-[[../img/gnuemacs.png]]
+#+attr_html: :width 300px:
+[[../img/lindisfarne.jpg]]
+
+/Evangelist Mark, Lindisfarne Gospels, 715 AD/.
+*** -----
+- Written in C and Lisp (first AI language) in the 1970s
+- Self-extensible Macro editor, free, open source software
+- Fully customizable and almost an operating system
+- Rich documentation and vibrant expert user community
+- Direct access to Unix and C manual pages
+- Packages: Dired, Magit, Tramp, Helm, Info, Eshell
 
 #+begin_notes
 *Emacs* is a self-extensible, free, open source editor written in a
@@ -650,9 +673,22 @@ customizability and openess. The vanilla version can be
 downloaded from [[https://www.gnu.org/software/emacs][gnu.org/software/emacs]]. Famous applications:
 [[https://orgmode.org][Org-mode]] (for literate programming) and [[https://magit.vc/][magit]] (for
 Git). Additional resource: [[https://www.gnu.org/software/emacs/refcards/pdf/refcard.pdf][Emacs Reference Card]].
+
+- Dired is the built-in directory editor in Emacs for file management
+- Magit is an interface to Git, the version control system behind
+  GitHub so that you can interact with your repositories in Emacs
+- Tramp (Transparent Remote Access, Multiple Protocols) allows you to
+  edit files on remote machines as if they were local.
+- Helm: auto-completion tool (I use Ivy + Swiper instead)
+- Info: built-in documentation tool
+- Eshell: built-in Linux shell simulator
+
+Why this image? When asking about a medieval painting that resembles
+the essence of Emacs, ChatGPT suggested the illuminations of the
+Lindisfarne Gospels and the Book of Kells.
 #+end_notes
 
-*** What is Org-mode?
+*** What can Org-mode do for you?
 #+attr_html: :width 300px:
 [[../img/orgmode1.png]]
 #+begin_notes
