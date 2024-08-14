@@ -8,35 +8,51 @@
 #+REVEAL_THEME: night
 :END:
 #+STARTUP:overview hideblocks indent
-#+OPTIONS: toc:nil num:nil ^:nil
+#+OPTIONS: toc:1 num:nil ^:nil
 #+PROPERTY: header-args:C++ :main yes :includes <iostream> :results output :exports both :noweb yes
 #+PROPERTY: header-args:C :main yes :includes <stdio.h> :results output :exports both :noweb yes
 * Course Overview
 #+attr_html: :width 400px:
 [[../img/poster.png]]
 
-Syllabus is available on [[https://lyon.instructure.com/courses/2623/assignments/syllabus][Canvas]] and on [[https://github.com/birkenkrahe/alg1/blob/main/org/syllabus.org][GitHub]].
-
+Syllabus available on [[https://lyon.instructure.com/courses/2623/assignments/syllabus][Canvas]] and on [[https://github.com/birkenkrahe/alg1/blob/main/org/syllabus.org][GitHub]].
+#+begin_notes
+This file was rendered as HTML presentation from the Org-mode
+original. Exporting into many different file formats is one of the
+strengths of Org-mode. Your handout is a PDF, this is HTML, on GitHub
+you find Markdown or raw Org-mode. The Reveal-based HTML is amazing.
+#+end_notes
 ** *Instructor Introduction*
 - Background and experience
 - Course objectives and expectations
-
+#+begin_notes
+- I've not taught data structures or algorithms before.
+- It's been a bit of a struggle because it's complex.
+- There's not one textbook so I had to read 12 or more.
+- Lots of decisions to be made along the way like C/C++.
+- Can be taught entirely theoretically (not very fun).
+- My approach is exactly as in CSC 100: learning by doing.
+#+end_notes
+  
 ** *General Course Information*
 - Meeting Times: Tuesday & Thursday at 9:30-10.45 AM (75 min)
 - Meeting place: Derby Science Building computer lab room 239
 - Professor's Office: Lyon Building computer lab room 104
 - Phone: (870) 307-7254 (office) / (501) 422-4725 (private)
 - Office hours: [[https://calendar.app.google/yjr7tB7foMYowRJm7][by appointment]] MWF 4pm, Tue 3pm, Thu 11 am & 3 pm
-
+#+begin_notes
+Please book through my Google appointment calendar if you can:
+https://tinyurl.com/fall24-office-hours
+#+end_notes
 ** Books that I used
 
 - C Programming - A Modern Approach by King (W W Norton, 2008)
 - Mastering algorithms with C by Loudon (O'Reilly, 1999)
 - Algorithmic Thinking (2e) by Zingaro (NoStarch,2024)
 - Little Book of Pointers by Collingworth (bitwisebooks, 2019)
-
   #+begin_notes
-
+You find plenty of other sources in the handout.
+  
 1. Secondary sources (recommended):
    + Learn C the Hard Way by Shaw (Addison-Wesley, 2015)
    + 100-page C++ language reference: [[https://rooksguide.org/wp-content/uploads/2013/12/rooks-guide-isbn-version.pdf][Rook's Guide to C++]]
@@ -65,61 +81,100 @@ Syllabus is available on [[https://lyon.instructure.com/courses/2623/assignments
   efficiently
 - Help you understand how data structures help you solve
   programming problems.
+#+begin_notes
+Three parts: 
+1) Extension of some known topics: arrays, functions, pointers
+2) Dynamic memory allocation and strings in C and C++
+3) Different data structures and their interfaces
+4) Solving algorithmic problems with different data structures
+#+end_notes
 
 ** *Target Audience*
 - Students with basic understanding of programming concepts
 - Those interested in preparing for deeper study of algorithms
 - Those interested in advancing their knowledge in data science
-- Those interested in system and network programming (cybersec)
+- Those interested in system and network programming (cybersecurity)
 - Those interested in moving on to C++/C# (game programming)
-
+#+begin_notes
+This is part I of a two-part course on algorithms and on smart
+programming. You need this for any software engineering related job
+interview, and it will be useful in any IT related job.
+#+end_notes
 ** *Student Learning Outcomes*
 - Understand major data structures and their applications
-- Implement various data structures in C (with some C++ / Python / R /
-  Java)
-- Analyze the efficiency of data structures and algorithms
+- Implement various data structures in C (with C++ / Python / R / SQL
+  / bash).
+- Analyze the efficiency of data structures and algorithms (without
+  Big-O)
 - Apply algorithmic thinking to understand and solve complex problems
 - Design and develop efficient software solutions in a realistic
   infrastructure setting
-
+#+begin_notes
+"Big-O" refers to a way of measuring the efficiency of an algorithm by
+estimating how many operations it will take to complete. Some courses
+start out with discussing this but I might park it until CSC 265.
+#+end_notes
 ** *Course Requirements*
 - Prerequisites: Introduction to Programming (CSC 100 or CSC 115 or
-  CSC 109, and MTH 101)
+  CSC 109, and MTH 101) - know the basics & understand numbers.
 - Willingness to engage in problem-solving and critical thinking
 - Willingness to put in substantial time to program on your own
-
+#+begin_notes
+Discrete maths might also include a discussion of graph theory,
+combinatorics, logic and proof techniques, and basic probability.
+#+end_notes
 ** *Grading* (see also [[https://github.com/birkenkrahe/alg1/blob/main/img/rubric.png][Rubric]])
 - Weekly programming assignments: 50%
 - Weekly multiple-choice tests: 25%
 - Final exam (optional): 25%
-
+#+begin_notes
+There will be 1 review test (open book & remote) per week, 2 mandatory
+program assignments, and other assignments for those who are
+bored. There is also now a student club for programming, whose adviser
+I am where you can take your programming prowess and get your
+fill. The final exam will consist of test questions you've seen, and
+you can use it to improve your grade.
+#+end_notes
 ** *Learning Management System*
 - Use of Lyon's Canvas installation (use the calendar to keep time!)
 - Course materials, Assignments, Gradebook, Zoom recordings
 - Course links, Syllabus, Announcements, Course Links
-
+#+begin_notes
+Do you know how to use/read/link the calender to your Google Calendar?
+#+end_notes
 ** Google Chat Space
 - Much preferred over email for questions
 - I'm online and working most of the time
-- Use Google chat to share stuff
-
+- Use Google chat to share your stuff, too
+#+begin_notes
+I don't mind if you contact me at impossible hours via Google chat
+because I often work at impossible hours. Don't be cross if you don't
+get an answer right away. Tell me which course you're referring to and
+attach enough information so that I don't have to keep asking too many
+questions, and/or just talk to me during office hours or after class.
+#+end_notes
 ** *GitHub, Linux & Emacs & Org-mode*
 - Course materials in public GitHub repository: [[https://github.com/birkenkrahe/alg1][github.com/birkenkrahe/alg1]]
 - Free subscription to GitHub Codespaces with AI coding assistant Copilot
 - Emacs Power User Editor & Org-mode in a Linux programming environment
-
+#+begin_notes
+We'll up our GitHub game this term, as well as our Linux and Emacs
+game. More details later.
+#+end_notes
 * Questions with Answers
-
-** What if you don't know C or C++?
-
+#+begin_notes
+When I wrote this, I had several questions that I needed to answer
+myself - here they are - the long answers are in the PDF. Please ask
+your own questions now!
+#+end_notes
+** What if you don't know (or remember C or C++?
 - Any introductory programming class is OK
 - Complete the entry quiz (Aug 19, 11:50pm)
-- Update with freeCodeCamp (3 hoursh) / The Rook's Guide to C++ (100
-  pages)
-
+- Check out: freeCodeCamp (video, 3 hrs.), and The Rook's Guide to C++
+  (book, 100 pg.)
 #+begin_notes
 You should have taken introductory programming in Java or Python or
-C/C++: Both Java and Python are high-level languages, but C++ is
+C/C++: Both Java and Python are high-level languages, but C/C++ is
 quite different (and quite a bit more complicated, too).
 
 Make sure you take the (optional ) entry quiz and complete the
@@ -128,11 +183,12 @@ you meet the August 19, 11:50 pm deadline, you get some bonus
 points, too.
 
 If you have any weaknesses in the basics (or if you haven't studied
-C++ yet at all), read "The Rook's Guide to C++" for free and answer
+C/C++ yet at all), read "The Rook's Guide to C++" for free and answer
 the review questions. Sample solutions available online in GitHub.
 
-Otherwise we'll be reviewing (and adding to) our knowledge of C/C++
-in the first 4 weeks of the course (including some OOP aspects).
+Otherwise we'll be reviewing (and adding to) our knowledge of C/C++ in
+the first few weeks of the course. If you had Java, you already know a
+lot about Object-Oriented Programming (OOP).
 #+end_notes
 ** Will I be able to work on this course from home?
 
@@ -140,7 +196,8 @@ in the first 4 weeks of the course (including some OOP aspects).
   and graphics
 - You can install Linux via dual boot / VirtualBox or (on Windows)
   with WSL
-- Use GitHub as a central repo and clone to your local machine(s)
+- Use GitHub as a central repo and clone to your local machine(s) as I
+  do it.
 
 #+begin_notes
 Absolutely. You'll be using a personal virtual Linux box on our
@@ -190,6 +247,7 @@ before me) did. But I'm on board with it for a number of reasons:
 - The programming language should not get in the way of problem
   solving
 - Once you understand it in C, you can take your knowledge anywhere
+- See also: Bad Boy Mower story, August 2024
 
 #+begin_notes
 After working out many lectures in C++ only, I realized that
@@ -208,17 +266,30 @@ The arguments given by Zingaro in favor of C in his 2024 book
 this stuff in C, you can take your knowledge anywhere, to any other
 language, wherever problems can be solved computationally.
 
-Another data point: tell Wyatt's story (2014 metal sheet cutter)
+Another data point: tell Wyatt's story (2014 metal sheet cutter) - A
+couple of days ago, a former student of mine showed me around the
+factory where he develops new high performance lawn mowers (that's big
+business in the US, believe it or not). He showed me a table where he
+cuts metal sheets so that he can build new things. The machine was
+from 2014, and the computer and the software for it were insulated
+from the Internet and any other network because the firmware had not
+been updated since 2014 - he said that was quite common for many other
+large machines that they have. So any update has to be developed by
+them and transferred to the machine manually with a thumb drive - and
+often they don't do it or badly because it's so hard to understand (&
+maintain & improve) the original programs that came with the
+machine. This struck me as another nice application for literate
+programming.
+
 #+attr_html: :width 600px:
 [[../img/machine.jpg]]
 #+end_notes
 ** What are my favorite programming languages?
-
 - Lisp (Emacs - 1980s)
 - C/C++ (computational physics - 1990s)
 - SQL (databases - 2000s)
-- R (data analytics & visualization)
-- Python (automation & machine learning)
+- R (data analytics - 2010s)
+- Python (machine learning - 2020s)
 
 #+begin_notes
 Though I have (passing) knowledge of many programming languages,
@@ -236,25 +307,34 @@ because of Emacs (late 1980s), C++ in the 1990s, SQL in 2005, R in
 2019, and Python in 2022. C++ has developed massively since then
 though and I am more comfortable with its subset C than with many
 of the modern developments of the language - but I'm keen to learn!
+
+How well do I know them? I think: Lisp (5%), C/C++ (30%), SQL (50%), R
+(50%), Python (25%) - but these estimates may be way off, too!
 #+end_notes
 ** Why did you not choose Python given that it's the most popular programming language?
-
 - Python consumes 76 x more energy than C
 - Python is 72 x slower than C
-- Python abstracts memory management away
-
+- Python abstracts memory and performance management away
 #+begin_notes
 Python has some serious deficiencies compared to C/C++, most
 importantly speed. Here is an interesting paper that shows that
 Python consumes 76 times more energy and is 72 times slower than C.
 #+attr_html: :width 400px:
 [[../img/python_vs_C.png]]
+
 But more importantly for the purpose of learning about data
 structures: Python abstracts away many details such as memory
-management, which are crucial to understanding why to choose one
-data structure over another. C gives you much more control over
-system resources. The only real reason to pick Python is that it's
-easier to learn and use.
+management, which are crucial to understanding why to choose one data
+structure over another. C gives you much more control over system
+resources - which is critical for some of the most popular
+applications like AI and Large Language Models. The only real reason
+to pick Python is that it's easier to learn and use. But that's also a
+reason to pick C because so many more people are fluent in Python than
+in C.
+
+Here is ChatGPT's estimate: C (1.5-2 mio), C++ (4-5 mio), C# (6-7
+mio), Python (10-12 mio). So with C you're 5-6 times more valuable but
+in the end it's also much more difficult to become a master at C.
 
 But at the end of the day, it's a personal decision. In my case,
 I'm also better at C than Python, and I like the control it gives.
@@ -323,7 +403,7 @@ solution for cybersecurity.
 
 [See also the "New FAQ" for fall '24 courses [[https://github.com/birkenkrahe/org/blob/master/fall24/newFAQ.org][available on GitHub]].]
 
-* Course content - Data Types and Data Structures
+* Course content
 
 This is a vast topic. If you're anything like me, you like a clear
 roadmap with code examples. So here's all of what we'll cover in the
