@@ -33,7 +33,7 @@ you find Markdown or raw Org-mode. The Reveal-based HTML is amazing.
 - Can be taught entirely theoretically (not very fun).
 - My approach is exactly as in CSC 100: learning by doing.
 #+end_notes
-  
+
 ** *General Course Information*
 - Meeting Times: Tuesday & Thursday at 9:30-10.45 AM (75 min)
 - Meeting place: Derby Science Building computer lab room 239
@@ -51,26 +51,26 @@ https://tinyurl.com/fall24-office-hours
 - Algorithmic Thinking (2e) by Zingaro (NoStarch,2024)
 - Little Book of Pointers by Collingworth (bitwisebooks, 2019)
   #+begin_notes
-You find plenty of other sources in the handout.
-  
-1. Secondary sources (recommended):
-   + Learn C the Hard Way by Shaw (Addison-Wesley, 2015)
-   + 100-page C++ language reference: [[https://rooksguide.org/wp-content/uploads/2013/12/rooks-guide-isbn-version.pdf][Rook's Guide to C++]]
-   + 800-page C++ language reference: [[https://ccc.codes/][C++ Crash Course]]
+  You find plenty of other sources in the handout.
 
-2. Optional Textbooks:
-   - Helfrich, C++ Data Structures (KendallHunt, 2020)
-   - Kanetkar Y, Data Structures Through C++ 5th ed (bpb, 2024)
-   - Malik, C++ Programming - Program Design Including Data Structures (Cengage 2015)
-   - La Rocca, Grokking Data Structures (Manning 2023) - with Python
-   - Morin, Open Data Structures (in C++) (OpenText, 2013)
+  1. Secondary sources (recommended):
+     + Learn C the Hard Way by Shaw (Addison-Wesley, 2015)
+     + 100-page C++ language reference: [[https://rooksguide.org/wp-content/uploads/2013/12/rooks-guide-isbn-version.pdf][Rook's Guide to C++]]
+     + 800-page C++ language reference: [[https://ccc.codes/][C++ Crash Course]]
 
-3. Recommended Videos:
-   - C Programming for Beginners @[[https://www.udemy.com/share/101YbQ3@z51ev2j9L2tex43TEy8QZv9SOdzfmNWit0dYx3Xax9jdEIzysZI0m1VqduiOAXk=/][Udemy]]
-   - Advanced pointers @[[https://www.udemy.com/share/10256M3@iB9e4nCDuRgUQ9DBoiKaZ06TNbmJr_rLFZ675BTUDtbQjVFUfMImeYM7SqzcEqs=/][Udemy]]
-   - "C++ Data Structures & Algorithms @[[https://scottbarrett.com/][Udemy]]
-   - [[https://www.youtube.com/@CPlusPlusDataStructures/videos][Helfrich's YouTube videos]] on C++ Data Structures
-   - [[https://youtu.be/B31LgI4Y4DQ?si=mu7z5qTupDg1Pu3x][freeCodeCamp course]] on Data Structures with C++
+  2. Optional Textbooks:
+     - Helfrich, C++ Data Structures (KendallHunt, 2020)
+     - Kanetkar Y, Data Structures Through C++ 5th ed (bpb, 2024)
+     - Malik, C++ Programming - Program Design Including Data Structures (Cengage 2015)
+     - La Rocca, Grokking Data Structures (Manning 2023) - with Python
+     - Morin, Open Data Structures (in C++) (OpenText, 2013)
+
+  3. Recommended Videos:
+     - C Programming for Beginners @[[https://www.udemy.com/share/101YbQ3@z51ev2j9L2tex43TEy8QZv9SOdzfmNWit0dYx3Xax9jdEIzysZI0m1VqduiOAXk=/][Udemy]]
+     - Advanced pointers @[[https://www.udemy.com/share/10256M3@iB9e4nCDuRgUQ9DBoiKaZ06TNbmJr_rLFZ675BTUDtbQjVFUfMImeYM7SqzcEqs=/][Udemy]]
+     - "C++ Data Structures & Algorithms @[[https://scottbarrett.com/][Udemy]]
+     - [[https://www.youtube.com/@CPlusPlusDataStructures/videos][Helfrich's YouTube videos]] on C++ Data Structures
+     - [[https://youtu.be/B31LgI4Y4DQ?si=mu7z5qTupDg1Pu3x][freeCodeCamp course]] on Data Structures with C++
 
   #+end_notes
 
@@ -82,7 +82,7 @@ You find plenty of other sources in the handout.
 - Help you understand how data structures help you solve
   programming problems.
 #+begin_notes
-Three parts: 
+Three parts:
 1) Extension of some known topics: arrays, functions, pointers
 2) Dynamic memory allocation and strings in C and C++
 3) Different data structures and their interfaces
@@ -378,7 +378,19 @@ development.
 Absolutely: the mixture of Emacs + Linux + C is the winning
 solution for cybersecurity.
 #+end_notes
-
+** Can this course help me break into Artificial Intelligence?
+- C memory management and speed crucial for large scale AI
+- Algorithms rely heavily on data structures (matrix ops)
+- C is important for embedded and edge AI (IoT)
+#+begin_notes
+- *Memory Management*: C allows precise control over memory, which is crucial for optimizing the performance of AI algorithms, especially when dealing with large datasets or real-time processing. Data structures like arrays, linked lists, and trees can be implemented with minimal overhead.
+- *Speed*: C is known for its execution speed, which is essential in AI applications where processing speed is critical, such as in deep learning or real-time decision-making systems.
+- *Algorithm Implementation*: Many AI algorithms, including those for searching, sorting, and graph traversal, rely heavily on data structures. Understanding how these are implemented in C can help optimize these algorithms for specific hardware or applications.
+- *Low-Level Operations*: For tasks like matrix operations, which are fundamental in machine learning, understanding and implementing these operations efficiently at a low level can lead to performance improvements.
+- *Resource-Constrained Environments*: C is often used in embedded systems where AI models need to run on devices with limited computational resources. Efficient data structures are crucial in such environments to ensure that AI applications can function correctly within the constraints.
+- *Specialized AI Models*: When developing specialized AI solutions, especially those requiring custom data handling (e.g., specialized neural networks or reinforcement learning systems), having a deep understanding of data structures in C can be advantageous. It allows for the creation of custom, optimized data structures tailored to the specific needs of the AI application.
+- *Integration with High-Level Languages*: Many AI applications are developed in higher-level languages like Python. However, performance-critical components are often written in C (or C++) and then interfaced with these higher-level languages. Understanding C data structures is essential for writing these components.
+#+end_notes
 ** How should you study for this course?
 
 - Code every day and participate actively
