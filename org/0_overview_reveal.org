@@ -419,12 +419,14 @@ solution for cybersecurity.
 
 This is a vast topic. If you're anything like me, you like a clear
 roadmap with code examples. So here's all of what we'll cover in the
-briefest form possible, including definitions + code.
+briefest form possible, including definitions + fake code.
 
 ** Data Types
 
 Data types classify the type of data a variable can hold, and the
 operations that can be performed on it.
+
+*Which data types do you know?*
 
 ** Primitive Data Types
 
@@ -432,8 +434,35 @@ operations that can be performed on it.
 - =float= / =double=: Floating-point types
 - =char=: Character type
 - =void=: Special purpose type
+- =size_t=: size of objects in bytes
+  
+** What do you know about these data types?
+
+#+attr_html: :width 400px:
+[[../img/question.png]]
+
+** What you should know about primitive data types
+
+| Data type | Format    | Byte size |    MAX |
+|-----------+-----------+-----------+--------|
+| =int=       | =%d= =%ld=    |         4 | 2^32-1 |
+| =float=     | =%f= =%g= =%e=  |         4 | 10^38  |
+| =double=    | =%lf= =%g= =%e= |         8 | 10^308 |
+| =char=      | =%c=        |         1 |    127 |
+
+#+begin_src C :includes <float.h> <limits.h> <stdio.h>
+  printf("%zu %d %e %e\n", sizeof(int),SCHAR_MAX,FLT_MAX,DBL_MAX);
+#+end_src
+
+#+RESULTS:
+: 4 127 3.402823e+38 1.797693e+308
 
 ** Derived Data Types
+
+Derived data types - built from one or more built-in data types.
+
+- Arrays, functions, pointers
+- Structures, unions, enumerations
 
 *** *Array*: Collection of elements of one type
 #+attr_html: :width 600px:
@@ -483,10 +512,12 @@ operations that can be performed on it.
   enum Color {RED, GREEN, BLUE};
 #+end_src
 
+
 ** Data Structures
 
 Data structures organize and store data for efficient access and
-modification.
+modification: Arrays, linked lists, stacks, queues, trees, graphs,
+hash tables.
 
 *** *Arrays*: Collection of same type elements
 #+attr_html: :width 600px:
