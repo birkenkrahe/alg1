@@ -834,12 +834,14 @@ What does the =<>= mean in the =#include= statements?
 
 ** GitHub - the world's largest development platform
 
-*If you are in more than one of my courses, do this only once.*
+#+attr_html: :width 400px: 
+[[../img/github.png]]
 
+*** -----
 - Premier software engineering platform
-- I used it since 2010 for development
 - Uses Git for development version control
 - Used for code sharing and AI assisted coding
+- Used by me since 2010 for development
 
 #+begin_notes
 - GitHub is the premier software engineering platform. An early user
@@ -851,7 +853,19 @@ What does the =<>= mean in the =#include= statements?
   pro subscribers) for AI-assisted code development ("[[https://github.com/codespaces][codespaces]]").
 #+end_notes
 
+*** What is version control?
+
+#+attr_html: :width 600px: 
+[[../img/git.png]]
+
+*** -----
+#+attr_html: :width 400px: 
+[[../img/git_workflow.jpg]]
+([[https://github.com/birkenkrahe/org/blob/master/FAQ.org#what-is-version-control][FAQ]])
+
 *** GitHub Todo Now
+
+*If you are in more than one of my courses, do this only once.*
 
 1. Register with GitHub
 2. Complete Hello World Exercise
