@@ -5,7 +5,7 @@
 #+REVEAL_ROOT: https://cdn.jsdelivr.net/npm/reveal.js
 #+REVEAL_REVEAL_JS_VERSION: 4
 #+REVEAL_INIT_OPTIONS: transition: 'cube'
-#+REVEAL_THEME: night
+#+REVEAL_THEME: dracula
 :END:
 #+STARTUP:overview hideblocks indent
 #+OPTIONS: toc:1 num:nil ^:nil
@@ -15,12 +15,13 @@
 #+attr_html: :width 400px:
 [[../img/poster.png]]
 
-Syllabus available on [[https://lyon.instructure.com/courses/2623/assignments/syllabus][Canvas]] and on [[https://github.com/birkenkrahe/alg1/blob/main/org/syllabus.org][GitHub]].
+*Presentation rendered in Emacs with [[https://revealjs.com/demo/][Reveal.js]]*
 #+begin_notes
-This file was rendered as HTML presentation from the Org-mode
-original. Exporting into many different file formats is one of the
-strengths of Org-mode. Your handout is a PDF, this is HTML, on GitHub
-you find Markdown or raw Org-mode. The Reveal-based HTML is amazing.
+This file - 1,000 lines of information goodness - was rendered as HTML
+presentation from the Org-mode original. Exporting into many different
+file formats is one of the strengths of Org-mode. Your handout is a
+PDF, this is HTML, on GitHub you find Markdown or raw Org-mode. The
+Reveal-based HTML is amazing.
 #+end_notes
 ** *Instructor Introduction*
 - Background and experience
@@ -360,7 +361,7 @@ devoid of external dependencies - essentially useful on its own
 
 - Data structures and algorithms enhance computing performance
 - Speed is critical for (multiplayer) games
-- C/C# are more directly relevant
+- C++/C# are more directly relevant
 
 #+begin_notes
 Only in so far as data structures and algorithms are performance
@@ -380,9 +381,10 @@ Absolutely: the mixture of Emacs + Linux + C is the winning
 solution for cybersecurity.
 #+end_notes
 ** Can this course help me break into Artificial Intelligence?
-- C memory management and speed crucial for large scale AI
-- Algorithms rely heavily on data structures (matrix ops)
-- C is important for embedded and edge AI (IoT)
+- C memory management and speed are crucial for large scale AI
+- Algorithms rely heavily on data structures, e.g. matrix
+  multiplication for neural nets
+- C is important for embedded and edge AI (Internet of Things)
 #+begin_notes
 - *Memory Management*: C allows precise control over memory, which is crucial for optimizing the performance of AI algorithms, especially when dealing with large datasets or real-time processing. Data structures like arrays, linked lists, and trees can be implemented with minimal overhead.
 - *Speed*: C is known for its execution speed, which is essential in AI applications where processing speed is critical, such as in deep learning or real-time decision-making systems.
@@ -425,7 +427,7 @@ briefest form possible, including definitions + fake code.
 
 ** Data Types
 
-Data types classify the type of data a variable can hold, and the
+Data types classify the type of data that a variable can hold, and the
 operations that can be performed on it.
 
 *Which data types do you know?*
@@ -461,7 +463,8 @@ operations that can be performed on it.
 
 ** Derived Data Types
 
-Derived data types - built from one or more built-in data types.
+Derived data types are built from one or more primivite, built-in` data
+types.
 
 - Arrays, functions, pointers
 - Structures, unions, enumerations
@@ -658,12 +661,12 @@ Questions with answers
 
 /Evangelist Mark, Lindisfarne Gospels, 715 AD/.
 *** -----
-- Written in C and Lisp (first AI language) in the 1970s
-- Self-extensible Macro editor, free, open source software
-- Fully customizable and almost an operating system
-- Rich documentation and vibrant expert user community
+- Written in Lisp (first AI language) in the 1970s
+- Self-extensible Macro editor, and FOSS
+- Fully customizable and almost an OS
+- Rich documentation & expert user community
 - Direct access to Unix and C manual pages
-- Packages: Dired, Magit, Tramp, Helm, Info, Eshell
+- World-class packages: =Dired=, =Magit=, =Tramp=, =Helm=, =Info=, =Eshell=
 
 #+begin_notes
 *Emacs* is a self-extensible, free, open source editor written in a
@@ -688,9 +691,16 @@ the essence of Emacs, ChatGPT suggested the illuminations of the
 Lindisfarne Gospels and the Book of Kells.
 #+end_notes
 
-*** What can Org-mode do for you?
+*** What is Org-mode?
 #+attr_html: :width 300px:
 [[../img/orgmode1.png]]
+
+*** -----
+- Org-mode files end in =.org=
+- Org-mode is a built-in Emacs package ("major mode")
+- Org-mode enables plain-text literate programming
+- Org-mode was developed by a German astrophysicist
+
 #+begin_notes
 *Org-mode* is an Emacs mode (plugin or extension package) for
 plain-text note-taking, task management, documentation. It was
@@ -702,17 +712,26 @@ first released in 2003 by Carsten Dominik. More information at
 *** What is Literate Programming?
 #+attr_html: :width 600px:
 [[../img/knuth.jpg]]
+*** -----
+- Programming paradigm introduced by Don Knuth in the 1970s.
+- Emphasises writing programs for humans instead of for machines.
+- Literate programs = documentation + code + output
+- Famous applications: interactive ("Jupyter") notebooks, the \TeX
+  typesetting system, and the MetaFont programming language.
+
 #+begin_notes
 *Literate Programming* is a programming paradigm introduced by
-Donald Knuth in the 1970. It emphasises writing code and
+Donald Knuth in the 1970s. It emphasises writing code and
 documentation together to make programs better structured and
 more enjoyable to read and understand by humans. More information
 at [[http://literateprogramming.com/][literateprogramming.com]].  Famous application: The [[https://www.ctan.org/starter][TeX]]
 typesetting system, which dominates technical and scientific
 publishing.
 #+end_notes
-*** How can you run the "Hello World" program in C++ inside Emacs?
 
+*** How can you run the "Hello World" program in C++ inside Emacs?
+#+attr_html: :width 600px: 
+[[../img/hwcpp.png]]
 *** -----
 #+begin_example C++
 #+begin_src C++ :main yes :includes <iostream> :namespaces std :results output
@@ -740,6 +759,8 @@ both source code and output (e.g. to LaTeX, Markdown or HTML).
 #+end_notes
 
 *** How can you run "Hello World" in C inside Emacs?
+#+attr_html: :width 600px: 
+[[../img/hwcc.png]]
 *** -----
 #+begin_example C
 #+begin_src C
@@ -790,7 +811,7 @@ To make use of it, you only need to open the file or run it with
 
 What does the =<>= mean in the =#include= statements?
 
-*** Why are we using Emacs + Org-mode (not VSCode or Code::Blocks IDEs)?
+*** Why are we using =Emacs + Org= (not =VSCode= or =Code::Blocks= IDEs)?
 
 - Customizability and extensibility
 - Integrated file management and shell
@@ -821,7 +842,6 @@ What does the =<>= mean in the =#include= statements?
 - Used for code sharing and AI assisted coding
 
 #+begin_notes
-
 - GitHub is the premier software engineering platform. An early user
   (since 2010) I use it for course materials, but most users are
   software developers and teams who use Git for version control.
@@ -880,25 +900,26 @@ What does the =<>= mean in the =#include= statements?
 
 #+begin_notes
 
-6) Org-mode files from my repos are automatically rendered as markdown
+1) Org-mode files from my repos are automatically rendered as markdown
    in GitHub on the desktop. Footnotes and special layout does not
    render well, and the mobile GitHub app does not render Org-mode at
    all.
 
-7) What the Hello World exercise does not show you is how you use
+2) What the Hello World exercise does not show you is how you use
    GitHub for your own code across *remote* locations as I do it. For
    that you need to *clone* your own repo to a remote computer. This is
    explained in the freeCodeCamp tutorial
    ([[https://tinyurl.com/guide-to-git][tinyurl.com/guide-to-git]]). There is also a short course (4 hr)
    [[https://www.datacamp.com/courses/introduction-to-git]["Introduction to Git"]] and a [[https://www.datacamp.com/blog/all-about-git][short tutorial]].
 
-8) How are you going to use GitHub?
+3) How are you going to use GitHub?
    - You'll regularly update your fork of my course repo.
    - In this way you have automatic access to the latest materials.
    - If you have a PC, you can install =git= and =clone= the repo.
    - If you have Emacs, you can install =magit= and use Git that way.
+   - I don't use =magit= but self-written =bash= scripts instead.
 
-9) Having used GitHub like a professional daily will give you an edge
+4) Having used GitHub like a professional daily will give you an edge
    in the job market (esp. for software engineering jobs) and you
    should mention it (as "GitHub/Git") on your resume.
 
