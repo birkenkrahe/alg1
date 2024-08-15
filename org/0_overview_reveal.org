@@ -37,7 +37,7 @@ Reveal-based HTML is amazing.
 
 ** *General Course Information*
 - Meeting Times: Tuesday & Thursday at 9:30-10.45 AM (75 min)
-- Meeting place: Derby Science Building computer lab room 239
+- Meeting place: Lyon Building computer lab 104
 - Professor's Office: Lyon Building computer lab room 104
 - Phone: (870) 307-7254 (office) / (501) 422-4725 (private)
 - Office hours: [[https://calendar.app.google/yjr7tB7foMYowRJm7][by appointment]] MWF 4pm, Tue 3pm, Thu 11 am & 3 pm
