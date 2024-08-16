@@ -1,4 +1,4 @@
-#+TITLE: NOTEBOOK - ALG1
+#+TITLE: NOTEBOOK - DATA STRUCTURES
 #+AUTHOR: Marcus Birkenkrahe
 #+SUBTITLE: CSC 240 Data Structures Lyon College Fall 2024
 #+STARTUP: overview hideblocks indent entitiespretty:
@@ -44,6 +44,11 @@ be represented.
 
 
 * Week 2
+
+** Syllabus: About Using AI to write code for you or debug your code
+
+I'm feeling quite strongly about this - [[https://github.com/birkenkrahe/org/blob/master/fall24/UsingAItoCode.org][here are my views]], which I
+also attached to the syllabus.
 
 ** Review questions
 
