@@ -1,0 +1,105 @@
+#+TITLE:GOOGLE CLOUD SHELL DEMO
+#+AUTHOR: Marcus Birkenkrahe
+#+Subtitle: Data Structures with C++ / CSC 240 / Fall 2024
+#+STARTUP: hideblocks overview indent inlineimages
+#+OPTIONS: toc:nil num:nil ^:nil
+#+PROPERTY: header-args:R :session *R* :results output :exports both
+1. Go to [[https://cloud.google.com/shell/][cloud.google.com/shell/]] and register with your Lyon Google
+   account. This is completely free for up to 50 hours per week.
+
+2. Open a terminal (aka command-line, aka shell, aka Console). Emacs
+   and GCC are already installed. Click on the ">_" symbol:
+   #+attr_html: :width 600px:
+   [[../img/shell.png]]
+
+3. Get the =.emacs= configuration file with the following command:
+   #+begin_example bash
+   wget -O .emacs http://tinyurl.com/lyon-emacs
+   #+end_example
+
+4. To check, start a terminal (non-GUI) Emacs with the command:
+   #+begin_example bash
+   emacs -nw
+   #+end_example
+
+5. The configuration file should now be read and used. You can push
+   Emacs in the background to return to the command-line with =C-z=. Do
+   this now, then return to Emacs by typing =fg= on the command-line.
+
+6. Back in Emacs, create an Org-mode file =test.org=: type the command
+   =C-x C-f test.org RET=
+
+7. An empty buffer named =test.org= opens. Enter the following at the
+   top of the file - achieve indentation with =<TAB>=.
+   #+begin_example org
+   * Testing C
+
+     Print the size of an integer number in bytes:
+
+     #+begin_src C
+       #include <stdio.h>
+
+       int main(void)
+       {
+         printf("Size of integer: %zu byte.\n", sizeof(int));
+         return 0;
+       }
+     #+end_src
+   #+end_example
+
+8. Save the file with =C-x C-s=. Run the program by putting the cursor
+   anywhere on or between =#+begin_src= and =#+end_src= and typing =C-c
+   C-c=.
+
+9. Now remove everything in the code except the =printf= function call,
+   and add =:main yes :includes <stdio.h>= to the code block header.
+
+10. Run the code again with =C-c C-c=. The result should be the same.
+
+11. Lastly, add =:tangle size.c= to the code block header: 
+
+    #+begin_example org
+    * Testing C
+
+     Print the size of an integer number in bytes:
+
+     #+begin_src C :main yes :includes <stdio.h> :tangle sizeof.c
+         printf("Size of integer: %zu byte.\n", sizeof(int));
+     #+end_src
+   #+end_example
+
+12. Tangle the source code to file with the command =M-x
+    org-babel-tangle=. You should get the message =Tangled 1 code block
+    from test.org=. Save the file with =C-x C-s= then quit Emacs
+    altogether with =C-x C-c=.
+
+13. On the command-line, type =ls= to list all files, and you should now
+    see =sizeof.c=. Compile it as an executable called =size=, and run it:
+    #+begin_src bash
+      gcc sizeof.c -o size
+      ./size
+    #+end_src
+
+14. To shut the application down, enter =exit= at the command-line. If
+    you still have a job running (like an open Emacs), type it twice.
+
+* Summary
+
+1. Literate programming combines documentation, source code, and
+   output in one file. You can tangle the source code and weave the
+   documentation.
+
+2. The =wget= program allows you to download files using the Web URL.
+
+3. You can use the Emacs editor in GUI or in terminal (=-nw= or "no
+   windows") mode. In Google Cloud Shell, only the terminal Emacs will
+   work.
+
+4. An Org-mode file is a literate program. Inside Org-mode, code
+   blocks begin with =#+begin_src= and end with =#+end_src=. To run, a
+   code block has to have a language (e.g. C), and the Emacs
+   configuration file (=~/.emacs=) has to have been loaded.
+
+5. In Org-mode files, you can run code with =C-c C-c=. For C programs,
+   the header of a code block substitutes =#include= directives and the
+   =main= function.

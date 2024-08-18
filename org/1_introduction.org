@@ -426,7 +426,7 @@ start to end for every participant of a process.
 - You can see that the procedural shape of these processes is much the
   same.
 
-* Abstract Data Types  
+* Abstract Data Types
   
 - Mastering the chosen data structure involves mastering a set of
   operations, actions to perform with them. 
@@ -447,7 +447,6 @@ start to end for every participant of a process.
   #+attr_html: :width 400px:
   #+caption: Image source: Scott Barrett @Udemy  
   [[../img/linkedListInsert.png]]
-
 
 * The need for efficiency ([[https://opendatastructures.org/ods-cpp/1_1_Need_Efficiency.html][Morin]])
 

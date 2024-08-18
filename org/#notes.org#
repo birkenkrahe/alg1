@@ -1,0 +1,137 @@
+#+TITLE: NOTEBOOK - DATA STRUCTURES
+#+AUTHOR: Marcus Birkenkrahe
+#+SUBTITLE: CSC 240 Data Structures Lyon College Fall 2024
+#+STARTUP: overview hideblocks indent entitiespretty:
+#+PROPERTY: header-args:C :main yes :includes <stdio.h> :results output :exports both
+* Week 1
+
+This week we met for our first session to get (re)acquainted with one
+another, begin to learn about data structures, and understand what the
+course is about.
+
+** Why is the maximum number for a =char= type =127= and what does that mean?
+
+It means that the computer can represent 127 characters, including
+lower- and upper-case alphanumeric characters like ='a'= and ='A'=,
+symbols like =+=, punctuation like =!=, and special characters like
+newline, carriage return etc.
+
+The maximum value is a constant stored in =limits.h=:
+#+begin_src C :includes <float.h> <limits.h> <stdio.h>
+  printf("%d\n", SCHAR_MAX);
+#+end_src
+
+#+RESULTS:
+: 127
+
+=127= is the maximum because the ASCII standard historically uses 7
+bits - with 7 bits, each bit has two values so you can represent
+2^7=128 different values, from 0 to 127.
+
+To print the ASCII value of a character, print it with the =%d= format
+specifier reserved for =int= (integer) values:
+#+begin_src C :main yes :includes <stdio.h>
+  printf("%d %d %d\n",'a','A','\\'); // the `\` must be escaped to be
+  // printed as a character
+#+end_src
+
+#+RESULTS:
+: 97 65 64
+
+Later, an 8-th bit was added to extend the character set to 2^8 = 256
+so that special symbols (like German umlauts =ü=, or the German =ß=) could
+be represented.
+
+
+* Week 2
+
+** Syllabus: About Using AI to write code for you or debug your code
+
+I'm feeling quite strongly about this - [[https://github.com/birkenkrahe/org/blob/master/fall24/UsingAItoCode.org][here are my views]], which I
+also attached to the syllabus.
+
+** Review questions
+
+1. Do you remember any differences between C, C++, and C#?
+   #+begin_quote
+   For example:
+   - C allows you to manage your computer's memory directly, and was
+     developed in the 1970s.
+   - C++ is an Object-Oriented extension of C,and was developed in
+     the 1980.
+   - C# was developed by Microsoft for commercial applications, and
+     was developed in the early 2000s.
+   #+end_quote
+
+2. What is a reason to use C in a course on data structures?
+   #+begin_quote
+   C is small and basic, and does not have many layers of abstractions
+   (aka complex concepts) so that you can see and use data structures
+   more directly.
+   #+end_quote
+
+3. What is the computing infrastructure that we use in this course?
+   #+begin_quote
+   1. GitHub
+   2. Linux
+   3. Emacs
+   #+end_quote
+
+4. What does it mean that the maximum value for a =char= data type is =127=?
+   #+begin_quote
+   It means that the computer can represent 127 characters, including
+   lower- and upper-case alphanumeric characters like ='a'= and ='A'=,
+   symbols like =+=, punctuation like =!=, and special characters like
+   newline, carriage return etc.
+
+   =127= is the maximum because the ASCII standard historically uses 7
+   bits - with 7 bits, each bit has two values so you can represent
+   =2^7=128= different values, from 0 to 127.
+   #+end_quote
+
+5. What are C's primitive (or built-in) data types?
+   #+begin_quote
+   - Integer (=int=)
+   - Floating-point (=float= or =double=)
+   - Character (=char=)
+   - Void (=void=)
+   #+end_quote
+   
+
+#+begin_ai
+Tell me a joke
+
+[AI]: Sure! Here’s a light-hearted one for you:
+
+Why did the scarecrow win an award?
+
+Because he was outstanding in his field!
+
+[ME]: which GPT are you?
+
+[AI]: I’m based on OpenAI's GPT-3 model. How can I assist you today?
+
+[ME]: Is Emacs the best editor?
+
+[AI]: The question of whether Emacs is the "best" editor is subjective and depends on personal preferences and specific use cases. Here are some points to consider:
+
+### Advantages of Emacs:
+- **Extensibility**: Emacs is highly customizable and can be extended with Emacs Lisp, allowing users to tailor the editor to their needs.
+- **Integration**: It contains a wide range of built-in features, such as a calendar, email client, and even a web browser.
+- **Keyboard-centric**: Emacs is designed for efficient keyboard use, giving users powerful shortcuts for navigation and editing.
+- **Community and Packages**: There is a large ecosystem of packages (like Magit for Git integration) and a supportive community.
+
+### Disadvantages of Emacs:
+- **Steep Learning Curve**: New users may find it overwhelming due to its extensive features and unique keybindings.
+- **Performance**: For very large files, Emacs may not perform as efficiently as other editors.
+- **Complexity**: The vast array of configuration options can be daunting.
+
+### Alternative Editors:
+- **Vim**: Known for its modal editing and efficiency. Some users prefer Vim’s approach to text manipulation.
+- **VS Code**: A modern text editor with a user-friendly interface, extensive extensions, and support for multiple programming languages.
+- **Sublime Text**: Valued for its speed and simplicity, with strong support for plugins.
+
+Ultimately, the best editor is the one that fits your workflow and enhances your productivity. It can be worth trying out a few to see which one you prefer!
+
+[ME]: 
+#+end_ai
