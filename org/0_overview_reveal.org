@@ -517,7 +517,6 @@ types.
   enum Color {RED, GREEN, BLUE};
 #+end_src
 
-
 ** Data Structures
 
 Data structures organize and store data for efficient access and
@@ -642,6 +641,14 @@ will help you master this stuff!
   for server-related jobs), and you should mention it on your resume.
 
 #+end_notes
+
+** In the meantime...
+
+- Check out Google Cloud Shell
+- Go to cloud.google.com/shell
+- Login using your Lyon Google account
+- Follow my lead to Linux + Emacs + Org-mode
+
 ** Emacs - the world's best hacking power tool
 #+attr_html: :width 400px:
 [[../img/emacslogo.png]]
