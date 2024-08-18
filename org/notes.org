@@ -67,7 +67,7 @@ also attached to the syllabus.
    #+begin_quote
    C is small and basic, and does not have many layers of abstractions
    (aka complex concepts) so that you can see and use data structures
-   more directly.
+   more directly through memory allocation and de-allocation.
    #+end_quote
 
 3. What is the computing infrastructure that we use in this course?
@@ -96,4 +96,5 @@ also attached to the syllabus.
    - Character (=char=)
    - Void (=void=)
    #+end_quote
-   
+
+6. What't the point   
