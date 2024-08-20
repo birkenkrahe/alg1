@@ -1,0 +1,32 @@
+#+TITLE:GOOGLE CLOUD SHELL DEMO
+#+AUTHOR: Marcus Birkenkrahe (pledged)
+#+Subtitle: CSC 240 - Data Structures with C++ / Lyon College FA24
+#+STARTUP: hideblocks overview indent inlineimages
+#+PROPERTY: header-args:C :main yes :includes <stdio.h> :results output
+* Testing C
+
+The code below prints the size of an integer number in bytes. It uses
+the =%zu= formatting specifier for the =size_t= data type. This is the
+type for =sizeof= data. In the =printf= function call, the =sizeof= operator
+is applied to the =int= data type.
+
+#+begin_src C 
+  printf("Size of integer: %zu byte.\n", sizeof(int));
+#+end_src
+
+#+RESULTS:
+: Size of integer: 4 byte.
+
+** Reflection
+
+I found it a little astonishing that C and C++ have a data type just
+to size up memory. However, [[https://www.positioniseverything.net/size_t/][I looked it up]] and the reason is
+portability: other data types vary between computer architectures but
+the =size_t= is guaranteed to be the correct size to represent maximum
+size or number of elements that can be handled on a particular
+platform: code using =size_t= is portable.
+
+* References
+
+Melvin Nolan, =size_t= in C and C++: Understanding it for Better
+Coding. URL: [[https://en.cppreference.com/w/c/types/size_t][positioniseverything.net/size_t/]]

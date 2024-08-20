@@ -3,7 +3,7 @@
 #+Subtitle: Data Structures with C++ / CSC 240 / Fall 2024
 #+STARTUP: hideblocks overview indent inlineimages
 #+OPTIONS: toc:nil num:nil ^:nil
-#+PROPERTY: header-args:R :session *R* :results output :exports both
+#+PROPERTY: header-args:C :main yes :includes <stdio.h> :results output
 1. Go to [[https://cloud.google.com/shell/][cloud.google.com/shell/]] and register with your Lyon Google
    account. This is completely free for up to 50 hours per week.
 
@@ -59,7 +59,7 @@
 
 11. Run the code again with =C-c C-c=. The result should be the same.
 
-12. Lastly, add =:tangle size.c= to the code block header: 
+12. Lastly, add =:tangle size.c= to the code block header:
 
     #+begin_example org
     * Testing C
