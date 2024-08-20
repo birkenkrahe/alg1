@@ -39,6 +39,9 @@ data.
 [[https://youtu.be/Oq83ZCu8FUI?si=qQGQPFrjq2RvhWln][See my YouTube channel]] (=@Literate Programming with Emacs and Org-mode=)
 for a short literate programming tutorial: [[https://tinyurl.com/first-lit-prog][tinyurl.com/first-lit-prog]].
 
+See also "Everything You Thought You Knew About Arrays is Wrong (in C
+Programming). This is Why." by Code with Huw ([[https://youtu.be/bFAO99USrYI?si=as3gDNZKaXstLwWu][YouTube, 10 August 2024]])
+
 * Problem Descriptions, Solution Process, and Coding Rules
 
 ** Problem Components
