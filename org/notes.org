@@ -4,6 +4,10 @@
 #+STARTUP: overview hideblocks indent entitiespretty:
 #+PROPERTY: header-args:C :main yes :includes <stdio.h> :results output :exports both
 * Week 1
+#+attr_html: :width 500px: 
+[[../img/manga1.png]]
+
+/Image: Why I like programming in C./
 
 This week we met for our first session to get (re)acquainted with one
 another, begin to learn about data structures, and understand what the
@@ -42,17 +46,29 @@ Later, an 8-th bit was added to extend the character set to 2^8 = 256
 so that special symbols (like German umlauts =ü=, or the German =ß=) could
 be represented.
 
-
 * Week 2
+#+attr_html: :width 500px:
+[[../img/manga2.png]]
 
-** Syllabus: About Using AI to write code for you or debug your code
+* Syllabus: About Using AI to write code for you or debug your code
 
 I'm feeling quite strongly about this - [[https://github.com/birkenkrahe/org/blob/master/fall24/UsingAItoCode.org][here are my views]], which I
-also attached to the syllabus.
+also attached to the syllabus. The short version: "Don't do it."
 
-** Review questions
+* Review questions
 
-1. Do you remember any differences between C, C++, and C#?
+1. What's the point of studying data structures?
+   #+begin_quote
+   To know the most efficient ways of storing, organizing and
+   accessing data to solve a given computational problem.
+   #+end_quote
+2. What is a reason to use C in a course on data structures?
+   #+begin_quote
+   C is small and basic, and does not have many layers of abstractions
+   (aka complex concepts) so that you can see and use data structures
+   more directly through memory allocation and de-allocation.
+   #+end_quote
+3. Do you remember any of the differences between C, C++, and C#?
    #+begin_quote
    For example:
    - C allows you to manage your computer's memory directly, and was
@@ -62,22 +78,36 @@ also attached to the syllabus.
    - C# was developed by Microsoft for commercial applications, and
      was developed in the early 2000s.
    #+end_quote
-
-2. What is a reason to use C in a course on data structures?
+4. What is the computing infrastructure that we use in this course?
+   And what does each component deliver?
    #+begin_quote
-   C is small and basic, and does not have many layers of abstractions
-   (aka complex concepts) so that you can see and use data structures
-   more directly through memory allocation and de-allocation.
+   1. GitHub - Course materials repository
+   2. Linux - Operating System 
+   3. Emacs - Editor to create, document, and run source code
+   4. Canvas - Grades, assignments, tests
    #+end_quote
-
-3. What is the computing infrastructure that we use in this course?
+5. What does "computing on the edge" refer to and do you have an
+   example?
    #+begin_quote
-   1. GitHub
-   2. Linux
-   3. Emacs
+   "Edge computing" refers to processing data close to where it is
+   generated, such as sensors, IoT devices, or machines, instead of
+   sending the data to a distant data center for processing. Examples:
+   Autonomous vehicles, programming in space, and augmented reality.
    #+end_quote
-
-4. What does it mean that the maximum value for a =char= data type is =127=?
+6. How should you study for this course?
+   #+begin_quote
+   1) Code every day, create small examples
+   2) Review lecture notes and lectures on GitHub
+   3) Seek help when you need it and don't wait
+   #+end_quote   
+7. What are C's primitive (or built-in) data types?
+   #+begin_quote
+   - Integer (=int=)
+   - Floating-point (=float= or =double=)
+   - Character (=char=)
+   - Void (=void=)
+   #+end_quote
+8. What does it mean that the maximum value for a =char= data type is =127=?
    #+begin_quote
    It means that the computer can represent 127 characters, including
    lower- and upper-case alphanumeric characters like ='a'= and ='A'=,
@@ -88,13 +118,72 @@ also attached to the syllabus.
    bits - with 7 bits, each bit has two values so you can represent
    =2^7=128= different values, from 0 to 127.
    #+end_quote
+9. What will this code print?
+   #+begin_src C
+     int i = 10000000000;
+     printf("%d\n",i);
+   #+end_src
+   Explain the result!
+   #+begin_src C
+     #include <limits.h>
+     printf("%d\n",INT_MAX); // Max integer: 2,147,483,647
+     // All 31 bits besides the sign bit are '1' = 2^31 - 1
+     // Any number above leads to overflow with ill results
+   #+end_src
+   In Python:
+   #+begin_src python :results output :session *Python* :python python3 :exports both
+     print(2**(31)-1); # 2,147,483,647
+   #+end_src
+10. When you see =%zu= in a C program, what do you expect?
+    #+begin_src C
+      const size_t INT = sizeof(int);
+      printf("An integer is stored in %zu bytes.\n", INT);
+      const size_t CHAR = sizeof(char);
+      printf("A character is stored in %zu bytes.\n", CHAR);
+    #+end_src
 
-5. What are C's primitive (or built-in) data types?
-   #+begin_quote
-   - Integer (=int=)
-   - Floating-point (=float= or =double=)
-   - Character (=char=)
-   - Void (=void=)
-   #+end_quote
+    #+RESULTS:
+    : An integer is stored in 4 bytes.
+    : A character is stored in 1 bytes.
+   
+   
+   
+* NEXT Orientation II: Course Content (cont'd) & Development Tools
+#+attr_html: :width 600px:
+#+CAPTION: Still Life With a Volume of Wither's Emblemes by Edward Collier (1696)
+[[../img/tools.png]]
 
-6. What't the point   
+- Derived data types
+- Data structures
+- Linux (with practice in Google Cloud Shell)
+- Emacs (with practice & assignment)
+- GitHub (with assignment)
+
+* Assignments (Details in Canvas) by next week (Monday)
+
+The first one of these is similar to our practice in class (in Google
+Cloud Shell), while the second one involves many more steps and
+requires more independence.
+
+1. Solve any one of the 10 programming entry problems and submit your
+   solution as an Emacs Org-mode file, including:
+   1) A file header:
+      #+begin_example
+      #+TITLE: [give it a title]
+      #+AUTHOR: [your name] (pledged)
+      #+SUBTITLE: CSC 240 - Data Structures with C++ - Lyon College, Fall'24
+      #+STARTUP: overview hideblocks indent
+      #+PROPERTY: header-args:C :main yes :includes <stdio.h> :results output
+      #+end_example
+   2) An Org-mode headline with the program name, e.g. =* COOL PROGRAM=
+   3) A short description of what the program does
+   4) A code block
+   5) Output as requested
+   6) A short text reflecting on your experience - especially any
+      difficulties you had during solving the exercise.
+
+2. Complete the Hello World Project in GitHub and share a screenshot
+   of your public GitHub repo with the hello-world repository.
+
+   You find detailed step-wise instructions in the =0_overview.org=
+   lecture notes in GitHub.

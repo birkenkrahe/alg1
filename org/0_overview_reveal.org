@@ -419,7 +419,7 @@ The complete list:
 
 [See also the "New FAQ" for fall '24 courses [[https://github.com/birkenkrahe/org/blob/master/fall24/newFAQ.org][available on GitHub]].]
 
-* NEXT Course content
+* Course content
 
 This is a vast topic. If you're anything like me, you like a clear
 roadmap with code examples. So here's all of what we'll cover in the
@@ -449,7 +449,7 @@ operations that can be performed on it.
 
 | Data type | Format    | Byte size |    MAX |
 |-----------+-----------+-----------+--------|
-| =int=       | =%d= =%ld=    |         4 | 2^32-1 |
+| =int=       | =%d= =%ld=    |         4 | 2^31-1 |
 | =float=     | =%f= =%g= =%e=  |         4 | 10^38  |
 | =double=    | =%lf= =%g= =%e= |         8 | 10^308 |
 | =char=      | =%c=        |         1 |    127 |
@@ -584,7 +584,7 @@ hash tables.
 
 * Development tools
 
-This section is shared across my courses. Apologies if you have to
+This material is shared across my courses. Apologies if you have to
 hear/do it twice but remember: imitation, repetition, and memorization
 will help you master this stuff!
 
@@ -648,6 +648,7 @@ will help you master this stuff!
 - Go to cloud.google.com/shell
 - Login using your Lyon Google account
 - Follow my lead to Linux + Emacs + Org-mode
+- See handout
 
 ** Emacs - the world's best hacking power tool
 #+attr_html: :width 400px:
@@ -704,9 +705,9 @@ Lindisfarne Gospels and the Book of Kells.
 
 *** -----
 - Org-mode files end in =.org=
-- Org-mode is a built-in Emacs package ("major mode")
-- Org-mode enables plain-text literate programming
-- Org-mode was developed by a German astrophysicist
+- Org-mode is a built-in Emacs package 
+- Org-mode is 100% plain-text
+- Org-mode developed by a German physicist
 
 #+begin_notes
 *Org-mode* is an Emacs mode (plugin or extension package) for
@@ -723,7 +724,7 @@ first released in 2003 by Carsten Dominik. More information at
 - Programming paradigm introduced by Don Knuth in the 1970s.
 - Emphasises writing programs for humans instead of for machines.
 - Literate programs = documentation + code + output
-- Famous applications: interactive ("Jupyter") notebooks, the \TeX
+- Famous applications: interactive ("Jupyter") notebooks, the $\TeX$
   typesetting system, and the MetaFont programming language.
 
 #+begin_notes
@@ -840,7 +841,6 @@ What does the =<>= mean in the =#include= statements?
 #+end_notes
 
 ** GitHub - the world's largest development platform
-
 #+attr_html: :width 400px: 
 [[../img/github.png]]
 
@@ -914,10 +914,10 @@ What does the =<>= mean in the =#include= statements?
 #+end_notes
 *** How are you going to use GitHub?
 
-- You'll regularly update your fork of my course repo.
-- In this way you have automatic access to the latest materials.
-- If you have a PC, you can install =git= and =clone= the repo.
-- If you have Emacs, you can install =magit= and use Git that way.
+- Update your fork of my course repo.
+- Automatic access to the latest materials.
+- PC: Install =git= and =clone= the repo.
+- Emacs: Install =magit= and use Git that way.
 
 #+begin_notes
 

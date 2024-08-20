@@ -7,29 +7,32 @@
 1. Go to [[https://cloud.google.com/shell/][cloud.google.com/shell/]] and register with your Lyon Google
    account. This is completely free for up to 50 hours per week.
 
-2. Open a terminal (aka command-line, aka shell, aka Console). Emacs
+2. In a Google Chrome browser, install the shell as an app on your PC:
+   open browser settings, then =Save and share > Install shell=.
+
+3. Open a terminal (aka command-line, aka shell, aka Console). Emacs
    and GCC are already installed. Click on the ">_" symbol:
    #+attr_html: :width 600px:
    [[../img/shell.png]]
 
-3. Get the =.emacs= configuration file with the following command:
+4. Get the =.emacs= configuration file with the following command:
    #+begin_example bash
    wget -O .emacs http://tinyurl.com/lyon-emacs
    #+end_example
 
-4. To check, start a terminal (non-GUI) Emacs with the command:
+5. To check, start a terminal (non-GUI) Emacs with the command:
    #+begin_example bash
    emacs -nw
    #+end_example
 
-5. The configuration file should now be read and used. You can push
+6. The configuration file should now be read and used. You can push
    Emacs in the background to return to the command-line with =C-z=. Do
    this now, then return to Emacs by typing =fg= on the command-line.
 
-6. Back in Emacs, create an Org-mode file =test.org=: type the command
+7. Back in Emacs, create an Org-mode file =test.org=: type the command
    =C-x C-f test.org RET=
 
-7. An empty buffer named =test.org= opens. Enter the following at the
+8. An empty buffer named =test.org= opens. Enter the following at the
    top of the file - achieve indentation with =<TAB>=.
    #+begin_example org
    * Testing C
@@ -47,16 +50,16 @@
      #+end_src
    #+end_example
 
-8. Save the file with =C-x C-s=. Run the program by putting the cursor
+9. Save the file with =C-x C-s=. Run the program by putting the cursor
    anywhere on or between =#+begin_src= and =#+end_src= and typing =C-c
    C-c=.
 
-9. Now remove everything in the code except the =printf= function call,
-   and add =:main yes :includes <stdio.h>= to the code block header.
+10. Now remove everything in the code except the =printf= function call,
+    and add =:main yes :includes <stdio.h>= to the code block header.
 
-10. Run the code again with =C-c C-c=. The result should be the same.
+11. Run the code again with =C-c C-c=. The result should be the same.
 
-11. Lastly, add =:tangle size.c= to the code block header: 
+12. Lastly, add =:tangle size.c= to the code block header: 
 
     #+begin_example org
     * Testing C
@@ -68,19 +71,19 @@
      #+end_src
    #+end_example
 
-12. Tangle the source code to file with the command =M-x
+13. Tangle the source code to file with the command =M-x
     org-babel-tangle=. You should get the message =Tangled 1 code block
     from test.org=. Save the file with =C-x C-s= then quit Emacs
     altogether with =C-x C-c=.
 
-13. On the command-line, type =ls= to list all files, and you should now
+14. On the command-line, type =ls= to list all files, and you should now
     see =sizeof.c=. Compile it as an executable called =size=, and run it:
     #+begin_src bash
       gcc sizeof.c -o size
       ./size
     #+end_src
 
-14. To shut the application down, enter =exit= at the command-line. If
+15. To shut the application down, enter =exit= at the command-line. If
     you still have a job running (like an open Emacs), type it twice.
 
 * Summary
