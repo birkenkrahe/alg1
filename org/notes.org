@@ -142,6 +142,10 @@ also attached to the syllabus. The short version: "Don't do it."
    #+begin_src python :results output :session *Python* :python python3 :exports both
      print(2**(31)-1); # 2,147,483,647
    #+end_src
+
+   #+RESULTS:
+   : 2147483647
+
 10. When you see =%zu= in a C program, what do you expect?
     #+begin_src C
       const size_t INT = sizeof(int);
