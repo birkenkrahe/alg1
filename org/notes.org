@@ -148,7 +148,7 @@ also attached to the syllabus. The short version: "Don't do it."
    
    
    
-* NEXT Orientation II: Course Content (cont'd) & Development Tools
+* Orientation II: Course Content (cont'd) & Development Tools
 #+attr_html: :width 600px:
 #+CAPTION: Still Life With a Volume of Wither's Emblemes by Edward Collier (1696)
 [[../img/tools.png]]
@@ -159,7 +159,7 @@ also attached to the syllabus. The short version: "Don't do it."
 - Emacs (with practice & assignment)
 - GitHub (with assignment)
 
-* Assignments (Details in Canvas) by next week (Monday)
+* Assignments (Details in Canvas) by next week (Tuesday)
 
 The first one of these is similar to our practice in class (in Google
 Cloud Shell), while the second one involves many more steps and
@@ -181,6 +181,21 @@ requires more independence.
    5) Output as requested
    6) A short text reflecting on your experience - especially any
       difficulties you had during solving the exercise.
+
+   To download the file from Google Cloud Shell, ="Open editor"= at the
+   top, then open the explorer (="Home directory"=), right-click on the
+   file name and =download= it to your PC.
+
+   If your Emacs skills are rusty, you may need to complete [[https://tinyurl.com/emacs-tutor2][the Emacs
+   tutorial]] (perhaps for the second time). See also the two videos
+   that I made, linked at the start of the tutorial.
+
+   The screenshot shows a sample file that is built exactly like the
+   Org-mode file that you should submit (except with different code of
+   course):
+   #+attr_html: :width 600px:
+   [[../img/sample.png]]
+
 
 2. Complete the Hello World Project in GitHub and share a screenshot
    of your public GitHub repo with the hello-world repository.

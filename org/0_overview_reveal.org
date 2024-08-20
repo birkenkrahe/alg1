@@ -659,7 +659,9 @@ Questions with answers
 #+begin_notes
 - You've most likely worked with Emacs + Org-mode and the literate
   programming approach in my other data science or computing courses.
-
+- If you have not worked with Emacs, here's your first lesson. You may
+  need to work through the tutorial again to get your skills back:
+  [[https://github.com/birkenkrahe/org/blob/master/emacs/tutorial.md][tinyurl.com/emacs-tutor]] for v1, tinyurl.com/emacs-tutor2 for v2.
 - Test your memory with a few review questions!
 #+end_notes
 
