@@ -50,12 +50,12 @@ be represented.
 #+attr_html: :width 500px:
 [[../img/manga2.png]]
 
-* Syllabus: About Using AI to write code for you or debug your code
+** Syllabus: About Using AI to write code for you or debug your code
 
 I'm feeling quite strongly about this - [[https://github.com/birkenkrahe/org/blob/master/fall24/UsingAItoCode.org][here are my views]], which I
 also attached to the syllabus. The short version: "Don't do it."
 
-* Review questions
+** Review questions (week 1)
 
 1. What's the point of studying data structures?
    #+begin_quote
@@ -146,9 +146,7 @@ also attached to the syllabus. The short version: "Don't do it."
     : An integer is stored in 4 bytes.
     : A character is stored in 1 bytes.
    
-   
-   
-* Orientation II: Course Content (cont'd) & Development Tools
+** Orientation II: Course Content (cont'd) & Development Tools
 #+attr_html: :width 600px:
 #+CAPTION: Still Life With a Volume of Wither's Emblemes by Edward Collier (1696)
 [[../img/tools.png]]
@@ -159,7 +157,7 @@ also attached to the syllabus. The short version: "Don't do it."
 - Emacs (with practice & assignment)
 - GitHub (with assignment)
 
-* Assignments (Details in Canvas) by next week (Tuesday)
+** Assignments (Details in Canvas) by next week (Tuesday)
 
 The first one of these is similar to our practice in class (in Google
 Cloud Shell), while the second one involves many more steps and
@@ -196,9 +194,8 @@ requires more independence.
    #+attr_html: :width 600px:
    [[../img/sample.png]]
 
-
 2. Complete the Hello World Project in GitHub and share a screenshot
    of your public GitHub repo with the hello-world repository.
 
-   You find detailed step-wise instructions in the =0_overview.org=
+   You find detailed step-wise instructions [[https://github.com/birkenkrahe/alg1/blob/main/org/0_overview.org#github-hello-world-exercise][here]] at the end of these
    lecture notes in GitHub.
