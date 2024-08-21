@@ -9,7 +9,7 @@
 - Course title: Data structures with C++
 - Course number and section: CSC 240.01
 - Meeting Times: Tue-Thu 9:30-10.45 AM
-- Meeting place: Derby Science Building computer lab room 239
+- Meeting place: Lyon Building Computer Lab Room 104
 - Professor: Marcus Birkenkrahe
 - Professor's Office: Derby Science Building 210
 - Phone: (870) 307-7254 (office) / (501) 422-4725 (private)
