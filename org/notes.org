@@ -157,7 +157,7 @@ also attached to the syllabus. The short version: "Don't do it."
 - [X] Emacs (with practice & assignment)
 - [X] GitHub (with assignment)
 
-** IN PROGRESS Assignments (Details in Canvas) by next week (Tuesday)
+* IN PROGRESS Assignments (Details in Canvas) by next week (Tuesday)
 
 The first one of these is similar to our practice in class (in Google
 Cloud Shell), while the second one involves many more steps and
@@ -200,7 +200,7 @@ requires more independence.
    You find detailed step-wise instructions [[https://github.com/birkenkrahe/alg1/blob/main/org/0_overview.org#github-hello-world-exercise][here]] at the end of these
    lecture notes in GitHub.
 
-** NEXT Review questions:
+* NEXT Review questions:
 
 1. Examples for digital-to-analog, and for analog-to-digital
    conversion? Why is this relevant to data structures?
