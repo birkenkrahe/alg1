@@ -50,12 +50,12 @@ be represented.
 #+attr_html: :width 500px:
 [[../img/manga2.png]]
 
-** Syllabus: About Using AI to write code for you or debug your code
+** DONE Syllabus: About Using AI to write code for you or debug your code
 
 I'm feeling quite strongly about this - [[https://github.com/birkenkrahe/org/blob/master/fall24/UsingAItoCode.org][here are my views]], which I
 also attached to the syllabus. The short version: "Don't do it."
 
-** Review questions (week 1)
+** DONE Review questions (week 1)
 
 1. What's the point of studying data structures?
    #+begin_quote
@@ -146,18 +146,18 @@ also attached to the syllabus. The short version: "Don't do it."
     : An integer is stored in 4 bytes.
     : A character is stored in 1 bytes.
    
-** Orientation II: Course Content (cont'd) & Development Tools
+** DONE Orientation II: Course Content (cont'd) & Development Tools
 #+attr_html: :width 600px:
 #+CAPTION: Still Life With a Volume of Wither's Emblemes by Edward Collier (1696)
 [[../img/tools.png]]
 
-- Derived data types
-- Data structures
-- Linux (with practice in Google Cloud Shell)
-- Emacs (with practice & assignment)
-- GitHub (with assignment)
+- [X] Derived data types
+- [X] Data structures
+- [X] Linux (with practice in Google Cloud Shell)
+- [X] Emacs (with practice & assignment)
+- [X] GitHub (with assignment)
 
-** Assignments (Details in Canvas) by next week (Tuesday)
+** IN PROGRESS Assignments (Details in Canvas) by next week (Tuesday)
 
 The first one of these is similar to our practice in class (in Google
 Cloud Shell), while the second one involves many more steps and
@@ -199,3 +199,46 @@ requires more independence.
 
    You find detailed step-wise instructions [[https://github.com/birkenkrahe/alg1/blob/main/org/0_overview.org#github-hello-world-exercise][here]] at the end of these
    lecture notes in GitHub.
+
+** NEXT Review questions:
+
+1. Examples for digital-to-analog, and for analog-to-digital
+   conversion? Why is this relevant to data structures?
+   #+begin_quote
+   - Digital-to-analog: Player piano 
+   - Analog-to-digital: Voice recording
+   - Relevance: Data structures are integral to the efficient storage,
+     processing, compression, transmission, and conversion of digital
+     data derived from analog signals. From basic arrays that store
+     sample data to complex trees and graphs used in compression and
+     error detection, they ensure that the digitization process is
+     accurate, efficient, and reliable.
+   #+end_quote
+2. Explain this (full sentence): =const float PI = 3.14;=
+   #+begin_quote
+   Statement: Assign the value 3.14 to a constant floating-point
+   variable =PI=
+   #+end_quote
+3. Explain this (full sentence): =#define PI 3.14=
+   #+begin_quote
+   Preprocessor directive: Replace the expression =PI= everywhere by the
+   floating-point value =3.14=
+   #+end_quote
+4. What is Google Cloud Shell?
+   #+begin_quote
+   Google Cloud Shell is a command-line application that gives you
+   access to a virtual Ubuntu 22.04 LTS Linux distribution.
+   #+end_quote
+5. What does the =gdb= debugger allow you to do?
+   #+begin_quote
+   The =gdb= program allows you to step through your program as it runs,
+   and get information about variables and functions.
+   #+end_quote
+6. What do you need to do to use =gdb=?
+   #+begin_quote
+   You need to compile the source code with =gcc= and the =-g= flag, for
+   example: =gcc main.c -o main -g= generates a debuggable executable
+   =main=. Now you can start the debugger with =gdb main=.
+   #+end_quote   
+
+** Introduction to Data Structures (Lecture/Codealong)
