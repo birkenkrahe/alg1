@@ -50,12 +50,12 @@ be represented.
 #+attr_html: :width 500px:
 [[../img/manga2.png]]
 
-** DONE Syllabus: About Using AI to write code for you or debug your code
+** Syllabus: About Using AI to write code for you or debug your code
 
 I'm feeling quite strongly about this - [[https://github.com/birkenkrahe/org/blob/master/fall24/UsingAItoCode.org][here are my views]], which I
 also attached to the syllabus. The short version: "Don't do it."
 
-** DONE Review questions (week 1)
+** Review questions (week 1)
 
 1. What's the point of studying data structures?
    #+begin_quote
@@ -146,7 +146,7 @@ also attached to the syllabus. The short version: "Don't do it."
     : An integer is stored in 4 bytes.
     : A character is stored in 1 bytes.
    
-** DONE Orientation II: Course Content (cont'd) & Development Tools
+** Orientation II: Course Content (cont'd) & Development Tools
 #+attr_html: :width 600px:
 #+CAPTION: Still Life With a Volume of Wither's Emblemes by Edward Collier (1696)
 [[../img/tools.png]]
@@ -157,7 +157,7 @@ also attached to the syllabus. The short version: "Don't do it."
 - [X] Emacs (with practice & assignment)
 - [X] GitHub (with assignment)
 
-* IN PROGRESS Assignments (Details in Canvas) by next week (Tuesday)
+** Assignments (Details in Canvas) by next week (Tuesday)
 
 The first one of these is similar to our practice in class (in Google
 Cloud Shell), while the second one involves many more steps and
@@ -200,7 +200,7 @@ requires more independence.
    You find detailed step-wise instructions [[https://github.com/birkenkrahe/alg1/blob/main/org/0_overview.org#github-hello-world-exercise][here]] at the end of these
    lecture notes in GitHub.
 
-* NEXT Review questions:
+** Review questions:
 
 1. Examples for digital-to-analog, and for analog-to-digital
    conversion? Why is this relevant to data structures?
@@ -242,3 +242,4 @@ requires more independence.
    #+end_quote   
 
 ** Introduction to Data Structures (Lecture/Codealong)
+
