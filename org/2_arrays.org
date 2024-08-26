@@ -97,6 +97,14 @@ There are a few Coding rules:
    crack a problem yourself[fn:2].
 3) You should be able to explain every part of your code.
 
+* Array Basics (review)
+
+Whiteboard & guided Emacs practice:
+- Array declaration
+- Array initialization
+- Array extraction
+- Practice session
+
 * Arrays: Reversing a Series of Numbers
 
 - *Problem:* Prompt the user to enter a series of numbers, then write

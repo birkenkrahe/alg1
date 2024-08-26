@@ -243,3 +243,8 @@ requires more independence.
 
 ** Introduction to Data Structures (Lecture/Codealong)
 
+* Week 3
+#+attr_html: :width 400px:
+[[../img/Les_Voyageurs_Bruno_Catalano.jpg]]
+
+
