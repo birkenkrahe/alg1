@@ -352,7 +352,7 @@ nstandardization, style, and portability.
 
 There are (at least) four different solutions to choose from:
 
-** Bag
+* Bag
 
 - Data structure: *Bag*. All patient forms are put in the container in
   random order.
@@ -361,17 +361,17 @@ There are (at least) four different solutions to choose from:
   1) A bag is easy to implement.
   2) You cannot keep control over the order.
 
-** Stack
+* Stack
 
 - Data structure: *Stack*. All patient forms are stored in order, in a
-  pile with the oldest at the bottom and the newest at the top. Forms
+  pile with the oldest at the top and the newest at the bottom. Forms
   are taken from the top.
 
 - Does solution work, and does it work well?
   1) A stack is good to process the most recent entries first.
   2) It's bad to handle a waiting line (prioritizes recent entries).
 
-** Queue
+* Queue
 
 - Data structure: : *Queue.* All patient forms are stored in order, in a
   pile with the oldest at the bottom and the newest at the top. Forms
@@ -381,9 +381,9 @@ There are (at least) four different solutions to choose from:
   1) The queue implements a first come, first serve policy.
   2) Problem: urgent entries are forced to wait.
 
-** Priority queue
+* Priority queue
 
-- Data structure: *Priority queue*. A queue that t akes more than
+- Data structure: *Priority queue*. A queue that takes more than
   arrival time into account. It also contains information on
   *priority*. Patient forms are ordered first by priority, and then by
   arrival.
@@ -392,7 +392,7 @@ There are (at least) four different solutions to choose from:
   1) Urgent entries are now processed first.
   2) This container is slower and more complex to implement.
 
-** Model each process in BPMN
+* Model each process in BPMN
 
 - BPMN (Business Process Model and Notation) is a diagrammatic language
 to create process models that represent the flow of an action from

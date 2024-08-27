@@ -248,7 +248,7 @@ requires more independence.
 #+caption: Sculpture from the group Les Voyageurs by Bruno Catalano (Marseille, France)
 [[../img/Les_Voyageurs_Bruno_Catalano.jpg]]
 
-** TODO Linux server has arrived
+** CANCELLED Linux server has arrived
 
 - You should have received your VM server address and password
 
@@ -260,7 +260,7 @@ requires more independence.
 
 - Do not shut down or log out of the VM but only close the window
 
-** NEXT Review: Introduction to Data Structures I
+* NEXT Review: Introduction to Data Structures I
 
 1) Define "data structure"
    #+begin_quote
@@ -293,9 +293,7 @@ requires more independence.
    #+end_quote
 
 ** Introduction to Data Structures (Lecture) II
-
 ** Array basics (review)
-
 ** Arrays as data structures (handout)
 
 
