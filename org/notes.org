@@ -245,6 +245,7 @@ requires more independence.
 
 * Week 3
 #+attr_html: :width 400px:
+#+caption: Sculpture from the group Les Voyageurs by Bruno Catalano (Marseille, France)
 [[../img/Les_Voyageurs_Bruno_Catalano.jpg]]
 
 ** TODO Linux server has arrived
@@ -258,7 +259,6 @@ requires more independence.
 - Login the =Xorg= session with username = email, and password
 
 - Do not shut down or log out of the VM but only close the window
-
 
 ** NEXT Review: Introduction to Data Structures I
 
