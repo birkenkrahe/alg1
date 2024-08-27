@@ -286,7 +286,7 @@ following data structures:
 - Abstraction is great (C), too much abstraction makes things harder
   than they need to be at the start (C++).
 
-* Example use cases
+* NEXT Example use cases
 
 1) Searching through a large collection of baseball cards (binary
    search on sorted arrays)
@@ -440,7 +440,7 @@ start to end for every participant of a process.
 - Example: inserting an element into a linked list requires creating
   and deleting pointers between link elements.
 
-    #+attr_html: :width 400px:
+  #+attr_html: :width 400px:
   #+caption: Image source: Scott Barrett @Udemy
   [[../img/linkedListInsert2.png]]
 

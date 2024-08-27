@@ -241,10 +241,62 @@ requires more independence.
    =main=. Now you can start the debugger with =gdb main=.
    #+end_quote   
 
-** Introduction to Data Structures (Lecture/Codealong)
+** Introduction to Data Structures (Lecture) I (handout)
 
 * Week 3
 #+attr_html: :width 400px:
 [[../img/Les_Voyageurs_Bruno_Catalano.jpg]]
+
+** TODO Linux server has arrived
+
+- You should have received your VM server address and password
+
+- Start "Remote Desktop Protocol" on your (Windows) PC
+
+- Enter the server name (e.g. =cslinux01.lyon.edu=) => =Connect=
+
+- Login the =Xorg= session with username = email, and password
+
+- Do not shut down or log out of the VM but only close the window
+
+
+** NEXT Review: Introduction to Data Structures I
+
+1) Define "data structure"
+   #+begin_quote
+   A data structures is a way of organizing and storing data in a
+   computer using a programming language.
+   #+end_quote
+2) Do different programming languages have different data structures?
+   #+begin_quote
+   Yes, different programming languages have different data
+   structures. Some are built in, others have to be user-defined.
+   #+end_quote
+3) Name at least three different data structures!
+   #+begin_quote
+   1. Arrays, vectors, matrices
+   2. Lists, Dictionaries
+   3. Structures, classes
+   4. Enumerations, strings
+   5. Data frames, tables
+   #+end_quote
+4) Define "algorithm".
+   #+begin_quote
+   A step-by-step procedure to solve a problem with or without a
+   computer, for example searching, sorting, printing.
+   #+end_quote
+5) What is the most common data structure in C, Python, R?
+   #+begin_quote
+   1. C: array
+   2. Python: list
+   3. R: vector
+   #+end_quote
+
+** Introduction to Data Structures (Lecture) II
+
+** Array basics (review)
+
+** Arrays as data structures (handout)
+
 
 
