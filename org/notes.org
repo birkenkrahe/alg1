@@ -4,7 +4,7 @@
 #+STARTUP: overview hideblocks indent entitiespretty:
 #+PROPERTY: header-args:C :main yes :includes <stdio.h> :results output :exports both
 * Week 1
-#+attr_html: :width 500px: 
+#+attr_html: :width 500px:
 [[../img/manga1.png]]
 
 /Image: Why I like programming in C./
@@ -82,7 +82,7 @@ also attached to the syllabus. The short version: "Don't do it."
    And what does each component deliver?
    #+begin_quote
    1. GitHub - Course materials repository
-   2. Linux - Operating System 
+   2. Linux - Operating System
    3. Emacs - Editor to create, document, and run source code
    4. Canvas - Grades, assignments, tests
    #+end_quote
@@ -99,7 +99,7 @@ also attached to the syllabus. The short version: "Don't do it."
    1) Code every day, create small examples
    2) Review lecture notes and lectures on GitHub
    3) Seek help when you need it and don't wait
-   #+end_quote   
+   #+end_quote
 7. What are C's primitive (or built-in) data types?
    #+begin_quote
    - Integer (=int=)
@@ -145,7 +145,7 @@ also attached to the syllabus. The short version: "Don't do it."
     #+RESULTS:
     : An integer is stored in 4 bytes.
     : A character is stored in 1 bytes.
-   
+
 ** Orientation II: Course Content (cont'd) & Development Tools
 #+attr_html: :width 600px:
 #+CAPTION: Still Life With a Volume of Wither's Emblemes by Edward Collier (1696)
@@ -205,7 +205,7 @@ requires more independence.
 1. Examples for digital-to-analog, and for analog-to-digital
    conversion? Why is this relevant to data structures?
    #+begin_quote
-   - Digital-to-analog: Player piano 
+   - Digital-to-analog: Player piano
    - Analog-to-digital: Voice recording
    - Relevance: Data structures are integral to the efficient storage,
      processing, compression, transmission, and conversion of digital
@@ -239,7 +239,7 @@ requires more independence.
    You need to compile the source code with =gcc= and the =-g= flag, for
    example: =gcc main.c -o main -g= generates a debuggable executable
    =main=. Now you can start the debugger with =gdb main=.
-   #+end_quote   
+   #+end_quote
 
 ** Introduction to Data Structures (Lecture) I (handout)
 
@@ -260,7 +260,7 @@ requires more independence.
 
 - Do not shut down or log out of the VM but only close the window
 
-* NEXT Review: Introduction to Data Structures I
+* DONE Review: Introduction to Data Structures I
 
 1) Define "data structure"
    #+begin_quote
@@ -292,9 +292,163 @@ requires more independence.
    3. R: vector
    #+end_quote
 
-** Introduction to Data Structures (Lecture) II
-** Array basics (review)
-** Arrays as data structures (handout)
+* DONE Introduction to Data Structures (Lecture) II
+* DONE Array basics (review)
 
+* NEXT Review: Intro to data structures / array basics
 
+1. What distinguishes the choice of different data structures?
+   #+begin_quote
+   - Performance (speed, for example when searching through data)
+   - Standardization (adherence to coding and data standards)
+   - Portability (ability to run code anywhere)
+   #+end_quote
+2. You declare an array =A= in =main=. Where is this array stored in
+   memory?
+   #+begin_quote
+   In the stack, because it is a local variable that disappears as
+   soon as the =main= function is finished (when =return 0= is reached).
+   #+end_quote
+   Code example:
+   #+begin_src C :results none
+     int main(void)
+     {
+       int A[5]; // array declaration
+       return 0;
+     }
+   #+end_src
+3. Which parts of the memory are read-only?
+   #+begin_quote
+   The memory sections for =const= "variables", and for machine code.
+   #+end_quote
+   Code example:
+   #+begin_src C
+     const float pi = 3.1459; // stored in read-only memory
+   #+end_src
+4. What is the memory "heap"?
+   #+begin_quote
+   The heap is memory reserved for "dynamically allocated" variables -
+   variables whose memory is determined during run-time rather than
+   compile-time. Such memory is allocated using the =malloc= function.
+   #+end_quote
+   Code example:
+   #+begin_src C :includes <stdlib.h> :results none
+     int *arr = (int*)malloc(5 * sizeof(int)); // Allocate memory for 5 integers
+     free(arr); // Free the allocated memory
+   #+end_src
+5. What are the stages of solving a computational problem?
+   #+begin_quote
+   1) Understanding the problem
+   2) Identify solution (pseudocode)
+   3) Identify data structures
+   4) Implement solution
+   5) Check solution (rinse & repeat if necessary)
+   #+end_quote
+6. Define "Abstract Data Type" and give at least one example
+   #+begin_quote
+   An abstract data type is a data structure together with basic
+   operations (creation, deletion, insertion, extraction etc.)
 
+   Examples:
+   1) user-defined classes (=dog=), methods =doTricks=, =sleep=
+   2) built-in arrays with element insertion, extraction
+   3) linked lists with item insertion, removal
+   #+end_quote
+7. How would you declare and initialize an integer array of five
+   elements with zero?
+   #+begin_src C
+     // Explicit initialization
+     int A[5]; A[0]=A[1]=A[2]=A[3]=A[4]=0;
+     // Implicit initialization
+     int B[5] = {0};
+     // Loop initialization
+     int i; int C[5];
+     for (i = 0; i < 5; i++)
+       C[i] = 0;
+     // Check results
+     int j;
+     for (j=0;j<5;j++) {
+       printf("A[%d]: %d ", j, A[j]);
+       printf("B[%d]: %d ", j, B[j]);
+       printf("C[%d]: %d \n", j, C[j]);
+      }
+   #+end_src
+
+   #+RESULTS:
+   : A[0]: 0 B[0]: 0 C[0]: 0 
+   : A[1]: 0 B[1]: 0 C[1]: 0 
+   : A[2]: 0 B[2]: 0 C[2]: 0 
+   : A[3]: 0 B[3]: 0 C[3]: 0 
+   : A[4]: 0 B[4]: 0 C[4]: 0 
+8. What do you get when you print undeclared array elements?
+   #+begin_quote
+   You get undefined behavior. Example: change the upper limit of the
+   =Check results= loop from =5= to =10=. 
+   #+end_quote
+   #+begin_src C
+     // Explicit initialization
+     int A[5]; A[0]=A[1]=A[2]=A[3]=A[4]=0;
+     // Implicit initialization
+     int B[5] = {0};
+     // Loop initialization
+     int i; int C[5];
+     for (i = 0; i < 5; i++)
+       C[i] = 0;
+     // Check results
+     int j;
+     for (j=0;j<10;j++) {
+       printf("A[%d]: %d ", j, A[j]);
+       printf("B[%d]: %d ", j, B[j]);
+       printf("C[%d]: %d \n", j, C[j]);
+      }
+   #+end_src
+
+   #+RESULTS:
+   #+begin_example
+   A[0]: 0 B[0]: 0 C[0]: 0 
+   A[1]: 0 B[1]: 0 C[1]: 0 
+   A[2]: 0 B[2]: 0 C[2]: 0 
+   A[3]: 0 B[3]: 0 C[3]: 0 
+   A[4]: 0 B[4]: 0 C[4]: 0 
+   A[5]: 0 B[5]: 0 C[5]: 0 
+   A[6]: -297855783 B[6]: -1075053569 C[6]: 279048704 
+   A[7]: 32764 B[7]: 0 C[7]: -919444582 
+   A[8]: 0 B[8]: 0 C[8]: 1 
+   A[9]: 0 B[9]: 0 C[9]: 0 
+   #+end_example
+9. When is the length of an array determined?
+   #+begin_quote
+   When the length of an array is determined depends on type of array:
+   if it is a regular array, it is determined at compile time and
+   cannot be changed when the program is run. If it is a
+   variable-length array, or if it is a dynamically allocated array,
+   its length is determined when the program is run.
+   #+end_quote
+10. When would it be useful to determine the length of an array when
+    the program is running?
+    #+begin_quote
+    For example when the size of the data is user-driven: if a user
+    specifies how many numbers they want to input, the array size must
+    be determined based on their input.
+    #+end_quote
+    Code example:
+    #+begin_src C :tangle main.c
+      int n; // user-defined array length
+      scanf("%d",&n);
+      int A[n]; // Variable-Length Array
+      int i;
+      for(i=0;i<n;i++) {
+        A[i]=i*i;  // assign value
+        printf("%d ",A[i]); // print value
+       }
+    #+end_src
+    Run tangled source code file:
+    #+begin_src bash :results output
+      gcc main.c -o main
+      echo 10 | ./main
+    #+end_src
+
+    #+RESULTS:
+    : 0 1 4 9 16 25 36 49 64 81 
+
+* TODO Arrays as data structures (handout)
