@@ -286,7 +286,7 @@ following data structures:
 - Abstraction is great (C), too much abstraction makes things harder
   than they need to be at the start (C++).
 
-* NEXT Example use cases
+* Example use cases
 
 1) Searching through a large collection of baseball cards (binary
    search on sorted arrays)
@@ -323,7 +323,7 @@ Example: "Hello" program that greets the user by name
 10) Fix length of string or use variable-length arrays.
 
 These solutions differ by performance, flexibility, readability,
-nstandardization, style, and portability.
+standardization, style, and portability.
 
 * A mental model for applying data structures
 #+attr_html: :width 700px:
@@ -352,7 +352,7 @@ nstandardization, style, and portability.
 
 There are (at least) four different solutions to choose from:
 
-* Bag
+** Bag
 
 - Data structure: *Bag*. All patient forms are put in the container in
   random order.
@@ -361,7 +361,7 @@ There are (at least) four different solutions to choose from:
   1) A bag is easy to implement.
   2) You cannot keep control over the order.
 
-* Stack
+** Stack
 
 - Data structure: *Stack*. All patient forms are stored in order, in a
   pile with the oldest at the top and the newest at the bottom. Forms
@@ -371,7 +371,7 @@ There are (at least) four different solutions to choose from:
   1) A stack is good to process the most recent entries first.
   2) It's bad to handle a waiting line (prioritizes recent entries).
 
-* Queue
+** Queue
 
 - Data structure: : *Queue.* All patient forms are stored in order, in a
   pile with the oldest at the bottom and the newest at the top. Forms
@@ -381,7 +381,7 @@ There are (at least) four different solutions to choose from:
   1) The queue implements a first come, first serve policy.
   2) Problem: urgent entries are forced to wait.
 
-* Priority queue
+** Priority queue
 
 - Data structure: *Priority queue*. A queue that takes more than
   arrival time into account. It also contains information on
@@ -392,7 +392,7 @@ There are (at least) four different solutions to choose from:
   1) Urgent entries are now processed first.
   2) This container is slower and more complex to implement.
 
-* Model each process in BPMN
+** Model each process in BPMN
 
 - BPMN (Business Process Model and Notation) is a diagrammatic language
 to create process models that represent the flow of an action from
