@@ -248,7 +248,7 @@ requires more independence.
 #+caption: Sculpture from the group Les Voyageurs by Bruno Catalano (Marseille, France)
 [[../img/Les_Voyageurs_Bruno_Catalano.jpg]]
 
-** CANCELLED Linux server has arrived
+* IN PROGRESS Linux server has arrived
 
 - You should have received your VM server address and password
 
@@ -256,9 +256,14 @@ requires more independence.
 
 - Enter the server name (e.g. =cslinux01.lyon.edu=) => =Connect=
 
-- Login the =Xorg= session with username = email, and password
+- Login the =Xorg= session with username =firstname.lastname=, pw
 
-- Do not shut down or log out of the VM but only close the window
+- *Do not shut down or log out of the VM but only close the window*
+
+- Currently access only from Lyon 104 but other subnets will be added.
+
+- IT will give me admin access and set VMs to auto-boot soon.
+
 
 * DONE Review: Introduction to Data Structures I
 
