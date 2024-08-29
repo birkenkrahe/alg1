@@ -1,0 +1,44 @@
+#+property: header-args:C :main yes :includes <stdio.h> :results output
+#+startup: overview hideblocks indent entitiespretty: 
+* Overview
+
+- 10 areas representing the basic aspects of any high-level
+  programming language.
+  
+- Programming examples are in C. Extension to C++ is trivial since C
+  is a subset of C++.
+
+- You can also use DataCamp's courses "Introduction to Python" and
+  "Intermediate Python" for a different approach (same topics, more
+  data structures).
+
+- Recommended:
+  1. Book: [[https://bitwisebooks.com/books/little-book-of-c/][The Little Book of C by Huw Collingbourne]] (also Udemy)
+  2. Online tutorial: [[https://www.w3schools.com/c/c_intro.php][W3schools C Introduction]]
+  3. Video tutorial: [[https://youtu.be/KJgsSFOSQv0?si=_4YjHr8_u8yXGC4o][freeCodeCamp's C in 4 hours]]
+
+- To code use Emacs + Org-mode, [[https://www.onlinegdb.com][onlinegdb.com]], or [[https://cloud.google.com/shell][Google Cloud Shell]].
+
+- To test your skills, use problems from leetcode.com or dmoj.ca or
+  check out the assignments for CSC 100 ([[https://github.com/birkenkrahe/cpp/tree/main/org/assignments][github.com/birkenkrahe/cpp]]).
+
+* Variable declaration and printing
+
+* Statements and arithmetic
+
+* Format specifiers
+
+* Comments and keyboard input
+
+* Data Type conversion
+
+* Conditional statements
+
+* Loops
+
+* Arrays
+
+* Functions
+
+* Pointers
+
