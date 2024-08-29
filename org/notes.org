@@ -253,7 +253,7 @@ requires more independence.
 - [X] Array basics
 - [ ] Quiz 2 is live (some missed Quiz 1)
 - [ ] Graded: first two assignments
-- [ ] Shared: [[https://github.com/birkenkrahe/alg1/blob/main/org/alg1_entry_code_solutions.org][sample solutions for C++]]
+- [ ] Shared: sample solutions [[https://github.com/birkenkrahe/alg1/blob/main/org/alg1_entry_code_solutions.org][for C++]] and [[https://github.com/birkenkrahe/alg1/blob/main/org/alg1_entry_code_solutions_C.org][for C]]
 - [ ] Review: Array basics (with practice)
 - [ ] Array as data structure (code along lecture)
 
