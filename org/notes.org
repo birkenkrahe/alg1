@@ -3,7 +3,7 @@
 #+SUBTITLE: CSC 240 Data Structures Lyon College Fall 2024
 #+STARTUP: overview hideblocks indent entitiespretty:
 #+PROPERTY: header-args:C :main yes :includes <stdio.h> :results output :exports both
-* Week 1
+* Week 1 - Why You Are Here
 #+attr_html: :width 500px:
 [[../img/manga1.png]]
 
@@ -46,7 +46,7 @@ Later, an 8-th bit was added to extend the character set to 2^8 = 256
 so that special symbols (like German umlauts =ü=, or the German =ß=) could
 be represented.
 
-* Week 2
+* Week 2 - What Data Structures Are About
 #+attr_html: :width 500px:
 [[../img/manga2.png]]
 
@@ -243,10 +243,14 @@ requires more independence.
 
 ** Introduction to Data Structures (Lecture) I (handout)
 
-* Week 3
+* Week 3 - The Concert in the Egg Begins
 #+attr_html: :width 400px:
-#+caption: Sculpture from the group Les Voyageurs by Bruno Catalano (Marseille, France)
-[[../img/Les_Voyageurs_Bruno_Catalano.jpg]]
+#+caption: The Concert in the Egg ca. 1550 AD
+[[../img/TheConcertInTheEgg.jpg]]
+
+See on [[https://youtu.be/vfUAs7YbxlE?si=Rbw8egV_s_XQ6DGP][YouTube]]: The music in the painting, "Toutes les nuits que sans
+vous je me couche" (Every night that I go to bed without you) by
+Thomas Crecquillan (1549).
 
 - [X] Setup: Linux server
 - [X] Review: Intro to data structures
