@@ -334,12 +334,24 @@ Thomas Crecquillan (1549).
 We'll combine this review with some light coding. Useful also for the
 2nd quiz where I've used some of these examples.
 
+- Create an .org file
+- Add at the top:
+  #+begin_example
+  #+property: header-args:C :main yes :includes <stdio.h> :results output
+  #+end_example
+- Run this line with C-c C-c
+- Test it by creating a code block with: <s <TAB>
+- In the code block write =printf("Hello, beautiful!");=
+- Run this thing: C-c C-c 
+
+
 1. What distinguishes the choice of different data structures?
    #+begin_quote
    - Performance (speed, for example when searching through data)
    - Standardization (adherence to coding and data standards)
    - Portability (ability to run code anywhere)
    #+end_quote
+
 2. You declare an array =A= in =main=. Where is this array stored in
    memory?
    #+begin_quote
@@ -347,21 +359,26 @@ We'll combine this review with some light coding. Useful also for the
    soon as the =main= function is finished (when =return 0= is reached).
    #+end_quote
    Code example:
-   #+begin_src C :results none
+   #+begin_src C 
      int main(void)
-     {
+     { 
        int A[5]; // array declaration
        return 0;
      }
    #+end_src
+
+   #+RESULTS:
+
 3. Which parts of the memory are read-only?
    #+begin_quote
    The memory sections for =const= "variables", and for machine code.
    #+end_quote
    Code example:
-   #+begin_src C
+   #+begin_src C :results none
      const float pi = 3.1459; // stored in read-only memory
+     pi++;  // pi = pi + 1 - generates error
    #+end_src
+
 4. What is the memory "heap"?
    #+begin_quote
    The heap is memory reserved for "dynamically allocated" variables -
@@ -370,10 +387,13 @@ We'll combine this review with some light coding. Useful also for the
    #+end_quote
    Code example:
    #+begin_src C :includes <stdlib.h> :results none
+
      int *A = (int*)malloc(5 * sizeof(int)); // Allocate memory for 5 integers
      // You can now assign values to A[0] through A[4]
      free(A); // Free the allocated memory
+     
    #+end_src
+
 5. What are the stages of solving a computational problem?
    #+begin_quote
    1) Understanding the problem
@@ -382,6 +402,7 @@ We'll combine this review with some light coding. Useful also for the
    4) Implement solution
    5) Check solution (rinse & repeat if necessary)
    #+end_quote
+
 6. Define "Abstract Data Type" and give at least one example
    #+begin_quote
    An abstract data type is a data structure together with basic
@@ -392,6 +413,7 @@ We'll combine this review with some light coding. Useful also for the
    2) built-in arrays with element insertion, extraction
    3) linked lists with item insertion, removal
    #+end_quote
+
 7. How would you declare and initialize an integer array of five
    elements with zero?
    #+begin_src C
@@ -418,10 +440,11 @@ We'll combine this review with some light coding. Useful also for the
    : A[2]: 0 B[2]: 0 C[2]: 0 
    : A[3]: 0 B[3]: 0 C[3]: 0 
    : A[4]: 0 B[4]: 0 C[4]: 0 
+
 8. What do you get when you print undeclared array elements?
    #+begin_quote
-   You get undefined behavior. Example: change the upper limit of the
-   =Check results= loop from =5= to =10=. 
+   You get 'undefined behavior'. Example: change the upper limit of
+   the =Check results= loop from =5= to =10=.
    #+end_quote
    #+begin_src C
      // Explicit initialization
@@ -434,7 +457,7 @@ We'll combine this review with some light coding. Useful also for the
        C[i] = 0;
      // Check results
      int j;
-     for (j=0;j<10;j++) {
+     for (j=0;j<7;j++) {
        printf("A[%d]: %d ", j, A[j]);
        printf("B[%d]: %d ", j, B[j]);
        printf("C[%d]: %d \n", j, C[j]);
@@ -442,26 +465,22 @@ We'll combine this review with some light coding. Useful also for the
    #+end_src
 
    #+RESULTS:
-   #+begin_example
-   A[0]: 0 B[0]: 0 C[0]: 0 
-   A[1]: 0 B[1]: 0 C[1]: 0 
-   A[2]: 0 B[2]: 0 C[2]: 0 
-   A[3]: 0 B[3]: 0 C[3]: 0 
-   A[4]: 0 B[4]: 0 C[4]: 0 
-   A[5]: 0 B[5]: 0 C[5]: 0 
-   A[6]: -297855783 B[6]: -1075053569 C[6]: 279048704 
-   A[7]: 32764 B[7]: 0 C[7]: -919444582 
-   A[8]: 0 B[8]: 0 C[8]: 1 
-   A[9]: 0 B[9]: 0 C[9]: 0 
-   #+end_example
+   : A[0]: 0 B[0]: 0 C[0]: 0 
+   : A[1]: 0 B[1]: 0 C[1]: 0 
+   : A[2]: 0 B[2]: 0 C[2]: 0 
+   : A[3]: 0 B[3]: 0 C[3]: 0 
+   : A[4]: 0 B[4]: 0 C[4]: 0 
+   : A[5]: 0 B[5]: 0 C[5]: 0 
+   : A[6]: -1412640919 B[6]: -1075053569 C[6]: -1533928960 
 9. When is the length of an array determined?
    #+begin_quote
    When the length of an array is determined depends on type of array:
    if it is a regular array, it is determined at compile time and
    cannot be changed when the program is run. If it is a
    variable-length array, or if it is a dynamically allocated array,
-   its length is determined when the program is run.
+   its length is determined when the program is run ("at run-time").
    #+end_quote
+
 10. When would it be useful to determine the length of an array when
     the program is running?
     #+begin_quote
@@ -469,17 +488,22 @@ We'll combine this review with some light coding. Useful also for the
     specifies how many numbers they want to input, the array size must
     be determined based on their input.
     #+end_quote
-    Code example:
+    Code example for a variable-length based array:
     #+begin_src C :tangle main.c
+
       int n; // user-defined array length
-      scanf("%d",&n);
+      scanf("%d",&n); // get the length n from keyboard
       int A[n]; // Variable-Length Array
       int i;
       for(i=0;i<n;i++) {
         A[i]=i*i;  // assign value
         printf("%d ",A[i]); // print value
        }
+      
     #+end_src
+
+    #+RESULTS:
+
     Run tangled source code file:
     #+begin_src bash :results output
       gcc main.c -o main
