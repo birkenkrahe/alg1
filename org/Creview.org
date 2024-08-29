@@ -23,7 +23,7 @@
 - To test your skills, use problems from leetcode.com or dmoj.ca or
   check out the assignments for CSC 100 ([[https://github.com/birkenkrahe/cpp/tree/main/org/assignments][github.com/birkenkrahe/cpp]]).
 
-* IN PROGRESS Variable declaration
+* Variable and array declaration in R and C
 
 - Variables in C are statically typed (you have to declare them before
   you can use them. R and Python are dynamically typed.
@@ -46,7 +46,7 @@
 
   #+RESULTS:
 
-* IN PROGRESS Printing
+* Printing with format specifiers
 
 A =\n= stands for "new line": what stands between quotation marks will
 show up as format:
@@ -56,6 +56,8 @@ show up as format:
 
 #+RESULTS:
 : 1			2
+
+* Printing arrays and =for= loops
 
 Let's print an integer array called =foo= of three elements =1=, =2=, =3=:
 #+begin_src C
@@ -85,22 +87,8 @@ The =for= command requires three arguments:
 1. Counter (where we start looping)
 2. Condition (when we stop looping)
 3. Counting operation (to move on to the next loop iteration
-=
-* Variable declaration and printing
 
-* Statements and arithmetic
-
-* Format specifiers
-
-* Comments and keyboard input
-
-* Data Type conversion
-
-* Conditional statements
-
-* Loops
-
-* IN PROGRESS Arrays
+* Interactive (R) vs. compiled language (C)
 
 Because R is interactive (runs in a session buffer), =foo= is still
 known:
@@ -116,7 +104,9 @@ But the C array =foo= that we defined, is no longer known:
   printf("%d\n",foo[0]);
 #+end_src
 
-* Functions
+* TODO Conditional statements
 
-* Pointers
+* TODO Functions
+
+* TODO Pointers
 
