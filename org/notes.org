@@ -510,6 +510,9 @@ We'll combine this review with some light coding. Useful also for the
       echo 10 | ./main
     #+end_src
 
+    #+RESULTS:
+    : 0 1 4 9 16 25 36 49 64 81 
+
 * TODO Arrays as data structures (handout)
 #+attr_html: :width 600px: 
 #+caption: Sheila J Hall, Array
