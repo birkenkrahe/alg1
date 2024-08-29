@@ -1,6 +1,12 @@
 #+TITLE: Introduction to the course and development tools
 #+AUTHOR: Marcus Birkenkrahe
 #+SUBTITLE: CSC 240 - Data structures with C++ - Lyon College, FA24
+:REVEAL_PROPERTIES:
+#+REVEAL_ROOT: https://cdn.jsdelivr.net/npm/reveal.js
+#+REVEAL_REVEAL_JS_VERSION: 4
+#+REVEAL_INIT_OPTIONS: transition: 'cube'
+#+REVEAL_THEME: black
+:END:
 #+STARTUP:overview hideblocks indent
 #+OPTIONS: toc:1 num:1 ^:nil
 #+PROPERTY: header-args:C++ :main yes :includes <iostream> :results output :exports both :noweb yes
@@ -24,36 +30,42 @@ The syllabus is available on [[https://lyon.instructure.com/courses/2623/assignm
 
 3) *Materials and Multimedia*
 
-   Primary sources:
-   - C Programming by King (W W Norton, 2008)
-   - Learn C the Hard Way by Shaw (Addison-Wesley, 2015)
-   - Algorithmic Thinking (2e) by Zingaro (NoStarch,2024)
-   - Mastering algorithms with C by Loudon (O'Reilly, 1999)
+   - Primary sources:
+     + C Programming by King (W W Norton, 2008) - Aug-Oct
+     + Mastering algorithms with C by Loudon (O'Reilly, 1999) Nov
+     + Algorithmic Thinking (2e) by Zingaro (NoStarch,2024) Nov-Dec
 
-   Secondary sources:
-   - 100-page C++ language reference: [[https://rooksguide.org/wp-content/uploads/2013/12/rooks-guide-isbn-version.pdf][Rook's Guide to C++]]
-   - 800-page C++ language reference: [[https://ccc.codes/][C++ Crash Course]]
-   - Optional Textbooks:
-     + Helfrich, C++ Data Structures (KendallHunt, 2020)
-     + Kanetkar Y, Data Structures Through C++ 5th ed (bpb, 2024)
-     + Malik, C++ Programming - Program Design Including Data Structures (Cengage 2015)
-     + La Rocca, Grokking Data Structures (Manning 2023) - with Python
-     + Morin, Open Data Structures (in C++) (OpenText, 2013)
-   - Recommended Videos:
-     - "C++ Data Structures & Algorithms @[[https://scottbarrett.com/][Udemy]]
-     - [[https://www.youtube.com/@CPlusPlusDataStructures/videos][Helfrich's YouTube videos]] on C++ Data Structures
-     - [[https://youtu.be/B31LgI4Y4DQ?si=mu7z5qTupDg1Pu3x][freeCodeCamp course]] on Data Structures with C++
+   - Secondary sources (recommended):
+     + Learn C the Hard Way by Shaw (Addison-Wesley, 2015)
+     + 100-page C++ language reference: [[https://rooksguide.org/wp-content/uploads/2013/12/rooks-guide-isbn-version.pdf][Rook's Guide to C++]]
+     + 800-page C++ language reference: [[https://ccc.codes/][C++ Crash Course]]
+     + Optional Textbooks:
+       * Helfrich, C++ Data Structures (KendallHunt, 2020)
+       * Kanetkar Y, Data Structures Through C++ 5th ed (bpb, 2024)
+       * Malik, C++ Programming - Program Design Including Data Structures (Cengage 2015)
+       * La Rocca, Grokking Data Structures (Manning 2023) - with Python
+       * Morin, Open Data Structures (in C++) (OpenText, 2013)
+     + Recommended Videos:
+       * C Programming for Beginners @[[https://www.udemy.com/share/101YbQ3@z51ev2j9L2tex43TEy8QZv9SOdzfmNWit0dYx3Xax9jdEIzysZI0m1VqduiOAXk=/][Udemy]]
+       * Advanced pointers @[[https://www.udemy.com/share/10256M3@iB9e4nCDuRgUQ9DBoiKaZ06TNbmJr_rLFZ675BTUDtbQjVFUfMImeYM7SqzcEqs=/][Udemy]]
+       * "C++ Data Structures & Algorithms @[[https://scottbarrett.com/][Udemy]]
+       * [[https://www.youtube.com/@CPlusPlusDataStructures/videos][Helfrich's YouTube videos]] on C++ Data Structures
+       * [[https://youtu.be/B31LgI4Y4DQ?si=mu7z5qTupDg1Pu3x][freeCodeCamp course]] on Data Structures with C++
 
 4) *Course Objectives*
    - Explore theory and application of data structures using mainly C
+   - Emphasize algorithmic thinking and optimization techniques
    - Equip students with knowledge to store, process, and retrieve data
      efficiently
-   - Emphasize algorithmic thinking and optimization techniques
+   - Help you understand how data structures help you solve
+     programming problems.
 
 5) *Target Audience*
    - Students with basic understanding of programming concepts
    - Those interested in preparing for deeper study of algorithms
    - Those interested in advancing their knowledge in data science
+   - Those interested in system and network programming (cybersec)
+   - Those interested in moving on to C++/C# (game programming)
 
 6) *Student Learning Outcomes*
    - Understand major data structures and their applications
@@ -139,7 +151,7 @@ The syllabus is available on [[https://lyon.instructure.com/courses/2623/assignm
      (like large-scale multi-player network games, network
      communication, or space exploration and communications).
    #+end_quote
-4. But all the programs are in C not in C++ - why is that?
+4. But most programs are in C not in C++ - why is that?
    #+begin_quote
    After working out many lectures in C++ only, I realized that
    Object-orientation and the extra layers of abstraction that C++
@@ -147,7 +159,7 @@ The syllabus is available on [[https://lyon.instructure.com/courses/2623/assignm
    data structures.
 
    This essence is not "what can this language do?" but "how can you
-   stroe, organize, and access data to solve a given problem most
+   store, organize, and access data to solve a given problem most
    efficiently." This question is largely language-independent, and so
    we want that the language does not get in the way to our solving
    problems algorithmically.
@@ -156,6 +168,10 @@ The syllabus is available on [[https://lyon.instructure.com/courses/2623/assignm
    "Algorithmic Thinking" resonated with me, too. Once you understand
    this stuff in C, you can take your knowledge anywhere, to any other
    language, wherever problems can be solved computationally.
+
+   Another data point: tell Wyatt's story (2014 metal sheet cutter)
+   #+attr_html: :width 600px: 
+   [[../img/machine.jpg]]
    #+end_quote
 5. What are your favorite programming languages?
    #+begin_quote
@@ -193,19 +209,46 @@ The syllabus is available on [[https://lyon.instructure.com/courses/2623/assignm
    But at the end of the day, it's a personal decision. In my case,
    I'm also better at C than Python, and I like the control it gives.
    #+end_quote
-7. How should you study for this course?
+7. What's the difference between C, C++ and C#?
+
+   The list shows the simplicity of C vs. C++ vs. C#, and the
+   independence on complicated paradigms and commercial solutions -
+   which translates into deeper understanding and freedom from fads.
+
+   #+attr_html: :width 600px: 
+   [[../img/c_vs_cpp_vs_c_hash.png]]
+
+   Here is a [[https://youtu.be/sNMtjs_wQiE?si=yI86h-gvonkJ5gDG][short video]] that summarizes C vs. C++ vs. C# (conaticus,
+   2022). And here is [[https://youtu.be/juKv1aHEikI?si=lrEIoJb11ABAz38h][another one]] by a YouTuber who specializes in
+   coding interview preparation, and who prefers C because it is
+   devoid of external dependencies - essentially useful on its own
+   (NeedCode, 2024).
+
+8. Can this course help me break into Game Programming?
    #+begin_quote
-   1) Code every day no matter how little.
-   2) Review lecture notes and notebooks.
-   3) Participate actively in the class.
-   4) Form study groups and/or join Lyon's Programming Club.
-   5) Complete assignments well before the deadline.
-   6) Practice literate programming by documenting your process.
-   7) Focus on fundamentals, simple examples, solid understanding.
-   8) Drill yourself using the weekly quizzes, make small examples.
-   9) Seek help when needed, on the chat or during office hours.
-   10) Build a code & notebook repository at GitHub for your resume.
+   Only in so far as data structures and algorithms are performance
+   enhancing choices, which are critical when programming games. Other
+   than that, C++ and C# are more directly relevant for game
+   development.
+   #+end_quote 
+9. Can this course help me break into Cybersecurity?
+   #+begin_quote
+   Absolutely: the mixture of Emacs + Linux + C is the winning
+   solution for cybersecurity.
    #+end_quote
+10. How should you study for this course?
+    #+begin_quote
+    1) Code every day no matter how little.
+    2) Review lecture notes and notebooks.
+    3) Participate actively in the class.
+    4) Form study groups and/or join Lyon's Programming Club.
+    5) Complete assignments well before the deadline.
+    6) Practice literate programming by documenting your process.
+    7) Focus on fundamentals, simple examples, solid understanding.
+    8) Drill yourself using the weekly quizzes, make small examples.
+    9) Seek help when needed, on the chat or during office hours.
+    10) Build a code & notebook repository at GitHub for your resume.
+    #+end_quote
 
 [See also the "New FAQ" for fall '24 courses [[https://github.com/birkenkrahe/org/blob/master/fall24/newFAQ.org][available on GitHub]].]
 
@@ -382,13 +425,13 @@ hear/do it twice but remember: imitation/repetition creates mastery!
   3. What is Literate Programming?
      #+begin_quote
      *Literate Programming* is a programming paradigm introduced by
-     Donald Knuth in the 1970. It emphasises writing code and
+     Donald Knuth in the 1970[fn:1]. It emphasises writing code and
      documentation together to make programs better structured and
      more enjoyable to read and understand by humans. More information
-     at [[http://literateprogramming.com/][literateprogramming.com]].  Famous application: The
-     [[https://www.ctan.org/starter][TeX typesetting system]].
+     at [[http://literateprogramming.com/][literateprogramming.com]].  Famous application: The [[https://www.ctan.org/starter][TeX]]
+     typesetting system, which dominates technical and scientific
+     publishing.
      #+end_quote
-
   4. How can you run the "Hello World" program in C++ inside Emacs?
      #+begin_src C++ :main yes :includes <iostream> :namespaces std :results output :exports both
        cout << "Hello, World!" << endl;
@@ -455,11 +498,11 @@ hear/do it twice but remember: imitation/repetition creates mastery!
      | C++                  | C             |
      |----------------------+---------------|
      | =<iostream>=           | =<stdio.h>=     |
-     | =using namespace std=  | [fn:7]        |
+     | =using namespace std=  | [fn:2]        |
      | =cout <<= ... =<< endl;= | =puts("...");=  |
      | header-args:C++      | header-args:C |
 
-     What does the =<>= mean in the =#include= statements?[fn:1]
+     What does the =<>= mean in the =#include= statements?[fn:3]
      #+end_quote
 
   7. Why are we using Emacs + Org-mode instead of the VSCode or
@@ -531,7 +574,7 @@ hear/do it twice but remember: imitation/repetition creates mastery!
      that you need to *clone* your own repo to a remote computer. This is
      explained in the freeCodeCamp tutorial
      ([[https://tinyurl.com/guide-to-git][tinyurl.com/guide-to-git]]). There is also a short course (4 hr)
-     [[https://www.datacamp.com/courses/introduction-to-git]["Introduction to Git"]][fn:2] and a [[https://www.datacamp.com/blog/all-about-git][short tutorial]].
+     [[https://www.datacamp.com/courses/introduction-to-git]["Introduction to Git"]][fn:4] and a [[https://www.datacamp.com/blog/all-about-git][short tutorial]].
 
   8) How are you going to use GitHub?
      - You'll regularly update your fork of my course repo.
@@ -562,12 +605,12 @@ github.com in your browser (Google Chrome is best) and login.
 - Click ="Create repository"= at the bottom of the page.
 - If you checked "Add a README file", the Markdown editor will open:
   enter a description (plain-text), then click on =Preview= to see how
-  it will look like[fn:3].
+  it will look like[fn:5].
 - Click on the green ="Commit changes..."= button. A second window
   appears - make sure you check ="Commit directly to the ~main~ branch"=,
   and click on ="Commit changes"=.
 - Your repo appears with three auto-created files, =.gitignore=,
-  =LICENSE=, and =README.md=[fn:4].
+  =LICENSE=, and =README.md=[fn:6].
 
 **** Step 2: Create a branch
 - Go back to the exercise and continue with step 2. Make sure you read
@@ -583,7 +626,7 @@ github.com in your browser (Google Chrome is best) and login.
 - You're now asked to make a change to your code base in the new
   branch using the =README.md= file (a change to any file would be
   equivalent).
-- Once you made the change, you commit it[fn:5]. You can make as many
+- Once you made the change, you commit it[fn:7]. You can make as many
   changes and commits as you like.
 - Your two branches, =main= and =readme-edits= have now diverged.
 
@@ -593,7 +636,7 @@ github.com in your browser (Google Chrome is best) and login.
   using your changes in the =main= code base. Follow the steps of the
   exercise.
 - After creating a =New pull request=, you can check out the changes in
-  the well-known Linux "diff" format[fn:6], a line-by-line comparison.
+  the well-known Linux "diff" format[fn:8], a line-by-line comparison.
 
 **** Step 5: merge your pull request
 
@@ -621,35 +664,41 @@ github.com in your browser (Google Chrome is best) and login.
   King (C Programming 2e, W W Norton 2008) is worth having anyway.
 
 * Footnotes
-[fn:7]C does not have namespaces like C++ to encapsulate names and
+
+[fn:1]Literate Programming "Knuth-style" is a little different from
+what we're doing. You'll see it in some lectures and assignment sample
+solutions, when I use the =noweb= macro processor to split code into
+small pieces and link them back together later.
+
+[fn:2]C does not have namespaces like C++ to encapsulate names and
 organize code, instead it has prefixes, =static=, and =struct= objects to
 avoid name conflicts and group related functions and variables.
 
-[fn:1]It means that the header file or library is in the computers
+[fn:3]It means that the header file or library is in the computers
 =PATH=, the set of locations where the computer looks for
 programs. Alternatively, you need to put the complete (absolute) path
 to the file in between ="..."=.
 
-[fn:2]Lyon College has a classroom at DataCamp, and if you're
+[fn:4]Lyon College has a classroom at DataCamp, and if you're
 enrolled, you can ask me to get access to this online
 platform. DataCamp is not for C++ but for SQL, Python and R, as well
 as for tools like Git and the shell.
 
-[fn:3]Markdown is simple layout language: for example =#= gives you a
+[fn:5]Markdown is simple layout language: for example =#= gives you a
 headline, =`= (backtick) choose code font, =*= gives you bold face, and =_=
 gives you italics.
 
-[fn:4]Explanation: =.gitignore= contains file types that Git will
+[fn:6]Explanation: =.gitignore= contains file types that Git will
 ignore - especially those created in the process of compiling C++
 code - you can add other file types here, e.g. =*.*~= for backup, or
 =*.html= for HTML files; the LICENSE specifies the copyright for
 everything in your repo; the =README.md= file is markdown with a
 description of the repository.
 
-[fn:5]On the shell, the equivalent =git= command is =git commit -m
+[fn:7]On the shell, the equivalent =git= command is =git commit -m
 "[message]"= following a =git add .= for all changed files. To push a
 commit to the remote code base (=origin=), use =git push=.
 
-[fn:6]That's not a coincidence: both Linux and Git were created by
+[fn:8]That's not a coincidence: both Linux and Git were created by
 Linus Torvalds, a Finnish programmer and (still) leader of the global
 Linux kernel development
