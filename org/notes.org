@@ -307,7 +307,7 @@ requires more independence.
 
 * DONE Introduction to Data Structures (Lecture) II
 * DONE Array basics (review)
-* TODO Assignments
+* TODO On the Programming Assignments
 #+attr_html: :width 400px: 
 #+caption: Portrait de femme au col d'hermine (Olga) - Picasso (1923)
 [[../img/picasso.png]]
