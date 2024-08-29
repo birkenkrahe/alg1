@@ -244,7 +244,7 @@ requires more independence.
 ** Introduction to Data Structures (Lecture) I (handout)
 
 * Week 3 - The Concert in the Egg Begins
-#+attr_html: :width 400px:
+#+attr_html: :width 600px:
 #+caption: The Concert in the Egg ca. 1550 AD
 [[../img/TheConcertInTheEgg.jpg]]
 
