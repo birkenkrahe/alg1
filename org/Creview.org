@@ -1,0 +1,121 @@
+#+property: header-args:C :main yes :includes <stdio.h> :results output
+#+property: header-args:R :session *R* :results output
+#+startup: overview hideblocks indent entitiespretty: 
+* Overview
+
+- 10 areas representing the basic aspects of any high-level
+  programming language.
+  
+- Programming examples are in C. Extension to C++ is trivial since C
+  is a subset of C++.
+
+- You can also use DataCamp's courses "Introduction to Python" and
+  "Intermediate Python" for a different approach (same topics, more
+  data structures).
+
+- Recommended:
+  1. Book: [[https://bitwisebooks.com/books/little-book-of-c/][The Little Book of C by Huw Collingbourne]] (also Udemy)
+  2. Online tutorial: [[https://www.w3schools.com/c/c_intro.php][W3schools C Introduction]]
+  3. Video tutorial: [[https://youtu.be/KJgsSFOSQv0?si=_4YjHr8_u8yXGC4o][freeCodeCamp's C in 4 hours]]
+
+- To code use Emacs + Org-mode, [[https://www.onlinegdb.com][onlinegdb.com]], or [[https://cloud.google.com/shell][Google Cloud Shell]].
+
+- To test your skills, use problems from leetcode.com or dmoj.ca or
+  check out the assignments for CSC 100 ([[https://github.com/birkenkrahe/cpp/tree/main/org/assignments][github.com/birkenkrahe/cpp]]).
+
+
+* IN PROGRESS Variable declaration
+
+- Variables in C are statically typed (you have to declare them before
+  you can use them. R and Python are dynamically typed.
+
+  #+begin_src R
+    foo <- c(1,2,3);
+    foo
+    is.vector(foo)
+    foo[1]
+  #+end_src  
+
+  #+RESULTS:
+  : [1] 1 2 3
+  : [1] TRUE
+  : [1] 1
+
+  #+begin_src C
+    int foo[3] = {1,2,3};
+  #+end_src
+
+  #+RESULTS:
+
+* IN PROGRESS Printing
+
+A =\n= stands for "new line": what stands between quotation marks will
+show up as format:
+#+begin_src C
+  printf("%d\t\t\t%d", 1,2); // 
+#+end_src
+
+#+RESULTS:
+: 1			2
+
+Let's print an integer array called =foo= of three elements =1=, =2=, =3=:
+#+begin_src C
+  int foo[3]={1,2,3};
+
+  // Two ways to print the array:
+  // Explicit, element-by-element 
+  printf("%d %d %d\n", foo[0], foo[1], foo[2]);
+  // Explicit, element-by-element using a for loop
+  for (int i = 0; i < 3; i++)  // looping instruction
+    printf("%d ", foo[i]);   // looping body
+
+  printf("\n");
+
+  // same loop counting down
+  for (int i = 2; i >=0; i--)  // looping instruction
+    printf("%d ", foo[i]);   // looping body
+
+#+end_src
+
+#+RESULTS:
+: 1 2 3
+: 1 2 3 
+: 3 2 1 
+
+The =for= command requires three arguments:
+1. Counter (where we start looping)
+2. Condition (when we stop looping)
+3. Counting operation (to move on to the next loop iteration
+
+* Statements and arithmetic
+
+* Format specifiers
+* Comments and keyboard input
+
+* Data Type conversion
+
+* Conditional statements
+
+* Loops
+
+* IN PROGRESS Arrays
+
+Because R is interactive (runs in a session buffer), =foo= is still
+known:
+#+begin_src R
+  foo
+#+end_src
+
+#+RESULTS:
+: [1] 1 2 3
+
+But the C array =foo= that we defined, is no longer known:
+#+begin_src C
+  printf("%d\n",foo[0]);
+#+end_src
+
+#+RESULTS:
+
+* Functions
+
+* Pointers
