@@ -248,7 +248,16 @@ requires more independence.
 #+caption: Sculpture from the group Les Voyageurs by Bruno Catalano (Marseille, France)
 [[../img/Les_Voyageurs_Bruno_Catalano.jpg]]
 
-* IN PROGRESS Linux server has arrived
+- [X] Setup: Linux server
+- [X] Review: Intro to data structures
+- [X] Array basics
+- [ ] Quiz 2 is live (some missed Quiz 1)
+- [ ] Graded: first two assignments
+- [ ] Shared: sample solutions (C and C++)
+- [ ] Review: Array basics (with practice)
+- [ ] Array as data structure (code along lecture)
+
+* DONE Linux server has arrived
 
 - You should have received your VM server address and password
 
@@ -263,7 +272,6 @@ requires more independence.
 - Currently access only from Lyon 104 but other subnets will be added.
 
 - IT will give me admin access and set VMs to auto-boot soon.
-
 
 * DONE Review: Introduction to Data Structures I
 
@@ -299,8 +307,28 @@ requires more independence.
 
 * DONE Introduction to Data Structures (Lecture) II
 * DONE Array basics (review)
+* TODO Assignments
+#+attr_html: :width 400px: 
+#+caption: Portrait de femme au col d'hermine (Olga) - Picasso (1923)
+[[../img/picasso.png]]
 
-* NEXT Review: Intro to data structures / array basics
+- This term, I am implementing a new rubric for grading your
+  programming assignments. Check it out in the syllabus.
+
+- The core message: complete the assignments on time and to the letter
+  to get 100% of the points. Don't, and you lose points.
+
+- For this first assignment, you can fix your mistakes and resubmit
+  for full points. Only a handful completed all of the simple tasks.
+
+- Make sure to read the full assignment and satisfy it to the
+  letter. In this case, there was a complete sample solution available
+  ([[https://github.com/birkenkrahe/alg1/blob/main/org/sample.org][GitHub or raw org]]), and all you had to do was imitate it.
+
+* TODO Review: Intro to data structures / array basics
+
+We'll combine this review with some light coding. Useful also for the
+2nd quiz where I've used some of these examples.
 
 1. What distinguishes the choice of different data structures?
    #+begin_quote
@@ -338,8 +366,9 @@ requires more independence.
    #+end_quote
    Code example:
    #+begin_src C :includes <stdlib.h> :results none
-     int *arr = (int*)malloc(5 * sizeof(int)); // Allocate memory for 5 integers
-     free(arr); // Free the allocated memory
+     int *A = (int*)malloc(5 * sizeof(int)); // Allocate memory for 5 integers
+     // You can now assign values to A[0] through A[4]
+     free(A); // Free the allocated memory
    #+end_src
 5. What are the stages of solving a computational problem?
    #+begin_quote
@@ -457,3 +486,6 @@ requires more independence.
     : 0 1 4 9 16 25 36 49 64 81 
 
 * TODO Arrays as data structures (handout)
+#+attr_html: :width 600px: 
+#+caption: Sheila J Hall, Array
+[[../img/array.jpg]] 
