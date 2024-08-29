@@ -3,14 +3,11 @@
 #+startup: overview hideblocks indent entitiespretty: 
 * Overview
 
-- 10 areas representing the basic aspects of any high-level
-  programming language.
-  
 - Programming examples are in C. Extension to C++ is trivial since C
   is a subset of C++.
 
-- You can also use DataCamp's courses "Introduction to Python" and
-  "Intermediate Python" for a different approach (same topics, more
+- You can also use DataCamp's courses "[[https://app.datacamp.com/learn/courses/intro-to-python-for-data-science][Introduction to Python]]" and
+  "[[https://app.datacamp.com/learn/courses/intermediate-python][Intermediate Python]]" for a different approach (same topics, more
   data structures).
 
 - Recommended:
