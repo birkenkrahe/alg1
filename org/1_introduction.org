@@ -39,7 +39,7 @@ Examples:
 #+begin_quote
 1) Arrays like ~a[] = {1,2,3,4}~ in C/C++
 2) Lists like ~foo = [1,2,3,4]~ in Python
-3) Vectors like ~vec <- c(1,2,3,4}~ in R
+3) Vectors like ~c(1,2,3,4} -> foo~ in R
 4) Matrices like ~M <- diag(4)~ in R
 5) Dictionaries like ~d = {"key":[1,2,3,4]}~ in Python
 6) Structures like ~struct Person { std::string name; int age;}~ in C++
@@ -69,15 +69,15 @@ be organized and searched through in the digital world.
    are stored in structures containing millions of blocks of memory.
 
 2) When you look up a contact on your phone, your phone uses partial
-   information to narrow down the search (and it's not powerful)
-   using a data structure (like a dictionary).
+   information to narrow down the *search* (and it's not powerful) using
+   a data structure (like a dictionary).
 
-3) When you log into a social network, the network servers check
-   your login information among possibly billions of users.
+3) When you log into a social network, the network servers *check* your
+   login information among possibly billions of users.
 
-4) When you do a web search, the search engine uses data structures
-   to find the web pages containing your search terms: among
-   (as of 2024) an estimated 50 billion index by Google alone.
+4) When you do a web *search*, the search engine uses data structures to
+   find the web pages containing your search terms: among (as of 2024)
+   an estimated 50 billion index by Google alone.
 
 5) When you dial 911, the emergency services network looks up your
    phone number in a data structure that maps phone numbers to
@@ -85,10 +85,9 @@ be organized and searched through in the digital world.
 
 * Which data structures are used when searching for an address on Google Maps?
 
-Every one of these examples employs not one but half a dozen
-different data structures. E.g. An address search on Google Maps
-uses the following data structures (almost all of which you will
-learn about in this course):
+Every one of these examples employs not one but half a dozen different
+data structures. E.g. An address search on Google Maps uses the
+following data structures:
 
 1. *Geospatial Indexing*
    - *Quadtree*: A tree data structure in which each internal node has
@@ -97,45 +96,43 @@ learn about in this course):
      quadrants or regions. This is useful for indexing geographical
      locations efficiently.
    - *R-tree*: A tree data structure used for spatial access methods,
-     i.e., for indexing multi-dimensional information. It is
-     commonly used for indexing spatial information such as
-     geographical coordinates, which is crucial for efficiently
-     querying map data.
+     i.e., for indexing multi-dimensional information. It is commonly
+     used for indexing spatial information such as geographical
+     coordinates, which is crucial for efficiently querying map data.
 
 2. *Hash Maps and Tries*
    - *Hash Map*: This data structure is used for quick lookups of
      specific addresses or place names. It allows for constant time
      complexity for search operations, which is important for
      performance in real-time applications.
-   - *Trie (Prefix Tree)**: A specialized tree used to store
-     associative data structures. A trie is often used for
-     autocomplete features in search queries, allowing for quick
-     lookup of address prefixes and suggestions.
+   - *Trie (Prefix Tree)*: A specialized tree used to store associative
+     data structures. A trie is often used for autocomplete features
+     in search queries, allowing for quick lookup of address prefixes
+     and suggestions.
 
 3. *Graph Structures*
    - *Graph*: Google Maps uses graph data structures to represent the
-     network of roads, intersections, and various routes. Each node
-     in the graph represents a geographic location (like an
-     intersection), and each edge represents a road segment
-     connecting two nodes. This is essential for route planning and
-     navigation.
+     network of roads, intersections, and various routes. Each node in
+     the graph represents a geographic location (like an
+     intersection), and each edge represents a road segment connecting
+     two nodes. This is essential for route planning and navigation.
 
 4. *KD-Trees*
-   - *KD-Tree (k-dimensional tree)*: A space-partitioning data
-     structure for organizing points in a k-dimensional
-     space. KD-trees are useful for nearest neighbor searches, which
-     are common in mapping applications when finding the closest
-     location or point of interest.
+   - *KD-Tree (k-dimensional tree)*: A space-partitioning data structure
+     for organizing points in a k-dimensional space. KD-trees are
+     useful for nearest neighbor searches, which are common in mapping
+     applications when finding the closest location or point of
+     interest.
 
 5. *Spatial Databases*
    - *Spatial Database*: Specialized databases designed to store and
-     query data related to objects in space, including points,
-     lines, and polygons. Google Maps relies on spatial databases to
-     manage large-scale geographic data efficiently.
+     query data related to objects in space, including points, lines,
+     and polygons. Google Maps relies on spatial databases to manage
+     large-scale geographic data efficiently.
 
 * Algorithms vs. Data Structures
 
-- An algorithm is a set of well-defined instructions, a step-by-step
+- An *algorithm* is a set of well-defined instructions, a step-by-step
   procedure to solve a problem (e.g. compute 1 + 1) or perform a task
   (e.g. say 'hello world').
 
@@ -145,19 +142,19 @@ learn about in this course):
   #+caption: Source: Wikipedia
   [[../img/pseudocodeExamples.png]]
 
-- A data structure is a way of organizing and storing data in a
+- A *data structure* is a way of organizing and storing data in a
   computer via a programming language. It defines the relationship
   between the elements of the structure, the operations that can be
   performed on the data, and the rules or constraints for accessing
   and modifying the data.
 
-- Short formula: Algorithms transform data like verbs acting on nouns.
+- Short formula: *Algorithms transform data like verbs acting on nouns.*
   #+attr_html: :width 600px:
   #+caption: Source: La Rocca, Grokking Data Structures (Manning, 2024)
   [[../img/01__image003.png]]
 
 - Some data structures are designed to allow efficient execution of
-  certain algorithms, e.g. hash tables for key-based search.
+  certain algorithms, e.g. *hash tables* for key-based search.
 
 - You automatically learn about algorithms when studying data
   structures and vice versa ([[https://catalog.lyon.edu/computer-science/csc-240][CSC 240]] and [[https://catalog.lyon.edu/computer-science/csc-265][CSC 265]]).
@@ -165,9 +162,9 @@ learn about in this course):
 * Data structures matter
 
 - Different data structures have wildly differing properties and
-  powers - compare for example arrays and vectors in C++.
+  powers - compare for example *arrays* and *vectors* in C++.
 
-- C++ array vs. vector:
+- *C++ array vs. vector:*
   1) *Arrays* are collection of elements of the same type, stored in
      contiguous memory locations. They are used to store multiple
      values in one variable. Values can be accessed using an
@@ -192,9 +189,9 @@ learn about in this course):
   #+end_src
 
   #+RESULTS:
-  : 100 101 102 103 104
+  : 100 101 102 103 104 
 
-- *Vector* code example:
+ - *Vector* code example:
   #+begin_src C++ :main yes :includes <iostream> :namespaces std :results output :exports both
     #include <vector>
 
@@ -220,7 +217,7 @@ learn about in this course):
   : 100 101 102 103 104
 
 - If C++ is not (yet) your mojo, think of the difference between
-  lists, tuples, and dictionaries in Python:
+  *lists*, *tuples*, and *dictionaries* in Python:
   1) *list* elements can be of any data type, but *tuple* elements must
      have the same data type.
   2) *list* elements are ordered (indexed), but *dictionaries* are unordered.
@@ -237,7 +234,7 @@ learn about in this course):
     foo[2] = 'B'
     print(foo)
     # lists are passed by reference (not by value)
-    bar = foo; bar[1]=2; print(foo)
+    bar = foo; bar[1]=2; print(foo) # change value in bar - copied to foo
   #+end_src
 
   #+RESULTS:
@@ -247,7 +244,7 @@ learn about in this course):
 
 - R is another interesting example: the central data structure is the
   vector; defining and manipulating vectors is made very simple, and
-  as an added plus, Rx indices start from 1 instead of 0:
+  as an added plus, R indices start from 1 instead of 0:
   #+begin_src R :session *R* :results output :exports both
     foo <- c(1,3,-100,42)  # defining a vector
     foo  # printing vector
@@ -259,23 +256,35 @@ learn about in this course):
   #+RESULTS:
   : [1]    1    3 -100   42
   : [1]   0.5   1.5 -50.0  21.0
-  : [,1] [,2] [,3] [,4]
+  :      [,1] [,2] [,3] [,4]
   : [1,]    1    5    9   13
   : [2,]    2    6   10   14
   : [3,]    3    7   11   15
   : [4,]    4    8   12   16
 
+  
 - Unlike C/C++ and Python, a lot of visualization options are already
-  built into R. Graphics depend on data structures, too...
+  built into R.
+
+- Graphics depend on data structures, too! Compare e.g. the SVG
+  (Scalable Vector Graphics) image format whose images are represented
+  not as a grid of pixels but using geometric shapes (points, lines,
+  curves, polygons). Advantage: images are scalable to any size
+  without loss of quality.
 
 * Why you should learn data structures
 
-- Learn an essential tool you cannot really do without (like editing)
-- ML progress requires new data structures (graph neural nets)
-- Database landscape is evolving (flexible indexing)
+- Learn an essential tool you cannot really do without (like editing,
+  managing files or plotting data).
+- Progress in Machine learning depends on new data structures like
+  graph neural nets.
+- The database landscape is evolving as data volumes grow
+  (e.g. flexible indexing)
 - Avoid Maslow's hammer ("If your toolbelt only has a hammer, you will
   be tempted to treat everything as a nail.") - What if you must
-  tighten a screw?
+  tighten a screw? The answer is abstraction (but not too much).
+- Abstraction is great (C), too much abstraction makes things harder
+  than they need to be at the start (C++).
 
 * Example use cases
 
@@ -288,9 +297,18 @@ learn about in this course):
 3) Modeling relationships between social media network users
    (persistent and scalable - graphs).
 
+4) In game development, AI calculations are optimized, such as
+   determining the best move (storing previous calculations -
+   memoization).
+
+5) Text processing - auto-completion and spell checking (store dynamic
+   sets of strings - trie memoization).
+
+6) Task scheduling with priority queues (sorting, traversing - heaps).
 * How do choose the right data structure
 
-By building up muscle: solve *many problems* in *different ways* and in *.
+By building up algorithmic muscle: solve *many problems* in *different
+ways* and with *different data structures*:
 
 Example: "Hello" program that greets the user by name
 1) Input from the keyboard or from a file
@@ -301,9 +319,11 @@ Example: "Hello" program that greets the user by name
 6) Concatenate greeting message with =+= or stream with =<<=
 7) With a user-defined function or as standalone command
 8) With a user-defined =class= or =struct=
+9) Print from =main= program or from a subroutine
+10) Fix length of string or use variable-length arrays.
 
 These solutions differ by performance, flexibility, readability,
-nstandardization, style, and portability.
+standardization, style, and portability.
 
 * A mental model for applying data structures
 #+attr_html: :width 700px:
@@ -344,7 +364,7 @@ There are (at least) four different solutions to choose from:
 ** Stack
 
 - Data structure: *Stack*. All patient forms are stored in order, in a
-  pile with the oldest at the bottom and the newest at the top. Forms
+  pile with the oldest at the top and the newest at the bottom. Forms
   are taken from the top.
 
 - Does solution work, and does it work well?
@@ -363,7 +383,7 @@ There are (at least) four different solutions to choose from:
 
 ** Priority queue
 
-- Data structure: *Priority queue*. A queue that t akes more than
+- Data structure: *Priority queue*. A queue that takes more than
   arrival time into account. It also contains information on
   *priority*. Patient forms are ordered first by priority, and then by
   arrival.
@@ -405,6 +425,28 @@ start to end for every participant of a process.
 
 - You can see that the procedural shape of these processes is much the
   same.
+
+* Abstract Data Types
+  
+- Mastering the chosen data structure involves mastering a set of
+  operations, actions to perform with them. 
+
+- A data structure together with basic operations like /insert/, /remove/,
+  /traverse/, /count/ etc. is called an Abstract Data Type (ADT).
+
+- The set of operations of an ADT constitute its /public interface/. It
+  defines what we're allowed to do with it.
+
+- Example: inserting an element into a linked list requires creating
+  and deleting pointers between link elements.
+
+  #+attr_html: :width 400px:
+  #+caption: Image source: Scott Barrett @Udemy
+  [[../img/linkedListInsert2.png]]
+
+  #+attr_html: :width 400px:
+  #+caption: Image source: Scott Barrett @Udemy  
+  [[../img/linkedListInsert.png]]
 
 * The need for efficiency ([[https://opendatastructures.org/ods-cpp/1_1_Need_Efficiency.html][Morin]])
 
@@ -458,6 +500,8 @@ start to end for every participant of a process.
   structures to use in a project.
 - The process is iterative and requires you to check the quality of
   your solution until you meet all of your requirements.
+- Abstract Data Types are Data Structures with their operations,
+  e.g. a list with insertion, removing, counting, traversing. 
 
 * References
 
@@ -482,4 +526,4 @@ completely arbitrary, cp. Helfrich (Appendix A), "Pseudocode Standard"
 [fn:2]Step-by-step proofs include: (1) error-free compilation, logical
 correctness, edge case handling; (2) code analysis with includes,
 namespace, main function, variable declarations, input and output
-handling, (3) Code testing with various inputs (see example).
+handling, (3) Code testing with various inputs.

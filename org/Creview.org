@@ -1,5 +1,8 @@
 #+property: header-args:C :main yes :includes <stdio.h> :results output
+<<<<<<< HEAD
 #+property: header-args:R :session *R* :results output
+=======
+>>>>>>> 89290b64239a4c4c58213e877636adc3240ffce8
 #+startup: overview hideblocks indent entitiespretty: 
 * Overview
 
@@ -23,6 +26,7 @@
 - To test your skills, use problems from leetcode.com or dmoj.ca or
   check out the assignments for CSC 100 ([[https://github.com/birkenkrahe/cpp/tree/main/org/assignments][github.com/birkenkrahe/cpp]]).
 
+<<<<<<< HEAD
 
 * IN PROGRESS Variable declaration
 
@@ -86,10 +90,17 @@ The =for= command requires three arguments:
 1. Counter (where we start looping)
 2. Condition (when we stop looping)
 3. Counting operation (to move on to the next loop iteration
+=======
+* Variable declaration and printing
+>>>>>>> 89290b64239a4c4c58213e877636adc3240ffce8
 
 * Statements and arithmetic
 
 * Format specifiers
+<<<<<<< HEAD
+=======
+
+>>>>>>> 89290b64239a4c4c58213e877636adc3240ffce8
 * Comments and keyboard input
 
 * Data Type conversion
@@ -98,6 +109,7 @@ The =for= command requires three arguments:
 
 * Loops
 
+<<<<<<< HEAD
 * IN PROGRESS Arrays
 
 Because R is interactive (runs in a session buffer), =foo= is still
@@ -115,7 +127,14 @@ But the C array =foo= that we defined, is no longer known:
 #+end_src
 
 #+RESULTS:
+=======
+* Arrays
+>>>>>>> 89290b64239a4c4c58213e877636adc3240ffce8
 
 * Functions
 
 * Pointers
+<<<<<<< HEAD
+=======
+
+>>>>>>> 89290b64239a4c4c58213e877636adc3240ffce8

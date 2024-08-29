@@ -2,7 +2,6 @@
 #+author: Marcus Birkenkrahe
 #+startup: overview hideblocks indent
 #+subtitle: CSC 240 - Data structures with C++ - Syllabus - Fall 2024
-#+options: toc:1 num:1
 * General Course Information
 #+attr_html: :width 400px:
 [[../img/poster.png]]
@@ -19,7 +18,7 @@
   (2e), NoStarch 2024.  Shaw, Learn C the Hard Way,
   Addison-Wesley, 2015. King, C Programming (2e) W W Norton (2008),
   Griffiths & Griffiths, Head First, O'Reilly (2012).
-
+  
 * Objectives
 
 This course on "Data Structures with C++" offers an in-depth
@@ -111,9 +110,10 @@ development.
 
 * Lyon College Standard Policies
 
-- [[https://tinyurl.com/LyonPolicyOnline][tinyurl.com/LyonPolicyOnline]], see also [[https://catalog.lyon.edu/class-attendance][Class Attendance]] policy
-
-* Schedule
+Standard Lyon College Policies are incorporated into this syllabus and
+can be found at the following link:
+http://www.lyon.edu/standard-course-policies.
+* Weekly schedule
 
 "Data structures" and "algorithms" are a little hard to separate:
 - "Data structures" is concerned with storing and organizing data.
@@ -123,40 +123,42 @@ Both topics can be taught language-agnostic (without referencing a
 particular language) but your understanding will benefit greatly from
 examples and programming assignments.
 
-| Week | Content                                 | Dates      | Home Assignment | Tests |
-|------+-----------------------------------------+------------+-----------------+-------|
-|    1 | Introduction to course & dev tools      | Aug 16     | Emacs, GitHub   |     1 |
-|------+-----------------------------------------+------------+-----------------+-------|
-|    2 | C++ Basics review                       | Aug 20, 22 | Programs 1-2    |     2 |
-|------+-----------------------------------------+------------+-----------------+-------|
-|    3 | Fundamental types and arrays            | Aug 27, 29 | Programs 3-4    |     3 |
-|------+-----------------------------------------+------------+-----------------+-------|
-|    4 | User-defined types                      | Sep 3, 5   | Programs 5-6    |     4 |
-|------+-----------------------------------------+------------+-----------------+-------|
-|    5 | Reference types                         | Sep 10, 12 | Programs 7-8    |     5 |
-|------+-----------------------------------------+------------+-----------------+-------|
-|    6 | The object life cycle                   | Sep 17, 19 | Programs 9-10   |     6 |
-|------+-----------------------------------------+------------+-----------------+-------|
-|    7 | Linked lists                            | Sep 24, 26 | Program 11-12   |     7 |
-|------+-----------------------------------------+------------+-----------------+-------|
-|    8 | Doubly linked lists                     | Oct 1, 3   | Program 13-14   |     8 |
-|------+-----------------------------------------+------------+-----------------+-------|
-|    9 | Stacks & queues                         | Oct 8, 10  | Program 15-16   |     9 |
-|------+-----------------------------------------+------------+-----------------+-------|
-|   10 | Trees                                   | Oct 15, 17 | Program 17-18   |    10 |
-|------+-----------------------------------------+------------+-----------------+-------|
-|   11 | Hash tables                             | Oct 22, 29 | Program 19-20   |    11 |
-|------+-----------------------------------------+------------+-----------------+-------|
-|   12 | Graphs                                  | Nov 5, 7   | Program 21-22   |    12 |
-|------+-----------------------------------------+------------+-----------------+-------|
-|   13 | Heaps                                   | Nov 12, 14 | Program 23-24   |    13 |
-|------+-----------------------------------------+------------+-----------------+-------|
-|   14 | Recursion                               | Nov 19, 21 | Program 25-26   |    14 |
-|------+-----------------------------------------+------------+-----------------+-------|
-|   15 | Hash tables, AVL trees, red-black trees | Dec 3, 5   |                 |    15 |
-|------+-----------------------------------------+------------+-----------------+-------|
+| Week | Content                            | Dates      | Home Assignment | Tests |
+|------+------------------------------------+------------+-----------------+-------|
+|    1 | Introduction to course & dev tools | Aug 16     | Emacs, GitHub   |     1 |
+|------+------------------------------------+------------+-----------------+-------|
+|    2 | Data structures & C Basics review  | Aug 20, 22 | Programs 1-2    |     2 |
+|------+------------------------------------+------------+-----------------+-------|
+|    3 | Arrays & Functions                 | Aug 27, 29 | Programs 3-4    |     3 |
+|------+------------------------------------+------------+-----------------+-------|
+|    4 | Pointers & Arrays of Pointers      | Sep 3, 5   | Programs 5-6    |     4 |
+|------+------------------------------------+------------+-----------------+-------|
+|    5 | String Manipulation                | Sep 10, 12 | Programs 7-8    |     5 |
+|------+------------------------------------+------------+-----------------+-------|
+|    6 | Structures, Unions, Enums          | Sep 17, 19 | Programs 9-10   |     6 |
+|------+------------------------------------+------------+-----------------+-------|
+|    7 | Dynamic Storage Allocation         | Sep 24, 26 | Program 11-12   |     7 |
+|------+------------------------------------+------------+-----------------+-------|
+|    8 | Linked Lists                       | Oct 1, 3   | Program 13-14   |     8 |
+|------+------------------------------------+------------+-----------------+-------|
+|    9 | Stacks                             | Oct 8, 10  | Program 15-16   |     9 |
+|------+------------------------------------+------------+-----------------+-------|
+|   10 | Queues                             | Oct 15, 17 | Program 17-18   |    10 |
+|------+------------------------------------+------------+-----------------+-------|
+|   11 | Trees                              | Oct 22, 29 | Program 19-20   |    11 |
+|------+------------------------------------+------------+-----------------+-------|
+|   12 | Hash Tables                        | Nov 5, 7   | Program 21-22   |    12 |
+|------+------------------------------------+------------+-----------------+-------|
+|   13 | Heaps and Priority Queues          | Nov 12, 14 | Program 23-24   |    13 |
+|------+------------------------------------+------------+-----------------+-------|
+|   14 | Graphs                             | Nov 19, 21 | Program 25-26   |    14 |
+|------+------------------------------------+------------+-----------------+-------|
+|   15 | Summary and Outlook                | Dec 3, 5   |                 |    15 |
+|------+------------------------------------+------------+-----------------+-------|
 
 * A note on using AI to write code for you or debug your code
+
+[[https://github.com/birkenkrahe/org/blob/master/fall24/UsingAItoCode.pdf][See full PDF on GitHub.]]
 
 *Short summary:* For students, using AI is a waste of time at best, and
 a crime against your ability to learn at worst. Learning never comes
@@ -165,28 +167,35 @@ that only works some of the time, and you'll never know when. Instead:
 join Lyon's Programming Student Club and experience the pain of not
 knowing first hand every week!
 
-*Will you be punished for using AI in my class?* Not directly because
-nobody can tell if you used AI or not but indirectly by turning in
-suboptimal results, by learning less, and by having less time for
-other, more productive activities.
+Will you be punished for using AI in my class?*
 
-*Are there any data on this?* Not much on coding as such but a recent
-(15 July), substantive, long (59 p) paper titled "Generative AI Can
-Harm Learning"), based on a very carefully conducted field experiment
-with a large (1000) sample of high school students concluded: "Our
-results suggest that students attempt to use [AI] as a "crutch" during
-practice problem sessions, and when successful, perform worse on their
-own. Thus, to maintain long-term productivity, we must be cautious
-when deploying generative AI to ensure humans continue to learn
-critical skills."  ([[https://papers.ssrn.com/sol3/papers.cfm?abstract_id=4895486&s=03][Bastani et al, 2024]]).
+Not directly because nobody can tell if you used AI or not but
+indirectly by turning in suboptimal results, by learning less, and
+by having less time for other, more productive activities.
 
-** *References*
+
+*Are there any data on this?*
+
+Not much on coding as such but a recent (15 July), substantive, long
+(59 p) paper titled "Generative AI Can Harm Learning"), based on a
+very carefully conducted field experiment with a large (1000) sample
+of high school students concluded: "Our results suggest that students
+attempt to use [AI] as a "crutch" during practice problem sessions,
+and when successful, perform worse on their own. Thus, to maintain
+long-term productivity, we must be cautious when deploying generative
+AI to ensure humans continue to learn critical skills."  ([[https://papers.ssrn.com/sol3/papers.cfm?abstract_id=4895486&s=03][Bastani et
+al, 2024]]).
+
+Here are two recent accounts from coders: [[https://erikschluntz.com/software/2024/07/30/code-with-ai.html][Schluntz]] / [[https://nicholas.carlini.com/writing/2024/how-i-use-ai.html][Carlini]]
+
+*References*
 
 Bastani, Hamsa and Bastani, Osbert and Sungu, Alp and Ge, Haosen and
 Kabakcı, Özge and Mariman, Rei, Generative AI Can Harm Learning
 (July 15, 2024). [[https://papers.ssrn.com/sol3/papers.cfm?abstract_id=4895486&s=03#][Available at ssrn.com]].
 
+Carlini, How I Use "AI" (August 1, 2024). [[https://nicholas.carlini.com/writing/2024/how-i-use-ai.html][Available at carlini.com]].
 
-
-
+Schluntz, Replacing my Right Hand with AI (July 30, 2024). [[https://erikschluntz.com/software/2024/07/30/code-with-ai.html][Available
+at erikschluntz.com]].
 

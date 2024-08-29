@@ -9,7 +9,7 @@
 - Course title: Data structures with C++
 - Course number and section: CSC 240.01
 - Meeting Times: Tue-Thu 9:30-10.45 AM
-- Meeting place: Derby Science Building computer lab room 239
+- Meeting place: Lyon Building Computer Lab Room 104
 - Professor: Marcus Birkenkrahe
 - Professor's Office: Derby Science Building 210
 - Phone: (870) 307-7254 (office) / (501) 422-4725 (private)
@@ -114,9 +114,11 @@ development.
 
 * Lyon College Standard Policies
 
-- [[https://tinyurl.com/LyonPolicyOnline][tinyurl.com/LyonPolicyOnline]], see also [[https://catalog.lyon.edu/class-attendance][Class Attendance]] policy  
+Standard Lyon College Policies are incorporated into this syllabus and
+can be found at the following link:
+http://www.lyon.edu/standard-course-policies.
   
-* Schedule
+* Weekly schedule
 
 "Data structures" and "algorithms" are a little hard to separate:
 - "Data structures" is concerned with storing and organizing data.
@@ -144,7 +146,7 @@ examples and programming assignments.
 |------+------------------------------------+------------+-----------------+-------|
 |    8 | Linked Lists                       | Oct 1, 3   | Program 13-14   |     8 |
 |------+------------------------------------+------------+-----------------+-------|
-|    9 | Stacks                             | Oct 8, 10  | Program 15-16   |     9 |
+|    9 | Stacks                             | Oct 8, +10+  | Program 15-16   |     9 |
 |------+------------------------------------+------------+-----------------+-------|
 |   10 | Queues                             | Oct 15, 17 | Program 17-18   |    10 |
 |------+------------------------------------+------------+-----------------+-------|
