@@ -311,7 +311,7 @@ Thomas Crecquillan (1549).
 
 * DONE Introduction to Data Structures (Lecture) II
 * DONE Array basics (review)
-* TODO On the Programming Assignments
+* DONE On the Programming Assignments
 #+attr_html: :width 400px: 
 #+caption: Portrait de femme au col d'hermine (Olga) - Picasso (1923)
 [[../img/picasso.png]]
@@ -329,7 +329,7 @@ Thomas Crecquillan (1549).
   letter. In this case, there was a complete sample solution available
   ([[https://github.com/birkenkrahe/alg1/blob/main/org/sample.org][GitHub or raw org]]), and all you had to do was imitate it.
 
-* TODO Review: Intro to data structures / array basics
+* DONE Review: Intro to data structures / array basics
 
 We'll combine this review with some light coding. Useful also for the
 2nd quiz where I've used some of these examples.
@@ -499,7 +499,6 @@ We'll combine this review with some light coding. Useful also for the
         A[i]=i*i;  // assign value
         printf("%d ",A[i]); // print value
        }
-      
     #+end_src
 
     #+RESULTS:
@@ -512,6 +511,88 @@ We'll combine this review with some light coding. Useful also for the
 
     #+RESULTS:
     : 0 1 4 9 16 25 36 49 64 81 
+
+* NEXT Reviewing the Array Basics Review
+
+1. If =A= is an array, what is =&A=?
+   #+begin_quote
+   If =A= is an array, then =&A= is the address of =A[0]=, the first element
+   of =A=.
+   #+end_quote
+   #+begin_src C
+     int A[2] = {100,200}; // declare & initialize array of two elements
+     printf("%p %p", &A, &A[0]); // print address-of-A and address-of-A[0]
+   #+end_src
+
+2. How is the memory of an array organized?
+   #+begin_quote
+   The memory of an array is contiguous in memory, that is that the
+   memory cells that hold array values are placed next to one another
+   (this is the basis of *pointer arithmetic*). For a 2-dim array (aka
+   matrix), the elements are stored in row-wise fashion.
+   #+end_quote
+   #+begin_src C
+     int A[2][2] = {{1,2},{3,4}};
+     printf("%p %p %p %p\n",       // print addresses as hexadecimals
+            &A[0][0], &A[0][1],
+            &A[1][0], &A[1][1]);
+     printf("%d %d %d %d\n",       // print addresses as decimals
+            &A[0][0], &A[0][1],
+            &A[1][0], &A[1][1]);
+          #+end_src
+
+   #+RESULTS:
+   : 0x7ffd39dff120 0x7ffd39dff124 0x7ffd39dff128 0x7ffd39dff12c
+   : 970977568 970977572 970977576 970977580
+   
+3. What's pointer arithmetic?
+   #+begin_quote
+   Arithmetic with memory positions. If =p= is an integer pointer, then
+   =*(p + 1)= moves the pointer =p= by =1= integer (4 bytes), e.g. from
+   memory position 100 to 104, because =sizeof(int)= is 4 bytes.
+   #+end_quote
+   
+4. What's a variable-length array?
+   #+begin_quote
+   An array whose length is determined at run-time. It cannot be
+   initialized in the source code, only declared, and its length comes
+   from the user when the program runs.
+   #+end_quote
+
+5. What does =:main no= mean as a header argument?
+   #+begin_quote
+   It adds =int main(void) { ... return 0; }= to the source code.
+   #+end_quote
+
+6. What does =:includes <limits.h>= mean as a header argument?
+   #+begin_quote
+   It adds =#include <limits.h>= to the C source code.
+   #+end_quote
+   
+7. In Linux, how can you find out how much memory is available?
+   #+begin_src bash :results output :exports both
+     free -h
+   #+end_src
+   
+8. What is =bash=? What does it do?
+   #+begin_quote
+   =bash(1)= is a Linux shell program. It allows you to run other
+   programs like =gcc= or =echo= or =free=. 'Run X on the shell/in the
+   terminal' means 'let =bash= run it'. Some commands, like =cd=
+   #+end_quote
+
+9. What does "piping input into =main=" mean? Example?
+   #+begin_quote
+   It's a way of passing output from one program to another
+   program. Example: in the command =echo 10 | ./main=, the number 10 is
+   passed to a program called =main=. If =main= cannot use the number,
+   it is simply ignored by =main=.
+   #+end_quote
+
+10. What's wrong with this header argument?
+    #+begin_example
+    #+PROPERTY: header-args:C :main yes :includes <stdio.h> results: output
+    #+end_example
 
 * TODO Arrays as data structures (handout)
 #+attr_html: :width 600px: 
