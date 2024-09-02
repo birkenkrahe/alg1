@@ -44,6 +44,11 @@ Programming). This is Why." by Code with Huw ([[https://youtu.be/bFAO99USrYI?si=
 
 * Problem Descriptions, Solution Process, and Coding Rules
 
+Illustration: this week's programming assignments
+- [[https://lyon.instructure.com/courses/2623/assignments/33719][Array Sum Calculator]]
+- [[https://lyon.instructure.com/courses/2623/assignments/33720][Array maximum and minimum]]
+- [[https://lyon.instructure.com/courses/2623/assignments/33722][Frequency Counter]] (BONUS)
+
 ** Problem Components
 Each problem begins with three components:
 1) The problem context as a short description including potential
@@ -52,7 +57,7 @@ Each problem begins with three components:
 3) The problem output in the exact form required (optionally with time
    limit[fn:1]).
 
-** Solution Components   
+** Solution Components
 Each solution includes:
 1) A short description how we tackle the problem.
 2) Minimal comments in the source code.
@@ -97,7 +102,9 @@ There are a few Coding rules:
    crack a problem yourself[fn:2].
 3) You should be able to explain every part of your code.
 
-* Array Basics (review)
+* DONE Array Basics (review)
+
+[[https://github.com/birkenkrahe/alg1/blob/1813dae17e0cea78ebf6a93e6fece1c4c986fea0/org/notes.org#array-basics-review][See GitHub]]
 
 Whiteboard & guided Emacs practice:
 - Array declaration
