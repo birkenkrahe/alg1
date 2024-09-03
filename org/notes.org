@@ -512,7 +512,13 @@ We'll combine this review with some light coding. Useful also for the
     #+RESULTS:
     : 0 1 4 9 16 25 36 49 64 81 
 
-* NEXT Reviewing the Array Basics Review
+* Week 4
+
+- [ ] Quiz 2 to be completed
+- [ ] Two new programming assignments
+- [ ] If you're stumped - contact me
+
+* Reviewing the Array Basics Review
 
 1. If =A= is an array, what is =&A=?
    #+begin_quote
@@ -521,8 +527,12 @@ We'll combine this review with some light coding. Useful also for the
    #+end_quote
    #+begin_src C
      int A[2] = {100,200}; // declare & initialize array of two elements
-     printf("%p %p", &A, &A[0]); // print address-of-A and address-of-A[0]
+     printf("%p\n%p", &A, &A[0]); // print address-of-A and address-of-A[0]
    #+end_src
+
+   #+RESULTS:
+   : 0x7ffcd3c67d20
+   : 0x7ffcd3c67d20
 
 2. How is the memory of an array organized?
    #+begin_quote
@@ -540,10 +550,6 @@ We'll combine this review with some light coding. Useful also for the
             &A[0][0], &A[0][1],
             &A[1][0], &A[1][1]);
           #+end_src
-
-   #+RESULTS:
-   : 0x7ffd39dff120 0x7ffd39dff124 0x7ffd39dff128 0x7ffd39dff12c
-   : 970977568 970977572 970977576 970977580
    
 3. What's pointer arithmetic?
    #+begin_quote
@@ -561,25 +567,35 @@ We'll combine this review with some light coding. Useful also for the
 
 5. What does =:main no= mean as a header argument?
    #+begin_quote
-   It adds =int main(void) { ... return 0; }= to the source code.
+   It does not add =int main(void) { ... return 0; }= to the source
+   code.
    #+end_quote
 
 6. What does =:includes <limits.h>= mean as a header argument?
    #+begin_quote
-   It adds =#include <limits.h>= to the C source code.
+   It adds =#include <limits.h>= to the C source code at the top.
    #+end_quote
    
 7. In Linux, how can you find out how much memory is available?
    #+begin_src bash :results output :exports both
-     free -h
+     free -h  # give me the free memory for humans
    #+end_src
-   
+
+   #+RESULTS:
+   :                total        used        free      shared  buff/cache   available
+   : Mem:           7.5Gi       2.3Gi       756Mi       617Mi       4.5Gi       4.3Gi
+   : Swap:          2.0Gi          0B       2.0Gi
+
 8. What is =bash=? What does it do?
    #+begin_quote
    =bash(1)= is a Linux shell program. It allows you to run other
    programs like =gcc= or =echo= or =free=. 'Run X on the shell/in the
    terminal' means 'let =bash= run it'. Some commands, like =cd=
    #+end_quote
+  Example:
+  #+begin_src bash :results output
+  gcc --version
+  #+end_src
 
 9. What does "piping input into =main=" mean? Example?
    #+begin_quote
@@ -589,12 +605,27 @@ We'll combine this review with some light coding. Useful also for the
    it is simply ignored by =main=.
    #+end_quote
 
+   An example that only works if you have a =main.c= program that takes
+   the number =10= as a keyboard input:
+   #+begin_src bash
+     gcc main.c -o main
+     echo 10 | ./main
+   #+end_src
+
+   #+RESULTS:
+   : 0 1 4 9 16 25 36 49 64 81
+   
 10. What's wrong with this header argument?
     #+begin_example
     #+PROPERTY: header-args:C :main yes :includes <stdio.h> results: output
     #+end_example
 
-* TODO Arrays as data structures (handout)
+    Answer: the =results= argument needs a colon in front of it:
+    #+begin_example
+    #+PROPERTY: header-args:C :main yes :includes <stdio.h> :results output
+    #+end_example
+
+* IN PROGRESS Arrays as data structures (handout)
 #+attr_html: :width 600px: 
 #+caption: M C Escher
 [[../img/escher.jpg]] 

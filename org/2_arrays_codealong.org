@@ -18,4 +18,42 @@
   In reverse order: 31 50 11 23 94 2 102 49 82 34
   #+end_example
 
+* Solution
+
+- Strategy:
+  1) define size of array with =#define SIZE 10=
+  2) declare and init array =int a= with zeros ={0}=
+  3) first version of program: set =a= with fixed values
+  4) to reverse the numbers, print them in reverse order using a =for=
+     loop that counts down instead of up.
+
+- For the code, let's remember to comment it and document it.
+
+- Code version 1:
+  #+begin_src C :tangle reverse.c
+    /*************************************************************/
+    // reverse.c: reverse a series of numbers entered by the user
+    // Store numbers as integer array with scanf in a for loop
+    // Print numbers in reverse order with printf in a for loop
+    // (C) Marcus Birkenkrahe Licence: GPLv3
+    /*************************************************************/
+    #include <stdio.h>
+
+    // define size of array with =#define SIZE 10=
+    #define SIZE 10
+
+    // declare and init array =int a= with zeros ={0}=
+    // first version of program: set =a= with fixed values
+    // to reverse the numbers, print them in reverse order
+    // using a =for= loop that counts down instead of up.
+
+  #+end_src
+
+  #+RESULTS:
+
+
+
+
+
+
 
