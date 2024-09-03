@@ -1,0 +1,33 @@
+#+TITLE: Arrays - Codealong
+#+AUTHOR: Marcus Birkenkrahe
+#+SUBTITLE: CSC 240 - Data structures with C++ - Lyon College, FA24
+#+STARTUP:overview hideblocks indent
+#+OPTIONS: toc:1 num:1 ^:nil
+#+PROPERTY: header-args:C++ :main yes :includes <iostream> :results output :exports both :noweb yes
+#+PROPERTY: header-args:C :main yes :includes <stdio.h> :results output :exports both :noweb yes
+* Arrays: Reversing a Series of Numbers
+
+- *Problem:* Prompt the user to enter a series of numbers, then write
+  the numbers in reverse order. Store the numbers in an array and use
+  a preprocessing directive to set the size of the array. In the =main=
+  function, initialize the array's elements to zero.
+
+- *Input* and *Output*:
+  #+begin_example
+  Enter 10 numbers: 34 82 49 102 2 94 23 11 50 31
+  In reverse order: 31 50 11 23 94 2 102 49 82 34
+  #+end_example
+
+* Arrays: Checking a Number for Repeated Digits
+
+- *Problem:* Checks whether any of the digits in a number appear more
+  than once. After the user enters a number, the program prints either
+  =Repeated digit= or =No repeated digit=:
+
+- *Input* and *Output*:
+  #+begin_example
+  Enter a number: 28212
+  Repeated digit
+  #+end_example
+
+
