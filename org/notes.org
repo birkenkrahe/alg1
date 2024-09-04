@@ -518,7 +518,7 @@ We'll combine this review with some light coding. Useful also for the
 - [ ] Two new programming assignments
 - [ ] If you're stumped - contact me
 
-* Reviewing the Array Basics Review
+* DONE Reviewing the Array Basics Review
 
 1. If =A= is an array, what is =&A=?
    #+begin_quote
@@ -619,9 +619,8 @@ We'll combine this review with some light coding. Useful also for the
     #+begin_example
     #+PROPERTY: header-args:C :main yes :includes <stdio.h> results: output
     #+end_example
-
-    Answer: the =results= argument needs a colon in front of it:
-    #+begin_example
+    Answer: The =results= argument needs a colon in front of it:
+      #+begin_example
     #+PROPERTY: header-args:C :main yes :includes <stdio.h> :results output
     #+end_example
 
@@ -630,4 +629,6 @@ We'll combine this review with some light coding. Useful also for the
 #+caption: M C Escher
 [[../img/escher.jpg]] 
 
+- Continue with the "reverse array elements" program ([[file:2_arrays_codealong.org][code along]])
+  
 
