@@ -261,7 +261,7 @@ Thomas Crecquillan (1549).
 - [ ] Review: Array basics (with practice)
 - [ ] Array as data structure (code along lecture)
 
-* DONE Linux server has arrived
+** Linux server has arrived
 
 - You should have received your VM server address and password
 
@@ -277,7 +277,7 @@ Thomas Crecquillan (1549).
 
 - IT will give me admin access and set VMs to auto-boot soon.
 
-* DONE Review: Introduction to Data Structures I
+** Review: Introduction to Data Structures I
 
 1) Define "data structure"
    #+begin_quote
@@ -309,9 +309,9 @@ Thomas Crecquillan (1549).
    3. R: vector
    #+end_quote
 
-* DONE Introduction to Data Structures (Lecture) II
-* DONE Array basics (review)
-* DONE On the Programming Assignments
+** Introduction to Data Structures (Lecture) II
+** Array basics (review)
+** On the Programming Assignments
 #+attr_html: :width 400px: 
 #+caption: Portrait de femme au col d'hermine (Olga) - Picasso (1923)
 [[../img/picasso.png]]
@@ -329,7 +329,7 @@ Thomas Crecquillan (1549).
   letter. In this case, there was a complete sample solution available
   ([[https://github.com/birkenkrahe/alg1/blob/main/org/sample.org][GitHub or raw org]]), and all you had to do was imitate it.
 
-* DONE Review: Intro to data structures / array basics
+** Review: Intro to data structures / array basics
 
 We'll combine this review with some light coding. Useful also for the
 2nd quiz where I've used some of these examples.
@@ -629,6 +629,11 @@ We'll combine this review with some light coding. Useful also for the
 #+caption: M C Escher
 [[../img/escher.jpg]] 
 
-- Continue with the "reverse array elements" program ([[file:2_arrays_codealong.org][code along]])
-  
+- [ ] Continue with the "reverse array elements" program ([[file:2_arrays_codealong.org][code along]])
+- [ ] Learn different ways to compile and run a source code file
+- [ ] Learn Variable-Length Arrays (VLAs) for dynamic allocation
+- [ ] Learn parameter macros
+
+
+
 

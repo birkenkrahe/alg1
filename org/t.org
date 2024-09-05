@@ -1,0 +1,117 @@
+#+TITLE: Arrays - Codealong
+#+AUTHOR: Marcus Birkenkrahe
+#+SUBTITLE: CSC 240 - Data structures with C++ - Lyon College, FA24
+#+STARTUP:overview hideblocks indent
+#+OPTIONS: toc:1 num:1 ^:nil
+#+PROPERTY: header-args:C++ :main yes :includes <iostream> :results output :exports both :noweb yes
+#+PROPERTY: header-args:C :main yes :includes <stdio.h> :results output :exports both :noweb yes
+* Arrays: Reversing a Series of Numbers
+
+- *Problem:* Prompt the user to enter a series of numbers, then write
+  the numbers in reverse order. Store the numbers in an array and use
+  a preprocessing directive to set the size of the array. In the =main=
+  function, initialize the array's elements to zero.
+
+- *Input* and *Output*:
+  #+begin_example
+  Enter 10 numbers: 34 82 49 102 2 94 23 11 50 31
+  In reverse order: 31 50 11 23 94 2 102 49 82 34
+  #+end_example
+
+* Solution
+
+- Strategy:
+  1) define size of array with =#define SIZE 10=
+  2) declare and init array =int a= with zeros ={0}=
+  3) first version of program: set =a= with fixed values
+  4) to reverse the numbers, print them in reverse order using a =for=
+     loop that counts down instead of up.
+
+- For the code, let's remember to comment it and document it.
+
+- Code version 1:
+  #+begin_src C :tangle reverse1.c
+    /*************************************************************/
+    // reverse.c: reverse a series of numbers entered by the user
+    // Store numbers as integer array with scanf in a for loop
+    // Print numbers in reverse order with printf in a for loop
+    // (C) Marcus Birkenkrahe Licence: GPLv3
+    /*************************************************************/
+    #include <stdio.h>
+
+    // define size of array with `#define SIZE 10`
+    #define SIZE 10
+
+    // declare and init array `int a` with zeros `{0}`
+    // first version of program: set `a` with fixed values
+    int a[] = {34, 82, 49, 102, 2, 94, 23, 11, 50, 31};
+    // to reverse the numbers, print them in reverse order
+    // using a =for= loop that counts down instead of up.
+    for (int i = SIZE-1; i >= 0; i--)
+      printf("%d ", a[i]);
+  #+end_src
+
+  #+RESULTS:
+  : 31 50 11 23 94 2 102 49 82 34
+
+- Three ways to run this program:
+
+  1) =C-c C-c= on the code block (works if there's no `stdin`).
+
+  2) Tangle it with =C-c C-v t= to source code file ~reverse.c~, then run
+     it a ~bash~ code block:
+
+     #+begin_src bash :results output
+       ls reverse1.c
+       gcc reverse1.c -o rev
+       ./rev
+     #+end_src
+
+     #+RESULTS:
+     : reverse1.c
+     : 31 50 11 23 94 2 102 49 82 34
+
+  3) Tangle it and run the source code file on the command line
+     outside of this file: Open shell in Emacs with =M-x shell=, then
+     execute the same commands as before.
+
+     You may have to ~cd~ to the directory where your file was created.
+
+     On the Emacs shell, go through command ~history~ with =C-p= and =C-n=.
+
+     Once you're done, close the current buffer with =C-x 0=.
+
+- Code version 2: Add user input.
+
+  Copy the previous block as-is: go to the top of the region you want
+  to copy, enter =C-SPC=, go down with =C-n= and copy with =M-w=. Collapse
+  headlines (=TAB=) to save time.
+
+  Go to where you want to yank the code, and enter =C-y=.
+
+  1. Change the file name to ~reverse2.c~
+
+  2. Initialize array to zero.
+
+  3. Add a loop with a =scanf= command.
+     
+  #+begin_src C :tangle reverse2.c
+    /*************************************************************/
+    // reverse.c: reverse a series of numbers entered by the user
+    // Store numbers as integer array with scanf in a for loop
+    // Print numbers in reverse order with printf in a for loop
+    // (C) Marcus Birkenkrahe Licence: GPLv3
+    /*************************************************************/
+    #include <stdio.h>
+
+    // define size of array with `#define SIZE 10`
+    #define SIZE 10
+
+    // declare and init array `int a` with zeros `{0}`
+    // first version of program: set `a` with fixed values
+    int a[] = {34, 82, 49, 102, 2, 94, 23, 11, 50, 31};
+    // to reverse the numbers, print them in reverse order
+    // using a =for= loop that counts down instead of up.
+    for (int i = SIZE-1; i >= 0; i--)
+      printf("%d ", a[i]);
+  #+end_src
