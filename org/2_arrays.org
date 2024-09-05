@@ -132,7 +132,7 @@ There are a few Coding rules:
 3) You should be able to explain every part of your code down to the
    last token, keyword and sign.
 
-* DONE Array Basics (review)
+* Array Basics (review)
 
 [[https://github.com/birkenkrahe/alg1/blob/1813dae17e0cea78ebf6a93e6fece1c4c986fea0/org/notes.org#array-basics-review][See GitHub]]
 
@@ -158,7 +158,7 @@ Whiteboard & guided Emacs practice:
 - Ask yourself if you could write this program right away or not!
   Whatever the answer, let's do it together from scratch.
 
-* Solution
+* IN PROGRESS Solution
 
 - *Strategy:* The numbers are stored in an array of N = 10 elements. N
   is defined at the start with =#define=. The array is initialized with
