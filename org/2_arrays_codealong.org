@@ -22,7 +22,7 @@
 
 - Strategy:
   1) define size of array with =#define SIZE 10=
-  2) declare and init array =int a= with zeros ={0}=
+  2) declare and initialize array =int a= with zeros ={0}=
   3) first version of program: set =a= with fixed values
   4) to reverse the numbers, print them in reverse order using a =for=
      loop that counts down instead of up.
@@ -30,7 +30,7 @@
 - For the code, let's remember to comment it and document it.
 
 - Code version 1:
-  #+begin_src C :tangle reverse.c
+  #+begin_src C :tangle reverse1.c
     /*************************************************************/
     // reverse.c: reverse a series of numbers entered by the user
     // Store numbers as integer array with scanf in a for loop
@@ -39,19 +39,98 @@
     /*************************************************************/
     #include <stdio.h>
 
-    // define size of array with =#define SIZE 10=
+    // define size of array with `#define SIZE 10`
     #define SIZE 10
 
-    // declare and init array =int a= with zeros ={0}=
-    // first version of program: set =a= with fixed values
+    // declare and init array `int a` with zeros `{0}`
+    // first version of program: set `a` with fixed values
+    int a[] = {34,82,49,102,2,94,23,11,50,31};
     // to reverse the numbers, print them in reverse order
-    // using a =for= loop that counts down instead of up.
-
+    // using a `for` loop that counts down instead of up.
+    for ( int i = 0 ; i < SIZE; i++) { // counting up
+      printf("%d ", a[i]);
+      }
+    printf("\n"); // newline
+    for ( int i = SIZE-1; i >= 0; i--) { // counting down
+      printf("%d ", a[i]);
+      }
   #+end_src
 
   #+RESULTS:
+  : 34 82 49 102 2 94 23 11 50 31 
+  : 31 50 11 23 94 2 102 49 82 34 
 
+- Three ways to run this program:
 
+  1) Run the code block with C-c C-c
+
+  2) Tangle the code block into a source code file ~reverse.c~
+     with C-c C-v t (this is the same as =org-bable-tangle=).
+
+     Now run it inside this Org-mode file with a ~bash~ block:
+     #+begin_src bash :results output
+       ls -l reverse1.c  # long listing of the file
+       gcc reverse1.c -o rev   # compile source to executable
+       ./rev
+     #+end_src
+
+     #+RESULTS:
+     : -rw-rw-r-- 1 marcus marcus 925 Sep  5 09:54 reverse1.c
+     : 34 82 49 102 2 94 23 11 50 31 
+     : 31 50 11 23 94 2 102 49 82 34 
+
+  3) Tangle it and compile & run the file on the commandline
+     outside of this file:
+
+     - Open the shell INSIDE Emacs with =M-x shell=
+     - On the shell, compile with =gcc= and run
+     - You may have to go where the file is with =cd=
+
+- Code version 2: Add user input
+  1) Change source code file name to ~reverse2.c~
+  2) Initialize array to zero
+  3) Add a command to ask user for input
+  4) Get user input with the =scanf= command
+          
+  #+begin_src C :tangle reverse2.c
+    /*************************************************************/
+    // reverse.c: reverse a series of numbers entered by the user
+    // Store numbers as integer array with scanf in a for loop
+    // Print numbers in reverse order with printf in a for loop
+    // (C) Marcus Birkenkrahe Licence: GPLv3
+    /*************************************************************/
+    #include <stdio.h>
+    #define SIZE 10
+
+    int a[SIZE] = {0};
+
+    // Ask user for input
+    printf("Enter %d numbers:\n", SIZE);
+    // Get user input from keyboard
+    for ( int i = 0 ; i < SIZE; i++) { 
+      scanf("%d", &a[i]); // scanf requires address-of &
+      printf("%d ", a[i]);
+      }
+    puts("");  // another way to add a new line
+    // To reverse the numbers, print them in reverse order
+    // using a `for` loop that counts down instead of up.
+    for ( int i = SIZE-1; i >= 0; i--) { // counting down
+      printf("%d ", a[i]);
+      }
+    puts("");  // another way to add a new line
+  #+end_src
+
+- Test it with a shell code block:
+  #+begin_src bash :results output
+  gcc reverse2.c -o rev
+  echo 34 82 49 102 2 94 23 11 50 31 | ./rev
+#+end_src
+
+- Demo the pipe concept:
+  #+begin_src bash :results output
+  ls | wc -l  # list all files and count the number of lines
+  echo hello | wc -c
+#+end_src
 
 
 
