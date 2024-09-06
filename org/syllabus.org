@@ -130,31 +130,33 @@ examples and programming assignments.
 
 | Week | Content                            | Dates      | Home Assignment | Tests |
 |------+------------------------------------+------------+-----------------+-------|
-|    1 | Introduction to course & dev tools | Aug 16     | Emacs, GitHub   |     1 |
+|    0 | Introduction to course & dev tools | Aug 16     | Emacs, GitHub   |     1 |
 |------+------------------------------------+------------+-----------------+-------|
-|    2 | Data structures & C Basics review  | Aug 20, 22 | Programs 1-2    |     2 |
+|    1 | Data structures & C Basics review  | Aug 20, 22 | Programs 1-2    |     2 |
 |------+------------------------------------+------------+-----------------+-------|
-|    3 | Arrays & Functions                 | Aug 27, 29 | Programs 3-4    |     3 |
+|    2 | Arrays Basics                      | Aug 27, 29 | Programs 3-4    |     3 |
 |------+------------------------------------+------------+-----------------+-------|
-|    4 | Pointers & Arrays of Pointers      | Sep 3, 5   | Programs 5-6    |     4 |
+|    3 | Functions & Pointers               | Sep 3, 5   | Programs 5-6    |     4 |
 |------+------------------------------------+------------+-----------------+-------|
-|    5 | String Manipulation                | Sep 10, 12 | Programs 7-8    |     5 |
+|    4 | Arrays of Pointers                 | Sep 10, 12 | Programs 7-8    |     5 |
 |------+------------------------------------+------------+-----------------+-------|
-|    6 | Structures, Unions, Enums          | Sep 17, 19 | Programs 9-10   |     6 |
+|    5 | String Manipulation                | Sep 17, 19 | Programs 9-10   |     6 |
 |------+------------------------------------+------------+-----------------+-------|
-|    7 | Dynamic Storage Allocation         | Sep 24, 26 | Program 11-12   |     7 |
+|    6 | Structures, Unions, Enums          | Sep 24, 26 | Program 11-12   |     7 |
 |------+------------------------------------+------------+-----------------+-------|
-|    8 | Linked Lists                       | Oct 1, 3   | Program 13-14   |     8 |
+|    7 | Dynamic Storage Allocation         | Oct 1, 3   | Program 13-14   |     8 |
 |------+------------------------------------+------------+-----------------+-------|
-|    9 | Stacks                             | Oct 8, +10+  | Program 15-16   |     9 |
+|    8 | Linked Lists                       | Oct 8, 10  | Program 15-16   |     9 |
 |------+------------------------------------+------------+-----------------+-------|
-|   10 | Queues                             | Oct 15, 17 | Program 17-18   |    10 |
+|    9 | Stacks                             | Oct 15, 17 | Program 17-18   |    10 |
 |------+------------------------------------+------------+-----------------+-------|
-|   11 | Trees                              | Oct 22, 29 | Program 19-20   |    11 |
+|   10 | Queues                             | Oct 22     | Program 19-20   |    11 |
 |------+------------------------------------+------------+-----------------+-------|
-|   12 | Hash Tables                        | Nov 5, 7   | Program 21-22   |    12 |
+|   11 | Trees                              | Oct 29, 31 | Program 21-22   |    12 |
 |------+------------------------------------+------------+-----------------+-------|
-|   13 | Heaps and Priority Queues          | Nov 12, 14 | Program 23-24   |    13 |
+|   12 | Hash Tables                        | Nov 5, 7   | Program 23-24   |    13 |
+|------+------------------------------------+------------+-----------------+-------|
+|   13 | Heaps and Priority Queues          | Nov 12, 14 | Program 25-26   |       |
 |------+------------------------------------+------------+-----------------+-------|
 |   14 | Graphs                             | Nov 19, 21 | Program 25-26   |    14 |
 |------+------------------------------------+------------+-----------------+-------|
