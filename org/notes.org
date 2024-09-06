@@ -3,7 +3,7 @@
 #+SUBTITLE: CSC 240 Data Structures Lyon College Fall 2024
 #+STARTUP: overview hideblocks indent entitiespretty:
 #+PROPERTY: header-args:C :main yes :includes <stdio.h> :results output :exports both
-* Week 1 - Why You Are Here
+* Week 0 - Why You Are Here
 #+attr_html: :width 500px:
 [[../img/manga1.png]]
 
@@ -46,7 +46,7 @@ Later, an 8-th bit was added to extend the character set to 2^8 = 256
 so that special symbols (like German umlauts =ü=, or the German =ß=) could
 be represented.
 
-* Week 2 - What Data Structures Are About
+* Week 1 - What Data Structures Are About
 #+attr_html: :width 500px:
 [[../img/manga2.png]]
 
@@ -243,7 +243,7 @@ requires more independence.
 
 ** Introduction to Data Structures (Lecture) I (handout)
 
-* Week 3 - The Concert in the Egg Begins
+* Week 2 - The Concert in the Egg Begins
 #+attr_html: :width 600px:
 #+caption: The Concert in the Egg ca. 1550 AD
 [[../img/TheConcertInTheEgg.jpg]]
@@ -512,11 +512,14 @@ We'll combine this review with some light coding. Useful also for the
     #+RESULTS:
     : 0 1 4 9 16 25 36 49 64 81 
 
-* Week 4
+* Week 3 - Array Basics
+#+attr_html: :width 600px: 
+#+caption: M C Escher (geese)
+[[../img/escher1.jpg]] 
 
-- [ ] Quiz 2 to be completed
-- [ ] Two new programming assignments
-- [ ] If you're stumped - contact me
+- [X] Quiz 2 to be completed (Fri 6 Sep)
+- [X] Two new programming assignments (Tue 10 Sep)
+- [X] If you're stumped - contact me
 
 * DONE Reviewing the Array Basics Review
 
@@ -626,14 +629,23 @@ We'll combine this review with some light coding. Useful also for the
 
 * IN PROGRESS Arrays as data structures (handout)
 #+attr_html: :width 600px: 
-#+caption: M C Escher
+#+caption: M C Escher (birds)
 [[../img/escher.jpg]] 
 
-- [ ] Continue with the "reverse array elements" program ([[file:2_arrays_codealong.org][code along]])
-- [ ] Learn different ways to compile and run a source code file
+- [X] Continue with the "reverse array elements" program ([[file:2_arrays_codealong.org][code along]])
+- [X] Learn different ways to compile and run a source code file
 - [ ] Learn Variable-Length Arrays (VLAs) for dynamic allocation
 - [ ] Learn parameter macros
 
+* Week 4 - VLAs, Macros, =gdb=, Functions
+#+attr_html: :width 400px: 
+#+caption: M C Escher (crystal ball)
+[[../img/escher.gif]] 
+
+- [ ] Learn Variable-Length Arrays (VLAs) for dynamic allocation
+- [ ] Learn parameter macros
+- [ ] Quiz 3
+- [ ] 2 more programming assignments for arrays
 
 
 
