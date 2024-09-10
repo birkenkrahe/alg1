@@ -429,6 +429,7 @@ Whiteboard & guided Emacs practice:
      #define false 0
      typedef int bool;
    #+end_src
+
 3. C has a number of different =int= types. On a 64-bit machine,
    =unsigned long int= can hold positive whole numbers up to
    $18,446,744,073,709,551,615$. Do you know why that is?
@@ -457,8 +458,23 @@ Whiteboard & guided Emacs practice:
 
    #+RESULTS:
    : The largest value for unsigned long int is: 18446744073709551615
+
 4. To capture =unsigned long int= numbers, =scanf= requires the =%lu=
    format specification.
+
+5. You can generate an interesting error by reducing the length of
+   =digit_seen= to any number below 10 (so some digits are not
+   included), and put the not included digit in a non-repeating
+   number, e.g. =digit_seen[9]= and =n = 123456789=:
+   #+begin_example
+   *** stack smashing detected ***: terminated
+   [ Babel evaluation exited with code "Aborted" ]
+   #+end_example
+
+   In the example, -digit_
+
+
+
 
 * Debugging with =gdb=
 
