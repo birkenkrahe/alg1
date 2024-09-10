@@ -642,9 +642,9 @@ We'll combine this review with some light coding. Useful also for the
 #+caption: M C Escher (crystal ball)
 [[../img/escher.gif]] 
 
+- [X] Quiz 3 is live
 - [ ] Learn Variable-Length Arrays (VLAs) for dynamic allocation
 - [ ] Learn parameter macros
-- [ ] Quiz 3 is live
 - [ ] 2 more programming assignments for arrays
 
 
