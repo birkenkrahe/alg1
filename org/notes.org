@@ -637,15 +637,14 @@ We'll combine this review with some light coding. Useful also for the
 - [ ] Learn Variable-Length Arrays (VLAs) for dynamic allocation
 - [ ] Learn parameter macros
 
-* Week 4 - VLAs, Macros, =gdb=, Functions
+* Week 4 - VLAs, Macros, =gdb=, more arrays
 #+attr_html: :width 400px: 
 #+caption: M C Escher (crystal ball)
 [[../img/escher.gif]] 
 
 - [ ] Learn Variable-Length Arrays (VLAs) for dynamic allocation
 - [ ] Learn parameter macros
-- [ ] Quiz 3
+- [ ] Quiz 3 is live
 - [ ] 2 more programming assignments for arrays
-
 
 
