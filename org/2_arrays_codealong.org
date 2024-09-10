@@ -132,11 +132,128 @@
   echo hello | wc -c
 #+end_src
 
-* TODO Variable length arrays
 
-* TODO Computing the length of an array
+* Variable length arrays
 
-* TODO Parameter macros
+Variable-Length Arrays (VLAs): The length of array is an input
+variable and not known at compile-time but given at run-time.
+
+  - [X] Input operation (test with a shell block)
+  - [X] Declare and define VLA
+  - [ ] print VLA in reverse order
+
+  - Code:
+    #+begin_src C :tangle mainVLA.c
+      int i, n;
+
+      printf("How many numbers do you want to reverse?");
+      scanf("%d", &n);
+      printf("\nOK, %d numbers.\n",n);
+
+      int a[n]; // VLA definition - cannot be initialized
+
+      for (i=0; i<n; i++) {
+        scanf("%d", &a[i]);
+        printf("%d ", a[i]);
+       }
+
+      puts("");
+      for (i=n-1; i>=0; i--) {
+        printf("%d ", a[i]);
+       }
+    #+end_src
+
+    #+RESULTS:
+    : How many numbers do you want to reverse?
+    : OK, 5 numbers.
+    : 1 0 1 0 -1622650816 
+
+  - Testing suite (shell code block) - need to tangle!
+    #+begin_src bash :results output
+      gcc mainVLA.c -o main
+      echo 5 30 40 50 60 70 | ./main
+    #+end_src 
+
+    #+RESULTS:
+    : How many numbers do you want to reverse?
+    : OK, 5 numbers.
+    : 30 40 50 60 70 
+    : 70 60 50 40 30 
+
+
+* Computing the length of an array
+
+We can compute the length of an array =a= using the =sizeof= operator:
+
+#+begin_src C 
+  #define N 10
+  #define SIZE (int)(sizeof(a)/sizeof(a[0]))
+
+  int i, a[N];
+  printf("SIZE = %d\n", SIZE);
+
+  for (i=0; i<SIZE; i++) {
+    a[i] = i*i;
+    printf("%d ", a[i]);
+   }
+#+end_src
+
+#+RESULTS:
+: SIZE = 10
+: 0 1 4 9 16 25 36 49 64 81 
+
+
+* Parameter macros
+
+Macros (like =#define=) can have parameters. Every macro has a keyword,
+a name and a value or parameter.
+
+- Example 1: =MAX= function.
+  #+begin_src C
+
+    #define MAX(x,y) ( (x) > (y) ? (x) : (y) )
+
+    printf("Max value: %d\n", MAX(100,200));
+
+  #+end_src
+
+  #+RESULTS:
+  : Max value: 200
+
+- Here, "x > y ? x : y" is short version of:
+  #+begin_example C
+    if (x > y)
+      x
+    else
+      y
+  #+end_example
+
+- Example 2: Function to determine if a number is even
+  #+begin_src C
+
+    #define IS_EVEN(n) ((n) % 2 == 0)
+
+    printf("Is 99 even? Answer: %d\n", IS_EVEN(99));
+  #+end_src  
+
+  #+RESULTS:
+  : Is 99 even? Answer: 0
+
+- Example 3: Use macros to create aliases
+  #+begin_src C
+
+    #define PRINT_INT(n) printf("%d\n",n);
+
+    int i = 200;
+    PRINT_INT(i);
+
+    int j = 0;
+    PRINT_INT(i/j);
+
+  #+end_src
+
+  #+RESULTS:
+
 
 * TODO Arrays: Checking a Number for Repeated Digits
 
