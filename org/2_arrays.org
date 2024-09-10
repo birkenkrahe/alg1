@@ -158,7 +158,7 @@ Whiteboard & guided Emacs practice:
 - Ask yourself if you could write this program right away or not!
   Whatever the answer, let's do it together from scratch.
 
-* IN PROGRESS Solution
+* Solution
 
 - *Strategy:* The numbers are stored in an array of N = 10 elements. N
   is defined at the start with =#define=. The array is initialized with
@@ -228,7 +228,7 @@ Whiteboard & guided Emacs practice:
      5) The =./= is necessary for the shell to find the executable file
         =rev= in the current directory.
 
-* Notes
+* NEXT Notes
 
 1. Is the program proofed against wrong input? Try to break it using
    the command-line executable entering characters or words instead,
