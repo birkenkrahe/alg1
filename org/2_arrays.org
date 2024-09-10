@@ -233,6 +233,7 @@ Whiteboard & guided Emacs practice:
 1. Is the program proofed against wrong input? Try to break it using
    the command-line executable entering characters or words instead,
    or leave out numbers.
+
 2. You can use /variable-length arrays/ if you don't want to fix the
    length of the array - but you cannot initialize it (since the
    length of the array is not known at compile-time):
@@ -256,6 +257,7 @@ Whiteboard & guided Emacs practice:
      gcc reverse2.c -o rev2
      echo 4 5 4 3 2 | ./rev2  # output: 2 3 4 5
    #+end_src
+
 3. We can compute the length of an array =a= using the =sizeof=
    operator, which is useful if we don't know the length[fn:4].
    #+begin_src C :main no

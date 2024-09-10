@@ -132,7 +132,13 @@
   echo hello | wc -c
 #+end_src
 
-* Arrays: Checking a Number for Repeated Digits
+* TODO Variable length arrays
+
+* TODO Computing the length of an array
+
+* TODO Parameter macros
+
+* TODO Arrays: Checking a Number for Repeated Digits
 
 - *Problem:* Checks whether any of the digits in a number appear more
   than once. After the user enters a number, the program prints either
@@ -147,7 +153,7 @@
 - Ask yourself if you could write this program right away or not!
   Whatever the answer, let's do it together from scratch.
 
-* Solution
+
 
 
 
