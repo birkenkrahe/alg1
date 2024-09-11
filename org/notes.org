@@ -643,8 +643,17 @@ We'll combine this review with some light coding. Useful also for the
 [[../img/escher.gif]] 
 
 - [X] Quiz 3 is live
-- [ ] Learn Variable-Length Arrays (VLAs) for dynamic allocation
-- [ ] Learn parameter macros
+- [X] Learn Variable-Length Arrays (VLAs) for dynamic allocation
+- [X] Learn parameter macros
+- [ ] Video + solution "Sample Array Operations" assignment
 - [ ] 2 more programming assignments for arrays
 
+* NEXT Programming assignments and sample solutions
+
+Please let me know how to make these videos better (if you have an
+idea, and if you don't, just give me some general feedback).
+
+Use my sample solution to create your own solution if you like and
+submit it late for at most 50% of the points, but make sure that you
+don't copy and paste but write all code by hand and understand it.
 
