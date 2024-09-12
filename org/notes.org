@@ -520,8 +520,8 @@ We'll combine this review with some light coding. Useful also for the
 - [X] Quiz 2 to be completed (Fri 6 Sep)
 - [X] Two new programming assignments (Tue 10 Sep)
 - [X] If you're stumped - contact me
-
-* DONE Reviewing the Array Basics Review
+  
+** Reviewing the Array Basics Review
 
 1. If =A= is an array, what is =&A=?
    #+begin_quote
@@ -627,27 +627,24 @@ We'll combine this review with some light coding. Useful also for the
     #+PROPERTY: header-args:C :main yes :includes <stdio.h> :results output
     #+end_example
 
-* IN PROGRESS Arrays as data structures (handout)
+** Arrays as data structures (handout)
 #+attr_html: :width 600px: 
 #+caption: M C Escher (birds)
 [[../img/escher.jpg]] 
-
-- [X] Continue with the "reverse array elements" program ([[file:2_arrays_codealong.org][code along]])
-- [X] Learn different ways to compile and run a source code file
-- [ ] Learn Variable-Length Arrays (VLAs) for dynamic allocation
-- [ ] Learn parameter macros
 
 * Week 4 - VLAs, Macros, =gdb=, more arrays
 #+attr_html: :width 400px: 
 #+caption: M C Escher (crystal ball)
 [[../img/escher.gif]] 
 
-- [X] Quiz 3 is live
-- [X] Learn Variable-Length Arrays (VLAs) for dynamic allocation
-- [X] Learn parameter macros
 - [ ] Video + solution "Sample Array Operations" assignment
 - [ ] 2 more programming assignments for arrays
-
+- [X] Continue with the "reverse array elements" program ([[file:2_arrays_codealong.org][code along]])
+- [X] Quiz 3 is live
+- [X] Learn different ways to compile and run a source code file
+- [X] Learn Variable-Length Arrays (VLAs) for dynamic allocation
+- [X] Learn parameter macros
+  
 * NEXT Programming assignments and sample solutions
 
 Please let me know how to make these videos better (if you have an

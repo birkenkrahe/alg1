@@ -18,6 +18,7 @@
   In reverse order: 31 50 11 23 94 2 102 49 82 34
   #+end_example
 
+
 * Solution
 
 - Strategy:

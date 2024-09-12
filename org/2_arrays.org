@@ -58,7 +58,6 @@ Illustration: this week's programming assignments
 - Simple Array Operations
 - Array Temperature Analysis
 
-
 * Problem Components
 
 Each problem begins with three components:
