@@ -50,11 +50,11 @@
     // using a `for` loop that counts down instead of up.
     for ( int i = 0 ; i < SIZE; i++) { // counting up
       printf("%d ", a[i]);
-      }
+     }
     printf("\n"); // newline
     for ( int i = SIZE-1; i >= 0; i--) { // counting down
       printf("%d ", a[i]);
-      }
+     }
   #+end_src
 
   #+RESULTS:
@@ -111,27 +111,27 @@
     for ( int i = 0 ; i < SIZE; i++) { 
       scanf("%d", &a[i]); // scanf requires address-of &
       printf("%d ", a[i]);
-      }
+     }
     puts("");  // another way to add a new line
     // To reverse the numbers, print them in reverse order
     // using a `for` loop that counts down instead of up.
     for ( int i = SIZE-1; i >= 0; i--) { // counting down
       printf("%d ", a[i]);
-      }
+     }
     puts("");  // another way to add a new line
   #+end_src
 
 - Test it with a shell code block:
   #+begin_src bash :results output
-  gcc reverse2.c -o rev
-  echo 34 82 49 102 2 94 23 11 50 31 | ./rev
-#+end_src
+    gcc reverse2.c -o rev
+    echo 34 82 49 102 2 94 23 11 50 31 | ./rev
+  #+end_src
 
 - Demo the pipe concept:
   #+begin_src bash :results output
-  ls | wc -l  # list all files and count the number of lines
-  echo hello | wc -c
-#+end_src
+    ls | wc -l  # list all files and count the number of lines
+    echo hello | wc -c
+  #+end_src
 
 
 * Variable length arrays
@@ -139,47 +139,47 @@
 Variable-Length Arrays (VLAs): The length of array is an input
 variable and not known at compile-time but given at run-time.
 
-  - [X] Input operation (test with a shell block)
-  - [X] Declare and define VLA
-  - [ ] print VLA in reverse order
+- [X] Input operation (test with a shell block)
+- [X] Declare and define VLA
+- [ ] print VLA in reverse order
 
-  - Code:
-    #+begin_src C :tangle mainVLA.c
-      int i, n;
+- Code:
+  #+begin_src C :tangle mainVLA.c
+    int i, n;
 
-      printf("How many numbers do you want to reverse?");
-      scanf("%d", &n);
-      printf("\nOK, %d numbers.\n",n);
+    printf("How many numbers do you want to reverse?");
+    scanf("%d", &n);
+    printf("\nOK, %d numbers.\n",n);
 
-      int a[n]; // VLA definition - cannot be initialized
+    int a[n]; // VLA definition - cannot be initialized
 
-      for (i=0; i<n; i++) {
-        scanf("%d", &a[i]);
-        printf("%d ", a[i]);
-       }
+    for (i=0; i<n; i++) {
+      scanf("%d", &a[i]);
+      printf("%d ", a[i]);
+     }
 
-      puts("");
-      for (i=n-1; i>=0; i--) {
-        printf("%d ", a[i]);
-       }
-    #+end_src
+    puts("");
+    for (i=n-1; i>=0; i--) {
+      printf("%d ", a[i]);
+     }
+  #+end_src
 
-    #+RESULTS:
-    : How many numbers do you want to reverse?
-    : OK, 5 numbers.
-    : 1 0 1 0 -1622650816 
+  #+RESULTS:
+  : How many numbers do you want to reverse?
+  : OK, 5 numbers.
+  : 1 0 1 0 -1622650816 
 
-  - Testing suite (shell code block) - need to tangle!
-    #+begin_src bash :results output
-      gcc mainVLA.c -o main
-      echo 5 30 40 50 60 70 | ./main
-    #+end_src 
+- Testing suite (shell code block) - need to tangle!
+  #+begin_src bash :results output
+    gcc mainVLA.c -o main
+    echo 5 30 40 50 60 70 | ./main
+  #+end_src 
 
-    #+RESULTS:
-    : How many numbers do you want to reverse?
-    : OK, 5 numbers.
-    : 30 40 50 60 70 
-    : 70 60 50 40 30 
+  #+RESULTS:
+  : How many numbers do you want to reverse?
+  : OK, 5 numbers.
+  : 30 40 50 60 70 
+  : 70 60 50 40 30 
 
 
 * Computing the length of an array
@@ -258,9 +258,161 @@ a name and a value or parameter.
 
 * TODO Arrays: Checking a Number for Repeated Digits
 
+- *Problem*: check if any of the digits in a number =n= appear more
+  than once. After the user enters a number, the program prints
+  either =Repeated digit=, or =No repeated digit=.
 
+- *Sample input and output*:
+  #+begin_example
+  Enter a number: 28212
+  Repeated digit.
+  #+end_example
   
+- *Algorithm:*
 
+  1) Use array =digit_seen= to keep track of which digits in [0,9]
+     were already seen. Initialize array to =false= because digits
+     were seen yet.
+
+     =digit_seen[4]= corresponds to digit 4 and holds the value
+     =false= at the start or if it is not in =n=.
+
+  2) Loop over the digits of =n= (using modulo 10). Leave the loop
+     if =digit= has already been seen: =digit_seen[digit]=true=. Otherwise,
+     set =digit_seen[digit]=true= (for the next loop iteration).
+
+  3) If the loop was left then =n>0= and we have a =Repeated digit=,
+     otherwise we have =No repeated digit.=
+
+- Let's run through the loop sequence for =n = 282=
+
+  #+begin_example
+  1) n = 282 > 0 // enter the loop
+       digit = 282 % 10 = 2 // remainder
+       test: digit_seen[2] is FALSE
+       set digit_seen[2] to TRUE
+       next digit: 282 / 10 = 28.2
+       (int) 28.2 = 28
+       // back to start of the loop
+  2) n = 28 > 0 // enter the loop
+       digit = 28 % 10 = 8 // remainder
+       test: digit_seen[8] is FALSE
+       set digit_seen[8] to TRUE
+       next digit: 28 / 10 = 2.8
+       (int) 2.8 = 2
+       // back to start of the loop
+  3) n = 2 > 0 // enter the loop
+       digit = 2 % 10 = 2
+       test: digit_seen[2] is TRUE
+       break loop
+
+  Result: n = 2 > 0 -> "Repeated digit"
+
+  If the last number had not been 2 or 8 but e.g. 1:
+  4) n = 1 > 0 // enter loop
+     digit = 1 % 10 = 1 (remainder)
+     digit_seen[1] is FALSE
+     set digit_seen[1] to TRUE
+     next digit: 1 / 10 = 0.1
+     (int) 0.1 = 0
+     // back to start of the loop
+
+  5) n = 0 // leave the loop
+
+  Result: n = 0 -> no repeated digits
+  #+end_example
+
+- Code v1: Without user input - if we want to use Booleans, add
+  =stdbool.h= 
+  #+begin_src C :tangle repdigit.c :includes <stdbool.h> <stdio.h>
+    /**********************************************************/
+    // repdigit.c: checks integer for repeated digits
+    // Input: integer with or without repeated digits
+    // Output: Print "Repeated digit" or "No repeated digit"
+    // Author: Marcus Birkenkrahe v1 without user input GPLv3
+    /**********************************************************/
+    // declare and initialize variables
+    int digit, n = 282;
+    bool digit_seen[10] = {false};
+
+    // loop over the input digit n
+    while (n > 0) {
+      digit = n % 10;  // 282 % 10 = 2 (first digit)
+      if (digit_seen[digit] == true) // digit has been seen already
+        break;
+      digit_seen[digit] = true; // digit has now been seen
+      n /= 10; // (int) (282/10) = (int) (28.2) = 28 -> n
+    }
+
+    // print result
+    if (n > 0) // loop was left 
+      printf("Repeated digit.");
+    else
+      printf("No repeated digit.");
+  #+end_src  
+
+  #+RESULTS:
+  : Repeated digit.
+
+- If the dimension of =digit_seen= is not 10, and the number contains
+  the missing index then you get "stack smashing error".
+
+- Code v2: With user input and explicit =main= and =#include=
+  #+begin_src C :tangle repdigit.c :main no :includes
+    /**********************************************************/
+    // repdigit.c: checks integer for repeated digits
+    // Input: integer with or without repeated digits
+    // Output: Print "Repeated digit" or "No repeated digit"
+    // Author: Marcus Birkenkrahe v2 with user input GPLv3
+    /**********************************************************/
+    #include <stdio.h>
+    #include <stdbool.h>
+
+    int main(void)
+    {
+      // declare and initialize variables
+      int n; // input
+      int digit;
+      bool digit_seen[10] = {false};
+
+      // get user input
+      printf("Enter an integer: ");
+      scanf("%d", &n);
+      printf("%d\n",n);
+
+      // loop over the input digit n
+      while (n > 0) {
+        digit = n % 10;  // 282 % 10 = 2 (first digit)
+        if (digit_seen[digit] == true) // digit has been seen already
+          break;
+        digit_seen[digit] = true; // digit has now been seen
+        n /= 10; // (int) (282/10) = (int) (28.2) = 28 -> n
+      }
+
+      // print result
+      if (n > 0) // loop was left 
+        printf("Repeated digit.");
+      else
+        printf("No repeated digit.");
+
+      return 0;
+    }
+  #+end_src  
+
+- Testing on the shell:
+  #+begin_src bash :results output
+    ls -l repdigit.c # check if the file was tangled
+    gcc repdigit.c -o rep
+    echo 281 | ./rep
+  #+end_src
+
+  #+RESULTS:
+  : -rw-rw-r-- 1 marcus marcus 1022 Sep 12 10:27 repdigit.c
+  : Enter an integer: 281
+  : No repeated digit.
+  
+  
+* Solution to 2nd programming assignment
 
 
 
