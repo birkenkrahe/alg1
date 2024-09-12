@@ -256,7 +256,7 @@ a name and a value or parameter.
   #+RESULTS:
 
 
-* TODO Arrays: Checking a Number for Repeated Digits
+* Arrays: Checking a Number for Repeated Digits
 
 - *Problem*: check if any of the digits in a number =n= appear more
   than once. After the user enters a number, the program prints

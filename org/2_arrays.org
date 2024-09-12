@@ -1,7 +1,7 @@
 #+TITLE: Arrays
- #+AUTHOR: Marcus Birkenkrahe
- #+SUBTITLE: CSC 240 - Data structures with C++ - Lyon College, FA24
- #+STARTUP:overview hideblocks indent
+#+AUTHOR: Marcus Birkenkrahe
+#+SUBTITLE: CSC 240 - Data structures with C++ - Lyon College, FA24
+#+STARTUP:overview hideblocks indent
 #+OPTIONS: toc:1 num:1 ^:nil
 #+PROPERTY: header-args:C++ :main yes :includes <iostream> :results output :exports both :noweb yes
 #+PROPERTY: header-args:C :main yes :includes <stdio.h> :results output :exports both :noweb yes
@@ -274,7 +274,7 @@ Whiteboard & guided Emacs practice:
 
    #+RESULTS:
    : SIZE = 10
-   : 1 2 3 4 5 6 7 8 9 10 
+   : 1 2 3 4 5 6 7 8 9 10
 
 4. Macros can also have parameters. Here are two examples:
    #+begin_src C
@@ -304,19 +304,19 @@ Whiteboard & guided Emacs practice:
    <
 
 
-   You can also use macros to create aliases for commands you're
-   tired of typing, like =printf("%d\n",i);=
-   #+begin_src C
-     #define PRINT_INT(n) printf("%d\n",n);
+You can also use macros to create aliases for commands you're
+tired of typing, like =printf("%d\n",i);=
+#+begin_src C
+  #define PRINT_INT(n) printf("%d\n",n);
 
-     int i = 200, j = 100;
-     PRINT_INT(i/j);
-   #+end_src
+  int i = 200, j = 100;
+  PRINT_INT(i/j);
+#+end_src
 
-   #+RESULTS:
-   : 2
+#+RESULTS:
+: 2
 
-* NEXT Arrays: Checking a Number for Repeated Digits
+* IN PROGRESS Arrays: Checking a Number for Repeated Digits
 
 - *Problem:* Checks whether any of the digits in a number appear more
   than once. After the user enters a number, the program prints either
@@ -356,6 +356,44 @@ Whiteboard & guided Emacs practice:
 
   3) If the loop was left at any place then =n>0= and we have a
      =Repeated digit=, otherwise =No repeated digits=.
+
+- Let's run through the loop sequence for =n = 282=
+
+  #+begin_example
+  1) n = 282 > 0 // enter the loop
+       digit = 282 % 10 = 2 // remainder
+       test: digit_seen[2] is FALSE
+       set digit_seen[2] to TRUE
+       next digit: 282 / 10 = 28.2
+       (int) 28.2 = 28
+       // back to start of the loop
+  2) n = 28 > 0 // enter the loop
+       digit = 28 % 10 = 8 // remainder
+       test: digit_seen[8] is FALSE
+       set digit_seen[8] to TRUE
+       next digit: 28 / 10 = 2.8
+       (int) 2.8 = 2
+       // back to start of the loop
+  3) n = 2 > 0 // enter the loop
+       digit = 2 % 10 = 2
+       test: digit_seen[2] is TRUE
+       break loop
+
+  Result: n = 2 > 0 -> "Repeated digit"
+
+  If the last number had not been 2 or 8 but e.g. 1:
+  4) n = 1 > 0 // enter loop
+     digit = 1 % 10 = 1 (remainder)
+     digit_seen[1] is FALSE
+     set digit_seen[1] to TRUE
+     next digit: 1 / 10 = 0.1
+     (int) 0.1 = 0
+     // back to start of the loop
+
+  5) n = 0 // leave the loop
+
+  Result: n = 0 -> no repeated digits
+  #+end_example
 
 - *Program* =repdigit.c=:
   #+begin_src C :tangle repdigit.c :main no :includes :results none :exports both
@@ -478,16 +516,11 @@ Whiteboard & guided Emacs practice:
 5. You can generate an interesting error by reducing the length of
    =digit_seen= to any number below 10 (so some digits are not
    included), and put the not included digit in a non-repeating
-   number, e.g. =digit_seen[9]= and =n = 123456789=:
+   number, e.g. =digit_seen[9]= and =n = 289:
    #+begin_example
    *** stack smashing detected ***: terminated
    [ Babel evaluation exited with code "Aborted" ]
    #+end_example
-
-   In the example, -digit_
-
-
-
 
 * Debugging with =gdb=
 
