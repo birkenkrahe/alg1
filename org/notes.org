@@ -637,8 +637,10 @@ We'll combine this review with some light coding. Useful also for the
 #+caption: M C Escher (crystal ball)
 [[../img/escher.gif]] 
 
-- [ ] Video + solution "Sample Array Operations" assignment
-- [ ] 2 more programming assignments for arrays
+
+- [X] Emacs tip of the day: creating more than one window (C-x 5 2)
+- [X] Video + solution "Sample Array Operations" assignment
+- [X] 2 more programming assignments for arrays
 - [X] Continue with the "reverse array elements" program ([[file:2_arrays_codealong.org][code along]])
 - [X] Quiz 3 is live
 - [X] Learn different ways to compile and run a source code file
