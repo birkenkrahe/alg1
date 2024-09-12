@@ -412,7 +412,6 @@ a name and a value or parameter.
   : No repeated digit.
   
   
-* Solution to 2nd programming assignment
 
 
 
