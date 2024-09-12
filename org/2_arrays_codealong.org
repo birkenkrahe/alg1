@@ -268,45 +268,8 @@ a name and a value or parameter.
   Repeated digit
   #+end_example
 
-- *Algorithm*:
+- *Algorithm*: ...
 
-  1) Use an array =digit_seen= to keep track of which digits in [0,9]
-     appear in a number. Initialize the array to =false= (no digits
-     seen). For example, =digit_seen[4]= corresponds to digit 4 and
-     holds the value =false= (not seen) at the start.
-
-  2) Loop over the digits of =n= (using modulo 10). Leave loop if =digit=
-     has already been seen (=digit_seen[digit] = true=). Otherwise, set
-     =digit_seen[digit] = true= (seen for the first time).
-
-  3) If the loop was left at any place then =n>0=, and we have a =Repeated
-     digit=, otherwise =No repeated digits=.
-
-- In code version 1, we ignore user input and set the number =n=.
-
-- In code version 2, we add user input using =scanf=.
-
-- Code version 1: Without user input. To be able to use =true= and
-  =false= values (instead of =1= and =0=), =include= the header file
-  =stdbool.h= - we need to update the code block header for that:
-  #+begin_src C :includes <stdbool.h> <stdio.h> :tangle
-    /*********************************************************/
-    // repdigit.c: checks numbers for repeated digits.
-    // Input: number n with (without) repeated digits.
-    // Output: Print "Repeated digit" or "No repeated digit."
-    // Version 1: number n fixed (no user input)
-    /*********************************************************/
-    // declare and initialize variables
-    bool digit_seen[9] = {false};
-    int digit, n = 28212;
-
-    // loop over digit
-    while (n>0)
-
-    // print results
-
-
-  #+end_src
   
 
 
