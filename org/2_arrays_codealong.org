@@ -258,17 +258,6 @@ a name and a value or parameter.
 
 * TODO Arrays: Checking a Number for Repeated Digits
 
-- *Problem*: Check if any of the digits in a number =n= appear more than
-  once. After the user enters a number, the program prints either
-  =Repeated digit= or =No repeated digit=.
-
-- *Sample input and output*:
-  #+begin_example
-  Enter a number: 28212
-  Repeated digit
-  #+end_example
-
-- *Algorithm*: ...
 
   
 
