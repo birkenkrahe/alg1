@@ -227,7 +227,7 @@ Whiteboard & guided Emacs practice:
      5) The =./= is necessary for the shell to find the executable file
         =rev= in the current directory.
 
-* NEXT Notes
+* Notes
 
 1. Is the program proofed against wrong input? Try to break it using
    the command-line executable entering characters or words instead,
@@ -316,7 +316,7 @@ Whiteboard & guided Emacs practice:
    #+RESULTS:
    : 2
 
-* Arrays: Checking a Number for Repeated Digits
+* NEXT Arrays: Checking a Number for Repeated Digits
 
 - *Problem:* Checks whether any of the digits in a number appear more
   than once. After the user enters a number, the program prints either
@@ -333,15 +333,29 @@ Whiteboard & guided Emacs practice:
 
 * Solution
 
-- *Strategy*: The program uses an array of Boolean values =digits_seen= to
-  keep track of which digits 0-9 appear in a number. Initially, every
-  element of the array is =false=. When given a number =n=, the program
-  examines its digits one at a time, storing each into the =digit=
-  variable, and then using it as an index into =digit_seen=. if
-  =digit_seen[digit]= is =true=, then =digit= appears at least twice in
-  =n=. If =digit_seen[digit]= is =false=, then =digit= has not been seen
-  before, so the program sets =digit_seen[digit]= to =true= and keeps
-  going.
+- *Problem*: Check if any of the digits in a number =n= appear more than
+  once. After the user enters a number, the program prints either
+  =Repeated digit= or =No repeated digit=.
+
+- *Sample input and output*:
+  #+begin_example
+  Enter a number: 28212
+  Repeated digit
+  #+end_example
+
+- *Algorithm*:
+
+  1) Use an array =digit_seen= to keep track of which digits in [0,9]
+     appear in a number. Initialize the array to =false= (no digits
+     seen). For example, =digit_seen[4]= corresponds to digit 4 and
+     holds the value =false= (not seen) at the start.
+
+  2) Loop over the digits of =n= (using modulo 10). Leave loop if =digit=
+     has already been seen (=digit_seen[digit] = true=). Otherwise, set
+     =digit_seen[digit] = true= (seen for the first time).
+
+  3) If the loop was left at any place then =n>0= and we have a
+     =Repeated digit=, otherwise =No repeated digits=.
 
 - *Program* =repdigit.c=:
   #+begin_src C :tangle repdigit.c :main no :includes :results none :exports both
