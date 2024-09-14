@@ -1,0 +1,48 @@
+#+startup: overview hideblocks indent entitiespretty:
+* Three =repdigit.c= programs
+
+For full points, submit your solution as an literate Org-mode file -
+document and structure the submitted file accordingly as you saw it in
+class. A "literate Org-mode file" is a notebook that documents problem
+and solution like a chapter in a book. The code itself is only part of
+it.
+
+The code should pass the test case, and the required output should be
+part of the Org-mode file. Since user input is required, compile and
+run the tangled file in a =bash= code block for problems 1-2, and for
+the bonus problem 3, tangle the file, and open a shell in Emacs (=M-x
+shell=) to compile and run it.
+
+Tip: If you run into trouble, remember that you can debug your code
+with =gdb= if you compile the file with =gcc =-g=.
+
+** Show which digits were repeated
+
+Modify the =repdigit.c= program ([[https://github.com/birkenkrahe/alg1/blob/main/org/2_arrays.org#solution-1][link]]), which checked a number for
+repeated digits so that it shows which digits (if any) were repeated.
+
+Sample input and output:
+#+begin_example
+Enter a number: 939577
+Repeated digit(s): 7 9
+#+end_example
+
+** Print table showing number of occurrences
+
+Modify the =repdigit.c= program ([[https://github.com/birkenkrahe/alg1/blob/main/org/2_arrays.org#solution-1][link]]), which checked a number for
+repeated digits so that it prints a table showing how many times each
+digit appears in the number:
+
+Sample input and output:
+#+begin_example
+Enter a number: 41271092
+Digit:        0  1  2  3  4  5  6  7  8  9
+Occurrences:  1  2  2  0  1  0  0  1  0  1
+#+end_example
+
+** Let user enter more than one number (Bonus program)
+
+Modify the =repdigit.c= program ([[https://github.com/birkenkrahe/alg1/blob/main/org/2_arrays.org#solution-1][link]]), which checked a number for
+repeated digits so that the user can enter more than one number to be
+tested for repeated digits. The program should terminate when the user
+enters a number that's less than or equal to 0.
