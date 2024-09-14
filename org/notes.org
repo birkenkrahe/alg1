@@ -656,16 +656,17 @@ Use my sample solution to create your own solution if you like and
 submit it late for at most 50% of the points, but make sure that you
 don't copy and paste but write all code by hand and understand it.
 
-* Week 5 - Functions
-* Week 6 - Pointers
-* Week 7 - Arrays of Pointers
-* Week 8 - String Manipulation
-* Week 9 - Structs, Enums, Unions
-* Week 10 - Dynamic Storage Allocation
-* Week 11 - Linked Lists
-* Week 12 - Stacks and Queues
-* Week 13 - Trees and Hash Tables
-* Week 14 - Heaps and Priority Queues
-* Week 15 - Graphs
+* Week 5 - Functions and Recursion
+* Week 6 - Pointers and Arrays of Pointers
+* Week 7 - String Manipulation
+* Week 8 - Structs, Enums, Unions
+* Week 9 - Dynamic Storage Allocation
+* Week 10 - Linked Lists and Doubly Linked Lists
+* Week 11 - Stacks and Queues
+* Week 12 - Trees and Hash Tables
+* Week 13 - Heaps and Priority Queues
+* Week 14 - Graphs
+* Week 15 - C++
+
 
 
