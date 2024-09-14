@@ -316,7 +316,7 @@ tired of typing, like =printf("%d\n",i);=
 #+RESULTS:
 : 2
 
-* IN PROGRESS Arrays: Checking a Number for Repeated Digits
+* Arrays: Checking a Number for Repeated Digits
 
 - *Problem:* Checks whether any of the digits in a number appear more
   than once. After the user enters a number, the program prints either

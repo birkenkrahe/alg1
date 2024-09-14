@@ -312,7 +312,7 @@ Thomas Crecquillan (1549).
 ** Introduction to Data Structures (Lecture) II
 ** Array basics (review)
 ** On the Programming Assignments
-#+attr_html: :width 400px: 
+#+attr_html: :width 400px:
 #+caption: Portrait de femme au col d'hermine (Olga) - Picasso (1923)
 [[../img/picasso.png]]
 
@@ -342,7 +342,7 @@ We'll combine this review with some light coding. Useful also for the
 - Run this line with C-c C-c
 - Test it by creating a code block with: <s <TAB>
 - In the code block write =printf("Hello, beautiful!");=
-- Run this thing: C-c C-c 
+- Run this thing: C-c C-c
 
 
 1. What distinguishes the choice of different data structures?
@@ -359,9 +359,9 @@ We'll combine this review with some light coding. Useful also for the
    soon as the =main= function is finished (when =return 0= is reached).
    #+end_quote
    Code example:
-   #+begin_src C 
+   #+begin_src C
      int main(void)
-     { 
+     {
        int A[5]; // array declaration
        return 0;
      }
@@ -391,7 +391,7 @@ We'll combine this review with some light coding. Useful also for the
      int *A = (int*)malloc(5 * sizeof(int)); // Allocate memory for 5 integers
      // You can now assign values to A[0] through A[4]
      free(A); // Free the allocated memory
-     
+
    #+end_src
 
 5. What are the stages of solving a computational problem?
@@ -435,11 +435,11 @@ We'll combine this review with some light coding. Useful also for the
    #+end_src
 
    #+RESULTS:
-   : A[0]: 0 B[0]: 0 C[0]: 0 
-   : A[1]: 0 B[1]: 0 C[1]: 0 
-   : A[2]: 0 B[2]: 0 C[2]: 0 
-   : A[3]: 0 B[3]: 0 C[3]: 0 
-   : A[4]: 0 B[4]: 0 C[4]: 0 
+   : A[0]: 0 B[0]: 0 C[0]: 0
+   : A[1]: 0 B[1]: 0 C[1]: 0
+   : A[2]: 0 B[2]: 0 C[2]: 0
+   : A[3]: 0 B[3]: 0 C[3]: 0
+   : A[4]: 0 B[4]: 0 C[4]: 0
 
 8. What do you get when you print undeclared array elements?
    #+begin_quote
@@ -465,13 +465,13 @@ We'll combine this review with some light coding. Useful also for the
    #+end_src
 
    #+RESULTS:
-   : A[0]: 0 B[0]: 0 C[0]: 0 
-   : A[1]: 0 B[1]: 0 C[1]: 0 
-   : A[2]: 0 B[2]: 0 C[2]: 0 
-   : A[3]: 0 B[3]: 0 C[3]: 0 
-   : A[4]: 0 B[4]: 0 C[4]: 0 
-   : A[5]: 0 B[5]: 0 C[5]: 0 
-   : A[6]: -1412640919 B[6]: -1075053569 C[6]: -1533928960 
+   : A[0]: 0 B[0]: 0 C[0]: 0
+   : A[1]: 0 B[1]: 0 C[1]: 0
+   : A[2]: 0 B[2]: 0 C[2]: 0
+   : A[3]: 0 B[3]: 0 C[3]: 0
+   : A[4]: 0 B[4]: 0 C[4]: 0
+   : A[5]: 0 B[5]: 0 C[5]: 0
+   : A[6]: -1412640919 B[6]: -1075053569 C[6]: -1533928960
 9. When is the length of an array determined?
    #+begin_quote
    When the length of an array is determined depends on type of array:
@@ -510,17 +510,17 @@ We'll combine this review with some light coding. Useful also for the
     #+end_src
 
     #+RESULTS:
-    : 0 1 4 9 16 25 36 49 64 81 
+    : 0 1 4 9 16 25 36 49 64 81
 
 * Week 3 - Array Basics
-#+attr_html: :width 600px: 
+#+attr_html: :width 600px:
 #+caption: M C Escher (geese)
-[[../img/escher1.jpg]] 
+[[../img/escher1.jpg]]
 
 - [X] Quiz 2 to be completed (Fri 6 Sep)
 - [X] Two new programming assignments (Tue 10 Sep)
 - [X] If you're stumped - contact me
-  
+
 ** Reviewing the Array Basics Review
 
 1. If =A= is an array, what is =&A=?
@@ -552,15 +552,15 @@ We'll combine this review with some light coding. Useful also for the
      printf("%d %d %d %d\n",       // print addresses as decimals
             &A[0][0], &A[0][1],
             &A[1][0], &A[1][1]);
-          #+end_src
-   
+   #+end_src
+
 3. What's pointer arithmetic?
    #+begin_quote
    Arithmetic with memory positions. If =p= is an integer pointer, then
    =*(p + 1)= moves the pointer =p= by =1= integer (4 bytes), e.g. from
    memory position 100 to 104, because =sizeof(int)= is 4 bytes.
    #+end_quote
-   
+
 4. What's a variable-length array?
    #+begin_quote
    An array whose length is determined at run-time. It cannot be
@@ -578,7 +578,7 @@ We'll combine this review with some light coding. Useful also for the
    #+begin_quote
    It adds =#include <limits.h>= to the C source code at the top.
    #+end_quote
-   
+
 7. In Linux, how can you find out how much memory is available?
    #+begin_src bash :results output :exports both
      free -h  # give me the free memory for humans
@@ -595,10 +595,10 @@ We'll combine this review with some light coding. Useful also for the
    programs like =gcc= or =echo= or =free=. 'Run X on the shell/in the
    terminal' means 'let =bash= run it'. Some commands, like =cd=
    #+end_quote
-  Example:
-  #+begin_src bash :results output
-  gcc --version
-  #+end_src
+   Example:
+   #+begin_src bash :results output
+     gcc --version
+   #+end_src
 
 9. What does "piping input into =main=" mean? Example?
    #+begin_quote
@@ -617,25 +617,25 @@ We'll combine this review with some light coding. Useful also for the
 
    #+RESULTS:
    : 0 1 4 9 16 25 36 49 64 81
-   
+
 10. What's wrong with this header argument?
     #+begin_example
     #+PROPERTY: header-args:C :main yes :includes <stdio.h> results: output
     #+end_example
     Answer: The =results= argument needs a colon in front of it:
-      #+begin_example
-    #+PROPERTY: header-args:C :main yes :includes <stdio.h> :results output
-    #+end_example
+    #+begin_example
+  #+PROPERTY: header-args:C :main yes :includes <stdio.h> :results output
+  #+end_example
 
 ** Arrays as data structures (handout)
-#+attr_html: :width 600px: 
+#+attr_html: :width 600px:
 #+caption: M C Escher (birds)
-[[../img/escher.jpg]] 
+[[../img/escher.jpg]]
 
-* Week 4 - VLAs, Macros, =gdb=, more arrays
-#+attr_html: :width 400px: 
+* Week 4 - VLAs, Macros, arrays
+#+attr_html: :width 400px:
 #+caption: M C Escher (crystal ball)
-[[../img/escher.gif]] 
+[[../img/escher.gif]]
 
 
 - [X] Emacs tip of the day: creating more than one window (C-x 5 2)
@@ -646,7 +646,7 @@ We'll combine this review with some light coding. Useful also for the
 - [X] Learn different ways to compile and run a source code file
 - [X] Learn Variable-Length Arrays (VLAs) for dynamic allocation
 - [X] Learn parameter macros
-  
+
 ** Programming assignments and sample solutions
 
 Please let me know how to make these videos better (if you have an
@@ -657,6 +657,183 @@ submit it late for at most 50% of the points, but make sure that you
 don't copy and paste but write all code by hand and understand it.
 
 * Week 5 - Functions and Recursion
+#+attr_html: :width 600px:
+[[../img/vim_emacs_nano.jpg]]
+
+** Assignment review
+#+attr_html: :width 600px:
+[[../img/submission.png]]
+
+*** A look at a sad,sad gradebook (snapshot, Sat 14-Sep, 2.20 pm)
+#+attr_html: :width 150px:
+[[../img/gradebook.png]]
+
+- *Let me know if you resubmit an assignment (I won't keep checking)*
+
+- *Complete assignments even late if you must (I'm very negotiable)*
+
+**** Array practice: compute the course average using C!
+#+begin_src C :tangle main.c
+  int i, n;
+  float grades[n], sum=0.;
+  scanf("%d",&n);
+  for (int i=0;i<n;i++) {
+    scanf("%f",&grades[i]);
+    printf("%g ",grades[i]);
+    sum+=grades[i];
+   }
+  printf("\nAverage = %g\n",sum/n);
+#+end_src
+
+#+begin_src bash :results output :exports both
+  gcc main.c -o main && echo "16 0. 7.62 30.16 30.16 32.59 45.24 45.56
+  53.02 59.26 62.22 63.17 65.4 76.19 98.33 98.41 98.89" | ./main
+#+end_src
+
+#+RESULTS:
+: 0 7.62 30.16 30.16 32.59 45.24 45.56 53.02 59.26 62.22 63.17 65.4 76.19 98.33 98.41 98.89
+: Average = 54.1387
+
+
+**** Data science people: Plot it using R!
+
+#+begin_src R :file grades.png :session *R* :results file graphics output :exports both
+  grades <- c(0.,7.62,30.16,30.16,32.59,45.24,45.56,53.02,
+              59.26,62.22,63.17,65.4,76.19,98.33,98.41,98.89)
+  hist(grades);
+  abline(v=mean(grades),col="red",lwd=2)
+#+end_src
+
+#+RESULTS:
+[[file:grades.png]]
+
+*** Why can't we just submit the code?
+#+begin_quote
+You know the answer: I want you to engage not just with solving the
+problem, which is often very simple, but with the infrastructure, with
+the class material, and with your own problem solving abilities (or
+lack thereof). The raw code is something AI can produce already.
+#+end_quote
+*** What happens if I always submit correct code but don't respect the instructions?
+#+begin_quote
+You know the answer: You will be judged according to the rubric. Data
+structures is not an introductory course for people who want to see if
+programming is for them. It's a serious, difficult collection of
+topics that you need to master on your way towards becoming a computer
+or data science professional.
+#+end_quote
+*** Which rubric?
+#+attr_html: :width 600px:
+[[../img/rubric.png]]
+
+*** Is there no other way?
+#+begin_quote
+Not at Lyon. You can probably create a brilliant career for yourself
+studying hard and with great discipline, on your own, with mostly free
+resources, spending time rather than money - I've done it myself, but
+currently you're on a different path, and why not make the best of it?
+#+end_quote
+*** What if I just didn't have enough time but wanted to submit what I had?
+#+begin_quote
+That's perfectly fine if you respond to my feedback within a
+reasonable amount of time (1-2 weeks) and resubmit with fixes. I am
+easy in that I will still give you full points for applying yourself -
+but just trying is no longer enough.
+#+end_quote
+
+*** Why do students not respect instructions for submission?
+
+- This is what ChatGPT has to say what the resons could be why some,
+  not all students systematically ignore my instructions:
+  #+begin_quote
+
+There are several potential reasons why students might systematically
+ignore submission instructions:
+
+1. *Lack of Clarity or Understanding*: Students may not fully understand
+   the instructions due to unclear language or insufficient
+   examples. If instructions are ambiguous or overly complex, students
+   may misinterpret them.
+
+2. *Overwhelming Details*: When submission instructions contain too many
+   steps or technical details, students may feel overwhelmed and skip
+   parts they consider less important.
+
+3. *Lack of Emphasis on Consequences*: If students don't perceive clear
+   consequences for failing to follow submission guidelines, they may
+   not see the value in adhering to them strictly.
+
+4. *Time Management Issues*: In a rush to meet deadlines, students may
+   prioritize completing the task itself over ensuring the submission
+   follows the format exactly.
+
+5. *Lack of Familiarity with Tools*: Students unfamiliar with tools like
+   Org-mode or Emacs may struggle with those aspects of the submission
+   process, especially if they haven’t had enough practice or
+   guidance.
+
+6. *Technical Difficulties*: Issues such as trouble with software setup,
+   tangling files, or file submission platforms might lead students to
+   avoid following the specific instructions.
+
+7. *Perception of Redundancy*: Students may see submission instructions
+   as bureaucratic or unnecessary if they believe the core task
+   (solving the problem) is more important than the format in which
+   it's submitted.
+
+8. *Disregard for Attention to Detail*: Some students may not yet
+   appreciate the importance of attention to detail, particularly in
+   fields like computer science, where strict adherence to
+   instructions is often essential.
+
+9. *Inadequate Feedback*: If students previously ignored submission
+   instructions without receiving specific feedback about that, they
+   may not realize it's a problem.
+
+10. *Language Barriers*: For students for whom the language of
+    instruction is not their first language, submission instructions
+    might be harder to grasp, particularly if there’s jargon or
+    technical language involved.
+
+Understanding these reasons can help instructors adjust their
+approach—whether by simplifying instructions, providing more training
+on tools, or emphasizing the importance of submission formatting.
+  #+end_quote
+
+Lengthy response:
+
+| ISSUE                  | COMMENT                                                 |
+|------------------------+---------------------------------------------------------|
+| *Lack of clarity*        | Ask! Let me know if anything is unclear                 |
+| *Overwhelming detail*    | Translate instructions for yourself                     |
+| *Lack of consequences*   | You must resubmit until you have fixed your submission  |
+| *Time management*        | Start early, program a little daily, ask for help       |
+| *Unfamiliar tools*       | Go through the Emacs tutorial. Code along my videos.    |
+| *Technical issues*       | Practice more and/or install tools on your laptop       |
+| *Format unimportant*     | Just believe me when I say it's important               |
+| *No attention to detail* | Switch off distractions and focus on the details        |
+| *Inadequate feedback*    | You should have had message(s) from me about this       |
+| *Language barrier*       | Again: ask me, or ask other students, and learn         |
+
+Short response:
+
+1. Suck it up!
+2. It's for your own good!
+3. No pain, no gain!
+
+*** What else will you do to help us?
+#+begin_quote
+I will make a video of my sample solution, which you can use to
+improve your game, identify your mistakes, and help me make better
+videos.
+#+end_quote
+*** Any questions?
+
+You must learn to ask questions, ideally in the class: most problems
+that I've encountered are shared among students. Help others and they
+will help you!
+
+
 * Week 6 - Pointers and Arrays of Pointers
 * Week 7 - String Manipulation
 * Week 8 - Structs, Enums, Unions
@@ -667,6 +844,3 @@ don't copy and paste but write all code by hand and understand it.
 * Week 13 - Heaps and Priority Queues
 * Week 14 - Graphs
 * Week 15 - C++
-
-
-
