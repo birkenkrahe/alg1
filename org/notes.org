@@ -664,6 +664,10 @@ don't copy and paste but write all code by hand and understand it.
 #+attr_html: :width 600px:
 [[../img/submission3.png]]
 
+For this assignment, I will waive the 50% rule for late
+submissions. If you submit a correct version within 1-2 weeks you can
+still get full points.
+
 The complete problem & sample solution file is on GitHub:
 [[https://tinyurl.com/simple-array-operations-org][tinyurl.com/simple-array-operations-org]] - the video is on YouTube:
 http://www.youtube.com/@LiterateProgramming
@@ -728,6 +732,14 @@ You know the answer: I want you to engage not just with solving the
 problem, which is often very simple, but with the infrastructure, with
 the class material, and with your own problem solving abilities (or
 lack thereof). The raw code is something AI can produce already.
+
+Another reason: Your code is buggy. Do you really mean for me to run
+your code, fix your errors, etc. Would that irritate or interest you
+if you were me? I believe I can spend my time a lot more useful than
+that. Time-wise, checking a submission & fixing & giving feedback
+takes no less than 15 minutes, which would be four hours per
+programming assignment for this class only, or 8 hours for two weekly
+assignment = one whole work day.
 #+end_quote
 *** What areas of improvement were there this time?
 
@@ -884,10 +896,18 @@ will help you!
 #+attr_html: :width 600px:
 [[../img/submission3.png]]
 
+For this assignment, I will waive the 50% rule for late
+submissions. If you submit a correct version within 1-2 weeks you can
+still get full points.
+
 The complete problem & sample solution file is on GitHub:
+[[https://tinyurl.com/array-temperature-analysis-org][tinyurl.com/array-temperature-analysis-org]] - a short video (v1 only)
+is on YouTube: http://www.youtube.com/@LiterateProgramming
 
-
-
+Nothing new - almost everybody made the same mistakes (3/9 submissions
+got full points). I noticed that many of you seem to submit 5 minutes
+before the deadline. That's not leaving yourself enough time for
+something that requires a lot of diligence.
 
 * Week 6 - Pointers and Arrays of Pointers
 * Week 7 - String Manipulation
