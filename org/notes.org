@@ -658,19 +658,19 @@ don't copy and paste but write all code by hand and understand it.
 
 * Week 5 - Functions and Recursion
 #+attr_html: :width 600px:
-[[../img/vim_emacs_nano.jpg]]
+[[../img/coach.png]]
 
-** Assignment review
+** Assignment 3 review - A sermon, code, questions, and some answers
 #+attr_html: :width 600px:
-[[../img/submission.png]]
+[[../img/submission3.png]]
 
-*** A look at a sad,sad gradebook (snapshot, Sat 14-Sep, 2.20 pm)
-#+attr_html: :width 150px:
-[[../img/gradebook.png]]
+The complete problem & sample solution file is on GitHub:
+[[https://tinyurl.com/simple-array-operations-org][tinyurl.com/simple-array-operations-org]] - the video is on YouTube:
+http://www.youtube.com/@LiterateProgramming
 
-- *Let me know if you resubmit an assignment (I won't keep checking)*
-
-- *Complete assignments even late if you must (I'm very negotiable)*
+*** A look at a sad,sad gradebook (snapshot, Sat 14-Sep)
+#+attr_html: :height 500px:
+[[../img/grades.png]]
 
 **** Array practice: compute the course average using C!
 #+begin_src C :tangle main.c
@@ -694,19 +694,34 @@ don't copy and paste but write all code by hand and understand it.
 : 0 7.62 30.16 30.16 32.59 45.24 45.56 53.02 59.26 62.22 63.17 65.4 76.19 98.33 98.41 98.89
 : Average = 54.1387
 
+Bonus question: why kind of array is =grades[n]=?
+#+begin_quote
+=grades[n]= is a Variable-Length Array:length is determined at run-time.
+#+end_quote
 
 **** Data science people: Plot it using R!
 
 #+begin_src R :file grades.png :session *R* :results file graphics output :exports both
   grades <- c(0.,7.62,30.16,30.16,32.59,45.24,45.56,53.02,
               59.26,62.22,63.17,65.4,76.19,98.33,98.41,98.89)
-  hist(grades);
+  hist(grades, xlab="Grades [%]", main="Total grades CSC 240 (14-Sep-2024)");
   abline(v=mean(grades),col="red",lwd=2)
 #+end_src
 
 #+RESULTS:
 [[file:grades.png]]
 
+*** Did anyone do well?
+#+begin_quote
+- Only one student (Austin) received a grade for a complete & correct
+  submission.
+- Everyone else either did not submit (0 points) or received feedback
+  and was asked to resubmit within 1-2 weeks for full points.
+- If you did not submit (and have no accommodations), you get at most
+  50% (so it's worth submitting even if you have very little).
+- If you have accommodations, you've got an extra week (you might have
+  to remind me).
+#+end_quote
 *** Why can't we just submit the code?
 #+begin_quote
 You know the answer: I want you to engage not just with solving the
@@ -714,13 +729,36 @@ problem, which is often very simple, but with the infrastructure, with
 the class material, and with your own problem solving abilities (or
 lack thereof). The raw code is something AI can produce already.
 #+end_quote
+*** What areas of improvement were there this time?
+
+1) Submission contains only the code and some accidental output.
+2) The test case, which must be reproduced to the letter, is missing.
+3) The reflection comes at the end and appears perfunctory.
+4) The solution path is missing (usually at the start).
+5) The document contains no structural elements (like headlines).
+6) The code shows no indentation, and is hard to read (use C-M-\)
+7) The =main= and =include= commands are already in the header but they
+   are repeated.
+8) The program is missing a header - not explicitly asked for but
+   important: do you really want to have to read the code/comments to
+   find out what this program does?
+9) The shell code block is missing the =:results output= header.
+10) Using different loop variables though there is only one type of
+    loop (over the elements of the array).
+11) The Org-mode file meta data at the top of the file are
+    malformatted: for example `#+title` is just text - the keyword is
+    =#+title:=, and `#+` on its own achieves nothing.
+12) The documentation is not to be hidden after C comments `//` or
+    `#+` or in a separate text file but in (ideally ahead of) the
+    code.
+    
 *** What happens if I always submit correct code but don't respect the instructions?
 #+begin_quote
-You know the answer: You will be judged according to the rubric. Data
-structures is not an introductory course for people who want to see if
-programming is for them. It's a serious, difficult collection of
-topics that you need to master on your way towards becoming a computer
-or data science professional.
+You know the answer: If I don't get a resubmission, you will be judged
+according to the rubric. Data structures is not an introductory course
+for people who want to see if programming is for them. It's a serious,
+difficult collection of topics that you need to master on your way
+towards becoming a computer or data science professional.
 #+end_quote
 *** Which rubric?
 #+attr_html: :width 600px:
@@ -823,15 +861,32 @@ Short response:
 
 *** What else will you do to help us?
 #+begin_quote
-I will make a video of my sample solution, which you can use to
-improve your game, identify your mistakes, and help me make better
-videos.
+- I will make a video of my sample solution, which you can use to
+  improve your game, identify your mistakes, and help me make better
+  videos.
+- I will continue to give you detailed feedback so that you can fix
+  your errors. I usually "reassign" the assignment without giving 0
+  points. In this way your grade does not suffer but if I don't get a
+  resubmission within 1-2 weeks, I will give you partial points (50%).
+- Talk to me if you're unhappy about this and we can try to find a
+  solution that satisfies both my and your needs!
 #+end_quote
 *** Any questions?
 
 You must learn to ask questions, ideally in the class: most problems
 that I've encountered are shared among students. Help others and they
 will help you!
+
+
+
+
+** Assignment 4 review
+#+attr_html: :width 600px:
+[[../img/submission3.png]]
+
+The complete problem & sample solution file is on GitHub:
+
+
 
 
 * Week 6 - Pointers and Arrays of Pointers
