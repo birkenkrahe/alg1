@@ -627,16 +627,16 @@ We'll combine this review with some light coding. Useful also for the
   #+PROPERTY: header-args:C :main yes :includes <stdio.h> :results output
   #+end_example
 
+
 ** Arrays as data structures (handout)
 #+attr_html: :width 600px:
 #+caption: M C Escher (birds)
 [[../img/escher.jpg]]
 
 * Week 4 - VLAs, Macros, arrays
-#+attr_html: :width 400px:
+#+attr_html: :width 300px:
 #+caption: M C Escher (crystal ball)
 [[../img/escher.gif]]
-
 
 - [X] Emacs tip of the day: creating more than one window (C-x 5 2)
 - [X] Video + solution "Sample Array Operations" assignment
@@ -655,6 +655,7 @@ idea, and if you don't, just give me some general feedback).
 Use my sample solution to create your own solution if you like and
 submit it late for at most 50% of the points, but make sure that you
 don't copy and paste but write all code by hand and understand it.
+
 
 * Week 5 - Functions and Recursion
 #+attr_html: :width 600px:
@@ -675,33 +676,6 @@ http://www.youtube.com/@LiterateProgramming
 *** A look at a sad,sad gradebook (snapshot, Sat 14-Sep)
 #+attr_html: :height 500px:
 [[../img/grades.png]]
-
-**** Array practice: compute the course average using C!
-#+begin_src C :tangle main.c
-  int i, n;
-  float grades[n], sum=0.;
-  scanf("%d",&n);
-  for (int i=0;i<n;i++) {
-    scanf("%f",&grades[i]);
-    printf("%g ",grades[i]);
-    sum+=grades[i];
-   }
-  printf("\nAverage = %g\n",sum/n);
-#+end_src
-
-#+begin_src bash :results output :exports both
-  gcc main.c -o main && echo "16 0. 7.62 30.16 30.16 32.59 45.24 45.56
-  53.02 59.26 62.22 63.17 65.4 76.19 98.33 98.41 98.89" | ./main
-#+end_src
-
-#+RESULTS:
-: 0 7.62 30.16 30.16 32.59 45.24 45.56 53.02 59.26 62.22 63.17 65.4 76.19 98.33 98.41 98.89
-: Average = 54.1387
-
-Bonus question: why kind of array is =grades[n]=?
-#+begin_quote
-=grades[n]= is a Variable-Length Array:length is determined at run-time.
-#+end_quote
 
 **** Data science people: Plot it using R!
 
@@ -763,7 +737,7 @@ assignment = one whole work day.
 12) The documentation is not to be hidden after C comments `//` or
     `#+` or in a separate text file but in (ideally ahead of) the
     code.
-    
+
 *** What happens if I always submit correct code but don't respect the instructions?
 #+begin_quote
 You know the answer: If I don't get a resubmission, you will be judged
@@ -908,6 +882,56 @@ Nothing new - almost everybody made the same mistakes (3/9 submissions
 got full points). I noticed that many of you seem to submit 5 minutes
 before the deadline. That's not leaving yourself enough time for
 something that requires a lot of diligence.
+
+
+** Review: VLA, Macros
+
+1. How would you compute the course average using VLAs in C! Here are
+   the grades for you to copy: tinyurl.com/grades-assignment
+   #+begin_src bash :results output :exports both
+     echo 7.62 30.16 30.16 32.59 45.24 45.56 53.02 59.26\
+          62.22 63.17 65.4 76.19 98.33 98.41 98.89 > ../data/grades
+     cat ../data/grades
+   #+end_src
+
+   #+RESULTS:
+   : 7.62 30.16 30.16 32.59 45.24 45.56 53.02 59.26 62.22 63.17 65.4 76.19 98.33 98.41 98.89
+
+   This is really easy in R:
+   #+begin_src R :session *R* :results output :exports both
+     mean(read.csv("https://tinyurl.com/grades-assignment)
+   #+end_src
+
+   #+begin_src C :tangle main.c
+     int i, n;
+     float grades[n], sum=0.;
+     scanf("%d",&n);
+     for (int i=0;i<n;i++) {
+       scanf("%f",&grades[i]);
+       printf("%g ",grades[i]);
+       sum+=grades[i];
+      }
+     printf("\nAverage = %g\n",sum/n);
+   #+end_src
+
+#+begin_src bash :results output :exports both
+  gcc main.c -o main && echo "16 0. 7.62 30.16 30.16 32.59 45.24 45.56
+  53.02 59.26 62.22 63.17 65.4 76.19 98.33 98.41 98.89" | ./main
+#+end_src
+
+#+RESULTS:
+: 0 7.62 30.16 30.16 32.59 45.24 45.56 53.02 59.26 62.22 63.17 65.4 76.19 98.33 98.41 98.89
+: Average = 54.1387
+
+Bonus question: why kind of array is =grades[n]=?
+#+begin_quote
+=grades[n]= is a Variable-Length Array:length is determined at run-time.
+#+end_quote
+
+
+
+
+
 
 * Week 6 - Pointers and Arrays of Pointers
 * Week 7 - String Manipulation
