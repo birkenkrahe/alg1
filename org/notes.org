@@ -1034,8 +1034,36 @@ something that requires a lot of diligence.
 
 ** Using the C debugger =gdb=
 
+- Tangle the original version of =repdigit.c= (no user input)
 
-** Three practice exercises
+- Compile it with the =-g= flag
+
+- Run it through the =gdb= debugger
+
+- Open the source code file with =M-x global-linum-mode=
+
+- Commands to try in =gdb=:
+  #+begin_example
+  (gdb) run
+  (gdb) help
+  (gdb) info locals
+  (gdb) break 23
+  (gdb) step
+  (gdb) print n
+  (gdb) continue
+  #+end_example
+
+- Compare with =pythontutor.com=:
+  1) Choose =C=
+  2) Paste =repdigit.c= into editor
+  3) Visualize execution
+  4) Step through program with =Next=
+
+** Three practice exercises (bonus or classroom?)
+
+- Boolean array declaration
+- Array of Fibonacci numbers
+- Initialize and print matrix
 
 * Week 6 - Pointers and Arrays of Pointers
 * Week 7 - String Manipulation
