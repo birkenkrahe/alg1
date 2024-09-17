@@ -884,10 +884,11 @@ before the deadline. That's not leaving yourself enough time for
 something that requires a lot of diligence.
 
 
-** Review: VLA, Macros
+** Review: VLA, Macros & Quiz 4 Preview
 
 1. How would you compute the course average using VLAs in C! Here are
-   the grades for you to copy: tinyurl.com/grades-assignment
+   the grades for you to copy: [[https://tinyurl.com/grades-fall24][tinyurl.com/grades-fall24]]
+
    #+begin_src bash :results output :exports both
      echo 7.62 30.16 30.16 32.59 45.24 45.56 53.02 59.26\
           62.22 63.17 65.4 76.19 98.33 98.41 98.89 > ../data/grades
@@ -899,9 +900,16 @@ something that requires a lot of diligence.
 
    This is really easy in R:
    #+begin_src R :session *R* :results output :exports both
-     mean(read.csv("https://tinyurl.com/grades-assignment)
+     df <- read.csv("https://tinyurl.com/grades-fall24",sep=" ",header=FALSE)
+     df
+                                             #mean(read.csv("https://tinyurl.com/grades-fall24",sep=" ",header=FALSE)[,]#)
    #+end_src
 
+   #+RESULTS:
+   : V1    V2    V3    V4    V5    V6    V7    V8    V9   V10  V11   V12   V13   V14   V15
+   : 1 7.62 30.16 30.16 32.59 45.24 45.56 53.02 59.26 62.22 63.17 65.4 76.19 98.33 98.41 98.89
+
+   #+name: grades
    #+begin_src C :tangle main.c
      int i, n;
      float grades[n], sum=0.;
@@ -914,24 +922,108 @@ something that requires a lot of diligence.
      printf("\nAverage = %g\n",sum/n);
    #+end_src
 
-#+begin_src bash :results output :exports both
-  gcc main.c -o main && echo "16 0. 7.62 30.16 30.16 32.59 45.24 45.56
-  53.02 59.26 62.22 63.17 65.4 76.19 98.33 98.41 98.89" | ./main
-#+end_src
+   #+begin_src bash :results output :exports both
+     gcc main.c -o main && echo "16 0. 7.62 30.16 30.16 32.59 45.24 45.56
+     53.02 59.26 62.22 63.17 65.4 76.19 98.33 98.41 98.89" | ./main
+   #+end_src
 
-#+RESULTS:
-: 0 7.62 30.16 30.16 32.59 45.24 45.56 53.02 59.26 62.22 63.17 65.4 76.19 98.33 98.41 98.89
-: Average = 54.1387
+   You can also get this from the URL with =wget=:
+   #+begin_src bash :results output :exports both
+     echo 16 > grades2
+     wget -q -O - https://tinyurl.com/grades-fall24 >> grades2
+     cat grades2
+   #+end_src
 
-Bonus question: why kind of array is =grades[n]=?
-#+begin_quote
-=grades[n]= is a Variable-Length Array:length is determined at run-time.
-#+end_quote
+   Now you can redirect the file =grades2= into the executable =./main=
+   #+begin_src bash :results output :exports both
+     gcc main.c -o main && ./main < grades2
+   #+end_src
 
+   Incidentally, you can do this also in the Org-mode code block using
+   the header argument =:cmdline < grades2=, and then you don't have to
+   tangle the source code:
+   #+begin_src C :cmdline < grades2
+     int i, n;
+     float grades[n], sum=0.;
+     scanf("%d",&n);
+     for (int i=0;i<n;i++) {
+       scanf("%f",&grades[i]);
+       printf("%g ",grades[i]);
+       sum+=grades[i];
+      }
+     printf("\nAverage = %g\n",sum/n);
+   #+end_src
 
+   In future assignments with user input, you can pick your poison -
+   =bash= code block input with pipe command, or =cmdline= file input.
 
+2. What constraints are place on VLA declaration?
+   
+   #+begin_quote
+   Variable-length arrays get their length at run-time so they cannot
+   be initialized at compile-time. 
+   #+end_quote
 
+3. In an array =a[10]=, what is the difference between =sizeof(a[0])= and
+   =sizeof(a[10])=, and how would you show this?
+   
+   #+begin_src C
+     int a[10]={0};
+     printf("Size of a[0] = %zu\nSize of a[10] = %zu\n",
+            sizeof(a[0]),sizeof(a[10]));
+   #+end_src
 
+4. How would you convert the following selection statement into a
+   parameter macro?
+   
+   #+begin_example C
+   if (x < y)
+      x
+   else
+      y
+   #+end_example
+   #+begin_src C
+     #define MIN(x,y) ((x)<(y)?(x):(y))
+     int x = 100, y = 200;
+     printf("min(%d,%d) = %d", x,y,MIN(x,y));
+   #+end_src
+
+5. What if you were tired of writing =sizeof(a)/sizeof(a[10])= - could
+   you write it as a parameter macro?
+   
+   #+begin_src C
+     #define LEN(a) sizeof(a)/sizeof(a[10])
+     int a[10];
+     printf("Length of array: %zu\n", LEN(a));
+   #+end_src
+
+6. What if you don't want to use =0= and =1= for =false= and =true=?
+   #+begin_quote
+   If you want to use =true= and =false=, =#include <stdbool.h>=. Now you
+   can declare a =bool= data type.
+   #+end_quote
+
+   Example:
+   #+begin_src C 
+     #include <stdbool.h>
+
+     bool beauty = true;
+     bool ugly = false;
+
+     printf("If beautiful equations are %s,\nthen ugly equations are %s.\n",
+            beauty ? "true" : "false",
+            ugly   ? "true" : "false");
+   #+end_src
+
+   #+RESULTS:
+   : If beautiful equations are true,
+   : then ugly equations are false.
+
+7. When using AI to help you solve an assignment, what must you do?
+   #+begin_quote
+   When using AI assistance in any way, I suggest you mention in your
+   solution that, and how, you made use of it (and if it helped you).
+   #+end_quote   
 
 * Week 6 - Pointers and Arrays of Pointers
 * Week 7 - String Manipulation
