@@ -522,7 +522,7 @@ tired of typing, like =printf("%d\n",i);=
    [ Babel evaluation exited with code "Aborted" ]
    #+end_example
 
-* Debugging with =gdb=
+* NEXT Debugging with =gdb=
 
 - Check that you have the GNU debugger with =gdb --version=. If this
   does not work, you have to install =gdb= with =sudo apt install gdb=.
