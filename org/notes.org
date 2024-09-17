@@ -665,7 +665,7 @@ don't copy and paste but write all code by hand and understand it.
 - [ ] Review (and quiz 4 preview)
 - [ ] Using the =gdb= debugger
 - [ ] Three simple practice exercises
-- [ ] Functions 
+- [ ] Functions & Recursion
 
 ** Assignment 3 review - A sermon, code, questions, and some answers
 #+attr_html: :width 600px:
@@ -1059,11 +1059,16 @@ something that requires a lot of diligence.
   3) Visualize execution
   4) Step through program with =Next=
 
+  #+attr_html: :width 600px:
+  [[../img/pythontutor.png]]
+
+
 ** Three practice exercises (bonus or classroom?)
 
 - Boolean array declaration
 - Array of Fibonacci numbers
 - Initialize and print matrix
+
 
 * Week 6 - Pointers and Arrays of Pointers
 * Week 7 - String Manipulation
