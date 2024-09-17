@@ -667,7 +667,7 @@ don't copy and paste but write all code by hand and understand it.
 - [ ] Three simple practice exercises
 - [ ] Functions & Recursion
 
-** Assignment 3 review - A sermon, code, questions, and some answers
+* Assignment 3 review - A sermon, code, questions, and some answers
 #+attr_html: :width 600px:
 [[../img/submission3.png]]
 
@@ -679,11 +679,11 @@ The complete problem & sample solution file is on GitHub:
 [[https://tinyurl.com/simple-array-operations-org][tinyurl.com/simple-array-operations-org]] - the video is on YouTube:
 http://www.youtube.com/@LiterateProgramming
 
-*** A look at a sad,sad gradebook (snapshot, Sat 14-Sep)
+** A look at a sad,sad gradebook (snapshot, Sat 14-Sep)
 #+attr_html: :height 500px:
 [[../img/grades.png]]
 
-**** Data science people: Plot it using R!
+*** Data science people: Plot it using R!
 
 #+begin_src R :file grades.png :session *R* :results file graphics output :exports both
   grades <- c(0.,7.62,30.16,30.16,32.59,45.24,45.56,53.02,
@@ -695,7 +695,8 @@ http://www.youtube.com/@LiterateProgramming
 #+RESULTS:
 [[file:grades.png]]
 
-*** Did anyone do well?
+
+** Did anyone do well?
 #+begin_quote
 - Only one student (Austin) received a grade for a complete & correct
   submission.
@@ -706,7 +707,8 @@ http://www.youtube.com/@LiterateProgramming
 - If you have accommodations, you've got an extra week (you might have
   to remind me).
 #+end_quote
-*** Why can't we just submit the code?
+
+** Why can't we just submit the code?
 #+begin_quote
 You know the answer: I want you to engage not just with solving the
 problem, which is often very simple, but with the infrastructure, with
@@ -721,49 +723,70 @@ takes no less than 15 minutes, which would be four hours per
 programming assignment for this class only, or 8 hours for two weekly
 assignment = one whole work day.
 #+end_quote
-*** What areas of improvement were there this time?
+
+
+** What areas of improvement were there this time?
 
 1) Submission contains only the code and some accidental output.
+
 2) The test case, which must be reproduced to the letter, is missing.
+
 3) The reflection comes at the end and appears perfunctory.
+
 4) The solution path is missing (usually at the start).
+
 5) The document contains no structural elements (like headlines).
+
 6) The code shows no indentation, and is hard to read (use C-M-\)
+
 7) The =main= and =include= commands are already in the header but they
    are repeated.
+
 8) The program is missing a header - not explicitly asked for but
    important: do you really want to have to read the code/comments to
    find out what this program does?
+
 9) The shell code block is missing the =:results output= header.
+
 10) Using different loop variables though there is only one type of
     loop (over the elements of the array).
+
 11) The Org-mode file meta data at the top of the file are
     malformatted: for example `#+title` is just text - the keyword is
     =#+title:=, and `#+` on its own achieves nothing.
+
 12) The documentation is not to be hidden after C comments `//` or
     `#+` or in a separate text file but in (ideally ahead of) the
     code.
 
-*** What happens if I always submit correct code but don't respect the instructions?
+All of this is perfectly clear in any of my lecture of practice files.
+
+
+** What happens if I always submit correct code but don't respect the instructions?
 #+begin_quote
 You know the answer: If I don't get a resubmission, you will be judged
 according to the rubric. Data structures is not an introductory course
 for people who want to see if programming is for them. It's a serious,
 difficult collection of topics that you need to master on your way
-towards becoming a computer or data science professional.
+towards becoming a computer or data science *professional*.
 #+end_quote
-*** Which rubric?
-#+attr_html: :width 600px:
-[[../img/rubric.png]]
 
-*** Is there no other way?
+
+ ** Which rubric?
+ #+attr_html: :width 600px:
+ [[../img/rubric.png]]
+
+
+** Is there no other way?
 #+begin_quote
 Not at Lyon. You can probably create a brilliant career for yourself
 studying hard and with great discipline, on your own, with mostly free
 resources, spending time rather than money - I've done it myself, but
 currently you're on a different path, and why not make the best of it?
 #+end_quote
-*** What if I just didn't have enough time but wanted to submit what I had?
+
+
+** What if I just didn't have enough time but wanted to submit what I had?
 #+begin_quote
 That's perfectly fine if you respond to my feedback within a
 reasonable amount of time (1-2 weeks) and resubmit with fixes. I am
@@ -771,7 +794,8 @@ easy in that I will still give you full points for applying yourself -
 but just trying is no longer enough.
 #+end_quote
 
-*** Why do students not respect instructions for submission?
+
+** Why do students not respect instructions for submission?
 
 - This is what ChatGPT has to say what the resons could be why some,
   not all students systematically ignore my instructions:
@@ -830,9 +854,9 @@ approach—whether by simplifying instructions, providing more training
 on tools, or emphasizing the importance of submission formatting.
   #+end_quote
 
-Lengthy response:
+Short summary:
 
-| ISSUE                  | COMMENT                                                 |
+| ISSUE                  | ACTION                                                  |
 |------------------------+---------------------------------------------------------|
 | *Lack of clarity*        | Ask! Let me know if anything is unclear                 |
 | *Overwhelming detail*    | Translate instructions for yourself                     |
@@ -851,19 +875,21 @@ Short response:
 2. It's for your own good!
 3. No pain, no gain!
 
-*** What else will you do to help us?
+** What else will you do to help us?
 #+begin_quote
 - I will make a video of my sample solution, which you can use to
   improve your game, identify your mistakes, and help me make better
   videos.
+
 - I will continue to give you detailed feedback so that you can fix
   your errors. I usually "reassign" the assignment without giving 0
   points. In this way your grade does not suffer but if I don't get a
   resubmission within 1-2 weeks, I will give you partial points (50%).
+
 - Talk to me if you're unhappy about this and we can try to find a
   solution that satisfies both my and your needs!
 #+end_quote
-*** Any questions?
+** Any questions?
 
 You must learn to ask questions, ideally in the class: most problems
 that I've encountered are shared among students. Help others and they
@@ -872,7 +898,8 @@ will help you!
 
 
 
-** Assignment 4 review
+
+* Assignment 4 review
 #+attr_html: :width 600px:
 [[../img/submission3.png]]
 
@@ -889,8 +916,7 @@ got full points). I noticed that many of you seem to submit 5 minutes
 before the deadline. That's not leaving yourself enough time for
 something that requires a lot of diligence.
 
-
-** Review: VLA, Macros & Quiz 4 Preview
+* Review: VLA, Macros & Quiz 4 Preview
 
 1. How would you compute the course average using VLAs in C! Here are
    the grades for you to copy: [[https://tinyurl.com/grades-fall24][tinyurl.com/grades-fall24]]
@@ -908,12 +934,8 @@ something that requires a lot of diligence.
    #+begin_src R :session *R* :results output :exports both
      df <- read.csv("https://tinyurl.com/grades-fall24",sep=" ",header=FALSE)
      df
-                                             #mean(read.csv("https://tinyurl.com/grades-fall24",sep=" ",header=FALSE)[,]#)
+     mean(read.csv("https://tinyurl.com/grades-fall24",sep=" ",header=FALSE))
    #+end_src
-
-   #+RESULTS:
-   : V1    V2    V3    V4    V5    V6    V7    V8    V9   V10  V11   V12   V13   V14   V15
-   : 1 7.62 30.16 30.16 32.59 45.24 45.56 53.02 59.26 62.22 63.17 65.4 76.19 98.33 98.41 98.89
 
    #+name: grades
    #+begin_src C :tangle main.c
@@ -928,10 +950,18 @@ something that requires a lot of diligence.
      printf("\nAverage = %g\n",sum/n);
    #+end_src
 
+   #+RESULTS: grades
+   : 7.63359e-33 4.56655e-41 7.63176e-33 4.56655e-41 1.26117e-44 1.4013e-45 7.6324e-33 4.56655e-41 0 0 0 4.56655e-41 0 0 0 4.59121e-41 -nan 0 7.64256e-33 4.56655e-41 7.63921e-33 4.56655e-41 7.81411e-33 4.56655e-41 7.64256e-33 4.56655e-41 7.63377e-33 4.56655e-41 7.81625e-33 4.56655e-41 7.63752e-33 4.56655e-41 7.63979e-33 4.56655e-41 0 0 7.63856e-33 4.56655e-41 1.82169e-44 0 7.63176e-33 4.56655e-41 7.51747e-33 4.56655e-41 3.31953e+15 3.06296e-41 3.32257e+15 3.06296e-41 7.8121e-33 4.56655e-41 7.69459e-33 4.56655e-41 1.4013e-45 0 0 0 7.63921e-33 4.56655e-41 7.71997e-33 4.56655e-41 1.73856e-30 4.59121e-41 1.73861e-30 4.59121e-41 1.4013e-45 0 1.73863e-30 4.59121e-41 3.31953e+15 3.06296e-41 7.70328e-33 4.56655e-41 0 0 3.32257e+15 3.06296e-41 1.73864e-30 4.59121e-41 0 0 7.8156e-33 4.56655e-41 7.52299e-33 4.56655e-41 7.65562e-33 4.56655e-41 0 0 7.81527e-33 4.56655e-41 7.81657e-33 4.56655e-41 1.4013e-45 4.59121e-41 1.13001e-41 9.18341e-41 1.73844e-30 4.59121e-41 -0.0113305 2.36539e-42 0 0 0 0 0 0 1.82357e-30 4.59121e-41 0 4.48416e-44 0 0 0 0 1.25556e-42 1.25556e-42 1.4013e-45 0 1.02539e-36 1.4013e-45 0 0 1.25556e-42 1.25556e-42 1.25556e-42 1.25556e-42 1.25556e-42 1.25556e-42 0 0 0 0 0 0 0 0 0 0 0 0 3.57331e-43 3.57331e-43 0 0 1.59329e-10 1.59329e-10 1.59329e-10 1.59329e-10 4.87652e-42 0 0 0 1.34525e-43 0 0 0 1.4013e-45 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 4.59177e-41 0 8.26519e-40 0 1.14794e-41 0 1.10203e-39 0 4.59177e-41 0 8.26519e-40 0 1.12104e-44 0 8.96831e-44 0 5.60519e-45 0 8.96831e-44 0 1.68156e-44 0 2.8026e-45 0 1.96182e-44 -0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 7.73849e-33 4.56655e-41 1.82169e-44 0 1.4013e-45 0 1.4013e-45 0 1.4013e-45 0 3.31834e+15 3.06296e-41 7.73235e-33 4.56655e-41 2.84744e-42 
+   : Average = -nan
+
    #+begin_src bash :results output :exports both
      gcc main.c -o main && echo "16 0. 7.62 30.16 30.16 32.59 45.24 45.56
      53.02 59.26 62.22 63.17 65.4 76.19 98.33 98.41 98.89" | ./main
    #+end_src
+
+   #+RESULTS:
+   : 0 7.62 30.16 30.16 32.59 45.24 45.56 53.02 59.26 62.22 63.17 65.4 76.19 98.33 98.41 98.89 
+   : Average = 54.1387
 
    You can also get this from the URL with =wget=:
    #+begin_src bash :results output :exports both
@@ -940,10 +970,18 @@ something that requires a lot of diligence.
      cat grades2
    #+end_src
 
+   #+RESULTS:
+   : 16
+   : 7.62 30.16 30.16 32.59 45.24 45.56 53.02 59.26 62.22 63.17 65.4 76.19 98.33 98.41 98.89
+
    Now you can redirect the file =grades2= into the executable =./main=
    #+begin_src bash :results output :exports both
      gcc main.c -o main && ./main < grades2
    #+end_src
+
+   #+RESULTS:
+   : 7.62 30.16 30.16 32.59 45.24 45.56 53.02 59.26 62.22 63.17 65.4 76.19 98.33 98.41 98.89 4.55926e-41 
+   : Average = 54.1387
 
    Incidentally, you can do this also in the Org-mode code block using
    the header argument =:cmdline < grades2=, and then you don't have to
@@ -959,6 +997,10 @@ something that requires a lot of diligence.
       }
      printf("\nAverage = %g\n",sum/n);
    #+end_src
+
+   #+RESULTS:
+   : 7.62 30.16 30.16 32.59 45.24 45.56 53.02 59.26 62.22 63.17 65.4 76.19 98.33 98.41 98.89 4.59149e-41 
+   : Average = 54.1387
 
    In future assignments with user input, you can pick your poison -
    =bash= code block input with pipe command, or =cmdline= file input.
@@ -976,8 +1018,12 @@ something that requires a lot of diligence.
    #+begin_src C
      int a[10]={0};
      printf("Size of a[0] = %zu\nSize of a[10] = %zu\n",
-            sizeof(a[0]),sizeof(a[10]));
+            sizeof(a[0]),       sizeof(a[10]));
    #+end_src
+
+   #+RESULTS:
+   : Size of a[0] = 4
+   : Size of a[10] = 4
 
 4. How would you convert the following selection statement into a
    parameter macro?
@@ -990,18 +1036,26 @@ something that requires a lot of diligence.
    #+end_example
    #+begin_src C
      #define MIN(x,y) ((x)<(y)?(x):(y))
+
      int x = 100, y = 200;
      printf("min(%d,%d) = %d", x,y,MIN(x,y));
    #+end_src
+
+   #+RESULTS:
+   : min(100,200) = 100
 
 5. What if you were tired of writing =sizeof(a)/sizeof(a[10])= - could
    you write it as a parameter macro?
    
    #+begin_src C
      #define LEN(a) sizeof(a)/sizeof(a[10])
+
      int a[10];
      printf("Length of array: %zu\n", LEN(a));
    #+end_src
+
+   #+RESULTS:
+   : Length of array: 10
 
 6. What if you don't want to use =0= and =1= for =false= and =true=?
    #+begin_quote
@@ -1032,7 +1086,7 @@ something that requires a lot of diligence.
    #+end_quote   
 
 
-** Using the C debugger =gdb=
+* Using the C debugger =gdb=
 
 - Tangle the original version of =repdigit.c= (no user input)
 
@@ -1063,7 +1117,7 @@ something that requires a lot of diligence.
   [[../img/pythontutor.png]]
 
 
-** Three practice exercises (bonus or classroom?)
+* Three practice exercises (bonus or classroom?)
 
 - Boolean array declaration
 - Array of Fibonacci numbers
