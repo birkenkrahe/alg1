@@ -667,7 +667,7 @@ don't copy and paste but write all code by hand and understand it.
 - [ ] Three simple practice exercises
 - [ ] Functions & Recursion
 
-* Assignment 3 review - A sermon, code, questions, and some answers
+* DONE Assignment 3 review - A sermon, code, questions, and some answers
 #+attr_html: :width 600px:
 [[../img/submission3.png]]
 
@@ -898,8 +898,7 @@ will help you!
 
 
 
-
-* Assignment 4 review
+* DONE Assignment 4 review
 #+attr_html: :width 600px:
 [[../img/submission3.png]]
 
@@ -916,7 +915,7 @@ got full points). I noticed that many of you seem to submit 5 minutes
 before the deadline. That's not leaving yourself enough time for
 something that requires a lot of diligence.
 
-* Review: VLA, Macros & Quiz 4 Preview
+* DONE Review: VLA, Macros & Quiz 4 Preview
 
 1. How would you compute the course average using VLAs in C! Here are
    the grades for you to copy: [[https://tinyurl.com/grades-fall24][tinyurl.com/grades-fall24]]
@@ -1085,8 +1084,9 @@ something that requires a lot of diligence.
    solution that, and how, you made use of it (and if it helped you).
    #+end_quote   
 
-
-* Using the C debugger =gdb=
+* NEXT Using the C debugger =gdb=
+  #+attr_html: :width 400px:
+  [[../img/pythontutor.png]]
 
 - Tangle the original version of =repdigit.c= (no user input)
 
@@ -1113,18 +1113,23 @@ something that requires a lot of diligence.
   3) Visualize execution
   4) Step through program with =Next=
 
-  #+attr_html: :width 600px:
-  [[../img/pythontutor.png]]
+* Three practice exercises
+#+attr_html: :width 400px: 
+[[../img/practice.png]]
 
-
-* Three practice exercises (bonus or classroom?)
+Solve these exercise in class and upload your results for bonus
+points to Canvas:
 
 - Boolean array declaration
 - Array of Fibonacci numbers
 - Initialize and print matrix
 
-
 * Week 6 - Pointers and Arrays of Pointers
+#+attr_html: :width 600px:
+[[../img/four-monks-by-rinaldi-9696.jpg]]
+
+/Image: Four monks by Claudio Rinaldi (1852-1909). (Dorotheum, Munich)/
+
 * Week 7 - String Manipulation
 * Week 8 - Structs, Enums, Unions
 * Week 9 - Dynamic Storage Allocation
