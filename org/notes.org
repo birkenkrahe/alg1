@@ -1088,13 +1088,28 @@ something that requires a lot of diligence.
   #+attr_html: :width 400px:
   [[../img/pythontutor.png]]
 
-- Tangle the original version of =repdigit.c= (no user input)
+- Tangle the original version of =repdigit.c= (no user input): get the
+  raw file from tinyurl.com/repdigit-c:
+  #+begin_src bash :results output :exports both
+    wget -O repdigit.c tinyurl.com/repdigit-c
+    ls -l repdigit.c
+  #+end_src
 
-- Compile it with the =-g= flag
-
-- Run it through the =gdb= debugger
+  #+RESULTS:
+  : -rw-rw-r-- 1 aletheia aletheia 885 Sep 18 23:36 repdigit.c
 
 - Open the source code file with =M-x global-linum-mode=
+
+- Split the screen into shell and source code file:
+  #+attr_html: :width 400px:
+  [[../img/repdigit2.png]]
+
+- Compile the file with the =-g= flag:
+  #+begin_src bash :results output :exports both
+    gcc repdigit.c -o rep -g
+  #+end_src
+
+- Run it through the =gdb= debugger with: =gdb rep=
 
 - Commands to try in =gdb=:
   #+begin_example
