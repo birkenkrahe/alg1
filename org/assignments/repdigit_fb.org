@@ -1,0 +1,123 @@
+#+property: header-args:C :main yes :includes <stdio.h> :results output :exports both: 
+#+startup: overview hideblocks indent entitiespretty: 
+* Program Logic
+
+#+begin_quote
+I am having some trouble with the 2nd problem on the Program 5
+assignment. I finished the other two though. I can't get the right
+output for the table.
+#+end_quote
+
+Regarding the program below:
+
+- You don't need some of the header arguments defined (presumably) in
+  the =#+property= data at the top, so I have switched =:main= and =:includes= off
+
+- There are ever only 10 digits [0-9] so to vary =SIZE= does not make
+  sense (it also doesn't do any harm though).
+
+- You do not need to store the number of repeated digits but only the
+  occurrences. So in the =while= loop, you need to simply increase the
+  count of =tb_values= by one every time a =digit= comes up:
+  =tb_values[digit++=, and then print it in another loop.
+
+- Another minor issue is your 'Digit' header - it does not allow for a
+  digit to be repeated more than 9 times before the layout breaks. But
+  I haven't solved that either. This program works well for length(n)
+  < 10 only.
+
+- To fix your program, what I would do is use =gdb= or =pythontutor= - I
+  just did that (see attached screenshot) and it shows that repnum
+  gives the total number of digits of =n= (9), and assigns it to every
+  one of your =tb_values= - which is why you get the wrong result.
+
+- So the successful program will be much shorter and does not need to
+  worry about repeated digits at all. That information is contained in
+  the table now.
+
+#+name: Table w/o UI
+#+begin_src C :tangle repdigitt1.c :main no :includes
+  #include <stdio.h>
+  #include <stdbool.h>
+  #define SIZE 10
+  int main(){
+
+    int digit, n = 112233445;
+    bool digit_seen[SIZE] = {false};
+    int repdigit[SIZE] = {0};
+    int repnum = 0;
+    int tb_values [SIZE] = {false};
+    //Print
+    printf("Number Entered: %d\n", n);
+    printf("Digit:      | 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 |\n"); //Table Values
+
+    //Loop to find repdigits
+    while(n > 0){
+      digit = n % 10;
+      repnum++;
+       if (digit_seen[digit] == true){
+        repdigit[repnum] = digit;
+        repdigit[digit]++;
+      } else {
+        digit_seen[digit] = true;
+      }
+      n /= 10;
+    }
+
+    //tb_values[0] = 0;
+    //tb_values[1] = 2;
+    //tb_values[2] = 2;
+    //tb_values[3] = 2;
+    //tb_values[4] = 2;
+    //tb_values[5] = 1;
+    //tb_values[6] = 0;
+    //tb_values[7] = 0;
+    //tb_values[8] = 0;
+    if ( repnum< SIZE){
+      for(int i = 0; i < SIZE; i++) //tb_values[0] = 0...
+        tb_values[i] = repnum;
+
+    }
+
+    //GOOD >
+    //Print Results
+    if (repnum > 0){
+      printf("Occurances: |");
+      for (int x = 0; x < SIZE; x++){
+        printf(" %d |", tb_values[x]);
+      }
+      puts("\n");
+    } else{
+      printf("Digit Not Repeated.\n");
+    }
+
+    return 0;
+  }
+#+end_src
+
+#+RESULTS: Table w/o UI
+: Number Entered: 112233445
+: Digit:      | 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 |
+: Occurances: | 9 | 9 | 9 | 9 | 9 | 9 | 9 | 9 | 9 | 9 |
+: 
+
+* Shell Blocks
+
+#+begin_quote
+Also, when I attempt to use a bash code block to create user input,
+but every time I try to run it says: "Searching for program: No such
+file or directory, /bin/sh." I know the programs I am making do work
+because I test them on the school computers and they work just fine.
+#+end_quote
+
+On the school computers, =bash= is installed, and the Linux VM that you
+use there has =bash= built-in already. On your Windows computer, the
+easiest way to get it is to download the Git bash shell from here.
+
+This should update the =PATH= in Windows automatically, and if you open
+a terminal after installation, you should now have bash - enter =bash
+--version= to test that.
+
+Alternatively, put the number =n= (your only input) in a file =input= and
+then add the header argument =:cmdline < input= at the top of your code
+block, and now you only have to change =input=.
