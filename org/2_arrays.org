@@ -636,16 +636,25 @@ tired of typing, like =printf("%d\n",i);=
    array name.
    #+end_quote
 
-* Practice exercises
+* Three practice exercises
+
+Solve these three exercises in class using only pen and paper. Each of
+them requires only one code block of (1) four, (2) seven, and (3)
+eight lines of code. When you're done, implement and test the code,
+and then grade yourself on a scale from 0 to 100.
 
 1. Write a declaration of an array named =weekend= containing seven =bool=
    values. Include an initializer that makes the first and last values
-   =true=; all other values should be =false=.
+   =true=; all other values should be =false=, and print the array.
+
+   /Tip: to get the =bool= type, you can include the =stdbool.h= file./
 
 2. The Fibonacci numbers are 0,1,1,2,3,4,5,13,... where each number is
    the sum of the two preceding numbers. Write a program that declares
-   an array named =fib= of length =20= and fills the array with the first
-   20 Fibonacci numbers.
+   an array named =fib= of length =20=, fills the array with the first
+   20 Fibonacci numbers, and prints the array.
+
+   /Tip: Initialize the first two Fibonacci numbers as 1./
 
 3. Initialize a 2 x 2 identity matrix and print it:
    #+begin_example
