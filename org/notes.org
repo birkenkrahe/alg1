@@ -660,8 +660,8 @@ don't copy and paste but write all code by hand and understand it.
 #+attr_html: :width 600px:
 [[../img/coach.png]]
 
-- [ ] Assignment 3 + 4 review
-- [ ] Assignment 5 preview
+- [X] Assignment 3 + 4 review
+- [X] Assignment 5 preview
 - [ ] Review (and quiz 4 preview)
 - [ ] Using the =gdb= debugger
 - [ ] Three simple practice exercises
@@ -897,7 +897,6 @@ will help you!
 
 
 
-
 * DONE Assignment 4 review
 #+attr_html: :width 600px:
 [[../img/submission3.png]]
@@ -1088,26 +1087,29 @@ something that requires a lot of diligence.
   #+attr_html: :width 400px:
   [[../img/pythontutor.png]]
 
-- Tangle the original version of =repdigit.c= (no user input): get the
-  raw file from tinyurl.com/repdigit-c:
+- Get the raw file from tinyurl.com/repdigit-c on the shell (=M-x shell=
   #+begin_src bash :results output :exports both
     wget -O repdigit.c tinyurl.com/repdigit-c
     ls -l repdigit.c
   #+end_src
 
   #+RESULTS:
-  : -rw-rw-r-- 1 aletheia aletheia 885 Sep 18 23:36 repdigit.c
+  : -rw-rw-r-- 1 marcus marcus 885 Sep 19 09:45 repdigit.c
 
 - Open the source code file with =M-x global-linum-mode=
 
 - Split the screen into shell and source code file:
-  #+attr_html: :width 400px:
+  #+attr_html: :width 500px:
   [[../img/repdigit2.png]]
 
 - Compile the file with the =-g= flag:
   #+begin_src bash :results output :exports both
     gcc repdigit.c -o rep -g
+    ls -l rep
   #+end_src
+
+  #+RESULTS:
+  : -rwxrwxr-x 1 marcus marcus 17384 Sep 19 09:45 rep
 
 - Run it through the =gdb= debugger with: =gdb rep=
 
@@ -1139,6 +1141,7 @@ points to Canvas:
 - Array of Fibonacci numbers
 - Initialize and print matrix
 
+  Solutions to the exercises are in GitHub in the PDF directory.
 * Week 6 - Pointers and Arrays of Pointers
 #+attr_html: :width 600px:
 [[../img/four-monks-by-rinaldi-9696.jpg]]
