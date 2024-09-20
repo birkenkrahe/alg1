@@ -656,7 +656,7 @@ Use my sample solution to create your own solution if you like and
 submit it late for at most 50% of the points, but make sure that you
 don't copy and paste but write all code by hand and understand it.
 
-* Week 5 - Functions and Recursion
+* Week 5 - Diligence and Debugging
 #+attr_html: :width 600px:
 [[../img/coach.png]]
 
@@ -667,7 +667,7 @@ don't copy and paste but write all code by hand and understand it.
 - [ ] Three simple practice exercises
 - [ ] Functions & Recursion
 
-* DONE Assignment 3 review - A sermon, code, questions, and some answers
+** Assignment 3 review - A sermon, code, questions, and some answers
 #+attr_html: :width 600px:
 [[../img/submission3.png]]
 
@@ -679,11 +679,11 @@ The complete problem & sample solution file is on GitHub:
 [[https://tinyurl.com/simple-array-operations-org][tinyurl.com/simple-array-operations-org]] - the video is on YouTube:
 http://www.youtube.com/@LiterateProgramming
 
-** A look at a sad,sad gradebook (snapshot, Sat 14-Sep)
+*** A look at a sad,sad gradebook (snapshot, Sat 14-Sep)
 #+attr_html: :height 500px:
 [[../img/grades.png]]
 
-*** Data science people: Plot it using R!
+**** Data science people: Plot it using R!
 
 #+begin_src R :file grades.png :session *R* :results file graphics output :exports both
   grades <- c(0.,7.62,30.16,30.16,32.59,45.24,45.56,53.02,
@@ -696,7 +696,7 @@ http://www.youtube.com/@LiterateProgramming
 [[file:grades.png]]
 
 
-** Did anyone do well?
+*** Did anyone do well?
 #+begin_quote
 - Only one student (Austin) received a grade for a complete & correct
   submission.
@@ -708,7 +708,7 @@ http://www.youtube.com/@LiterateProgramming
   to remind me).
 #+end_quote
 
-** Why can't we just submit the code?
+*** Why can't we just submit the code?
 #+begin_quote
 You know the answer: I want you to engage not just with solving the
 problem, which is often very simple, but with the infrastructure, with
@@ -725,7 +725,7 @@ assignment = one whole work day.
 #+end_quote
 
 
-** What areas of improvement were there this time?
+*** What areas of improvement were there this time?
 
 1) Submission contains only the code and some accidental output.
 
@@ -762,7 +762,7 @@ assignment = one whole work day.
 All of this is perfectly clear in any of my lecture of practice files.
 
 
-** What happens if I always submit correct code but don't respect the instructions?
+*** What happens if I always submit correct code but don't respect the instructions?
 #+begin_quote
 You know the answer: If I don't get a resubmission, you will be judged
 according to the rubric. Data structures is not an introductory course
@@ -777,7 +777,7 @@ towards becoming a computer or data science *professional*.
  [[../img/rubric.png]]
 
 
-** Is there no other way?
+*** Is there no other way?
 #+begin_quote
 Not at Lyon. You can probably create a brilliant career for yourself
 studying hard and with great discipline, on your own, with mostly free
@@ -786,7 +786,7 @@ currently you're on a different path, and why not make the best of it?
 #+end_quote
 
 
-** What if I just didn't have enough time but wanted to submit what I had?
+*** What if I just didn't have enough time but wanted to submit what I had?
 #+begin_quote
 That's perfectly fine if you respond to my feedback within a
 reasonable amount of time (1-2 weeks) and resubmit with fixes. I am
@@ -795,7 +795,7 @@ but just trying is no longer enough.
 #+end_quote
 
 
-** Why do students not respect instructions for submission?
+*** Why do students not respect instructions for submission?
 
 - This is what ChatGPT has to say what the resons could be why some,
   not all students systematically ignore my instructions:
@@ -875,7 +875,7 @@ Short response:
 2. It's for your own good!
 3. No pain, no gain!
 
-** What else will you do to help us?
+*** What else will you do to help us?
 #+begin_quote
 - I will make a video of my sample solution, which you can use to
   improve your game, identify your mistakes, and help me make better
@@ -889,15 +889,13 @@ Short response:
 - Talk to me if you're unhappy about this and we can try to find a
   solution that satisfies both my and your needs!
 #+end_quote
-** Any questions?
+*** Any questions?
 
 You must learn to ask questions, ideally in the class: most problems
 that I've encountered are shared among students. Help others and they
 will help you!
 
-
-
-* DONE Assignment 4 review
+** Assignment 4 review
 #+attr_html: :width 600px:
 [[../img/submission3.png]]
 
@@ -914,7 +912,7 @@ got full points). I noticed that many of you seem to submit 5 minutes
 before the deadline. That's not leaving yourself enough time for
 something that requires a lot of diligence.
 
-* DONE Review: VLA, Macros & Quiz 4 Preview
+** Review: VLA, Macros & Quiz 4 Preview
 
 1. How would you compute the course average using VLAs in C! Here are
    the grades for you to copy: [[https://tinyurl.com/grades-fall24][tinyurl.com/grades-fall24]]
@@ -1083,7 +1081,7 @@ something that requires a lot of diligence.
    solution that, and how, you made use of it (and if it helped you).
    #+end_quote   
 
-* NEXT Using the C debugger =gdb=
+** Using the C debugger =gdb=
   #+attr_html: :width 400px:
   [[../img/pythontutor.png]]
 
@@ -1130,7 +1128,7 @@ something that requires a lot of diligence.
   3) Visualize execution
   4) Step through program with =Next=
 
-* Three practice exercises
+** Three practice exercises
 #+attr_html: :width 400px: 
 [[../img/practice.png]]
 
@@ -1142,18 +1140,19 @@ points to Canvas:
 - Initialize and print matrix
 
   Solutions to the exercises are in GitHub in the PDF directory.
-* Week 6 - Pointers and Arrays of Pointers
+
+* Week 6 - Functions and recursion
 #+attr_html: :width 600px:
 [[../img/four-monks-by-rinaldi-9696.jpg]]
 
 /Image: Four monks by Claudio Rinaldi (1852-1909). (Dorotheum, Munich)/
 
-* Week 7 - String Manipulation
-* Week 8 - Structs, Enums, Unions
-* Week 9 - Dynamic Storage Allocation
-* Week 10 - Linked Lists and Doubly Linked Lists
-* Week 11 - Stacks and Queues
-* Week 12 - Trees and Hash Tables
-* Week 13 - Heaps and Priority Queues
-* Week 14 - Graphs
+* Week 7 - Pointers and Arrays
+* Week 8 - String Manipulation
+* Week 9 - Structs, Enums, Unions
+* Week 10 - Dynamic Storage Allocation
+* Week 11 - Linked Lists and Doubly Linked Lists
+* Week 12 - Stacks and Queues
+* Week 13 - Trees and Hash Tables
+* Week 14 - Heaps and Graphs
 * Week 15 - C++
