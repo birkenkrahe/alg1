@@ -117,6 +117,7 @@ These should always be part of your problem-solving approach:
 10) Develop an alternate solution
 
 Golden minimum for you in this class: 1,3,4,5
+
 * Coding Rules
 
 There are a few Coding rules:
@@ -439,11 +440,11 @@ tired of typing, like =printf("%d\n",i);=
 - Testing:
   #+begin_src bash :results output :exports both
     gcc repdigit.c -o rep
-    echo 1987654321 | ./rep
+    echo 28212 | ./rep
   #+end_src
 
   #+RESULTS:
-  : Enter a number: 1987654321
+  : Enter a number: 28212
   : Repeated digit
 
 * Notes
