@@ -1,0 +1,266 @@
+#+TITLE: Three repdigit programs
+#+AUTHOR: Marcus Birkenkrahe (pledged)
+#+SUBTITLE: CSC 240 Data Structures - Lyon College, Fall 2024
+#+startup: overview hideblocks indent
+#+property: header-args:C :main yes :includes <stdio.h> <stdbool.h> :results output
+
+* Readme
+
+In this sample solution I show my entire solution path including
+mistakes that I made along the way and how I accounted for them. This
+was possible because I had successfully "emptied my mind" and
+forgotten the solution. In the end, I solved not just the first but
+also the second problem without even intending it. Includes using
+`gdb` to debug a file that compiles but does not give the right
+output. Victory came after I realized that I did not need the Boolean
+array at all but only an integer array to count digits. Solving
+problem 2 is now almost trivial because it boils down to printing the
+output in the requested format. Problem 3 is a little trickier and
+boils down to wrapping the algorithm in an infinite loop that's left
+when the user enters zero. 30 minutes. https://youtu.be/NXf5rchBkvk -
+Let me know what you think of this!
+
+* Problem ([[https://lyon.instructure.com/courses/2623/assignments/34304][from Canvas]])
+
+(In my own words:) The program ~repdigit.c~ checks an integer for
+repeated digits. It breaks off when it has found one, and prints a
+confirmation. If it does not break off, no digit was repeated.
+
+*Problem:* Modify the program so that it shows which digits were
+prepeated (if any).
+
+*Test case:* The output of the final program needs to look like this
+given the number n = 939577.
+#+begin_example
+Enter a number: 939577
+Repeated digit(s): 7, 9
+#+end_example
+
+* Plan
+
+1. Create (this) literate program with documentation (explanations),
+   structure (headlines), code, and results (for the given test case).
+
+2. Go back to the program from class, ~repdigit.c~. Try to reproduce it
+   here (to check if I understood it).
+
+3. Fix input first & add user input only when the program passes the
+   test case.
+
+4. Example: 939
+   #+begin_example
+   n = 939 > 0 -- loop is entered
+       n % 10 = 9 -- extract first (left most) digit 9
+          digit_seen[9] is false -- skip selection
+          digit_seen[9] = true -- 9 now has been seen
+          (int)(n / 10) = (int)(93.9) = 93 -- new n
+   n = 93 > 0 ... now 3 has been seen, new n = 9 ...
+   n = 9 > 0 -- loop is entered
+       n % 10 = 9
+          digit_seen[9] is true -- selection is entered
+          -- here, 9 needs to be stored but the loop must continue --
+          (int)(9 / 10) = (int)(0.9) = 0 -- new n
+   n = 0 -- loop is left
+
+   digit_seen[] now holds the information we need:
+   digit_seen[10] = {[3] = [9] = true}  // these were the seen digits
+   #+end_example
+
+5. Pseudocode:
+   #+begin_example
+   // initialize digit_seen[10] to zero
+
+   // initialize number n to be checked
+
+   // while loop over digits of n
+   
+      // extract digit
+
+      // set digit_seen[digit] = true
+
+      // next digit - new n
+
+   // loop over digit_seen[10] for result
+  
+   #+end_example   
+
+6. Summary: So the main difference to the original ~repdigit.c~ program
+   is that instead of breaking off when a repeated digit is found, we
+   simply carry on. At the end, all elements of ~digit_seen[digit]~ that
+   have seen ~digit~ are ~true~ and those elements can be printed as the
+   answer to the problem.
+
+* Implementation
+
+1. Code without user input - fixing the number ~n~ to the test case number.
+
+   #+name: version 1
+   #+begin_src C
+     // initialize digit_seen[10] to zero
+     bool digit_seen[10] = {false};
+     int digit;
+
+     // initialize number n to be checked
+     int n = 939577;
+     // while loop over digits of n
+     while (n > 0) {  // n = 0 when all digits have been extracted
+       // extract digit
+       digit = n % 10;
+       // set digit_seen[digit] = true
+       digit_seen[digit] = true;
+       // next digit - new n
+       n /= 10;
+      } // end of loop
+
+     // loop over digit_seen[10] for result
+     for (digit = 0; digit < 10; digit++) {
+       if (digit_seen[digit]) 
+         printf("%d ", digit);
+      }
+   #+end_src
+
+   #+RESULTS: version 1
+   : 3 5 7 9 
+
+2. So I made some mistake in my thinking: now every ~digit~ that was
+   recognized is printed. Evidently, I need a counter that counts if
+   the digit comes up more than once. So I'm back to the original
+   selection statement with the =break= - but instead of breaking, I
+   must ~count~ up.
+
+   I'm going to name the code blocks so that I can distinguish them:
+   [[version 1]] and [[version 2]].
+
+3. Code version 2: This time, instead of writing the code from
+   scratch, I've copied [[version 1]] and made changes right here.
+
+   #+name: version 2
+   #+begin_src C :tangle main2.c
+     // initialize digit_seen[10] to zero
+     bool digit_seen[10] = {false};
+     int count[10] = {0}; // new array `count` initialized to zero
+     int digit;
+
+     // initialize number n to be checked
+     int n = 939577; // expected: count = {0,0,0,1,0,1,0,2,0,2}
+     // while loop over digits of n
+     while (n > 0) {  
+       // extract digit
+       digit = n % 10;
+       if (digit_seen[digit])
+         count[digit]++; // increase count of `digit` by one
+       // set digit_seen[digit] = true
+       digit_seen[digit] = true;
+       // next digit - new n
+       n /= 10;
+      } // end of loop
+
+     // loop over digit_seen[10] for result
+     for (digit = 0; digit < 10; digit++) {
+       if (count[digit] > 1) 
+         printf("%d ", digit);
+      }
+   #+end_src
+
+   #+RESULTS: version 2
+
+4. The code in [[version 2]] compiles but does not give any output. I'm
+   going to use the debugger to check it out.
+   - Tangle the code as ~main2.c~
+   - Compile it with ~gcc -g~
+   - Debug it with ~gdb~
+
+5. When a repeat number comes up, ~digit_seen[digit]~ is ~true~, the
+   selection statement body should be entered, and ~count[digit]~ should
+   be increased by one but it is not. Let's do this for a simple number ~77~:
+   #+begin_example
+   n = 77
+     77 % 10 = 7
+     digits_seen[7] = false
+       count[7] = 0      
+     digits_seen <- true
+     77 /= 10 = 7.7: n = 7
+   #+end_example
+
+6. I see the problem: ~count[digit]~ should be increased no matter what,
+   even at the first instance, and ~digit_seen~ may not be needed!
+
+7. Version 3: removed ~digit_seen~ array altogether, and I also don't
+   need ~stdbool.h~ anymore because there are no booleans.
+   #+name: version 3
+   #+begin_src C :tangle main3.c :results output :main yes :includes <stdio.h>
+     // initialize array and digit 
+     int count[10] = {0}; // new array `count` initialized to zero
+     int digit;
+
+     // initialize number n to be checked
+     int n = 939577;
+     // while loop over digits of n
+     while (n > 0) {  
+       // extract digit
+       digit = n % 10;
+       count[digit]++; // increase count of `digit` by one
+       // next digit - new n
+       n /= 10;
+      } // end of loop
+
+     // loop over digit_seen[10] for result
+     for (digit = 0; digit < 10; digit++) {
+       if (count[digit] > 1) 
+         printf("%d ", digit);
+      }
+   #+end_src
+
+   #+RESULTS: version 3
+   : 7 9 
+
+8. This only took 200 lines! But I already have the array for the
+   next problem, because =count[digit]= holds the answer for the
+   occurrences.
+
+9. Last step: generalize the code for arbitrary user input:
+   1) Tangle to file ~main4.c~
+   2) Add ~scanf~ to get ~n~ from keyboard
+   3) Rebuild desired output for test case
+
+10. Final code: To be tangled and run on the command-line in [[test]]:
+    #+name: version 4
+    #+begin_src C :tangle main4.c :results output :main yes :includes <stdio.h>
+      // initialize array and digit 
+      int count[10] = {0}; // new array `count` initialized to zero
+      int digit, n;
+
+      // get number to be checked from user
+      printf("Enter a number: ");
+      scanf("%d", &n);
+      printf("%d\n", n);
+
+      // while loop over digits of n
+      while (n > 0) {  
+        // extract digit
+        digit = n % 10;
+        count[digit]++; // increase count of `digit` by one
+        // next digit - new n
+        n /= 10;
+       } // end of loop
+
+      // loop over digit_seen[10] for result
+      printf("Repeated digits: ");
+      for (digit = 0; digit < 10; digit++) {
+        if (count[digit] > 1) 
+          printf("%d ", digit);
+       }
+   #+end_src
+
+   Testing suite: Tangle [[version 4]] as ~main4.c~, compile and run it with
+    input
+   #+name: test
+   #+begin_src bash :results output :exports both
+     gcc main4.c -o main4
+     echo 939577 | ./main4
+   #+end_src
+
+   #+RESULTS: test
+   : Enter a number: 939577
+   : Repeated digits: 7 9 
+
