@@ -662,9 +662,9 @@ don't copy and paste but write all code by hand and understand it.
 
 - [X] Assignment 3 + 4 review
 - [X] Assignment 5 preview
-- [ ] Review (and quiz 4 preview)
-- [ ] Using the =gdb= debugger
-- [ ] Three simple practice exercises
+- [X] Review (and quiz 4 preview)
+- [X] Using the =gdb= debugger
+- [X] Three simple practice exercises
 - [ ] Functions & Recursion
 
 ** Assignment 3 review - A sermon, code, questions, and some answers
@@ -1146,6 +1146,8 @@ points to Canvas:
 [[../img/four-monks-by-rinaldi-9696.jpg]]
 
 /Image: Four monks by Claudio Rinaldi (1852-1909). (Dorotheum, Munich)/
+
+
 
 * Week 7 - Pointers and Arrays
 * Week 8 - String Manipulation
