@@ -7,9 +7,8 @@
 #+PROPERTY: header-args:C :main yes :includes <stdio.h> :results output :exports both :noweb yes
 * Overview
 
-We review C by continuing with derived data types that you should
-already know: arrays, pointers, functions. We review by coding and
-analyzing code.
+You should already know something about these derived data types:
+arrays, pointers, functions. We review by coding and analyzing code.
 
 In this section, we focus on functions. Functions are the main way to
 modularize code. We review how to pass data to and retrieve data from
@@ -27,16 +26,45 @@ functions. New topics include recursion and the quicksort algorithm.
 - Review questions, glossary, and summary
 
 *Code along:*
-1. Open Emacs from the command line with =emacs &=
-2. Create an Org-mode file with =C-x C-f 3_functions.org=
-3. Create a C code chunk with =<s <TAB> C=
-4. Add header arguments: ~:main yes :includes <stdio.h> :results output~
-5. Write and run a "hello world" test program: =puts("hello world");=
-6. Keep running chunks with =C-c C=c= to check for syntax errors.
-7. If any of these steps don't work for you, let me know!
 
-[[https://youtu.be/Oq83ZCu8FUI?si=qQGQPFrjq2RvhWln][See my YouTube channel]] (=@Literate Programming with Emacs and Org-mode=)
-for a short literate programming tutorial: [[https://tinyurl.com/first-lit-prog][tinyurl.com/first-lit-prog]].
+1. Open Emacs from the command line with =emacs &=
+
+2. Create an Org-mode file with =C-x C-f 3_functions.org=
+
+3. Add =#+property= top header for C with ~:main yes :includes <stdio.h>
+   :results output~
+
+4. Cursor on the header: run it with =C-c C-c=
+
+5. Create a C code chunk with =<s <TAB> C=
+
+6. Write and run a "hello world" test program: =puts("hello world");=
+
+7. Keep running chunks with =C-c C-=c= to check for syntax errors.
+
+8. If any of these steps don't work for you, let me know!
+
+9. To warm up, define an array =x= of 6 elements 1,3,2.5,3,4,3, print
+   them in reverse order and print the number of times 3 occurs in =x=.
+
+10. Solution (6 lines):
+    #+begin_src C
+      // declare and define floating-point array of 6 elements
+      float x[6] = {1,3,2.5,3,4,3};
+      // define counter and loop variable
+      int count=0, i;
+      // loop over array in reverse order
+      for (i = 5; i>=0; i--) {
+        printf("%g ",x[i]);
+        // check if array element is equal to 3
+        if (x[i]==3) count++; }
+      // print result
+      printf("\n%d", count);
+    #+end_src
+
+    #+RESULTS:
+    : 3 4 3 2.5 3 1 
+    : 3
 
 * Hello world as a (prototyped) function
 
@@ -1171,7 +1199,6 @@ function ~quicksort~. The input comes from a file ~input~ (see below):
     #+end_quote
 
 * Practice Exercises
-
 ** Function with errors
 
 The following function, which computes the area of a triangle,
