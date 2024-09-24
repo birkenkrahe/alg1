@@ -1161,7 +1161,7 @@ Every topic will generate 1 home programming assignment!
 
 Only 2 assignments per week will be mandatory, the others: bonus!
 - Turn warmup program into program with 3 functions
-- Write function headers
+- Write function headers for functions seen in class
 
 * TODO Results: Quiz 3 + 4
 #+attr_html: :width 600px:

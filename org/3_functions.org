@@ -14,54 +14,56 @@ In this section, we focus on functions. Functions are the main way to
 modularize code. We review how to pass data to and retrieve data from
 functions. New topics include recursion and the quicksort algorithm.
 
-*Objectives:*
-- Prototyping functions
-- Arguments, parameters, array parameters and VLA parameters
-- Compound literals to initialize arrays
-- Cast operators, lvalues and rvalues
-- Exiting from a function in the case of failure
-- Recursion principle and Fibonacci application
-- Quicksort algorithm explained and coded
-- Code along and solve different exercises
-- Review questions, glossary, and summary
-
+- *Objectives:*
+  + Prototyping functions
+  + Arguments, parameters, array parameters and VLA parameters
+  + Compound literals to initialize arrays
+  + Cast operators, lvalues and rvalues
+  + Exiting from a function in the case of failure
+  + Recursion principle and Fibonacci application
+  + Quicksort algorithm explained and coded
+  + Code along and solve different exercises
+  + Review questions, glossary, and summary
+  
 *Code along:*
 
-1. Open Emacs from the command line with =emacs &=
+1. Open your Linux VM 
 
-2. Create an Org-mode file with =C-x C-f 3_functions.org=
+2. Open Emacs (terminal or GUI)
 
-3. Add =#+property= top header for C with ~:main yes :includes <stdio.h>
+3. Create an Org-mode file with =C-x C-f 3_functions.org=
+
+4. Add =#+property= top header for C with ~:main yes :includes <stdio.h>
    :results output~
 
-4. Cursor on the header: run it with =C-c C-c=
+5. Cursor on the header: run it with =C-c C-c=
 
-5. Create a C code chunk with =<s <TAB> C=
+6. Create a C code chunk with =<s <TAB> C=
 
-6. Write and run a "hello world" test program: =puts("hello world");=
+7. Write and run a "hello world" test program: =puts("hello world");=
 
-7. Keep running chunks with =C-c C-=c= to check for syntax errors.
+8. Keep running chunks with =C-c C-=c= to check for syntax errors.
 
-8. If any of these steps don't work for you, let me know!
+9. If any of these steps don't work for you, let me know!
 
-9. To warm up, define an array =x= of 6 elements 1,3,2.5,3,4,3, print
-   them in reverse order and print the number of times 3 occurs in =x=.
-   #+begin_src C
-     // declare and define floating-point array of 6 elements
-     float x[6] = {1,3,2.5,3,4,3};
-     // define counter and loop variable
-     int count=0, i;
-     // loop over array in reverse order
-     for (i = 5; i>=0; i--) {
-       printf("%g ",x[i]);
-       // check if array element is equal to 3
-       if (x[i]==3) count++;
-      }
-     // print result
-     printf("\n%d", count);
-   #+end_src
+10. To warm up, define an array =x= of 6 elements 1,3,2.5,3,4,3, print
+    them in reverse order and print the number of times 3 occurs in =x=.
+    #+begin_src C
+      // declare and define floating-point array of 6 elements
+      float x[6] = {1,3,2.5,3,4,3};
+      // define counter and loop variable
+      int count=0, i;
+      // loop over array in reverse order
+      for (i = 5; i>=0; i--) {
+        printf("%g ",x[i]);
+        // check if array element is equal to 3
+        if (x[i]==3) count++;
+       }
+      // print result
+      printf("\n%d", count);
+    #+end_src
 
-10. Would you know how to add functions =reverse= that reverse the array
+11. Would you know how to add functions =reverse= that reverse the array
     and =count= that do the counting? That'll be this week's homework!
 
 * Function prototypes
@@ -120,10 +122,58 @@ functions. New topics include recursion and the quicksort algorithm.
   below into a program that prints =hello world= by calling a function
   =hello_world=. When successful, find different ways to break the code.
 
-- The hello world program - a classic:
+- The hello world program - a timeless, beautiful classic:
   #+begin_src C
+    puts("Hello, world!");
     printf("Hello, world!");
+    #+end_src
+
+  #+RESULTS:
+  : Hello, world!
+  : Hello, world!
+
+- Print "hello world" with a prototyped function =hello_world=:
+  #+begin_src C :main no
+    void hello_world(void); // prototype
+
+    int main(void)
+    {
+      hello_world();  // no arguments, no return type
+      return 0;
+    }
+
+    void hello_world(void)
+    {
+      puts("Hello, world!");
+    }
   #+end_src
+
+  #+RESULTS:
+  : Hello, world!
+
+- Break the function (non-trivially = no syntax errors):
+  1. Define the function with ; at the end 
+  2. Try to =return= something from the =void= function
+  3. Mismatch of defined function type with prototype
+  4. Calling function with argument (instead of =void=)
+
+  #+begin_src C :main no
+    void hello_world(void); // prototype
+
+    int main(void)
+    {
+      hello_world();  // no arguments, no return type
+      return 0;
+    }
+
+    void hello_world(void)
+    {
+      puts("Hello, world!");
+      return 1;
+    }
+  #+end_src
+
+  #+RESULTS:
 
 - Solution:
   1) No arguments need to be passed to the function (it's =void= of
@@ -221,11 +271,11 @@ functions. New topics include recursion and the quicksort algorithm.
 * Example: =power= function
 
 - Example: a =power= function to raise =x= to the power of =n=
-  #+begin_src C :results none
+  #+begin_src C :results none :tangle power.c
     int power(int x, int n)
     {
-      int i, result = 1;
-      for (i = 1; i <= n; i++)
+      int i, result = 1; 
+      for (i = 1; i <= n; i++) 
         result = result * x;
       return result;
     }
@@ -351,7 +401,6 @@ functions. New topics include recursion and the quicksort algorithm.
   memory locations of =i= and =d= - when the value the pointers point to,
   =*int_part= and =*frac+part= are changed the original variables are
   changed, too. We'll review pointers next!
-
 
 * Array Arguments
 
