@@ -772,9 +772,9 @@ towards becoming a computer or data science *professional*.
 #+end_quote
 
 
- ** Which rubric?
- #+attr_html: :width 600px:
- [[../img/rubric.png]]
+** Which rubric?
+#+attr_html: :width 600px:
+[[../img/rubric.png]]
 
 
 *** Is there no other way?
@@ -947,7 +947,7 @@ something that requires a lot of diligence.
    #+end_src
 
    #+RESULTS: grades
-   : 7.63359e-33 4.56655e-41 7.63176e-33 4.56655e-41 1.26117e-44 1.4013e-45 7.6324e-33 4.56655e-41 0 0 0 4.56655e-41 0 0 0 4.59121e-41 -nan 0 7.64256e-33 4.56655e-41 7.63921e-33 4.56655e-41 7.81411e-33 4.56655e-41 7.64256e-33 4.56655e-41 7.63377e-33 4.56655e-41 7.81625e-33 4.56655e-41 7.63752e-33 4.56655e-41 7.63979e-33 4.56655e-41 0 0 7.63856e-33 4.56655e-41 1.82169e-44 0 7.63176e-33 4.56655e-41 7.51747e-33 4.56655e-41 3.31953e+15 3.06296e-41 3.32257e+15 3.06296e-41 7.8121e-33 4.56655e-41 7.69459e-33 4.56655e-41 1.4013e-45 0 0 0 7.63921e-33 4.56655e-41 7.71997e-33 4.56655e-41 1.73856e-30 4.59121e-41 1.73861e-30 4.59121e-41 1.4013e-45 0 1.73863e-30 4.59121e-41 3.31953e+15 3.06296e-41 7.70328e-33 4.56655e-41 0 0 3.32257e+15 3.06296e-41 1.73864e-30 4.59121e-41 0 0 7.8156e-33 4.56655e-41 7.52299e-33 4.56655e-41 7.65562e-33 4.56655e-41 0 0 7.81527e-33 4.56655e-41 7.81657e-33 4.56655e-41 1.4013e-45 4.59121e-41 1.13001e-41 9.18341e-41 1.73844e-30 4.59121e-41 -0.0113305 2.36539e-42 0 0 0 0 0 0 1.82357e-30 4.59121e-41 0 4.48416e-44 0 0 0 0 1.25556e-42 1.25556e-42 1.4013e-45 0 1.02539e-36 1.4013e-45 0 0 1.25556e-42 1.25556e-42 1.25556e-42 1.25556e-42 1.25556e-42 1.25556e-42 0 0 0 0 0 0 0 0 0 0 0 0 3.57331e-43 3.57331e-43 0 0 1.59329e-10 1.59329e-10 1.59329e-10 1.59329e-10 4.87652e-42 0 0 0 1.34525e-43 0 0 0 1.4013e-45 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 4.59177e-41 0 8.26519e-40 0 1.14794e-41 0 1.10203e-39 0 4.59177e-41 0 8.26519e-40 0 1.12104e-44 0 8.96831e-44 0 5.60519e-45 0 8.96831e-44 0 1.68156e-44 0 2.8026e-45 0 1.96182e-44 -0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 7.73849e-33 4.56655e-41 1.82169e-44 0 1.4013e-45 0 1.4013e-45 0 1.4013e-45 0 3.31834e+15 3.06296e-41 7.73235e-33 4.56655e-41 2.84744e-42 
+   : 7.63359e-33 4.56655e-41 7.63176e-33 4.56655e-41 1.26117e-44 1.4013e-45 7.6324e-33 4.56655e-41 0 0 0 4.56655e-41 0 0 0 4.59121e-41 -nan 0 7.64256e-33 4.56655e-41 7.63921e-33 4.56655e-41 7.81411e-33 4.56655e-41 7.64256e-33 4.56655e-41 7.63377e-33 4.56655e-41 7.81625e-33 4.56655e-41 7.63752e-33 4.56655e-41 7.63979e-33 4.56655e-41 0 0 7.63856e-33 4.56655e-41 1.82169e-44 0 7.63176e-33 4.56655e-41 7.51747e-33 4.56655e-41 3.31953e+15 3.06296e-41 3.32257e+15 3.06296e-41 7.8121e-33 4.56655e-41 7.69459e-33 4.56655e-41 1.4013e-45 0 0 0 7.63921e-33 4.56655e-41 7.71997e-33 4.56655e-41 1.73856e-30 4.59121e-41 1.73861e-30 4.59121e-41 1.4013e-45 0 1.73863e-30 4.59121e-41 3.31953e+15 3.06296e-41 7.70328e-33 4.56655e-41 0 0 3.32257e+15 3.06296e-41 1.73864e-30 4.59121e-41 0 0 7.8156e-33 4.56655e-41 7.52299e-33 4.56655e-41 7.65562e-33 4.56655e-41 0 0 7.81527e-33 4.56655e-41 7.81657e-33 4.56655e-41 1.4013e-45 4.59121e-41 1.13001e-41 9.18341e-41 1.73844e-30 4.59121e-41 -0.0113305 2.36539e-42 0 0 0 0 0 0 1.82357e-30 4.59121e-41 0 4.48416e-44 0 0 0 0 1.25556e-42 1.25556e-42 1.4013e-45 0 1.02539e-36 1.4013e-45 0 0 1.25556e-42 1.25556e-42 1.25556e-42 1.25556e-42 1.25556e-42 1.25556e-42 0 0 0 0 0 0 0 0 0 0 0 0 3.57331e-43 3.57331e-43 0 0 1.59329e-10 1.59329e-10 1.59329e-10 1.59329e-10 4.87652e-42 0 0 0 1.34525e-43 0 0 0 1.4013e-45 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 4.59177e-41 0 8.26519e-40 0 1.14794e-41 0 1.10203e-39 0 4.59177e-41 0 8.26519e-40 0 1.12104e-44 0 8.96831e-44 0 5.60519e-45 0 8.96831e-44 0 1.68156e-44 0 2.8026e-45 0 1.96182e-44 -0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 7.73849e-33 4.56655e-41 1.82169e-44 0 1.4013e-45 0 1.4013e-45 0 1.4013e-45 0 3.31834e+15 3.06296e-41 7.73235e-33 4.56655e-41 2.84744e-42
    : Average = -nan
 
    #+begin_src bash :results output :exports both
@@ -956,7 +956,7 @@ something that requires a lot of diligence.
    #+end_src
 
    #+RESULTS:
-   : 0 7.62 30.16 30.16 32.59 45.24 45.56 53.02 59.26 62.22 63.17 65.4 76.19 98.33 98.41 98.89 
+   : 0 7.62 30.16 30.16 32.59 45.24 45.56 53.02 59.26 62.22 63.17 65.4 76.19 98.33 98.41 98.89
    : Average = 54.1387
 
    You can also get this from the URL with =wget=:
@@ -976,7 +976,7 @@ something that requires a lot of diligence.
    #+end_src
 
    #+RESULTS:
-   : 7.62 30.16 30.16 32.59 45.24 45.56 53.02 59.26 62.22 63.17 65.4 76.19 98.33 98.41 98.89 4.55926e-41 
+   : 7.62 30.16 30.16 32.59 45.24 45.56 53.02 59.26 62.22 63.17 65.4 76.19 98.33 98.41 98.89 4.55926e-41
    : Average = 54.1387
 
    Incidentally, you can do this also in the Org-mode code block using
@@ -995,22 +995,22 @@ something that requires a lot of diligence.
    #+end_src
 
    #+RESULTS:
-   : 7.62 30.16 30.16 32.59 45.24 45.56 53.02 59.26 62.22 63.17 65.4 76.19 98.33 98.41 98.89 4.59149e-41 
+   : 7.62 30.16 30.16 32.59 45.24 45.56 53.02 59.26 62.22 63.17 65.4 76.19 98.33 98.41 98.89 4.59149e-41
    : Average = 54.1387
 
    In future assignments with user input, you can pick your poison -
    =bash= code block input with pipe command, or =cmdline= file input.
 
 2. What constraints are place on VLA declaration?
-   
+
    #+begin_quote
    Variable-length arrays get their length at run-time so they cannot
-   be initialized at compile-time. 
+   be initialized at compile-time.
    #+end_quote
 
 3. In an array =a[10]=, what is the difference between =sizeof(a[0])= and
    =sizeof(a[10])=, and how would you show this?
-   
+
    #+begin_src C
      int a[10]={0};
      printf("Size of a[0] = %zu\nSize of a[10] = %zu\n",
@@ -1023,7 +1023,7 @@ something that requires a lot of diligence.
 
 4. How would you convert the following selection statement into a
    parameter macro?
-   
+
    #+begin_example C
    if (x < y)
       x
@@ -1042,7 +1042,7 @@ something that requires a lot of diligence.
 
 5. What if you were tired of writing =sizeof(a)/sizeof(a[10])= - could
    you write it as a parameter macro?
-   
+
    #+begin_src C
      #define LEN(a) sizeof(a)/sizeof(a[10])
 
@@ -1060,7 +1060,7 @@ something that requires a lot of diligence.
    #+end_quote
 
    Example:
-   #+begin_src C 
+   #+begin_src C
      #include <stdbool.h>
 
      bool beauty = true;
@@ -1079,11 +1079,11 @@ something that requires a lot of diligence.
    #+begin_quote
    When using AI assistance in any way, I suggest you mention in your
    solution that, and how, you made use of it (and if it helped you).
-   #+end_quote   
+   #+end_quote
 
 ** Using the C debugger =gdb=
-  #+attr_html: :width 400px:
-  [[../img/pythontutor.png]]
+#+attr_html: :width 400px:
+[[../img/pythontutor.png]]
 
 - Get the raw file from tinyurl.com/repdigit-c on the shell (=M-x shell=
   #+begin_src bash :results output :exports both
@@ -1129,7 +1129,7 @@ something that requires a lot of diligence.
   4) Step through program with =Next=
 
 ** Three practice exercises
-#+attr_html: :width 400px: 
+#+attr_html: :width 400px:
 [[../img/practice.png]]
 
 Solve these exercise in class and upload your results for bonus
@@ -1141,12 +1141,62 @@ points to Canvas:
 
   Solutions to the exercises are in GitHub in the PDF directory.
 
+
 * Week 6 - Functions and recursion
 #+attr_html: :width 600px:
 [[../img/four-monks-by-rinaldi-9696.jpg]]
 
 /Image: Four monks by Claudio Rinaldi (1852-1909). (Dorotheum, Munich)/
 
+Topics:
+- [ ] Warm-up program
+- [ ] Function prototypes
+- [ ] Arguments vs. Parameters 
+- [ ] Compound literals
+- [ ] Return and exit
+- [ ] Recursion 
+- [ ] Quicksort algorithm
+
+Every topic will generate 1 home programming assignment!
+
+Only 2 assignments per week will be mandatory, the others: bonus!
+
+* TODO Results: Quiz 3 + 4
+#+attr_html: :width 600px:
+[[../img/quiz3.png]]
+
+Quiz 3
+
+#+attr_html: :width 600px:
+[[../img/quiz4.png]]
+
+Quiz 4
+
+- Good: Almost everybody turns in the quiz on time!
+- Good: Consistent performance (one outlier only)
+- OK: Average time 12-17 minutes (one extreme outlier)
+
+* TODO Results: Programming assignment
+#+attr_html: :width 600px:
+#+Caption: Detail from Raphael, The School of Athens (1511)
+[[../img/perplexity.jpg]]
+
+- No update for the last two assignments yet: *If you haven't
+  resubmitted yet and are at a loss: contact me!* (You got till Friday)
+
+- Some have mended their submission ways as discussed
+
+- Some have not (why? Time? Reassignment = rehabilitation)
+
+- More than 40% have not submitted at all (why? Time?)
+
+- *Submit what you have before the deadline to get a 2nd chance*!
+
+- If you like watch my 30 minute solution video (new style) - 5 views
+
+* NEXT Function prototypes & arguments vs. parameters
+
+REVIEW
 
 
 * Week 7 - Pointers and Arrays
