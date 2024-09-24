@@ -1160,6 +1160,8 @@ Topics:
 Every topic will generate 1 home programming assignment!
 
 Only 2 assignments per week will be mandatory, the others: bonus!
+- Turn warmup program into program with 3 functions
+- Write function headers
 
 * TODO Results: Quiz 3 + 4
 #+attr_html: :width 600px:
@@ -1194,9 +1196,11 @@ Quiz 4
 
 - If you like watch my 30 minute solution video (new style) - 5 views
 
-* NEXT Function prototypes & arguments vs. parameters
+* NEXT Function prototypes & arguments vs. parameters (new handout)
+#+attr_html: :width 400px:
+[[../img/x.png]]
 
-REVIEW
+*"Code along until your fingers bleed" - yes though not literally.*
 
 
 * Week 7 - Pointers and Arrays

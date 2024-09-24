@@ -151,6 +151,7 @@ functions. New topics include recursion and the quicksort algorithm.
 
        void hello_world(void) // function definition
        {
+         // print string
          printf("Hello, world!");
        }
 
@@ -166,6 +167,39 @@ functions. New topics include recursion and the quicksort algorithm.
      3. Change the prototype or the definition argument (but not both)
         from =void= to =int i=.
      4. Call the function with the argument ="hi"=.
+
+* Function documentation
+
+- Remember the required solution components. Functions should be
+  accompanied by a short summary at the top:
+  1) Name and purpose of the function
+  2) Return type and parameters
+  3) Anything noteworthy (edge cases, version dependencies etc.)
+
+- Example: Hello world program
+  #+begin_src C :main no
+    #include <stdio.h>
+
+    // Function: hello_world
+    // Purpose: Prints "Hello, world!" to the console.
+    // Returns: void (no return value)
+    // Parameters: void (no parameters)
+    void hello_world(void); // prototype
+
+    int main(void)
+    {
+      hello_world(); // function call
+      return 0;
+    }
+
+    void hello_world(void) // function definition
+    {
+      printf("Hello, world!");
+    }
+  #+end_src
+
+  #+RESULTS:
+  : Hello, world!
 
 * Arguments vs. Parameters
 
@@ -184,6 +218,8 @@ functions. New topics include recursion and the quicksort algorithm.
   without affecting the corresponding argument, and we need fewer
   variables.
 
+* Example: =power= function
+
 - Example: a =power= function to raise =x= to the power of =n=
   #+begin_src C :results none
     int power(int x, int n)
@@ -195,13 +231,15 @@ functions. New topics include recursion and the quicksort algorithm.
     }
   #+end_src
 
+- Note: you can (and should) type and test the function syntax first.
+
 - Since =n= is a copy of the original exponent, we can modify it inside
   the function without affecting it outside, and save the variable =i=:
   #+begin_src C :tangle power2.c :results none
     int power(int x, int n)
     {
       int result = 1;
-      while (n-- > 0)
+      while (n-- > 0) // same as for(i=n;i>0;i--)
         result = result * x;
       return result;
     }
@@ -211,6 +249,46 @@ functions. New topics include recursion and the quicksort algorithm.
   call, they will run and compute =power=, too, but as you can see when
   you tangle the block, the source code defines the function inside of
   =main=, which is OK as long as the definition occurs before the call.
+
+- Test the two power functions as =power= and =power2= with one =main=
+  program!
+
+- Solution:
+  #+begin_src C :main no
+    int power(int,int);
+    int power2(int,int);
+
+    int main(void)
+    {
+      int x = 2, n = 3;
+      printf("%d**%d = %d\n", x, n, power(x,n));
+      printf("%d**%d = %d\n", x, n, power2(x,n));
+      return 0;
+    }
+
+    int power(int x, int n)
+    {
+      int i, result = 1;
+      for (i=1;i<=n;i++)
+        result*=x;
+      return result;
+    }
+
+    int power2(int x, int n)
+    {
+      int result = 1;
+      while (n-- > 0)
+        result*=x;
+      return result;
+    }
+
+  #+end_src
+
+  #+RESULTS:
+  : 2**3 = 8
+  : 2**3 = 4
+
+* Example: =decompose= function
 
 - Passing arguments by value makes it difficult to write functions
   that produce two different results because only one number can be
@@ -273,6 +351,7 @@ functions. New topics include recursion and the quicksort algorithm.
   memory locations of =i= and =d= - when the value the pointers point to,
   =*int_part= and =*frac+part= are changed the original variables are
   changed, too. We'll review pointers next!
+
 
 * Array Arguments
 
