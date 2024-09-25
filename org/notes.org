@@ -1163,7 +1163,8 @@ Only 2 assignments per week will be mandatory, the others: bonus!
 - Turn warmup program into program with 3 functions
 - Write function headers for functions seen in class
 
-* TODO Results: Quiz 3 + 4
+
+** DONE Results: Quiz 3 + 4
 #+attr_html: :width 600px:
 [[../img/quiz3.png]]
 
@@ -1178,7 +1179,7 @@ Quiz 4
 - Good: Consistent performance (one outlier only)
 - OK: Average time 12-17 minutes (one extreme outlier)
 
-* TODO Results: Programming assignment
+** DONE Results: Programming assignment
 #+attr_html: :width 600px:
 #+Caption: Detail from Raphael, The School of Athens (1511)
 [[../img/perplexity.jpg]]
@@ -1196,11 +1197,13 @@ Quiz 4
 
 - If you like watch my 30 minute solution video (new style) - 5 views
 
-* NEXT Function prototypes & arguments vs. parameters (new handout)
+** IN PROGRESS Function prototypes & arguments vs. parameters (new handout)
 #+attr_html: :width 400px:
-[[../img/x.png]]
+[[../img/basics.png]]
 
-*"Code along until your fingers bleed" - yes though not literally.*
+[[https://chat.google.com/room/AAAAcFTK-VI/4EFCXSCUCCY/4EFCXSCUCCY?cls=10][*YOU MUST ADDRESS YOUR C BASICS WEAKNESSES NOW*]]
+
+(... or forever hold your peace).
 
 
 * Week 7 - Pointers and Arrays
