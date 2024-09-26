@@ -302,7 +302,7 @@ functions. New topics include recursion and the quicksort algorithm.
   =pythontutor.com=, or compile as =gcc -g= and run it with =gdb=.
   #+attr_html: :width 600px:
   [[../img/pythontutor2.png]]
-  
+
   #+begin_src C :tangle power2.c :results none
     int power(int x, int n)
     {
@@ -351,13 +351,13 @@ functions. New topics include recursion and the quicksort algorithm.
     // Main program
     int main(void)
     {
-      
+
       return 0;
     }
 
-    // Function definition 
+    // Function definition
 
-    // Function definition 
+    // Function definition
 
   #+end_src
 
@@ -650,9 +650,9 @@ programming assignment.*
 
 - Solution:
   #+begin_src C :main no
-    // Function: sum_array
-    // Purpose: Returns the sum of an integer array
-    // Parameters: int a[], int n (array and its length)
+    // Function: print_array
+    // Purpose: Print one-dimensional array
+    // Parameters: int a[],  int n (array and its length)
     void print_array(int [], int);
 
     int main(void)
@@ -667,7 +667,6 @@ programming assignment.*
       for (int i = 0; i < n; i++)
         printf("Element %d: %d\n", i, a[i]);
     }
-
   #+end_src
 
 * Example: 2d Array Arguments
@@ -677,39 +676,39 @@ programming assignment.*
   #+name: sum2
   #+begin_src C :main no
     #define LEN 2
+    // Function: sum2
+    // Purpose: Sum elements of 2-d array
+    // Parameters: n x LEN dimensional array, row length int n
+    int sum2(int [][LEN], int n);
 
+    int main()
+    {
+      int a[][LEN]={[0][0]=1,[1][1]=1}; // 2 x 2 identify matrx
+      for (int i=0;i<2;i++) { // loop over rows
+        if(i!=0) puts(" ");
+        for (int j=0;j<2;j++) { // loop over columns
+          printf("%d ", a[i][j]);
+        }
+      }
+      printf("\nSum of 2d array: %d\n", sum2(a,2));
+      return 0;
+    }
     int sum2(int a[][LEN], int n)
     {
       int i, j, sum = 0;
-      for (i=0; i<n;i++)
-        if (i!=0) puts(" ");
-      for (j=0;j<LEN;j++)
-        sum+=a[i][j];
+      for (i=0; i<n;i++) { // loop over rows
+        for (j=0;j<LEN;j++) { // loop over columns
+          sum+=a[i][j];
+        }
+      }
       return sum;
-    }
-    int main()
-    {
-      int a[LEN][LEN]={1,0,0,1};
-      for (int i=0;i<2;i++)
-        {
-          //puts("");
-          for (int j=0;j<2;j++)
-        {
-          printf("%d \n", a[i][j]);
-        }
-        }
-      printf("Sum of 2d array: %d\n", sum2(a,2));
-      return 0;
     }
   #+end_src
 
   #+RESULTS: sum2
-  : 1
-  : 0
-  : 0
-  : 1
-  :
-  : Sum of 2d array: 4096
+  : 1 0  
+  : 0 1 
+  : Sum of 2d array: 2
 
 - How can the 2d array be printed in matrix format?
   #+begin_src C :main no
@@ -730,10 +729,10 @@ programming assignment.*
   : 1 0
   : 0 1
 
-* Bonus assignment: Print 2 dimensional array-by-reference
+* Bonus assignment: Print two-dimensional array with a function
 
-- *Homework assignment (bonus):* Modify the function =print_array= to print a
-  2-dimensional array.
+- *Homework assignment (bonus):* Modify the function =print_array= to
+  print a 2-dimensional array.
 
 * Variable-Length Array Parameters
 
