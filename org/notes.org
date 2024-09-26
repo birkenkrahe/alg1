@@ -1197,14 +1197,14 @@ Quiz 4
 - If you like watch my 30 minute solution video (new style) - 5 views
 
 ** NEXT Function prototypes, arguments vs. parameters
-#+attr_html: :width 600px:
+#+attr_html: :width 700px:
 [[../img/basic.png]]
 
 [[https://chat.google.com/room/AAAAcFTK-VI/4EFCXSCUCCY/4EFCXSCUCCY?cls=10][*YOU MUST ADDRESS YOUR C BASICS WEAKNESSES NOW*]]
 
-(... or forever hold your peace).
+("... or forever hold your peace").
 
-** TODO Review (Function prototypes)
+** Review (Function prototypes)
 
 1. What's the purpose of a function prototype?
    #+begin_quote
@@ -1261,14 +1261,17 @@ Quiz 4
    arguments.
    #+end_quote
 
-   #+begin_src C :main no 
+   #+begin_src C :main no
+     // function definition
      void hello(void)
      {
        printf("hello");
      }
-     main (void)
+     // main program
+     int main (void)
      {
        hello();
+       return 0;
      }
    #+end_src
 
@@ -1277,16 +1280,17 @@ Quiz 4
 
 7. Will the following code compile?
 
-   #+begin_src C :main no
+   #+begin_src C :main no :return none
+     // prototype
      void f(int a);
-
+     // main program
      int main (void)
      {
        float b;
        f(b);
        return 0;
      }
-
+     // function definition
      void f(int a) {} 
    #+end_src
 
@@ -1351,7 +1355,6 @@ Quiz 4
    : x = 3.141592653589793, i: 3, d: 0.141592653589793
 
    
-
 * Week 8 - String Manipulation
 * Week 9 - Structs, Enums, Unions
 * Week 10 - Dynamic Storage Allocation

@@ -1,0 +1,12 @@
+#include <stdio.h>
+
+int main() {
+int power(int x, int n)
+{
+  int result = 1;
+  while (n-- > 0) // same as `for(i=n;i>0;i--)`: `n` is loop veriable
+    result = result * x;
+  return result;
+}
+return 0;
+}
