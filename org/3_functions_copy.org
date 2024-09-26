@@ -648,6 +648,13 @@ programming assignment.*
 
   #+end_src
 
+  #+RESULTS:
+  : Element 0: 1
+  : Element 1: 2
+  : Element 2: 3
+  : Element 3: 4
+  : Element 4: 5
+
 * Example: 2d Array Arguments
 
 - For multi-dimensional arrays, only the length of the first dimension
