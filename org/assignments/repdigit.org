@@ -1,5 +1,5 @@
 #+startup: overview hideblocks indent entitiespretty:
-* Three =repdigit.c= programs
+* 5 Three =repdigit.c= programs
 
 For full points, submit your solution as an literate Org-mode file -
 document and structure the submitted file accordingly as you saw it in

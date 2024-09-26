@@ -1151,10 +1151,10 @@ points to Canvas:
 Topics:
 - [ ] Warm-up program
 - [ ] Function prototypes
-- [ ] Arguments vs. Parameters 
+- [ ] Arguments vs. Parameters
 - [ ] Compound literals
 - [ ] Return and exit
-- [ ] Recursion 
+- [ ] Recursion
 - [ ] Quicksort algorithm
 
 Every topic will generate 1 home programming assignment!
@@ -1197,7 +1197,7 @@ Quiz 4
 
 - If you like watch my 30 minute solution video (new style) - 5 views
 
-** IN PROGRESS Function prototypes & arguments vs. parameters (new handout)
+** Function prototypes, arguments vs. parameters
 #+attr_html: :width 400px:
 [[../img/basics.png]]
 
@@ -1205,6 +1205,111 @@ Quiz 4
 
 (... or forever hold your peace).
 
+** Review (Tuesday session)
+
+1. What's the purpose of a function prototype?
+   #+begin_quote
+   The purpose of a function prototype is to declare a function to the
+   compiler by declaring the header (return type, name, parameters)
+   without the implementation (the function body).
+   #+end_quote
+
+2. What's a function definition?
+   #+begin_quote
+   A function definition is a fully implemented function, including a
+   header (return type, name, parameters), and a body (code to be
+   executed when the function is called).
+   #+end_quote
+
+3. Where can you define a function in a C program?
+   #+begin_quote
+   - If you declared its prototype before =main=, the function can be
+     defined anywhere.
+   - If you did not declare a prototype, the function must be defined
+     before or inside the =main= function.
+   #+end_quote
+
+4. The function is defined as =void f(int a, int b)=. Can the function
+   prototype be declared like this?
+   #+begin_src C
+     void f(int, int);
+   #+end_src
+
+   #+begin_quote
+   Yes. The prototype declaration does not need to contain parameters,
+   only parameter data types.
+   #+end_quote
+
+5. Can a =void= function have a =return= command?
+   #+begin_quote
+   No. If it's a =void= function that means that it returns nothing. A
+   =return 0;= command will compile but generate a warning.
+   #+end_quote
+
+   #+begin_src C :return none
+     void hello(void)
+     {
+       printf("hello");
+       return 0;
+     }
+   #+end_src
+
+   #+RESULTS:
+
+6. How should you call a function with a =void= parameter list?
+   #+begin_quote
+   If it has a =void= or empty =()= parameter list, it is called without
+   arguments.
+   #+end_quote
+
+   #+begin_src C :main no 
+     void hello(void)
+     {
+       printf("hello");
+     }
+     main (void)
+     {
+       hello();
+     }
+   #+end_src
+
+   #+RESULTS:
+   : hello
+
+7. Will the following code compile?
+
+   #+begin_src C :main no
+     void f(int a);
+
+     int main (void)
+     {
+       float b;
+       f(b);
+       return 0;
+     }
+
+     void f(int a) {} 
+   #+end_src
+
+8. What does "passing arguments by value" mean?
+   #+begin_quote
+   "Passing arguments by value" means that arguments after a function
+   call are copied so that the original arguments are not changed.
+   #+end_quote
+
+9. What do you need to change when your code block has a =main=?
+   #+begin_quote
+   You need to set the header argument =:main= to the value =no=.
+   #+end_quote
+
+10. How can you "break" a function without violating Syntax rules?
+    #+begin_quote
+    - Mismatched =return= type between declaration and =return= argument
+    - Mismatched =return= type between declaration and definition
+    - Missing =return= command though a =return= type is declared
+    - Argument mismatch
+    - Modifying =const= parameters inside the function
+    #+end_quote
 
 * Week 7 - Pointers and Arrays
 * Week 8 - String Manipulation
