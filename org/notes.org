@@ -1141,8 +1141,7 @@ points to Canvas:
 
   Solutions to the exercises are in GitHub in the PDF directory.
 
-
-* IN PROGRESS Week 6 - Functions
+* Week 6 - Functions
 #+attr_html: :width 600px:
 [[../img/four-monks-by-rinaldi-9696.jpg]]
 
@@ -1163,7 +1162,7 @@ Only 2 assignments per week will be mandatory, the others: bonus!
 - Turn warmup program into program with 3 functions
 - Write function headers for functions seen in class
 
-** DONE Results: Quiz 3 + 4
+** Results: Quiz 3 + 4
 #+attr_html: :width 600px:
 [[../img/quiz3.png]]
 
@@ -1178,7 +1177,7 @@ Quiz 4
 - Good: Consistent performance (one outlier only)
 - OK: Average time 12-17 minutes (one extreme outlier)
 
-** DONE Results: Programming assignment
+** Results: Programming assignment
 #+attr_html: :width 600px:
 #+Caption: Detail from Raphael, The School of Athens (1511)
 [[../img/perplexity.jpg]]
@@ -1196,7 +1195,7 @@ Quiz 4
 
 - If you like watch my 30 minute solution video (new style) - 5 views
 
-** NEXT Function prototypes, arguments vs. parameters
+** Function prototypes, arguments vs. parameters
 #+attr_html: :width 700px:
 [[../img/basic.png]]
 
@@ -1317,7 +1316,19 @@ Quiz 4
 
 * Week 7 - Recursion and Pointers
 
-** Review (Passing by value vs. reference)
+
+Topics:
+- [ ] Passing by reference
+- [ ] Compound literals
+- [ ] Return and exit
+- [ ] Recursion
+- [ ] Quicksort algorithm
+
+** NEXT Review (Passing by value, passing arrays)
+
+
+
+** TODO Review (Passing by value vs. reference)
 
 1. In the =decompose= program, we split a =float= into an =int= and another
    =float= - which format specifiers are used to print these?
@@ -1355,6 +1366,7 @@ Quiz 4
    : x = 3.141592653589793, i: 3, d: 0.141592653589793
 
    
+
 * Week 8 - String Manipulation
 * Week 9 - Structs, Enums, Unions
 * Week 10 - Dynamic Storage Allocation
