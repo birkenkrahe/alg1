@@ -1142,16 +1142,16 @@ points to Canvas:
   Solutions to the exercises are in GitHub in the PDF directory.
 
 
-* Week 6 - Functions and recursion
+* IN PROGRESS Week 6 - Functions
 #+attr_html: :width 600px:
 [[../img/four-monks-by-rinaldi-9696.jpg]]
 
 /Image: Four monks by Claudio Rinaldi (1852-1909). (Dorotheum, Munich)/
 
 Topics:
-- [ ] Warm-up program
-- [ ] Function prototypes
-- [ ] Arguments vs. Parameters
+- [X] Warm-up program
+- [X] Function prototypes
+- [X] Arguments vs. Parameters
 - [ ] Compound literals
 - [ ] Return and exit
 - [ ] Recursion
@@ -1162,7 +1162,6 @@ Every topic will generate 1 home programming assignment!
 Only 2 assignments per week will be mandatory, the others: bonus!
 - Turn warmup program into program with 3 functions
 - Write function headers for functions seen in class
-
 
 ** DONE Results: Quiz 3 + 4
 #+attr_html: :width 600px:
@@ -1197,15 +1196,15 @@ Quiz 4
 
 - If you like watch my 30 minute solution video (new style) - 5 views
 
-** Function prototypes, arguments vs. parameters
-#+attr_html: :width 400px:
-[[../img/basics.png]]
+** NEXT Function prototypes, arguments vs. parameters
+#+attr_html: :width 600px:
+[[../img/basic.png]]
 
 [[https://chat.google.com/room/AAAAcFTK-VI/4EFCXSCUCCY/4EFCXSCUCCY?cls=10][*YOU MUST ADDRESS YOUR C BASICS WEAKNESSES NOW*]]
 
 (... or forever hold your peace).
 
-** Review (Tuesday session)
+** TODO Review (Function prototypes)
 
 1. What's the purpose of a function prototype?
    #+begin_quote
@@ -1311,7 +1310,48 @@ Quiz 4
     - Modifying =const= parameters inside the function
     #+end_quote
 
-* Week 7 - Pointers and Arrays
+
+* Week 7 - Recursion and Pointers
+
+** Review (Passing by value vs. reference)
+
+1. In the =decompose= program, we split a =float= into an =int= and another
+   =float= - which format specifiers are used to print these?
+   #+begin_src C
+     float x = 3.14159;
+     float frac_part;
+     int int_part;
+
+     // split x
+     int_part = (int) x;
+     frac_part = x - int_part;
+
+     // print results
+     printf("x = %g, i: %d, d: %g\n", x, int_part, frac_part);
+   #+end_src
+
+   #+RESULTS:
+   : x = 3.14159, i: 3, d: 0.14159
+
+2. What if we wanted to split a =double= instead?
+   #+begin_src C
+     double x = 3.141592653589793;
+     double frac_part;
+     long int_part;
+
+     // split x
+     int_part = (long) x;
+     frac_part = x - int_part;
+
+     // print results
+     printf("x = %.15f, i: %ld, d: %.15f\n", x, int_part, frac_part);
+   #+end_src
+
+   #+RESULTS:
+   : x = 3.141592653589793, i: 3, d: 0.141592653589793
+
+   
+
 * Week 8 - String Manipulation
 * Week 9 - Structs, Enums, Unions
 * Week 10 - Dynamic Storage Allocation

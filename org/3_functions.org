@@ -269,7 +269,8 @@ functions. New topics include recursion and the quicksort algorithm.
   without affecting the corresponding argument, and we need fewer
   variables.
 
-* Example: =power= function
+  #+options: toc:nil num:nil ^:nil:
+* NEXT Example: =power= function
 
 - Example: a =power= function to raise =x= to the power of =n=
   #+begin_src C :results none :tangle power.c
@@ -290,14 +291,16 @@ functions. New topics include recursion and the quicksort algorithm.
     int power(int x, int n)
     {
       int result = 1;
-      while (n-- > 0) // same as for(i=n;i>0;i--)
+      while (n-- > 0) // same as `for(i=n;i>0;i--)`: `n` is loop veriable
         result = result * x;
       return result;
     }
   #+end_src
 
 - To analyse what's going on inside of =power2=, you can put it in a
-  program and visualize it in =pythontutor.com=, or run it with =gdb=.
+  =main= program, tangle it as =power2.c=, and visualize it in
+  =pythontutor.com=, or compile as =gcc -g= and run it with =gdb=.
+
   #+begin_src C :tangle power2.c :results none
     int power(int x, int n)
     {
@@ -314,12 +317,50 @@ functions. New topics include recursion and the quicksort algorithm.
     }
   #+end_src
 
+- We expect this upon entering the function, for x = 2, n = 3:
+
+  | =result= | =n= |
+  |--------+---|
+  |      1 | 3 |
+  |      2 | 2 |
+  |      4 | 1 |
+  |      8 | 0 |
+
 - Test the two power functions as =power= and =power2= with one =main=
   program! Don't forget:
-  1) function prototypes
-  2) function description
+  1) Two function prototypes
+  2) One function description
+  3) One =main= function with calls to both functions
+  4) Two function definitions
 
-- Solution:
+- Test result:
+  #+begin_example
+  : 2**3 = 8
+  : 2**3 = 8
+  #+end_example
+
+- Solution template:
+  #+begin_src C :main no
+    // Function: power, power2
+    // Purpose: Compute power of integer
+    // Returns: n-th power of integer argument
+    // Parameters: integer variable, integer power
+
+    // Main program
+    int main(void)
+    {
+      
+      return 0;
+    }
+
+    // Function definition 
+
+    // Function definition 
+
+  #+end_src
+
+
+- Solution: Declare and test two power functions
   #+begin_src C :main no
     // Function: power, power2
     // Purpose: Compute power of integer
@@ -371,22 +412,22 @@ functions. New topics include recursion and the quicksort algorithm.
     // Function: decompose
     // Purpose: Splits argument x in integer and fractional part
     // Returns: nothing
-    // Parameters: double x, long integer part, double fractional part
+    // Parameters: float x, integer part, float fractional part
     // Uses: casting function
-    void decompose (double, long, double);
+    void decompose (float, int, float);
 
     int main(void) {
-      long i = 0;
-      double d = 0.;
-      double x = 3.14159;
+      int i = 0;
+      float d = 0.;
+      float x = 3.14159;
       decompose(x, i, d);
-      printf("x: %g, i: %ld, d: %g\n", x, i, d);
+      printf("x: %g, i: %d, d: %g\n", x, i, d);
       return 0;
     }
 
-    void decompose (double x, long int_part, double frac_part)
+    void decompose (float x, int int_part, float frac_part)
     {
-      int_part = (long) x; // cast x as long integer, drops fractional part
+      int_part = (int) x; // cast x as integer, drops fractional part
       frac_part = x - int_part; // fractional part
     }
 
@@ -401,20 +442,20 @@ functions. New topics include recursion and the quicksort algorithm.
 
 - Do you remember how to fix this?
   #+begin_src C :main no
-    void decompose (double, long *, double *); // pass pointers
+    void decompose (float, int *, float *); // pass pointers
 
     int main(void) {
-      long i = 0;
-      double d = 0.;
-      double x = 3.14159;
+      int i = 0;
+      float d = 0.;
+      float x = 3.14159;
       decompose(x, &i, &d); // pass value, and references
-      printf("x: %g, i: %ld, d: %g\n", x, i, d);
+      printf("x: %g, i: %d, d: %g\n", x, i, d);
       return 0;
     }
 
-    void decompose (double x, long *int_part, double *frac_part)
+    void decompose (float x, int *int_part, float *frac_part)
     {
-      (*int_part) = (long) x; // cast x as long integer, drops fractional part
+      (*int_part) = (int) x; // cast x as int integer, drops fractional part
       (*frac_part) = x - *int_part; // fractional part
     }
   #+end_src
@@ -425,9 +466,11 @@ functions. New topics include recursion and the quicksort algorithm.
   The variables =i= and =d= are now passed as references, and the
   parameters catch them as typed /pointer/ variables that point at the
   memory locations of =i= and =d= - when the value the pointers point to,
-  =*int_part= and =*frac+part= are changed the original variables are
+  =*int_part= and =*frac_part= are changed the original variables are
   changed, too. We'll review pointers next!
 
+- /Note:/ In the code block, I wrote =(*int)= because Org-mode gets
+  confused with =*= at the start of a line (expects bullet points).
 
 * Practice: add two integers - pass by reference
 
@@ -438,6 +481,7 @@ functions. New topics include recursion and the quicksort algorithm.
     // Returns: sum a + b
     // Parameters: int a, int b (passed by value)
     int add(int, int);
+
     // main program
     int main(void)
     {
@@ -445,6 +489,7 @@ functions. New topics include recursion and the quicksort algorithm.
       printf("%d + %d = %d\n", x, y, add(x,y));
       return 0;
     }
+
     // function definition
     int add(int a, int b)
     {
@@ -461,6 +506,27 @@ functions. New topics include recursion and the quicksort algorithm.
   pointers, print the =sum= inside the function, and set the original
   arguments to 0.
 
+- Test output:
+  #+begin_example
+  : x = 1, y = 1
+  : 1 + 1 = 2
+  : x = 0, y = 0
+  #+end_example
+
+- Solution template:
+  #+begin_src C :main no
+    // Function: add
+    // Purpose: Adds two integer values
+    // Returns: Nothing
+    // Parameters: int *a, int *b (passed by reference)
+
+    // Main program
+
+    // Function definition
+
+  #+end_src
+
+- Solution:
   #+begin_src C :main no
     // Function: add
     // Purpose: Adds two integer values
@@ -497,6 +563,8 @@ functions. New topics include recursion and the quicksort algorithm.
   : x = 1, y = 1
   : 1 + 1 = 2
   : x = 0, y = 0
+
+* Bonus assignment: Say hello by reference
 
 - *Programming assignment (bonus):* modify a simple 'hello world' program from
   pass-by-value to pass-by-reference and modify the original character.
@@ -538,13 +606,17 @@ programming assignment.*
     // Purpose: Returns the sum of an integer array
     // Parameters: int a[], int n (array and its length)
     int sum_array(int[],int);
+
     // main function
     int main() {
+
       int a[5]={1,1,1,1,1};
+
       printf("Sum of array of %d elements: %d\n",
          5, sum_array(a,5)); // no [] brackets when passing the array
       return 0;
     }
+
     // function definition
     int sum_array(int a[], int n) { // brackets after the parameter
       int i, sum = 0;
@@ -656,6 +728,8 @@ programming assignment.*
   #+RESULTS:
   : 1 0
   : 0 1
+
+* Bonus assignment: Print 2 dimensional array-by-reference
 
 - *Homework assignment (bonus):* Modify the function =print_array= to print a
   2-dimensional array.
