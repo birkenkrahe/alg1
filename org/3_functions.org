@@ -24,10 +24,10 @@ functions. New topics include recursion and the quicksort algorithm.
   + Quicksort algorithm explained and coded
   + Code along and solve different exercises
   + Review questions, glossary, and summary
-  
+
 *Code along:*
 
-1. Open your Linux VM 
+1. Open your Linux VM
 
 2. Open Emacs (terminal or GUI)
 
@@ -96,6 +96,7 @@ functions. New topics include recursion and the quicksort algorithm.
      : 1 + 1 = 2
 
   2) With prototype:
+     #+name: add
      #+begin_src C :main no
        int add(int, int); // prototype
 
@@ -126,7 +127,7 @@ functions. New topics include recursion and the quicksort algorithm.
   #+begin_src C
     puts("Hello, world!");
     printf("Hello, world!");
-    #+end_src
+  #+end_src
 
   #+RESULTS:
   : Hello, world!
@@ -152,7 +153,7 @@ functions. New topics include recursion and the quicksort algorithm.
   : Hello, world!
 
 - Break the function (non-trivially = no syntax errors):
-  1. Define the function with ; at the end 
+  1. Define the function with ; at the end
   2. Try to =return= something from the =void= function
   3. Mismatch of defined function type with prototype
   4. Calling function with argument (instead of =void=)
@@ -274,8 +275,8 @@ functions. New topics include recursion and the quicksort algorithm.
   #+begin_src C :results none :tangle power.c
     int power(int x, int n)
     {
-      int i, result = 1; 
-      for (i = 1; i <= n; i++) 
+      int i, result = 1;
+      for (i = 1; i <= n; i++)
         result = result * x;
       return result;
     }
@@ -295,16 +296,35 @@ functions. New topics include recursion and the quicksort algorithm.
     }
   #+end_src
 
-- These codeblocks will compile by the way, and if you add a =printf=
-  call, they will run and compute =power=, too, but as you can see when
-  you tangle the block, the source code defines the function inside of
-  =main=, which is OK as long as the definition occurs before the call.
+- To analyse what's going on inside of =power2=, you can put it in a
+  program and visualize it in =pythontutor.com=, or run it with =gdb=.
+  #+begin_src C :tangle power2.c :results none
+    int power(int x, int n)
+    {
+      int result = 1;
+      while (n-- > 0) // same as for(i=n;i>0;i--)
+        result = result * x;
+      return result;
+    }
+    int main(void)
+    {
+      int a = 2, b = 3;
+      printf("%d\n",power(a,b));
+      return 0;
+    }
+  #+end_src
 
 - Test the two power functions as =power= and =power2= with one =main=
-  program!
+  program! Don't forget:
+  1) function prototypes
+  2) function description
 
 - Solution:
   #+begin_src C :main no
+    // Function: power, power2
+    // Purpose: Compute power of integer
+    // Returns: n-th power of integer argument
+    // Parameters: integer variable, integer power
     int power(int,int);
     int power2(int,int);
 
@@ -336,7 +356,7 @@ functions. New topics include recursion and the quicksort algorithm.
 
   #+RESULTS:
   : 2**3 = 8
-  : 2**3 = 4
+  : 2**3 = 8
 
 * Example: =decompose= function
 
@@ -344,9 +364,15 @@ functions. New topics include recursion and the quicksort algorithm.
   that produce two different results because only one number can be
   returned.
 
-- Example: =decompose= splits the =double= argument =x= in an integer and a
-  fractional part.
+- Example: The function =decompose= splits its argument in an integer
+  and a fractional part.
+
   #+begin_src C :main no
+    // Function: decompose
+    // Purpose: Splits argument x in integer and fractional part
+    // Returns: nothing
+    // Parameters: double x, long integer part, double fractional part
+    // Uses: casting function
     void decompose (double, long, double);
 
     int main(void) {
@@ -402,13 +428,115 @@ functions. New topics include recursion and the quicksort algorithm.
   =*int_part= and =*frac+part= are changed the original variables are
   changed, too. We'll review pointers next!
 
-* Array Arguments
+
+* Practice: add two integers - pass by reference
+
+- Here is another version of the function to add two integer values:
+  #+begin_src C :main no
+    // Function: add
+    // Purpose: Adds two integer values
+    // Returns: sum a + b
+    // Parameters: int a, int b (passed by value)
+    int add(int, int);
+    // main program
+    int main(void)
+    {
+      int x = 1, y = 1;
+      printf("%d + %d = %d\n", x, y, add(x,y));
+      return 0;
+    }
+    // function definition
+    int add(int a, int b)
+    {
+      return a + b;
+    }
+
+  #+end_src
+
+  #+RESULTS:
+  : 1 + 1 = 2
+
+- The function call passes arguments =x= and =y= by value. Create a new
+  =void= function =add2= that passes the integers by reference using
+  pointers, print the =sum= inside the function, and set the original
+  arguments to 0.
+
+  #+begin_src C :main no
+    // Function: add
+    // Purpose: Adds two integer values
+    // Returns: Nothing
+    // Parameters: int *a, int *b (passed by reference)
+    void add2(int*,int*);
+
+    // main program
+    int main(void)
+    {
+      // define variables
+      int x = 1, y = 1;
+      // print original values
+      printf("x = %d, y = %d\n", x, y);
+      // call function (pass by reference)
+      add2(&x,&y);
+      // print modified values
+      printf("x = %d, y = %d\n", x, y);
+      return 0;
+    }
+
+    // function definition
+    void add2(int *a, int *b)
+    {
+      int sum = *a + *b;
+      printf("%d + %d = %d\n", *a, *b, sum);
+      // modify a an b
+      (*a) = 0;
+      (*b) = 0;
+    }
+  #+end_src
+
+  #+RESULTS:
+  : x = 1, y = 1
+  : 1 + 1 = 2
+  : x = 0, y = 0
+
+- *Programming assignment (bonus):* modify a simple 'hello world' program from
+  pass-by-value to pass-by-reference and modify the original character.
+  #+begin_src C
+    // Function: say_hello
+    // Purpose: Prints "Hello, <char>!" message
+    // Returns: nothing
+    // Parameters: char c (passed by value)
+    void say_hello(char);
+
+    int main(void) {
+      char initial = 'W';
+
+      say_hello(initial); // Passing by value
+      printf("After function call: initial = %c\n", initial); // 'W' remains unchanged
+
+      return 0;
+    }
+
+    void say_hello(char c) {
+      printf("Hello, %c!\n", c);
+    }
+  #+end_src
+
+  #+RESULTS:
+  : Hello, W!
+  : After function call: initial = W
+
+* Example: 1d Array Arguments
+
+*This is the concept that you need to complete the next mandatory
+programming assignment.*
 
 - When given an array ~a~ of =int= values, ~sum_array~ returns the sum of
   the elements in ~a~. The length of ~a~ is supplied as a second argument:
   #+name: sum_array
   #+begin_src C :main no
-    // prototype declaration
+    // Function: sum_array
+    // Purpose: Returns the sum of an integer array
+    // Parameters: int a[], int n (array and its length)
     int sum_array(int[],int);
     // main function
     int main() {
@@ -428,6 +556,48 @@ functions. New topics include recursion and the quicksort algorithm.
 
 - A function has no way to check that we've passed it the correct
   array length (so you must be careful - easy to cause memory leaks).
+
+* Practice: Passing array arguments and printing them
+
+- Objective: Write a function ~print_array~ that takes an integer array
+  and its length as arguments and prints the elements of the array.
+  1. Implement the ~print_array~ function that takes an array and its
+     length.
+  2. Use a loop to print each element of the array inside the
+     function.
+
+- Sample output: For the array ~{1, 2, 3, 4, 5}~, the output will be:
+  #+begin_example
+: Element 0: 1
+: Element 1: 2
+: Element 2: 3
+: Element 3: 4
+: Element 4: 5
+  #+end_example
+
+- Solution:
+  #+begin_src C :main no
+    // Function: sum_array
+    // Purpose: Returns the sum of an integer array
+    // Parameters: int a[], int n (array and its length)
+    void print_array(int [], int);
+
+    int main(void)
+    {
+      int a[5]={1,2,3,4,5};
+      print_array(a,5);
+      return 0;
+    }
+
+    void print_array(int a[], int n)
+    {
+      for (int i = 0; i < n; i++)
+        printf("Element %d: %d\n", i, a[i]);
+    }
+
+  #+end_src
+
+* Example: 2d Array Arguments
 
 - For multi-dimensional arrays, only the length of the first dimension
   may be omitted when declaring the parameter:
@@ -486,6 +656,9 @@ functions. New topics include recursion and the quicksort algorithm.
   #+RESULTS:
   : 1 0
   : 0 1
+
+- *Homework assignment (bonus):* Modify the function =print_array= to print a
+  2-dimensional array.
 
 * Variable-Length Array Parameters
 
