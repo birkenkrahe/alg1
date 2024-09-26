@@ -1,0 +1,52 @@
+#+startup: overview hideblocks indent entitiespretty: 
+* 6 Extract two simple functions
+
+This was a warm-up exercise when we started with "functions": Define
+an array =x= of 6 elements 1,3,2.5,3,4,3, print them in reverse order
+and print the number of times 3 occurs in =x=.
+#+begin_src C
+  // declare and define floating-point array of 6 elements
+  float x[6] = {1,3,2.5,3,4,3};
+  // define counter and loop variable
+  int count=0, i;
+  // loop over array in reverse order
+  for (i = 5; i>=0; i--) {
+    printf("%g ",x[i]);
+    // check if array element is equal to 3
+    if (x[i]==3) count++;
+   }
+  // print result
+  printf("\n%d", count);
+#+end_src
+
+1) Add two functions two the program:
+   - a function =reverse= that reverses the array using a =for= loop and
+     prints it.
+   - a function =count= that counts the number of times =3= occurs in the
+     array and returns the count to =main= to be printed.
+2) Change the =main= function so that =reverse= and =count= are called from
+   within =main=.
+3) Change the code block header to =:main no=
+4) Include function prototypes.
+5) Include short descriptions for each function.
+6) Submit your solution as an Org-mode file under full sails:
+   - Meta data header (title, author, subtitle, startup, property)
+   - Headlines to structure your literate program
+   - Code block with the sample output:
+     #+begin_example
+     Array reversed: 3 4 3 2.5 3 1 
+     Count of 3 = 3
+     #+end_example
+   - Short reflection about your experience (what you learnt if
+     anything).
+
+7) Hints:
+   #+begin_quote
+   1) Choose which part of the program to encapsulate
+   2) Identify the =return= type of the function (if any)
+   3) Identify the local variables (=parameters=)
+   4) If there's more than one function, do one at a time.
+   5) Take the compiler warnings seriously.
+   #+end_quote
+
+
