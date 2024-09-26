@@ -270,7 +270,7 @@ functions. New topics include recursion and the quicksort algorithm.
   variables.
 
   #+options: toc:nil num:nil ^:nil:
-* NEXT Example: =power= function
+* Example: =power= function
 
 - Example: a =power= function to raise =x= to the power of =n=
   #+begin_src C :results none :tangle power.c
@@ -300,7 +300,9 @@ functions. New topics include recursion and the quicksort algorithm.
 - To analyse what's going on inside of =power2=, you can put it in a
   =main= program, tangle it as =power2.c=, and visualize it in
   =pythontutor.com=, or compile as =gcc -g= and run it with =gdb=.
-
+  #+attr_html: :width 600px:
+  [[../img/pythontutor2.png]]
+  
   #+begin_src C :tangle power2.c :results none
     int power(int x, int n)
     {
@@ -359,7 +361,6 @@ functions. New topics include recursion and the quicksort algorithm.
 
   #+end_src
 
-
 - Solution: Declare and test two power functions
   #+begin_src C :main no
     // Function: power, power2
@@ -399,7 +400,7 @@ functions. New topics include recursion and the quicksort algorithm.
   : 2**3 = 8
   : 2**3 = 8
 
-* Example: =decompose= function
+* NEXT Example: =decompose= function
 
 - Passing arguments by value makes it difficult to write functions
   that produce two different results because only one number can be
@@ -593,7 +594,7 @@ functions. New topics include recursion and the quicksort algorithm.
   : Hello, W!
   : After function call: initial = W
 
-* Example: 1d Array Arguments
+* DONE Example: 1d Array Arguments
 
 *This is the concept that you need to complete the next mandatory
 programming assignment.*
@@ -629,7 +630,7 @@ programming assignment.*
 - A function has no way to check that we've passed it the correct
   array length (so you must be careful - easy to cause memory leaks).
 
-* Practice: Passing array arguments and printing them
+* DONE Practice: Passing array arguments and printing them
 
 - Objective: Write a function ~print_array~ that takes an integer array
   and its length as arguments and prints the elements of the array.
