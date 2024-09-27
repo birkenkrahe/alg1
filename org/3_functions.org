@@ -303,7 +303,7 @@ functions. New topics include recursion and the quicksort algorithm.
   #+attr_html: :width 600px:
   [[../img/pythontutor2.png]]
 
-  #+begin_src C :tangle power2.c :results none
+  #+begin_src C :tangle power2.c
     int power(int x, int n)
     {
       int result = 1;
@@ -313,11 +313,14 @@ functions. New topics include recursion and the quicksort algorithm.
     }
     int main(void)
     {
-      int a = 2, b = 3;
+      int a = 3, b = 2;
       printf("%d\n",power(a,b));
       return 0;
     }
   #+end_src
+
+  #+RESULTS:
+  : 9
 
 - We expect this upon entering the function, for x = 2, n = 3:
 

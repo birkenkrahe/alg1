@@ -1149,8 +1149,9 @@ points to Canvas:
 
 Topics:
 - [X] Warm-up program
-- [X] Function prototypes
+- [X] Function prototypes [assignment 6]
 - [X] Arguments vs. Parameters
+- [X] Passing arrays (by reference [assignment 7]
 - [ ] Compound literals
 - [ ] Return and exit
 - [ ] Recursion
@@ -1364,7 +1365,6 @@ Topics:
 
    #+RESULTS:
    : x = 3.141592653589793, i: 3, d: 0.141592653589793
-
    
 
 * Week 8 - String Manipulation
