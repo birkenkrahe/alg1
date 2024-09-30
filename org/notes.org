@@ -1362,14 +1362,15 @@ Topics:
 #+RESULTS:
 [[file:gradesDensity.png]]
 
-- Many of you still have not submitted assignment 2 (= low hanging fruit).
-- Some of you still don't seem to understand what they're doing (why?).
-- From now on I will grade what you submit as you submit it.
+- Many of you still have not submitted assignment 2 (= *low hanging fruit*).
+- Some of you have not submitted the last 2-3 assignments (*see me!!!*).
+- Some of you are still struggling with *sticking to instructions*.
+- From now on I will grade what you submit *as I see it*.
 - Late submissions will get *at most 50%* of the available points.
 - *Late submissions for mid-term must be submitted by 12 pm on 8 Oct*
 - You can always send me your solution for comment before submitting.
-- Use "Hurkle-Durkle-Day" weekend to improve your grade & skills.
-
+- Use "Hurkle-Durkle-Day" weekend to *improve your grade & skills*.
+- The deadline for the last two assignments is *Mon 7 October (11:59pm)*
 
 ** NEXT Review (Passing by value, passing arrays)
 
