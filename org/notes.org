@@ -1291,7 +1291,7 @@ Quiz 4
        return 0;
      }
      // function definition
-     void f(int a) {} 
+     void f(int a) {}
    #+end_src
 
 8. What does "passing arguments by value" mean?
@@ -1317,9 +1317,12 @@ Quiz 4
 
 * Week 7 - Recursion and Pointers
 #+attr_html: :width 400px:
-[[../img/pointer.jpg]]
+[[../img/podcasters.png]]
 
-Topics:
+*New!* 12-minute podcast on "C Arrays" (see [[https://chat.google.com/room/AAAAcFTK-VI/_Kwvf0bBml8/_Kwvf0bBml8?cls=10][chat]]) - let me know what you
+think! I've already turned "C Functions" into a podcast - fun review!
+
+Next topics:
 - [ ] Passing by reference
 - [ ] Compound literals
 - [ ] Return and exit
@@ -1344,19 +1347,19 @@ Topics:
 
   ## Overlay the second plot with the same xlim and ylim
   par(new=TRUE)
-  plot(density(grades2), lwd=2, col="blue", 
-       xlab="Grades [%]", main="Total grades CSC 240 (14 to 30-Sep-2024)", 
+  plot(density(grades2), lwd=2, col="blue",
+       xlab="Grades [%]", main="Total grades CSC 240 (14 to 30-Sep-2024)",
        xlim=xlim, ylim=ylim, yaxt="n")
 
   ## Add mean lines for grades1
-  abline(v=mean(grades1), col="red", lwd=2)  
+  abline(v=mean(grades1), col="red", lwd=2)
 
   ## Add mean lines for grades2
   abline(v=mean(grades2), col="blue", lwd=2)
 
   ## add a legend
-  legend("topleft", legend=c("Grades1", "Grades2"), 
-           col=c("red", "blue"), lwd=2)
+  legend("topleft", legend=c("Grades1", "Grades2"),
+         col=c("red", "blue"), lwd=2)
 #+end_src
 
 #+RESULTS:
@@ -1370,11 +1373,75 @@ Topics:
 - *Late submissions for mid-term must be submitted by 12 pm on 8 Oct*
 - You can always send me your solution for comment before submitting.
 - Use "Hurkle-Durkle-Day" weekend to *improve your grade & skills*.
-- The deadline for the last two assignments is *Mon 7 October (11:59pm)*
+- Extended deadline for assignments 6 + 7 is *Mon 7 October (11:59pm)*
 
 ** NEXT Review (Passing by value, passing arrays)
 
+1. What should be included in a function documentation header?
+   #+begin_quote
+   Name, purpose, return type, parameters, edge cases.
+   #+end_quote
+   Example:
+   #+begin_example C
+   // Name: power
+   // Purpose: Compute power of an integer
+   // Returns: integer = n-th power of integer x
+   // Params: integer (base) x, integer (power) n
+   #+end_example
 
+2. What does "passing an array by reference" mean?
+   #+begin_quote
+   Array arguments are inherently passed by reference.
+
+   Instead of passing a copy of the array, a pointer to the first
+   element of the array is passed to the function.
+   #+end_quote
+
+3. Do changes made to the array elements inside the function affect
+   the original array in the calling function?
+   #+begin_quote
+   Yes, any changes made to the array elements inside the function
+   affect the original array:
+
+   1. When an array is passed to a function, it "decays" into a
+      pointer to its first element - only the address of that element
+      is received.
+   2. Modifications to the array elements change the original array,
+      since no copy was made and the pointer operates on the original.
+   #+end_quote
+
+4. How does the function call to pass an array =a[10]= look like?
+   #+begin_example C
+     int a[10];
+     f(a,10);
+   #+end_example
+
+5. Show this with a short example including =main= and a function!
+   1) In main: Define 1-dimensional array as {0}
+   2) In main: Print array elements
+   3) In main: Call function on array
+   4) In (void) function: change elements in array to {1}
+   5) In main: Print array elements
+      
+   #+begin_src C
+     void foo(int [], int);
+
+     int main(void) {
+       int bar[2] = {0};
+       printf("%d %d\n", bar[0], bar[1]);
+       foo(bar,2);
+       printf("%d %d\n", bar[0], bar[1]);
+       return 0;
+     }
+
+     void foo(int a[], int n) {
+       a[0] = a[1] = 1;
+     }
+   #+end_src
+
+   #+RESULTS:
+   : 0 0
+   : 1 1
 
 ** TODO Review (Passing by value vs. reference)
 
@@ -1412,7 +1479,7 @@ Topics:
 
    #+RESULTS:
    : x = 3.141592653589793, i: 3, d: 0.141592653589793
-   
+
 
 * Week 8 - String Manipulation
 * Week 9 - Structs, Enums, Unions
