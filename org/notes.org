@@ -1314,12 +1314,16 @@ Quiz 4
     - Modifying =const= parameters inside the function
     #+end_quote
 
+
 * Week 7 - Functions, Recursion and Pointers
 #+attr_html: :width 400px:
 [[../img/podcasters.png]]
 
 *New!* 12-minute podcast on "C Arrays" (see [[https://chat.google.com/room/AAAAcFTK-VI/_Kwvf0bBml8/_Kwvf0bBml8?cls=10][chat]]) - let me know what you
 think! I've already turned "C Functions" into a podcast - fun review!
+
+*Poll!* Who has got WSL (Windows Subsystem Linux) on his Windows PC?
+Enrol my help to do this (same environment as in class) any time!
 
 Next topics:
 - [ ] Passing by reference
@@ -1454,6 +1458,7 @@ Next topics:
      }
    #+end_src
 
+
 ** TODO Review (Passing by value vs. reference)
 
 1. In the =decompose= program, we split a =float= into an =int= and another
@@ -1492,11 +1497,11 @@ Next topics:
    : x = 3.141592653589793, i: 3, d: 0.141592653589793
 
 
-* Week 8 - String Manipulation
-* Week 9 - Structs, Enums, Unions
-* Week 10 - Dynamic Storage Allocation
-* Week 11 - Linked Lists and Doubly Linked Lists
-* Week 12 - Stacks and Queues
-* Week 13 - Trees and Hash Tables
-* Week 14 - Heaps and Graphs
-* Week 15 - C++
+* Week 8 - Pointers and Arrays
+* Week 9 - String Manipulation
+* Week 10 - Structs, Enums, Unions
+* Week 11 - Dynamic Storage Allocation
+* Week 12 - Linked Lists and Doubly Linked Lists
+* Week 13 - Stacks and Queues
+* Week 14 - Trees and Hash Tables
+* Week 15 - Heaps and Graphs / C++

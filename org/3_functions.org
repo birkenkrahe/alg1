@@ -411,7 +411,7 @@ functions. New topics include recursion and the quicksort algorithm.
 
 - Example: The function =decompose= splits its argument in an integer
   and a fractional part.
-
+  #+name: decompose
   #+begin_src C :main no
     // Function: decompose
     // Purpose: Splits argument x in integer and fractional part
@@ -444,27 +444,41 @@ functions. New topics include recursion and the quicksort algorithm.
   =i= is copied into =int_part= and the value of =d= is copied into
   =frac_part=. But when the function returns, =i= and =d= are unchanged.
 
-- Do you remember how to fix this?
+- And we cannot return both =i= and =d=!
+
+- We need to move from pass-by-value to pass-by-reference:
+  1) Copy [[decompose]] into a new block [[decompose2]]
+  2) In =main=: call address-of variables
+  3) In =decompose2=: pass pointer variables
+  4) In =decompose2=: compute with dereferenced pointer variables
+  5) Run again.
+  #+name: decompose2
   #+begin_src C :main no
-    void decompose (float, int *, float *); // pass pointers
+    // Function: decompose2
+    // Purpose: Splits argument x in integer and fractional part
+    // Returns: nothing
+    // Parameters: float x, integer* part, float* fractional part
+    // Uses: casting function
+    void decompose2 (float, int*, float*);
 
     int main(void) {
       int i = 0;
       float d = 0.;
       float x = 3.14159;
-      decompose(x, &i, &d); // pass value, and references
+      decompose2(x, &i, &d);
       printf("x: %g, i: %d, d: %g\n", x, i, d);
       return 0;
     }
 
-    void decompose (float x, int *int_part, float *frac_part)
+    void decompose2 (float x, int *int_part, float *frac_part)
     {
-      (*int_part) = (int) x; // cast x as int integer, drops fractional part
-      (*frac_part) = x - *int_part; // fractional part
+      (*int_part) = (int) x; // cast x as integer, drops fractional part
+      (*frac_part) = x - (*int_part); // fractional part
     }
+
   #+end_src
 
-  #+RESULTS:
+  #+RESULTS: decompose2
   : x: 3.14159, i: 3, d: 0.14159
 
   The variables =i= and =d= are now passed as references, and the
@@ -476,6 +490,27 @@ functions. New topics include recursion and the quicksort algorithm.
 - /Note:/ In the code block, I wrote =(*int)= because Org-mode gets
   confused with =*= at the start of a line (expects bullet points).
 
+- Refresher on pointers:
+  #+begin_src C
+
+    int i = 100;
+
+    int *p = &i; // points to i
+
+    printf("%p %p\n",p, &i); // prints an address
+    printf("%d %d\n",*p, i); // prints an value
+
+    (*p) = 200; // change value of i with pointer
+    
+    printf("%d\n", i); // print new value
+
+  #+end_src
+
+  #+RESULTS:
+  : 0x7ffe0994fbec 0x7ffe0994fbec
+  : 100 100
+  : 200
+  
 * Practice: add two integers - pass by reference
 
 - Here is another version of the function to add two integer values:
@@ -519,14 +554,22 @@ functions. New topics include recursion and the quicksort algorithm.
 
 - Solution template:
   #+begin_src C :main no
-    // Function: add
+    // Function: add2
     // Purpose: Adds two integer values
     // Returns: Nothing
     // Parameters: int *a, int *b (passed by reference)
 
     // Main program
 
-    // Function definition
+       // define variables
+
+       // print original values
+
+       // call function (pass by reference)
+
+       // print modified values
+
+    // Function definition (like prototype)
 
   #+end_src
 
