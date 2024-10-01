@@ -1439,28 +1439,6 @@ Next topics:
    5) In (=void=) function: change elements in array to ={1}=
    6) In main: Print array elements
 
-   #+begin_src C :main no
-     void foo(int [], int);  // 1
-
-     int main(void)
-     {
-       int bar[2]={0}; // 2
-       printf("%d %d\n", bar[0], bar[1]); //3
-       foo(bar,2); // 4
-       printf("%d %d\n", bar[0], bar[1]); //6
-       return 0;
-     }
-
-     void foo(int a[], int n)
-     {
-       a[0] = a[1] = 1; // 5
-     }
-   #+end_src
-
-   #+RESULTS:
-   : 0 0
-   : 1 1
-
    Solution:
    #+begin_src C
      void foo(int [], int); // 1
@@ -1480,10 +1458,45 @@ Next topics:
      }
    #+end_src
 
+   #+RESULTS:
+   : 0 0
+   : 1 1
+
 ** TODO Review (Passing by value vs. reference)
 
+1. In the =decompose= program, we split a =float= into an =int= and another
+   =float= - which format specifiers are used to print these?
+   #+begin_src C
+     float x = 3.14159;
+     float frac_part;
+     int int_part;
 
-Review array printing exercise and review multidimensional 
+     // split x
+     int_part = (int) x;
+     frac_part = x - int_part;
+
+     // print results
+     printf("x = %g, i: %d, d: %g\n", x, int_part, frac_part);
+   #+end_src
+
+2. What if we wanted to split a =double= floating-point instead?
+   #+begin_src C
+     double x = 3.141592653589793;
+     double frac_part;
+     long int_part;
+
+     // split x
+     int_part = (long) x;
+     frac_part = x - int_part;
+
+     // print results
+     printf("x = %.15f, i: %ld, d: %.15f\n", x, int_part, frac_part);
+   #+end_src
+
+   
+   Review array printing exercise and review multidimensional 
+
+
 
 Inside the function, all variables (also pointers) are local
 
@@ -1504,41 +1517,6 @@ Inside the function, all variables (also pointers) are local
 
   #+end_src
 
-
-1. In the =decompose= program, we split a =float= into an =int= and another
-   =float= - which format specifiers are used to print these?
-   #+begin_src C
-     float x = 3.14159;
-     float frac_part;
-     int int_part;
-
-     // split x
-     int_part = (int) x;
-     frac_part = x - int_part;
-
-     // print results
-     printf("x = %g, i: %d, d: %g\n", x, int_part, frac_part);
-   #+end_src
-
-   #+RESULTS:
-   : x = 3.14159, i: 3, d: 0.14159
-
-2. What if we wanted to split a =double= instead?
-   #+begin_src C
-     double x = 3.141592653589793;
-     double frac_part;
-     long int_part;
-
-     // split x
-     int_part = (long) x;
-     frac_part = x - int_part;
-
-     // print results
-     printf("x = %.15f, i: %ld, d: %.15f\n", x, int_part, frac_part);
-   #+end_src
-
-   #+RESULTS:
-   : x = 3.141592653589793, i: 3, d: 0.141592653589793
 
 
 * Week 8 - Pointers and Arrays
