@@ -598,8 +598,7 @@ functions. New topics include recursion and the quicksort algorithm.
     // function definition
     void add2(int *a, int *b)
     {
-      int sum = *a + *b;
-      printf("%d + %d = %d\n", *a, *b, sum);
+      printf("%d + %d = %d\n", *a, *b, *a+*b);
       // modify a an b
       (*a) = 0;
       (*b) = 0;
