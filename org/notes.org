@@ -1482,6 +1482,29 @@ Next topics:
 
 ** TODO Review (Passing by value vs. reference)
 
+
+Review array printing exercise and review multidimensional 
+
+Inside the function, all variables (also pointers) are local
+
+  #+begin_src C
+
+    int i = 100;
+
+    int *p = &i; // points to i
+
+    printf("%d %d\n",p, &i); // prints an address
+    printf("%d %d\n",*p, i); // prints an value
+    printf("%d %d\n",&(*p), &i); // prints an address
+    printf("%d %d\n",*&((*p)), *(&i)); // prints a value    
+
+    (*p) = 200; // change value of i with pointer
+
+    printf("%d\n", i); // print new value
+
+  #+end_src
+
+
 1. In the =decompose= program, we split a =float= into an =int= and another
    =float= - which format specifiers are used to print these?
    #+begin_src C
