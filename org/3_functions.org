@@ -403,7 +403,7 @@ functions. New topics include recursion and the quicksort algorithm.
   : 2**3 = 8
   : 2**3 = 8
 
-* NEXT Example: =decompose= function
+* Example: =decompose= function
 
 - Passing arguments by value makes it difficult to write functions
   that produce two different results because only one number can be
@@ -648,7 +648,7 @@ functions. New topics include recursion and the quicksort algorithm.
   : Hello, W!
   : After function call: initial = W
 
-* DONE Example: 1d Array Arguments
+* Example: 1d Array Arguments
 
 *This is the concept that you need to complete the next mandatory
 programming assignment.*
@@ -684,7 +684,7 @@ programming assignment.*
 - A function has no way to check that we've passed it the correct
   array length (so you must be careful - easy to cause memory leaks).
 
-* DONE Practice: Passing array arguments and printing them
+* Practice: Passing array arguments and printing them
 
 - Objective: Write a function ~print_array~ that takes an integer array
   and its length as arguments and prints the elements of the array.
@@ -723,7 +723,7 @@ programming assignment.*
     }
   #+end_src
 
-* Example: 2d Array Arguments
+* NEXT Example: 2d Array Arguments
 
 - For multi-dimensional arrays, only the length of the first dimension
   may be omitted when declaring the parameter:

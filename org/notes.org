@@ -1332,7 +1332,7 @@ Next topics:
 - [ ] Recursion
 - [ ] Quicksort algorithm
 
-** NEXT Programming assignments are getting better!
+** DONE Programming assignments are getting better!
 
 - R code chunk (if you like how this looks, get into data science!)
   #+begin_src R :file gradesDensity.png :session *R* :results file graphics output :exports both
@@ -1390,7 +1390,7 @@ Next topics:
 - I will video my sample solutions & create a podcast on them.
 
 
-** NEXT Review (Passing by value, passing arrays)
+** DONE Review (Passing by value, passing arrays)
 
 1. What should be included in a function documentation header?
    #+begin_quote
@@ -1462,6 +1462,7 @@ Next topics:
    : 0 0
    : 1 1
 
+
 ** TODO Review (Passing by value vs. reference)
 
 1. In the =decompose= program, we split a =float= into an =int= and another
@@ -1493,8 +1494,47 @@ Next topics:
      printf("x = %.15f, i: %ld, d: %.15f\n", x, int_part, frac_part);
    #+end_src
 
+3. If =*p= is a pointer to =&i=, the address of the =int= variable =i=, what
+   are the following variables, and are they even allowed?
+   #+begin_example C
+    &(*p)
+    *(&i)
+    *(&(*p))
+    &(*(&i))
+   #+end_example
+
+   #+begin_src C
+     int i = 100; // integer
+     int *p = &i; // pointer to integer
+
+     // integer, address-of integer, pointer
+     printf("i        = %d, &i       = %d, p = %d\n", i, &i, p);
+     // dereferenced pointer, address-of dereferenced pointer
+     printf("*p       = %d, &(*p)    = %d\n", *p, &(*p));
+     // deferenced reference/address-of integer (value)
+     printf("*(&i)    = %d\n", *(&i));
+     // dereferenced address-of dereferenced pointer (value),
+     // address-of dereferenced address-of integer (address
+     printf("*(&(*p)) = %d, &(*(&i)) = %d\n",*(&(*p)),&(*(&i)));
+   #+end_src
+
+   #+RESULTS:
+   : i        = 100, &i       = 1827209100, p = 1827209100
+   : *p       = 100, &(*p)    = 1827209100
+   : *(&i)    = 100
+   : *(&(*p)) = 100, &(*(&i)) = 1827209100
+
+4. What could =**p= be if =*p= is a pointer to =&i=?
+   #+begin_quote
+   =*(*p)= is a pointer to a pointer (aka "double pointer"): it contains
+   the memory address of the pointer (which in turn points at the
+   memory address of =i=.
+
    
-   Review array printing exercise and review multidimensional 
+   
+   #+end_quote
+
+      Review array printing exercise and review multidimensional 
 
 
 
@@ -1518,6 +1558,9 @@ Inside the function, all variables (also pointers) are local
   #+end_src
 
 
+* =repdigit.c= Sample Solution (video)
+
+* Multidimensional arrays
 
 * Week 8 - Pointers and Arrays
 * Week 9 - String Manipulation
