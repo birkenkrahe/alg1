@@ -1524,15 +1524,31 @@ Next topics:
    : *(&i)    = 100
    : *(&(*p)) = 100, &(*(&i)) = 1827209100
 
-4. What could =**p= be if =*p= is a pointer to =&i=?
+4. What could =**p= be if =*p= is a pointer to =&i=? Is that allowed?
    #+begin_quote
    =*(*p)= is a pointer to a pointer (aka "double pointer"): it contains
    the memory address of the pointer (which in turn points at the
    memory address of =i=.
 
-   
-   
+   Double pointers give you control over both =p= and =i= at different
+   levels.
    #+end_quote
+
+5. Challenge: Change where =p= points to, and the value of =i= using
+   double pointers. 
+   1) Start with =int i = 100; int *p = &i;=
+
+   2) 
+
+   3) 
+   
+   #+begin_src C
+     int i = 100;
+     int *p = &i;
+
+
+   #+end_src
+
 
       Review array printing exercise and review multidimensional 
 
