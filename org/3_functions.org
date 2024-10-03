@@ -723,7 +723,7 @@ programming assignment.*
     }
   #+end_src
 
-* NEXT Example: 2d Array Arguments
+* Example: 2d Array Arguments
 
 - For multi-dimensional arrays, only the length of the first dimension
   may be omitted when declaring the parameter:
