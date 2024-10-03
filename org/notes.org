@@ -1330,8 +1330,7 @@ Announcements:
 - [ ] *New!* 6-minutes podcast on "C functions (see [[https://chat.google.com/room/AAAAcFTK-VI/UifqRr1crOI/UifqRr1crOI?cls=10][chat]]) - let me know
   what you think! (Based on a 46p. script)
 
-- [ ] Three bonus programs available right now (complete by Oct-7) - late
-  submission (no later than October 14): 50%.
+- [ ] Three bonus programs available right now (complete by Oct-11).
 
 Next topics:
 - [X] Passing by reference
