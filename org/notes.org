@@ -1319,14 +1319,22 @@ Quiz 4
 #+attr_html: :width 400px:
 [[../img/podcasters.png]]
 
-*New!* 12-minute podcast on "C Arrays" (see [[https://chat.google.com/room/AAAAcFTK-VI/_Kwvf0bBml8/_Kwvf0bBml8?cls=10][chat]]) - let me know what you
-think! I've already turned "C Functions" into a podcast - fun review!
+Announcements:
+- [X] *New!* 12-minute podcast on "C Arrays" (see [[https://chat.google.com/room/AAAAcFTK-VI/_Kwvf0bBml8/_Kwvf0bBml8?cls=10][chat]]) - let me know
+  what you think! I've already turned "C Functions" into a podcast -
+  fun review!
 
-*Poll!* Who has got WSL (Windows Subsystem Linux) on his Windows PC?
-Enrol my help to do this (same environment as in class) any time!
+- [ ] *Poll!* Who has got *WSL* (Windows Subsystem Linux) on his Windows
+  PC? Enrol my help to do this (same environment as in class)!
+
+- [ ] *New!* 6-minutes podcast on "C functions (see [[https://chat.google.com/room/AAAAcFTK-VI/UifqRr1crOI/UifqRr1crOI?cls=10][chat]]) - let me know
+  what you think! (Based on a 46p. script)
+
+- [ ] Two bonus programs available right now (complete by Oct-7).
 
 Next topics:
-- [ ] Passing by reference
+- [X] Passing by reference
+- [ ] Multi-dimensional arrays
 - [ ] Compound literals
 - [ ] Return and exit
 - [ ] Recursion
@@ -1388,7 +1396,6 @@ Next topics:
 - Extended deadline for assignments 6 + 7 is *Mon 7 October (11:59pm)*
 
 - I will video my sample solutions & create a podcast on them.
-
 
 ** DONE Review (Passing by value, passing arrays)
 
@@ -1462,7 +1469,6 @@ Next topics:
    : 0 0
    : 1 1
 
-
 ** TODO Review (Passing by value vs. reference)
 
 1. In the =decompose= program, we split a =float= into an =int= and another
@@ -1534,49 +1540,144 @@ Next topics:
    levels.
    #+end_quote
 
-5. Challenge: Change where =p= points to, and the value of =i= using
-   double pointers. 
-   1) Start with =int i = 100; int *p = &i;=
+5. Change where =p= points to, and the value of =i= using double pointers:
+   1) Start with =int i = 100; int* p = &i;=
+   2) Define pointer =pp= that points to =p=
+   3) Print =*p=    = *(&i) = i
+   4) Print =*pp=   = *(&p) = *(&(&i)) = &i
+   5) Print =**pp=  = *(*pp)= *(&i) = i
+   6) Add 100 to =**p= and print it
+   7) Define =int j = 300=
+   8) Redirect =pp= to =j=: **pp = *(&p) = p = &j
+   9) Print =*p= = *(&j) = j
 
-   2) 
-
-   3) 
-   
    #+begin_src C
      int i = 100;
-     int *p = &i;
+     int* p = &i; // p points to i (address)
+     int** pp = &p; // pp points to p (address)
 
+     printf("i    = %d\n",i); // integer value
+     printf("p    = %d\n",p); // pointer to i
+     printf("*p   = %d\n",*p); // dereference p = value of i (value)
+     printf("*pp  = %d\n",*pp); // dereference pp = value of p (address)
+     printf("**pp = %d\n",**pp); // dereference *pp = value of *p (value) = i
 
+     (**pp) += 100; // add 100 to **pp = i
+     printf("**p  = %d, i = %d\n",**pp,i); // dereference *pp = value of *p (value)
+
+     int j = 300;
+     (*pp) = &j; // pp points to p which points to j
+     printf("p now points to: %d\n", *p);
    #+end_src
 
+   #+RESULTS:
+   : i    = 100
+   : p    = 1324695248
+   : *p   = 100
+   : *pp  = 1324695248
+   : **pp = 100
+   : **p  = 200, i = 200
+   : p now points to: 300
 
-      Review array printing exercise and review multidimensional 
+6. Coding challenge:
+   1. [[pass-by-value]] generates the output: 0 0
+   2. Copy the following code in [[pass-by-value]].
+   3. Copy the code block to a new block [[pass-by-reference]].
+   4. Modify the function to pass-by-reference:
+      - The function call passes a reference (address)
+      - The function parameter becomes a pointer (pointing to ~n~)
+      - The function body uses pointers
+   5. [[pass-by-reference]] generates the output: 0 1
 
+   Increment a number with a pass-by-value function:
+   #+name: pass-by-value
+   #+begin_src C :main no
+     void increment(int num)
+     {
+       num++;
+     }
+     int main(void)
+     {
+       int n = 0;
+       
+       printf("%d\n", n);
+       increment(n);     
+       printf("%d\n", n);
+              
+       return 0;
+     }
+   #+end_src
 
+   Increment a number with a pass-by-reference function:   
+   #+name: pass-by-reference
+   #+begin_src C :main no
+     void increment(int* num)
+     {
+       (*num)++;
+     }
+     int main(void)
+     {
+       int n = 0;
+       
+       printf("%d\n", n);
+       increment(&n);     
+       printf("%d\n", n);
+              
+       return 0;
+     }
+   #+end_src
 
-Inside the function, all variables (also pointers) are local
+7. Prove 'algebraically' that *p = i if p = &i - what is *p?
+   #+begin_example
+    *p = *(&i) = *&(i) = i since *& = 1
+   #+end_example
+   #+begin_quote
+    If p is a pointer to i, then the dereferenced p is the value that
+    p points to, i.
+   #+end_quote
 
-  #+begin_src C
+8. Prove 'algebraically' that **pp = *p if pp = &p - what is **pp?
+   #+begin_example
+    **pp = **(pp) = **(&p) = *(*& p) = *(p) = *p
+   #+end_example
+   #+begin_quote
+    If pp is a pointer to p, then the double pointer **pp is the value
+    that p points to.
+   #+end_quote
 
-    int i = 100;
+9. Could you modify [[pass-by-value]] to increment a 1-dim array?
+   #+name: pass-by-value array
+   #+begin_src C :main no
+     void increment2(int num[], int n)
+     {
+       num[0]++;
+       num[1]++;
+     }
+     int main(void)
+     {
+       int n[2] = {0};
+       
+       printf("%d %d\n", n[0], n[1]);
+       increment2(n,2);     
+       printf("%d %d\n", n[0], n[1]);
+              
+       return 0;
+     }
+   #+end_src
 
-    int *p = &i; // points to i
+   #+RESULTS: pass-by-value array
+   : 0 0
+   : 1 1
 
-    printf("%d %d\n",p, &i); // prints an address
-    printf("%d %d\n",*p, i); // prints an value
-    printf("%d %d\n",&(*p), &i); // prints an address
-    printf("%d %d\n",*&((*p)), *(&i)); // prints a value    
+10. In the previous example, why are the array values changed in ~main~?
+    #+begin_quote
+    The array values in ~main~ are changed because arrays are always
+    passed by reference: when passed, the array decays into a pointer
+    to its first element, which points at the original, not at a
+    copy. Consequently, when changing array values in the function,
+    they are changed everywhere.
+    #+end_quote
 
-    (*p) = 200; // change value of i with pointer
-
-    printf("%d\n", i); // print new value
-
-  #+end_src
-
-
-* =repdigit.c= Sample Solution (video)
-
-* Multidimensional arrays
 
 * Week 8 - Pointers and Arrays
 * Week 9 - String Manipulation
