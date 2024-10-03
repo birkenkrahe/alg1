@@ -703,6 +703,7 @@ programming assignment.*
   #+end_example
 
 - Solution:
+  #+name: print_array
   #+begin_src C :main no
     // Function: print_array
     // Purpose: Print one-dimensional array
@@ -724,6 +725,10 @@ programming assignment.*
   #+end_src
 
 * Example: 2d Array Arguments
+
+- We're going to look at an example, and then you will practice with a
+  simpler example. There is also a bonus assignment to print a
+  two-dimensional array using a function.
 
 - For multi-dimensional arrays, only the length of the first dimension
   may be omitted when declaring the parameter:
@@ -785,7 +790,7 @@ programming assignment.*
 
 * Bonus assignment: Print two-dimensional array with a function
 
-- *Homework assignment (bonus):* Modify the function =print_array= to
+- *Homework assignment (bonus):* Modify the function [[print_array]] to
   print a 2-dimensional array.
 
 * Variable-Length Array Parameters
