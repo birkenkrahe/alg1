@@ -274,76 +274,31 @@ functions. New topics include recursion and the quicksort algorithm.
 
 - Example: a =power= function to raise =x= to the power of =n=
   #+begin_src C :results none :tangle power.c
-    int power(int x, int n)
-    {
+    int power(int x, int n) {
       int i, result = 1;
       for (i = 1; i <= n; i++)
         result = result * x;
       return result;
     }
-  #+end_src
 
-- Note: you can (and should) type and test the function syntax first.
-
-- Since =n= is a copy of the original exponent, we can modify it inside
-  the function without affecting it outside, and save the variable =i=:
-  #+begin_src C :tangle power2.c :results none
-    int power(int x, int n)
-    {
+    int power(int x, int n) {
       int result = 1;
-      while (n-- > 0) // same as `for(i=n;i>0;i--)`: `n` is loop veriable
+      while (n-- > 0)
         result = result * x;
       return result;
     }
-  #+end_src
-
-- To analyse what's going on inside of =power2=, you can put it in a
-  =main= program, tangle it as =power2.c=, and visualize it in
-  =pythontutor.com=, or compile as =gcc -g= and run it with =gdb=.
-  #+attr_html: :width 600px:
-  [[../img/pythontutor2.png]]
-
-  #+begin_src C :tangle power2.c
-    int power(int x, int n)
-    {
-      int result = 1;
-      while (n-- > 0) // same as for(i=n;i>0;i--)
-        result = result * x;
-      return result;
-    }
-    int main(void)
-    {
-      int a = 3, b = 2;
+    int main(void) {
+      int a = 2, b = 3;
       printf("%d\n",power(a,b));
       return 0;
     }
   #+end_src
-
-  #+RESULTS:
-  : 9
-
-- We expect this upon entering the function, for x = 2, n = 3:
-
-  | =result= | =n= |
-  |--------+---|
-  |      1 | 3 |
-  |      2 | 2 |
-  |      4 | 1 |
-  |      8 | 0 |
-
-- Test the two power functions as =power= and =power2= with one =main=
-  program! Don't forget:
-  1) Two function prototypes
-  2) One function description
-  3) One =main= function with calls to both functions
-  4) Two function definitions
 
 - Test result:
   #+begin_example
   : 2**3 = 8
   : 2**3 = 8
   #+end_example
-
 - Solution template:
   #+begin_src C :main no
     // Function: power, power2
@@ -352,15 +307,13 @@ functions. New topics include recursion and the quicksort algorithm.
     // Parameters: integer variable, integer power
 
     // Main program
-    int main(void)
-    {
-
+    int main(void) {
+      // ...
       return 0;
     }
+    // Function definition (with loop variable i)
 
-    // Function definition
-
-    // Function definition
+    // Function definition (without loop variable i)
 
   #+end_src
 
@@ -411,7 +364,7 @@ functions. New topics include recursion and the quicksort algorithm.
 
 - Example: The function =decompose= splits its argument in an integer
   and a fractional part.
-  #+name: decompose
+
   #+begin_src C :main no
     // Function: decompose
     // Purpose: Splits argument x in integer and fractional part
@@ -444,41 +397,27 @@ functions. New topics include recursion and the quicksort algorithm.
   =i= is copied into =int_part= and the value of =d= is copied into
   =frac_part=. But when the function returns, =i= and =d= are unchanged.
 
-- And we cannot return both =i= and =d=!
-
-- We need to move from pass-by-value to pass-by-reference:
-  1) Copy [[decompose]] into a new block [[decompose2]]
-  2) In =main=: call address-of variables
-  3) In =decompose2=: pass pointer variables
-  4) In =decompose2=: compute with dereferenced pointer variables
-  5) Run again.
-  #+name: decompose2
+- Do you remember how to fix this?
   #+begin_src C :main no
-    // Function: decompose2
-    // Purpose: Splits argument x in integer and fractional part
-    // Returns: nothing
-    // Parameters: float x, integer* part, float* fractional part
-    // Uses: casting function
-    void decompose2 (float, int*, float*);
+    void decompose (float, int *, float *); // pass pointers
 
     int main(void) {
       int i = 0;
       float d = 0.;
       float x = 3.14159;
-      decompose2(x, &i, &d);
+      decompose(x, &i, &d); // pass value, and references
       printf("x: %g, i: %d, d: %g\n", x, i, d);
       return 0;
     }
 
-    void decompose2 (float x, int *int_part, float *frac_part)
+    void decompose (float x, int *int_part, float *frac_part)
     {
-      (*int_part) = (int) x; // cast x as integer, drops fractional part
-      (*frac_part) = x - (*int_part); // fractional part
+      (*int_part) = (int) x; // cast x as int integer, drops fractional part
+      (*frac_part) = x - *int_part; // fractional part
     }
-
   #+end_src
 
-  #+RESULTS: decompose2
+  #+RESULTS:
   : x: 3.14159, i: 3, d: 0.14159
 
   The variables =i= and =d= are now passed as references, and the
@@ -490,31 +429,6 @@ functions. New topics include recursion and the quicksort algorithm.
 - /Note:/ In the code block, I wrote =(*int)= because Org-mode gets
   confused with =*= at the start of a line (expects bullet points).
 
-- Refresher on pointers:
-  #+begin_src C
-
-    int i = 100;
-
-    int *p = &i; // points to i
-
-    printf("%d %d\n",p, &i); // prints an address
-    printf("%d %d\n",*p, i); // prints an value
-    printf("%d %d\n",&(*p), &i); // prints an address
-    printf("%d %d\n",*&((*p)), *(&i)); // prints a value    
-
-    (*p) = 200; // change value of i with pointer
-
-    printf("%d\n", i); // print new value
-
-  #+end_src
-
-  #+RESULTS:
-  : 487886540 487886540
-  : 100 100
-  : 487886540 487886540
-  : 100 100
-  : 200
-  
 * Practice: add two integers - pass by reference
 
 - Here is another version of the function to add two integer values:
@@ -542,8 +456,7 @@ functions. New topics include recursion and the quicksort algorithm.
   #+end_src
 
   #+RESULTS:
-  : 1 + 1 = 3
-  : 1
+  : 1 + 1 = 2
 
 - The function call passes arguments =x= and =y= by value. Create a new
   =void= function =add2= that passes the integers by reference using
@@ -559,26 +472,14 @@ functions. New topics include recursion and the quicksort algorithm.
 
 - Solution template:
   #+begin_src C :main no
-    // Function: add2
+    // Function: add
     // Purpose: Adds two integer values
     // Returns: Nothing
     // Parameters: int *a, int *b (passed by reference)
 
     // Main program
 
-       // define variables
-
-       // print original values
-
-       // call function (pass by reference)
-
-       // print modified values
-
-    // Function definition (like prototype)
-
-       // print sum of passed values
-
-       // modify passed values
+    // Function definition
 
   #+end_src
 
@@ -598,16 +499,17 @@ functions. New topics include recursion and the quicksort algorithm.
       // print original values
       printf("x = %d, y = %d\n", x, y);
       // call function (pass by reference)
-      add2(&x,&y);  // passing address of x and address of y
+      add2(&x,&y);
       // print modified values
       printf("x = %d, y = %d\n", x, y);
       return 0;
     }
 
     // function definition
-    void add2(int *a, int *b) // receive value as *a=*(&x)=x
+    void add2(int *a, int *b)
     {
-      printf("%d + %d = %d\n", *a, *b, *a + *b);
+      int sum = *a + *b;
+      printf("%d + %d = %d\n", *a, *b, sum);
       // modify a an b
       (*a) = 0;
       (*b) = 0;
@@ -668,7 +570,7 @@ programming assignment.*
       int a[5]={1,1,1,1,1};
 
       printf("Sum of array of %d elements: %d\n",
-         5, sum_array(a,5)); // no [] brackets when passing the array
+             5, sum_array(a,5)); // no [] brackets when passing the array
       return 0;
     }
 
@@ -680,6 +582,27 @@ programming assignment.*
       return sum;
     }
   #+end_src
+
+  #+begin_src C  :main no
+    int sum_array(int [], int);
+    int main(void) {
+      int a[5]={1,1,1,1,1};
+      printf("Sum of array of %d elements: %d\n",
+             5, sum_array(a,5)); // call function on array a of length n
+      return 0;
+    }
+    int sum_array(int a[], int n)
+    {
+      int i, sum=0;
+      for (i=0; i < n; i++)
+        sum += a[i];
+      return sum;
+    }
+
+  #+end_src
+
+  #+RESULTS:
+  : Sum of array of 5 elements: 5
 
 - A function has no way to check that we've passed it the correct
   array length (so you must be careful - easy to cause memory leaks).
@@ -703,11 +626,10 @@ programming assignment.*
   #+end_example
 
 - Solution:
-  #+name: print_array
   #+begin_src C :main no
-    // Function: print_array
-    // Purpose: Print one-dimensional array
-    // Parameters: int a[],  int n (array and its length)
+    // Function: sum_array
+    // Purpose: Returns the sum of an integer array
+    // Parameters: int a[], int n (array and its length)
     void print_array(int [], int);
 
     int main(void)
@@ -722,51 +644,64 @@ programming assignment.*
       for (int i = 0; i < n; i++)
         printf("Element %d: %d\n", i, a[i]);
     }
+
   #+end_src
 
-* Example: 2d Array Arguments
+  #+RESULTS:
+  : Element 0: 1
+  : Element 1: 2
+  : Element 2: 3
+  : Element 3: 4
+  : Element 4: 5
 
-- We're going to look at an example, and then you will practice with a
-  simpler example. There is also a bonus assignment to print a
-  two-dimensional array using a function.
+* Example: Two-dimensional Array Arguments
+
+- Let's build on the one-dimensional array for higher dimensions
+  1. Summing elements of a two-dimensional array
+  2. Printing the array like a matrix
+  3. Reducing the parameter list
 
 - For multi-dimensional arrays, only the length of the first dimension
   may be omitted when declaring the parameter:
   #+name: sum2
   #+begin_src C :main no
     #define LEN 2
-    // Function: sum2
-    // Purpose: Sum elements of 2-d array
-    // Parameters: n x LEN dimensional array, row length int n
-    int sum2(int [][LEN], int n);
 
+    int sum2(int [][LEN], int);
+    void print_array(int [][LEN], int);
+
+    // main program
     int main()
     {
-      int a[][LEN]={[0][0]=1,[1][1]=1}; // 2 x 2 identify matrx
-      for (int i=0;i<2;i++) { // loop over rows
-        if(i!=0) puts(" ");
-        for (int j=0;j<2;j++) { // loop over columns
-          printf("%d ", a[i][j]);
-        }
-      }
-      printf("\nSum of 2d array: %d\n", sum2(a,2));
+      int a[][LEN]={1,0,0,1};
+      print_array(a,LEN);
+      printf("\nSum of 2d array: %d\n", sum2(a,LEN));
       return 0;
     }
+
+    // summation
     int sum2(int a[][LEN], int n)
     {
       int i, j, sum = 0;
-      for (i=0; i<n;i++) { // loop over rows
-        for (j=0;j<LEN;j++) { // loop over columns
-          sum+=a[i][j];
+      for (i=0; i<n;i++) // rows
+        for (j=0;j<LEN;j++) // cols
+          sum+=a[i][j]; // summation
+      return sum;
+    }
+
+    // printing
+    void print_array(int a[][LEN],int n)
+    {
+      for (int i=0;i<n;i++) {
+        for (int j=0;j<n;j++) {
+          printf("%d ", a[i][j]);
         }
       }
-      return sum;
     }
   #+end_src
 
   #+RESULTS: sum2
-  : 1 0  
-  : 0 1 
+  : 1 0 0 1
   : Sum of 2d array: 2
 
 - How can the 2d array be printed in matrix format?
@@ -788,10 +723,110 @@ programming assignment.*
   : 1 0
   : 0 1
 
-* Bonus assignment: Print two-dimensional array with a function
+- Since we know the dimensions, can we omit the second parameter?
+  #+begin_src C :main no
+    #define LEN 4
 
-- *Homework assignment (bonus):* Modify the function [[print_array]] to
-  print a 2-dimensional array.
+    int sum2(int [][LEN]);
+    void print_array(int [][LEN]);
+
+    int main()
+    {
+      int a[LEN][LEN]={0};
+      print_array(a);
+      printf("\nSum of 2d array: %d\n", sum2(a));
+      return 0;
+    }
+
+    int sum2(int a[][LEN])
+    {
+      int i, j, sum = 0;
+      for (i=0; i<LEN;i++) {// rows
+        for (j=0;j<LEN;j++) {// cols
+          sum+=a[i][j]; // summation
+        }
+      }
+      return sum;
+    }
+
+    void print_array(int a[][LEN])
+    {
+      for (int i=0;i<LEN;i++) {
+        if(i!=0) puts(" ");
+        for (int j=0;j<LEN;j++) {
+          printf("%d ", a[i][j]);
+        }
+      }
+    }
+
+  #+end_src
+
+  #+RESULTS:
+  : 0 0 0 0  
+  : 0 0 0 0  
+  : 0 0 0 0  
+  : 0 0 0 0 
+  : Sum of 2d array: 0
+
+* Practice: Create And Print 2d Arrays
+
+- *Problem:*
+  1. Declare a matrix of dimensions 4 x 3.
+  2. Use =#define= to define the matrix dimensions =ROWS= and =COLS=
+  3. Define a variable =length= to hold the total length of the array
+  4. Initialize it using the =void= function =init_2d= to the following
+     values: =m[i][j] = i*j= for all i,j.
+     #+begin_example
+     : 0 1
+     : 1 2
+     : 2 3
+     #+end_example
+
+- Solution:
+  #+begin_src C :main no
+    #define ROWS 3
+    #define COLS 2
+
+    void init_2d(int [ROWS][COLS]);
+    void print_array(int [ROWS][COLS]);
+
+    int main(void)
+    {
+      int matrix[ROWS][COLS] = {0};
+      init_2d(matrix);
+      print_array(matrix);
+      return 0;
+    }
+
+    void init_2d(int m[][COLS])
+    {
+      for (int i=0; i<ROWS; i++) {
+        for (int j=0; j<COLS; j++) {
+          m[i][j]=i+j;
+        }
+      }
+    }
+
+    void print_array(int a[ROWS][COLS])
+    {
+      for (int i=0;i<ROWS;i++) {
+        if(i!=0) puts(" ");
+        for (int j=0;j<COLS;j++) {
+          printf("%d ", a[i][j]);
+        }
+      }
+    }
+  #+end_src
+
+  #+RESULTS:
+  : 0 1
+  : 1 2
+  : 2 3
+
+* Bonus assignment: Print 2 dimensional array-by-reference
+
+- *Homework assignment (bonus):* Modify the function =print_array= seen in
+  class to print a 2-dimensional array.
 
 * Variable-Length Array Parameters
 
