@@ -1,0 +1,172 @@
+#+TITLE: Extract two simple functions (solution)
+#+AUTHOR: Marcus Birkenkrahe (pledged)
+#+SUBTITLE: CSC 240 (Data Structures), Lyon College, Fall 2024
+#+startup: overview hideblocks indent entitiespretty:
+#+property: header-args:C :main yes :includes <stdio.h> :results output :exports both:
+
+* Problem
+
+- Modify program by extracting computations and putting them into
+  functions.
+- Use this program as a starting point:
+  1) It prints an array of six elements in reverse
+  2) It checks if there are any elements equal to 3
+  3) It prints the number of elements equal to 3
+
+  #+begin_src C
+    // declare and define floating-point array of 6 elements
+    float x[6] = {1,3,2.5,3,4,3};
+    // define counter and loop variable
+    int count=0, i;
+    // loop over array in reverse order
+    for (i = 5; i>=0; i--) {
+      printf("%g ",x[i]);
+      // check if array element is equal to 3
+      if (x[i]==3) count++;
+     }
+    // print result
+    printf("\n%d", count);
+  #+end_src
+
+  #+RESULTS:
+  : 3 4 3 2.5 3 1
+  : 3
+
+* Approach
+
+- Extract the loop that prints the reverse array first.
+
+- The function =reverse= can be =void= if we print inside it.
+
+- In the original function, a counter variable was initialized to zero,
+  And then as the array was printed in reverse, each element was checked
+  for equality to 3.
+
+- If we want to extract =count= as a function, we cannot have that, and
+  we must call =count= after =reverse= in =main= and go through the array
+  again.
+
+- There's no reason not to work with the program that already has
+  =reverse= in it.
+
+* Extracting =reverse= function
+
+- We need a =main= function to call =reverse=, and a function prototype.
+- I'm going to code below and add comments as and when I need them.
+- To pass an array, we need to declare it in the parameter list as well
+  as the length of the array.
+- Functions should be documented briefly: Name, purpose, return type,
+  parameters.
+- Always run the program as you go along to check for syntax errors.
+- When adding a =main= function to the code block, switch off the automatic
+  addition of =main= in the code block header. Run block to check.
+- Isolate the reversing loop and plug it into the function definition.
+- It does not pay to be too mechanical: I have to correct the types.
+- Once you've got the function, add the function call.
+
+#+name: reverse1
+#+begin_src C  :main no
+  // Name: reverse
+  // Purpose: print reverse argument array
+  // Returns: nothing
+  // Params:  one-dim array, length of array
+  void reverse(float [], int);
+
+  int main(void)
+  {
+    float x[6] = {1,3,2.5,3,4,3};
+    reverse(x,6);
+    return 0;
+  }
+
+  void reverse(float a[], int n)
+  {
+    // loop over array in reverse order
+    for (int i = 5; i>=0; i--)
+      printf("%g ",a[i]);
+  }
+#+end_src
+
+#+RESULTS:
+: 3 4 3 2.5 3 1
+
+- Now I'm going to be smart: I know that I still have to make many changes
+  but I've got a piece of working code. I'll leave it here, and copy it
+  to work out further details. Might also add a headline to structure the
+  document, and name my code blocks.
+
+* Extracting =count= function 
+
+- I'm going to work on the counting function next.
+- The process is the same as before:
+  1. Add prototype
+  2. Extract function body
+  3. Add function definition
+  4. Add function call in =main=
+  5. Test
+- I'm going to do the count in the function and return the result from
+  there. The count is always an integer.
+- The =count= function receives the array, the length of the array, and
+  the number that we want to count: it's 3 here, but the array is a
+  floating-point array so we could be looking for a =float=.
+- Remember to run the code in between to check for syntax errors!
+- Used the line from the original program here, changing array name
+  only.
+     
+#+name: count
+#+begin_src C  :main no
+  // Name: reverse
+  // Purpose: print reverse argument array
+  // Returns: nothing
+  // Params:  one-dim array, length of array
+  void reverse(float [], int);
+
+  // Name: count
+  // Purpose: print number of times an element occurs in array
+  // Returns: integer count
+  // Params:  one-dimensional array, length of array, number to check
+  int count(float [], int, float);
+
+  int main(void)
+  {
+    float x[6] = {1,3,2.5,3,4,3};
+    printf("Array reversed: ");
+    reverse(x,6);    
+    printf("\nCount of 3 = %d\n", count(x,6,3));
+    return 0;
+  }
+
+  void reverse(float a[], int n)
+  {
+    // loop over array in reverse order
+    for (int i = 5; i>=0; i--)
+      printf("%g ",a[i]);
+  }
+
+  int count(float a[], int n, float b)
+  {
+    int count = 0;
+    for (int i=0; i<n; i++) // loop over array
+      if (a[i] == b) count++; // if b is found, increment count
+    return count;  // number of times that b is in array 
+  }
+#+end_src
+
+#+RESULTS: count
+: Array reversed: 3 4 3 2.5 3 1 
+: Count of 3 = 3
+
+- This is the final program, and this is the form in which it can be
+  submitted...or is it?
+
+* Reflection
+
+I learnt that going step by step definitely takes more time but also
+gives you a lot more control over the process, especially if things
+go wrong.
+
+For this particular program, extracting the two computations as separate
+functions seemed overkill but it was instructive to practice:
+1. How to prototype and define functions
+2. How to use different data types in the parameter list
+3. How to build a program up step by step.
