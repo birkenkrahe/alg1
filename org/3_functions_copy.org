@@ -657,44 +657,53 @@ programming assignment.*
 
 * Example: Two-dimensional Array Arguments
 
+- Let's build on the one-dimensional array for higher dimensions
+  1. Summing elements of a two-dimensional array
+  2. Printing the array like a matrix
+  3. Reducing the parameter list
+
 - For multi-dimensional arrays, only the length of the first dimension
   may be omitted when declaring the parameter:
   #+name: sum2
   #+begin_src C :main no
     #define LEN 2
 
+    int sum2(int [][LEN], int);
+    void print_array(int [][LEN], int);
+
+    // main program
+    int main()
+    {
+      int a[][LEN]={1,0,0,1};
+      print_array(a,LEN);
+      printf("\nSum of 2d array: %d\n", sum2(a,LEN));
+      return 0;
+    }
+
+    // summation
     int sum2(int a[][LEN], int n)
     {
       int i, j, sum = 0;
-      for (i=0; i<n;i++)
-        if (i!=0) puts(" ");
-      for (j=0;j<LEN;j++)
-        sum+=a[i][j];
+      for (i=0; i<n;i++) // rows
+        for (j=0;j<LEN;j++) // cols
+          sum+=a[i][j]; // summation
       return sum;
     }
-    int main()
+
+    // printing
+    void print_array(int a[][LEN],int n)
     {
-      int a[LEN][LEN]={1,0,0,1};
-      for (int i=0;i<2;i++)
-        {
-          //puts("");
-          for (int j=0;j<2;j++)
-        {
-          printf("%d \n", a[i][j]);
+      for (int i=0;i<n;i++) {
+        for (int j=0;j<n;j++) {
+          printf("%d ", a[i][j]);
         }
-        }
-      printf("Sum of 2d array: %d\n", sum2(a,2));
-      return 0;
+      }
     }
   #+end_src
 
   #+RESULTS: sum2
-  : 1
-  : 0
-  : 0
-  : 1
-  :
-  : Sum of 2d array: 4096
+  : 1 0 0 1
+  : Sum of 2d array: 2
 
 - How can the 2d array be printed in matrix format?
   #+begin_src C :main no
@@ -715,33 +724,110 @@ programming assignment.*
   : 1 0
   : 0 1
 
-* Practice: Three-dimensional Array Arguments
+- Since we know the dimensions, can we omit the second parameter?
+  #+begin_src C :main no
+    #define LEN 4
+
+    int sum2(int [][LEN]);
+    void print_array(int [][LEN]);
+
+    int main()
+    {
+      int a[LEN][LEN]={0};
+      print_array(a);
+      printf("\nSum of 2d array: %d\n", sum2(a));
+      return 0;
+    }
+
+    int sum2(int a[][LEN])
+    {
+      int i, j, sum = 0;
+      for (i=0; i<LEN;i++) {// rows
+        for (j=0;j<LEN;j++) {// cols
+          sum+=a[i][j]; // summation
+        }
+      }
+      return sum;
+    }
+
+    void print_array(int a[][LEN])
+    {
+      for (int i=0;i<LEN;i++) {
+        if(i!=0) puts(" ");
+        for (int j=0;j<LEN;j++) {
+          printf("%d ", a[i][j]);
+        }
+      }
+    }
+
+  #+end_src
+
+  #+RESULTS:
+  : 0 0 0 0  
+  : 0 0 0 0  
+  : 0 0 0 0  
+  : 0 0 0 0 
+  : Sum of 2d array: 0
+
+* Practice: Create And Print 2d Arrays
 
 - *Problem:*
-  1. Declare a matrix of dimensions 3 x 2.
-  2. Initialize it using the =void= function =init_2d= to the following
-     values:
+  1. Declare a matrix of dimensions 4 x 3.
+  2. Use =#define= to define the matrix dimensions =ROWS= and =COLS=
+  3. Define a variable =length= to hold the total length of the array
+  4. Initialize it using the =void= function =init_2d= to the following
+     values: =m[i][j] = i*j= for all i,j.
      #+begin_example
-
+     : 0 1
+     : 1 2
+     : 2 3
      #+end_example
 
-
 - Solution:
-  #+begin_src C
-    void init_2d(int [][], int n);
+  #+begin_src C :main no
+    #define ROWS 3
+    #define COLS 2
+
+    void init_2d(int [ROWS][COLS]);
+    void print_array(int [ROWS][COLS]);
 
     int main(void)
     {
-      
+      int matrix[ROWS][COLS] = {0};
+      init_2d(matrix);
+      print_array(matrix);
       return 0;
+    }
+
+    void init_2d(int m[][COLS])
+    {
+      for (int i=0; i<ROWS; i++) {
+        for (int j=0; j<COLS; j++) {
+          m[i][j]=i+j;
+        }
+      }
+    }
+
+    void print_array(int a[ROWS][COLS])
+    {
+      for (int i=0;i<ROWS;i++) {
+        if(i!=0) puts(" ");
+        for (int j=0;j<COLS;j++) {
+          printf("%d ", a[i][j]);
+        }
+      }
     }
   #+end_src
 
+  #+RESULTS:
+  : 0 1
+  : 1 2
+  : 2 3
+
 * Bonus assignment: Print 2 dimensional array-by-reference
 
-- *Homework assignment (bonus):* Modify the function =print_array= to print a
-  2-dimensional array.
-
+- *Homework assignment (bonus):* Modify the function =print_array= seen in
+  class to print a 2-dimensional array.
 
 * Variable-Length Array Parameters
 
