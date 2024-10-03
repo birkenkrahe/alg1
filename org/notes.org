@@ -1324,11 +1324,11 @@ Announcements:
   what you think! I've already turned "C Functions" into a podcast -
   fun review!
 
-- [ ] *Poll!* Who has got *WSL* (Windows Subsystem Linux) on his Windows
-  PC? Enrol my help to do this (same environment as in class)!
-
-- [ ] *New!* 6-minutes podcast on "C functions (see [[https://chat.google.com/room/AAAAcFTK-VI/UifqRr1crOI/UifqRr1crOI?cls=10][chat]]) - let me know
+- [X] *New!* 6-minutes podcast on "C functions (see [[https://chat.google.com/room/AAAAcFTK-VI/UifqRr1crOI/UifqRr1crOI?cls=10][chat]]) - let me know
   what you think! (Based on a 46p. script)
+
+- [X] *Poll!* Who has got *WSL* (Windows Subsystem Linux) on his Windows
+  PC? Enrol my help to do this (same environment as in class)!
 
 - [ ] Three bonus programs available right now (complete by Oct-11).
 
@@ -1486,6 +1486,9 @@ Next topics:
      printf("x = %g, i: %d, d: %g\n", x, int_part, frac_part);
    #+end_src
 
+   #+RESULTS:
+   : x = 3.14159, i: 3, d: 0.14159
+
 2. What if we wanted to split a =double= floating-point instead?
    #+begin_src C
      double x = 3.141592653589793;
@@ -1500,6 +1503,9 @@ Next topics:
      printf("x = %.15f, i: %ld, d: %.15f\n", x, int_part, frac_part);
    #+end_src
 
+   #+RESULTS:
+   : x = 3.141592653589793, i: 3, d: 0.141592653589793
+
 3. If =*p= is a pointer to =&i=, the address of the =int= variable =i=, what
    are the following variables, and are they even allowed?
    #+begin_example C
@@ -1510,31 +1516,34 @@ Next topics:
    #+end_example
 
    #+begin_src C
-     int i = 100; // integer
-     int *p = &i; // pointer to integer
+     int  i = 100; // integer
+     int* p = &i; // pointer to integer
 
      // integer, address-of integer, pointer
      printf("i        = %d, &i       = %d, p = %d\n", i, &i, p);
+
      // dereferenced pointer, address-of dereferenced pointer
      printf("*p       = %d, &(*p)    = %d\n", *p, &(*p));
+
      // deferenced reference/address-of integer (value)
      printf("*(&i)    = %d\n", *(&i));
+
      // dereferenced address-of dereferenced pointer (value),
      // address-of dereferenced address-of integer (address
      printf("*(&(*p)) = %d, &(*(&i)) = %d\n",*(&(*p)),&(*(&i)));
    #+end_src
 
    #+RESULTS:
-   : i        = 100, &i       = 1827209100, p = 1827209100
-   : *p       = 100, &(*p)    = 1827209100
+   : i        = 100, &i       = 1277825468, p = 1277825468
+   : *p       = 100, &(*p)    = 1277825468
    : *(&i)    = 100
-   : *(&(*p)) = 100, &(*(&i)) = 1827209100
+   : *(&(*p)) = 100, &(*(&i)) = 1277825468
 
 4. What could =**p= be if =*p= is a pointer to =&i=? Is that allowed?
    #+begin_quote
    =*(*p)= is a pointer to a pointer (aka "double pointer"): it contains
    the memory address of the pointer (which in turn points at the
-   memory address of =i=.
+   memory address of =i)=.
 
    Double pointers give you control over both =p= and =i= at different
    levels.
@@ -1562,22 +1571,14 @@ Next topics:
      printf("*pp  = %d\n",*pp); // dereference pp = value of p (address)
      printf("**pp = %d\n",**pp); // dereference *pp = value of *p (value) = i
 
-     (**pp) += 100; // add 100 to **pp = i
-     printf("**p  = %d, i = %d\n",**pp,i); // dereference *pp = value of *p (value)
+    #+end_src
 
-     int j = 300;
-     (*pp) = &j; // pp points to p which points to j
-     printf("p now points to: %d\n", *p);
-   #+end_src
-
-   #+RESULTS:
-   : i    = 100
-   : p    = 1324695248
-   : *p   = 100
-   : *pp  = 1324695248
-   : **pp = 100
-   : **p  = 200, i = 200
-   : p now points to: 300
+    #+RESULTS:
+    : i    = 100
+    : p    = 162926260
+    : *p   = 100
+    : *pp  = 162926260
+    : **pp = 100
 
    - Here is a diagram that summarizes the relationships:
      #+attr_html: :width 400px: 
@@ -1596,21 +1597,27 @@ Next topics:
    Increment a number with a pass-by-value function:
    #+name: pass-by-value
    #+begin_src C :main no
-     void increment(int num)
+     void increment(int num)  // increment integer parameter value
      {
-       num++;
+       num++;  // same as num = num + 1
      }
      int main(void)
      {
-       int n = 0;
-       
-       printf("%d\n", n);
-       increment(n);     
-       printf("%d\n", n);
-              
+       int n = 0;  // initialize
+
+       printf("%d\n", n);  // print value before function call
+
+       increment(n);   // increment in function (pass-by-value)
+
+       printf("%d\n", n);  // print value after function call
+
        return 0;
      }
    #+end_src
+
+   #+RESULTS: pass-by-value
+   : 0
+   : 0
 
    Increment a number with a pass-by-reference function:   
    #+name: pass-by-reference
@@ -1630,6 +1637,10 @@ Next topics:
        return 0;
      }
    #+end_src
+
+   #+RESULTS: pass-by-reference
+   : 0
+   : 1
 
 7. Prove 'algebraically' that *p = i if p = &i - what is *p?
    #+begin_example
@@ -1652,17 +1663,17 @@ Next topics:
 9. Could you modify [[pass-by-value]] to increment a 1-dim array?
    #+name: pass-by-value array
    #+begin_src C :main no
-     void increment2(int num[], int n)
+     void increment2(int num[], int n) // pass array and length of array
      {
        num[0]++;
        num[1]++;
      }
      int main(void)
      {
-       int n[2] = {0};
+       int n[2] = {0}; // initialize array
        
        printf("%d %d\n", n[0], n[1]);
-       increment2(n,2);     
+       increment2(n,2);  // arguments: array, length of array
        printf("%d %d\n", n[0], n[1]);
               
        return 0;
