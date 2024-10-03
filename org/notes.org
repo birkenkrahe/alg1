@@ -1330,7 +1330,8 @@ Announcements:
 - [ ] *New!* 6-minutes podcast on "C functions (see [[https://chat.google.com/room/AAAAcFTK-VI/UifqRr1crOI/UifqRr1crOI?cls=10][chat]]) - let me know
   what you think! (Based on a 46p. script)
 
-- [ ] Two bonus programs available right now (complete by Oct-7).
+- [ ] Three bonus programs available right now (complete by Oct-7) - late
+  submission (no later than October 14): 50%.
 
 Next topics:
 - [X] Passing by reference
@@ -1578,6 +1579,10 @@ Next topics:
    : **pp = 100
    : **p  = 200, i = 200
    : p now points to: 300
+
+   - Here is a diagram that summarizes the relationships:
+     #+attr_html: :width 400px: 
+     [[../img/double_pointer.png]]
 
 6. Coding challenge:
    1. [[pass-by-value]] generates the output: 0 0
