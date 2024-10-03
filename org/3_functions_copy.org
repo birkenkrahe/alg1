@@ -274,7 +274,7 @@ functions. New topics include recursion and the quicksort algorithm.
 
 - Example: a =power= function to raise =x= to the power of =n=
   #+begin_src C :results none :tangle power.c
-    int power(int x, int n) { 
+    int power(int x, int n) {
       int i, result = 1;
       for (i = 1; i <= n; i++)
         result = result * x;
@@ -283,7 +283,7 @@ functions. New topics include recursion and the quicksort algorithm.
 
     int power(int x, int n) {
       int result = 1;
-      while (n-- > 0) 
+      while (n-- > 0)
         result = result * x;
       return result;
     }
@@ -318,44 +318,44 @@ functions. New topics include recursion and the quicksort algorithm.
   #+end_src
 
 
-      - Solution: Declare and test two power functions
-        #+begin_src C :main no
-          // Function: power, power2
-          // Purpose: Compute power of integer
-          // Returns: n-th power of integer argument
-          // Parameters: integer variable, integer power
-          int power(int,int);
-          int power2(int,int);
+- Solution: Declare and test two power functions
+  #+begin_src C :main no
+    // Function: power, power2
+    // Purpose: Compute power of integer
+    // Returns: n-th power of integer argument
+    // Parameters: integer variable, integer power
+    int power(int,int);
+    int power2(int,int);
 
-          int main(void)
-          {
-            int x = 2, n = 3;
-            printf("%d**%d = %d\n", x, n, power(x,n));
-            printf("%d**%d = %d\n", x, n, power2(x,n));
-            return 0;
-          }
+    int main(void)
+    {
+      int x = 2, n = 3;
+      printf("%d**%d = %d\n", x, n, power(x,n));
+      printf("%d**%d = %d\n", x, n, power2(x,n));
+      return 0;
+    }
 
-          int power(int x, int n)
-          {
-            int i, result = 1;
-            for (i=1;i<=n;i++)
-              result*=x;
-            return result;
-          }
+    int power(int x, int n)
+    {
+      int i, result = 1;
+      for (i=1;i<=n;i++)
+        result*=x;
+      return result;
+    }
 
-          int power2(int x, int n)
-          {
-            int result = 1;
-            while (n-- > 0)
-              result*=x;
-            return result;
-          }
+    int power2(int x, int n)
+    {
+      int result = 1;
+      while (n-- > 0)
+        result*=x;
+      return result;
+    }
 
-        #+end_src
+  #+end_src
 
-        #+RESULTS:
-        : 2**3 = 8
-        : 2**3 = 8
+  #+RESULTS:
+  : 2**3 = 8
+  : 2**3 = 8
 
 * Example: =decompose= function
 
@@ -584,7 +584,7 @@ programming assignment.*
     }
   #+end_src
 
-  #+begin_src C  :main no 
+  #+begin_src C  :main no
     int sum_array(int [], int);
     int main(void) {
       int a[5]={1,1,1,1,1};
@@ -655,7 +655,7 @@ programming assignment.*
   : Element 3: 4
   : Element 4: 5
 
-* Example: 2d Array Arguments
+* Example: Two-dimensional Array Arguments
 
 - For multi-dimensional arrays, only the length of the first dimension
   may be omitted when declaring the parameter:
@@ -715,10 +715,33 @@ programming assignment.*
   : 1 0
   : 0 1
 
+* Practice: Three-dimensional Array Arguments
+
+- *Problem:*
+  1. Declare a matrix of dimensions 3 x 2.
+  2. Initialize it using the =void= function =init_2d= to the following
+     values:
+     #+begin_example
+
+     #+end_example
+
+
+- Solution:
+  #+begin_src C
+    void init_2d(int [][], int n);
+
+    int main(void)
+    {
+      
+      return 0;
+    }
+  #+end_src
+
 * Bonus assignment: Print 2 dimensional array-by-reference
 
 - *Homework assignment (bonus):* Modify the function =print_array= to print a
   2-dimensional array.
+
 
 * Variable-Length Array Parameters
 
