@@ -1314,8 +1314,7 @@ Quiz 4
     - Modifying =const= parameters inside the function
     #+end_quote
 
-
-* Week 7 - Functions, Recursion and Pointers
+* Week 7 - Pass-by-value, pass-by-reference, pointers
 #+attr_html: :width 400px:
 [[../img/podcasters.png]]
 
@@ -1334,7 +1333,7 @@ Announcements:
 
 Next topics:
 - [X] Passing by reference
-- [ ] Multi-dimensional arrays
+- [X] Multi-dimensional arrays
 - [ ] Compound literals
 - [ ] Return and exit
 - [ ] Recursion
@@ -1693,8 +1692,11 @@ Next topics:
     they are changed everywhere.
     #+end_quote
 
+* Week 8 - Recursion and Quicksort functions
 
-* Week 8 - Pointers and Arrays
+- You can find a recording of assignment 6 (function prototypes) in
+  the YouTube playlist, and the solution code in GitHub.
+
 * Week 9 - String Manipulation
 * Week 10 - Structs, Enums, Unions
 * Week 11 - Dynamic Storage Allocation
