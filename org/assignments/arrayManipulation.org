@@ -1,0 +1,112 @@
+#+TITLE:7 Array Manipulation and Functions
+#+AUTHOR:Marcus Birkenkrahe (pledged)
+#+SUBTITLE:CSC 240 (Data Structures) Lyon College Fall 2024
+#+STARTUP:overview hideblocks indent
+#+OPTIONS: toc:nil num:nil ^:nil
+#+PROPERTY: header-args:R :session *R* :results output :exports both :noweb yes#+PROPERTY: header-args:python :session *Python* :results output :exports both :noweb yes#+PROPERTY: header-args:C :main yes :includes <stdio.h> :results output :exports both :noweb yes#+PROPERTY: header-args:C++ :main yes :includes <iostream> :results output :exports both :noweb yes
+
+* Pseudocode
+
+- I intend to use this later for the program as comments. The function
+  prototypes settle a lot of the mechanics of the program already.
+  #+name: pseudocode
+  #+begin_example C
+  // Function prototypes:
+
+  // Name: input - Store (and print) integer values in an array
+  // Returns: Nothing (void)
+  // Params: Integer array [], integer size of array
+  void input(int [], int);
+
+  // Name: sum - Add element of an array
+  // Returns: Integer value
+  // Params: Integer array [], integer size of array
+  int sum(int [], int);
+
+  // Name: print - print elements of a one-dimensional array
+  // Returns: Nothing (void)
+  // Params: Integer array [], integer size of array
+  void print(int [], int);
+
+  // Define array size
+
+  // Main program
+     // Declare array
+     // Call input function
+     // Call sum function
+     // Call print function
+
+  // input function
+     // declare loop variable
+     // loop over array
+        // scan array element
+
+  // sum function
+     // declare loop variable
+     // declare and initialise sum to zero
+        // sum each array element
+     // return sum
+
+  // print function
+     // declare loop variable
+     // loop over array
+        // print array element
+  #+end_example
+
+- Implementation:
+  #+begin_src C :main no :tangle arrays.c
+    /*******************************************************************/
+    // arrays.c - input, print and sum values of a one-dimensional array
+    // Input: Five (5) integer values entered via keyboard
+    // Output: Entered input, sum of array elements, printed elements
+    // (C) Marcus Birkenkrahe, 2024 - License: GNU PLv3
+    /*******************************************************************/
+    // Function prototypes:
+
+    // Name: input - to store integer values in an array
+    // Returns: Nothing (void)
+    // Params: Integer array [], integer size of array
+    void input(int [], int);
+
+    // Name: sum - add element of an array
+    // Returns: Integer value
+    // Params: Integer array [], integer size of array
+    int sum(int [], int);
+
+    // Name: print - print elements of a one-dimensional array
+    // Returns: Nothing (void)
+    // Params: Integer array [], integer size of array
+    void print(int [], int);
+
+    // Define array size
+    #define SIZE 5
+
+    // Main program
+    int main(void) {
+
+
+      return 0;
+    }
+
+    // Declare array
+    // Call input function
+    // Call sum function
+    // Call print function
+
+    // input function
+    // declare loop variable
+    // loop over array
+    // scan array element
+
+    // sum function
+    // declare loop variable
+    // declare and initialise sum to zero
+    // sum each array element
+    // return sum
+
+    // print function
+    // declare loop variable
+    // loop over array
+    // print array element
+
+  #+end_src
