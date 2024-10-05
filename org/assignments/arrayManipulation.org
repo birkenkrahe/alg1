@@ -3,8 +3,8 @@
 #+SUBTITLE:CSC 240 (Data Structures) Lyon College Fall 2024
 #+STARTUP:overview hideblocks indent
 #+OPTIONS: toc:nil num:nil ^:nil
-#+PROPERTY: header-args:R :session *R* :results output :exports both :noweb yes#+PROPERTY: header-args:python :session *Python* :results output :exports both :noweb yes#+PROPERTY: header-args:C :main yes :includes <stdio.h> :results output :exports both :noweb yes#+PROPERTY: header-args:C++ :main yes :includes <iostream> :results output :exports both :noweb yes
-
+#+property: header-args:C :main yes :includes <stdio.h> :results output :exports both:
+#+startup: overview hideblocks indent entitiespretty:
 * Pseudocode
 
 - I intend to use this later for the program as comments. The function
@@ -53,8 +53,10 @@
         // print array element
   #+end_example
 
-- Implementation:
-  #+begin_src C :main no :tangle arrays.c
+* Implementation
+
+- I added a program header.
+  #+begin_src C :main no :tangle main.c
     /*******************************************************************/
     // arrays.c - input, print and sum values of a one-dimensional array
     // Input: Five (5) integer values entered via keyboard
@@ -83,30 +85,76 @@
 
     // Main program
     int main(void) {
-
-
+      // Declare size of array
+      int n = SIZE;
+      // Declare array
+      int array[SIZE] = {0};
+      // Call input function
+      printf("Enter %d integers:\n", SIZE);
+      input(array,SIZE);
+      // Call sum function
+      printf("\nSum of array elements: %d", sum(array,SIZE));
+      // Call print function
+      printf("\nArray elements:\n");
+      print(array, SIZE);
       return 0;
     }
 
-    // Declare array
-    // Call input function
-    // Call sum function
-    // Call print function
-
     // input function
-    // declare loop variable
-    // loop over array
-    // scan array element
+    void input(int a[],int n)
+    {
+      int i;     // declare loop variable
+      for (i=0;i<n;i++) {     // loop over array
+        scanf("%d",&a[i]);    // scan array element
+        printf("%d ",a[i]);    // print array element
+      }
+    }
 
     // sum function
-    // declare loop variable
-    // declare and initialise sum to zero
-    // sum each array element
-    // return sum
+    int sum(int a[], int n)
+    {
+      int i; // declare loop variable
+      int sum = 0; // declare and initialise sum to zero
+      for (i=0;i<n;i++) {     // loop over array
+        sum+=a[i];            // print array element
+      }
+      return sum; // return sum
+    }
 
     // print function
-    // declare loop variable
-    // loop over array
-    // print array element
-
+    void print(int a[], int n)
+    {
+      int i; // declare loop variable
+      for (i=0;i<n;i++) {     // loop over array
+        printf("%d ",a[i]);    // print array element
+      }
+    }
   #+end_src
+
+  #+RESULTS:
+  : Enter 5 integers:
+  : 00000
+  : Sum of array elements: 0
+  : Array elements:
+  : 00000
+
+* Compilation
+
+- Compile tangled source code fild =main.c= and output executable as =main=
+  #+begin_src bash :results silent :exports both
+    gcc main.c -o main
+  #+end_src
+
+* Testing
+
+- Test code with sample data:
+  #+begin_src bash :results output :exports both
+    echo 1 2 3 4 5 | ./main
+  #+end_src
+
+  #+RESULTS:
+  : Enter 5 integers:
+  : 1 2 3 4 5
+  : Sum of array elements: 15
+  : Array elements:
+  : 1 2 3 4 5
