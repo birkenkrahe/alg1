@@ -1,0 +1,116 @@
+#+title: Popquiz! 12 simple pieces
+#+author: [yourname] (pledged)
+#+subtitle: CSC 240 (Data Structures) Lyon College Fall 2024
+#+property: header-args:C :main yes :includes <stdio.h> :results output :exports both:
+#+startup: overview hideblocks indent entitiespretty: 
+
+1. Write function documentation for the following function, which gets
+   input from the keyboard, puts it into a one-dimensional array of
+   length =m=, and prints each value.
+   #+begin_example C
+   //
+   //
+   //
+   //
+   void input(int [], int);
+   #+end_example
+
+2. Write a function =sum= that takes an integer array =foo= of length =n=
+   sums up its elements, and returns the sum of the elements.
+   #+begin_src C
+
+   #+end_src
+
+3. Write a function =print= that prints an array =bar= of length =k= using a
+   =for= loop.
+   #+begin_src C
+     
+   #+end_src
+
+4. Write a statement that prints a long integer variable =i=, a
+   floating-point variable =x= to precision 4, and a Boolean variable =b=.
+   #+begin_src C
+
+   #+end_src
+
+5. Declare a floating-point constant =PI= with the value =3.141592=.
+   #+begin_src C
+
+   #+end_src
+
+6. Comment each line of this code:
+   #+begin_src C
+     #include <stdio.h>
+
+     int main(void)
+
+     {
+
+       int time;
+
+       printf("Enter time in seconds:\n");
+
+       scanf("%d",&time);
+
+       float answer = (32 * time * time) / 2;
+
+       printf("\nThe distance is %g feet.\n", answer);
+
+       return 0;
+
+     }
+   #+end_src
+
+7. Write a nested =for= loop to iterate over a 2 x 2 integer array
+   =baz=. Inside the =for= loop, print an array element.
+   #+begin_src C
+
+   #+end_src
+
+8. Change the following function so that the parameter =signal= can be
+   passed by reference from the calling function: =morse(&signal)=
+   #+begin_src C
+
+     void morse ( char  signal )
+     {
+       printf("Your morse signal was %c.\n",  signal );
+     }
+   #+end_src
+
+9. Write a statement that prints =i=, =p= and =**p= below, and write after
+   the =//= comments what =i=, =p=, and =pp= each are.
+   #+begin_src C
+     int i  = 100;
+     int* p = &i;
+     int** pp = &p;
+     // print i, p, **pp
+
+
+   #+end_src
+
+10. For given integers =a= and =b=, complete the selection statement below:
+    #+begin_example C
+      if (      ) {
+        printf("%d and %d are the same!\n",a,b);
+      } else if (      ) {
+        printf("%d is bigger than %d!\n",a,b);
+      } else {
+        printf("%d is smaller than %d!\n",a,b);
+      }
+    #+end_example
+
+11. Write a =while= loop that prints your name 10 times before exiting:
+    #+begin_src C
+
+
+
+
+    #+end_src
+
+12. You've tangled a source code file as =main.c=. Write the code
+    necessary to compile it on the command-line so that the executable
+    is called =a.out=
+    #+begin_example bash
+    
+    #+end_example
+

@@ -1793,8 +1793,6 @@ Testing:
 : Enter two integer numbers: m = 12, n = 20
 : GCD = 4
 
-\pagebreak
-
 * Programming assignments
 
 1. Write functions that return the following values. (Assume that =a=
