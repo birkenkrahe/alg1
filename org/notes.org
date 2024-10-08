@@ -1875,7 +1875,9 @@ close to solving the current assignment and bonus assignments.
     
     #+end_example
 
-* Popquiz Post-Mortem
+** Popquiz Post-Mortem
+#+attr_html: :width 600px: 
+[[../img/postmortem.png]]
 
 *What if you didn't do well on this popquiz?* There are several possibilities:
 
@@ -1893,8 +1895,9 @@ close to solving the current assignment and bonus assignments.
    more small problems, starting with the bonus problems in the
    course, and you can always ask me for more small problems.
 
-* Week 9 - String Manipulation
-* Week 10 - Structs, Enums, Unions
+
+* Week 9 - Arrays and Pointers
+* Week 10 - Strings, Structs, Enums, Unions
 * Week 11 - Dynamic Storage Allocation
 * Week 12 - Linked Lists and Doubly Linked Lists
 * Week 13 - Stacks and Queues
