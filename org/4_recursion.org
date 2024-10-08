@@ -23,7 +23,8 @@
 
 - In this function definition, there is no direct link between ~n~ and
   the length of the array ~a~. The array could in fact be larger or
-  smaller than =n=, and then the function would not work.
+  smaller than =n=, and then the function would not work (if =n= was used
+  to access elements of =a=).
   #+begin_src C :results none
     int sum_array(int a[], int n) {
       // ...
@@ -45,12 +46,12 @@
   with VLA (=sum_array_vla=) then call the function with the values
   5,10,11 for n.
   #+begin_src C :main no :tangle vla.c
-    int sum_array_vla(int n, int a[n]);
-    int sum_array(int a[], int n);
+    int sum_array_vla(int n, int a[n]); // Variable-Length Array
+    int sum_array(int a[], int n); // regular array
 
     int main(void)
     {
-      int a[10]={[0 ... 9]=1};
+      int a[10]={[0 ... 9]=1}; // another way of initializing arrays
       printf("vla: %d\n", sum_array_vla(11,a));
       printf("regular: %d ", sum_array(a,11));
       return 0;
@@ -74,8 +75,8 @@
   #+end_src
 
   #+RESULTS:
-  : vla: -86554102
-  : regular: -86554102
+  : vla: -2037517814
+  : regular: -2037517814 
 
 - What did you find out?
   #+begin_quote
@@ -120,6 +121,48 @@
   : 2 3 4 5
   : 3 4 5 6
   : Sum: 48
+
+- Using keyboard input:
+  #+begin_src C :main no :tangle vlaSum.c :results silent
+    int sum_two_dimensional_array(int n, int m, int a[n][m]);
+
+    int main(void)
+    {
+      int n, m, i, j; // n x m array, loop variables i, j
+      int a[n][m];
+
+      // printf("Enter number of rows and columns: ");
+      // scanf("%d %d", &n, &m);
+
+      for(i=0;i<n;i++) {
+        for(j=0;j<m;j++) {
+          a[i][j]=i+j;
+          printf("%d ",a[i][j]);
+        }
+        printf("\n");
+      }
+      printf("Sum: %d\n", sum_two_dimensional_array(n, m, a));
+
+      return 0;
+    }
+
+    int sum_two_dimensional_array(int n, int m, int a[n][m])
+    {
+      int i,j,sum=0;
+      for(i=0;i<n;i++)
+        for(j=0;j<m;j++)
+          sum+=a[i][j];
+      return sum;
+    }
+  #+end_src
+
+- Testing:
+  #+begin_src bash :results output
+    gcc vlaSum.c -o vla
+    echo 4 4 | ./vla
+  #+end_src
+
+  #+RESULTS:
 
 - These are all alternative ways to declare a VLA: the first one is to
   be preferred because it suggests the VLA, and also because the

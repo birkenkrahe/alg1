@@ -1771,13 +1771,15 @@ The last popquiz 3 weeks ago was probably too difficult. This contains
 more problems, but simpler ones. Solving these will also get you very
 close to solving the current assignment and bonus assignments.
 
-*Solve as many problems as you can. Grade yourself and turn in the sheet.*
+*Solve as many problems as you can. Put down what you can remember.*
+
+*If you're done early, check your answers [[https://tinyurl.com/function-popquiz][using this file]] with Emacs.*
 
 *I'll use the (confidential) data to give you hints on how to improve.*
+*
+*After (at most) 60 minutes, we'll review and a post-mortem*.
 
-*If you're done early, open Emacs and check your answers.*
-
-*After 60 minutes, we'll review and a post-mortem at the end of class*.
+*I will make a video on how to tackle these questions (YouTube).*
 
 [[https://github.com/birkenkrahe/alg1/blob/main/org/3_functions_popquiz.org][Problem Org-file]] and [[https://github.com/birkenkrahe/alg1/blob/main/pdf/3_functions_popquiz_solutions.pdf][solution PDF]] are also available online at GitHub.
 
@@ -1854,7 +1856,7 @@ close to solving the current assignment and bonus assignments.
      }
    #+end_src
 
-9. Write a statement that prints =i=, =p= and =**p= below, and write after
+9. Write a statement that prints =i=, =p= and =**pp= below, and write after
    the =//= comments what =i=, =p=, and =pp= each are.
    #+begin_src C
      int i  = 100;
@@ -1899,8 +1901,8 @@ close to solving the current assignment and bonus assignments.
 possibilities:
 
 1) *You don't do well under pressure.* To remove this obstacle, do the
-   quiz all over (without peeking at the solutions):
-   tinyurl.com/functions-popquiz.
+   quiz all over (without peeking at the solutions): the empty file
+   is at [[https://tinyurl.com/function-popquiz][tinyurl.com/functions-popquiz]]
 
 2) *You just don't have the basics* to solve most of the questions. Then
    you must work through the solutions and make sure you understand
@@ -1911,11 +1913,6 @@ possibilities:
    the quiz, but *you're just too darn slow*. Then you need to solve
    more small problems, starting with the bonus problems in the
    course, and you can always ask me for more small problems.
-
-4) Even you know what you should do *you can't make yourself do it*. If
-   your resistance is overwhelming and feels crippling, and if getting
-   to code and solve problem on a computer seems a terrible ordeal to
-   you, *do not stay in computer and data science*. 
 
 -----
 /Image: The Syndics of the Clothmaker's Guild (The Staalmeesters),

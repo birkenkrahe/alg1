@@ -21,7 +21,7 @@ data.
 - Different ways of developing and running code
 - One-dimensional arrays, =for= loops, =scanf= and =printf=
 - Use of macros and =sizeof= to set/read array lengths
-- Variable-sized arrays (new!) and new basic data types
+- Variable-Length Arrays (new!) and new basic data types
 - Application: Reversing series of numbers
 - Application: Checking numbers for repeated digits
 - Code along and solve different exercises

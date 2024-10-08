@@ -77,7 +77,7 @@
      }
    #+end_src
 
-9. Write a statement that prints =i=, =p= and =**p= below, and write after
+9. Write a statement that prints =i=, =p= and =**pp= below, and write after
    the =//= comments what =i=, =p=, and =pp= each are.
    #+begin_src C
      int i  = 100;
