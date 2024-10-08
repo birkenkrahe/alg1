@@ -1689,13 +1689,18 @@ Next topics:
     they are changed everywhere.
     #+end_quote
 
-* Week 8 - Recursion and Quicksort functions
-#+attr_html: :width 600px:
-[[../img/quicksort.png]]
 
-[[https://lamfo-unb.github.io/img/Sorting-algorithms/Quicksort.gif][See also the Gif animation here.]]
+* Week 8 - Functions Popquiz & Midterm Assignments
+#+attr_html: :width 600px: 
+[[../img/still_life.jpg]]
 
-** Total grade evolution: Getting better (though not for everyone).
+/Image: Still Life. Pieter Claesz. 1641./
+
+*THERE IS NO CLASS THIS THURSDAY 10-OCT: INVEST YOUR TIME WISELY!*
+
+*THERE WILL BE OFFICE HOURS 4-4.30 PM and 4.30-5 PM*
+
+* Total grade evolution: Getting better (though not for everyone).
 
 - R code:
   #+begin_src R :file gradesDensity.png :session *R* :results file graphics output :exports both
@@ -1742,28 +1747,31 @@ Next topics:
 #+RESULTS:
 [[file:gradesDensity.png]]
 
-
 - In three weeks, the class average has improved by 25%.
 - This is largely due to generous bonus payouts.
-- The bottom of the class (20%) has not moved much, alas.
+- The bottom of the class (30%) has not moved much, alas.
 
-** Current assignments (bonus and regular) - get coding!
+* Current assignments (bonus and regular) - get coding!
 #+attr_html: :width 600px:
 [[../img/bonus.png]]
 
 - You can find a *recording of assignment 6* (function prototypes,
   Oct 7) in the YouTube playlist, and the solution code in GitHub.
 
-- All BONUS assignments and assignment 7 are due October 14
+- All BONUS assignments and assignment 7 are *due October 14*
 
-- If you're struggling, come to my office and we go through the bonus
+- If you're struggling, *come to my office* and we go through the bonus
   assignments together. I'll do (almost) anything to get you coding!
 
-** Popquiz! 12 simple pieces
+* Popquiz! 12 simple pieces
+#+attr_html: :width 400px: 
+[[../img/popart.jpg]]
 
 The last popquiz 3 weeks ago was probably too difficult. This contains
 more problems, but simpler ones. Solving these will also get you very
 close to solving the current assignment and bonus assignments.
+
+[[https://github.com/birkenkrahe/alg1/blob/main/org/3_functions_popquiz.org][Problem Org-file]] and [[https://github.com/birkenkrahe/alg1/blob/main/pdf/3_functions_popquiz_solutions.pdf][solution PDF]] are also available online at GitHub.
 
 1. Write function documentation for the following function, which gets
    input from the keyboard, puts it into a one-dimensional array of
@@ -1875,11 +1883,12 @@ close to solving the current assignment and bonus assignments.
     
     #+end_example
 
-** Popquiz Post-Mortem
+* Popquiz Post-Mortem
 #+attr_html: :width 600px: 
-[[../img/postmortem.png]]
+[[../img/staalmeesters.jpg]]
 
-*What if you didn't do well on this popquiz?* There are several possibilities:
+*What if you didn't do well on this popquiz?* There are several
+possibilities:
 
 1) *You don't do well under pressure.* To remove this obstacle, do the
    quiz all over (without peeking at the solutions):
@@ -1895,11 +1904,25 @@ close to solving the current assignment and bonus assignments.
    more small problems, starting with the bonus problems in the
    course, and you can always ask me for more small problems.
 
+4) Even you know what you should do *you can't make yourself do it*. If
+   your resistance is overwhelming and feels crippling, and if getting
+   to code and solve problem on a computer seems a terrible ordeal to
+   you, *do not stay in computer and data science*. 
 
-* Week 9 - Arrays and Pointers
-* Week 10 - Strings, Structs, Enums, Unions
-* Week 11 - Dynamic Storage Allocation
-* Week 12 - Linked Lists and Doubly Linked Lists
+-----
+/Image: The Syndics of the Clothmaker's Guild (The Staalmeesters),
+Rembrandt van Rijn, 1662/
+
+
+* Week 9 - Recursion and Quicksort
+#+attr_html: :width 600px:
+[[../img/quicksort.png]]
+
+[[https://lamfo-unb.github.io/img/Sorting-algorithms/Quicksort.gif][See also the Gif animation here.]]
+
+* Week 10 - Arrays and Pointers
+* Week 11 - Strings, Structs, Enums, Unions
+* Week 12 - Dynamic Storage Allocation and Lists
 * Week 13 - Stacks and Queues
 * Week 14 - Trees and Hash Tables
 * Week 15 - Heaps and Graphs / C++
