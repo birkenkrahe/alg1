@@ -1875,6 +1875,23 @@ close to solving the current assignment and bonus assignments.
     
     #+end_example
 
+* Popquiz Post-Mortem
+
+*What if you didn't do well on this popquiz?* There are several possibilities:
+
+1) *You don't do well under pressure.* To remove this obstacle, do the
+   quiz all over (without peeking at the solutions):
+   tinyurl.com/functions-popquiz.
+
+2) *You just don't have the basics* to solve most of the questions. Then
+   you must work through the solutions and make sure you understand
+   it, and work through the first 15 chapters of w3schools.com for C
+   (free and online).
+
+3) You (think you) know the basics, and you understood the review of
+   the quiz, but *you're just too darn slow*. Then you need to solve
+   more small problems, starting with the bonus problems in the
+   course, and you can always ask me for more small problems.
 
 * Week 9 - String Manipulation
 * Week 10 - Structs, Enums, Unions

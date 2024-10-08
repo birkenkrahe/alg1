@@ -1,7 +1,7 @@
 #+title: Popquiz! 12 simple pieces
 #+author: [yourname] (pledged)
 #+subtitle: CSC 240 (Data Structures) Lyon College Fall 2024
-#+property: header-args:C :main yes :includes <stdio.h> :results output :exports both:
+#+property: header-args:C :main yes :includes <stdio.h> :results output :
 #+startup: overview hideblocks indent entitiespretty: 
 
 1. Write function documentation for the following function, which gets
@@ -113,4 +113,5 @@
     #+begin_example bash
     
     #+end_example
+
 
