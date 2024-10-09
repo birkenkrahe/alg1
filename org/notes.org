@@ -1689,7 +1689,6 @@ Next topics:
     they are changed everywhere.
     #+end_quote
 
-
 * Week 8 - Functions Popquiz & Midterm Assignments
 #+attr_html: :width 600px: 
 [[../img/still_life.jpg]]
@@ -1700,7 +1699,7 @@ Next topics:
 
 *THERE WILL BE OFFICE HOURS 4-4.30 PM and 4.30-5 PM*
 
-* Total grade evolution: Getting better (though not for everyone).
+** Total grade evolution: Getting better (though not for everyone).
 
 - R code:
   #+begin_src R :file gradesDensity.png :session *R* :results file graphics output :exports both
@@ -1751,7 +1750,7 @@ Next topics:
 - This is largely due to generous bonus payouts.
 - The bottom of the class (30%) has not moved much, alas.
 
-* Current assignments (bonus and regular) - get coding!
+** Current assignments (bonus and regular) - get coding!
 #+attr_html: :width 600px:
 [[../img/bonus.png]]
 
@@ -1763,7 +1762,7 @@ Next topics:
 - If you're struggling, *come to my office* and we go through the bonus
   assignments together. I'll do (almost) anything to get you coding!
 
-* Popquiz! 12 simple pieces
+** Popquiz! 12 simple pieces
 #+attr_html: :width 600px: 
 [[../img/popart.jpg]]
 
@@ -1893,7 +1892,7 @@ close to solving the current assignment and bonus assignments.
     
     #+end_example
 
-* Popquiz Post-Mortem
+** Popquiz Post-Mortem
 #+attr_html: :width 600px: 
 [[../img/staalmeesters.jpg]]
 
