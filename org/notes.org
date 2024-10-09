@@ -1762,7 +1762,7 @@ Next topics:
 - If you're struggling, *come to my office* and we go through the bonus
   assignments together. I'll do (almost) anything to get you coding!
 
-** Popquiz! 12 simple pieces
+** Popquiz! 12 easy pieces
 #+attr_html: :width 600px: 
 [[../img/popart.jpg]]
 
@@ -1775,7 +1775,7 @@ close to solving the current assignment and bonus assignments.
 *If you're done early, check your answers [[https://tinyurl.com/function-popquiz][using this file]] with Emacs.*
 
 *I'll use the (confidential) data to give you hints on how to improve.*
-*
+
 *After (at most) 60 minutes, we'll review and a post-mortem*.
 
 *I will make a video on how to tackle these questions (YouTube).*
@@ -1786,91 +1786,137 @@ close to solving the current assignment and bonus assignments.
    input from the keyboard, puts it into a one-dimensional array of
    length =m=, and prints each value.
    #+begin_example C
-   //
-   //
-   //
-   //
+   // Name: input
+   // Purpose: Store and print integer array values
+   // Returns: Nothing (void)
+   // Parameters: Integer array, and integer size of array
    void input(int [], int);
    #+end_example
 
 2. Write a function =sum= that takes an integer array =foo= of length =n=
    sums up its elements, and returns the sum of the elements.
-   #+begin_src C
-
+   #+begin_src C :results none
+     int sum(int foo[], int n)
+     {
+       int sum = 0, i;
+       for (i = 0; i < n; i++) {
+         sum+=foo[i];
+       }
+       return sum;
+     }
    #+end_src
 
 3. Write a function =print= that prints an array =bar= of length =k= using a
    =for= loop.
-   #+begin_src C
-
+   #+begin_src C :results none
+     void print(float bar[], int k)
+     {
+       int j;
+       for (j = 0; j < k; j++) {
+         printf("%g ", bar[j]);
+         }
+     }
    #+end_src
 
 4. Write a statement that prints a long integer variable =i=, a
    floating-point variable =x= to precision 4, and a Boolean variable =b=.
    #+begin_src C
+     #include <stdbool.h>
+     int i = 100;
+     float x = 3.141592f;
+     bool b = true;
 
+     printf("Integer i = %d, float x = %.4f, bool b = %b\n",i,x,b);
    #+end_src
 
-5. Declare a floating-point constant =PI= with the value =3.141592=.
-   #+begin_src C
+   #+RESULTS:
+   : Integer i = 100, float x = 3.1416, bool b = 1
 
+5. Declare a floating-point constant =PI= with the value =3.141592=.
+   #+begin_src C :results none
+     const float PI = 3.141592;
+     float const PI2 = 3.141592;
+     #define PI3 3.141592
    #+end_src
 
 6. Comment each line of this code:
    #+begin_src C
-     #include <stdio.h>
+     #include <stdio.h>  // include I/O library/header file
 
-     int main(void)
+     int main(void) // main function, no arguments, returns integer
 
-     {
+     { // begin of main program
 
-       int time;
+       int time; // integer variable definition
 
-       printf("Enter time in seconds:\n");
+       printf("Enter time in seconds:\n"); // print a string
 
-       scanf("%d",&time);
+       scanf("%d",&time);  // get integer input from stdin
 
-       float answer = (32 * time * time) / 2;
+       float answer = (32 * time * time) / 2; // compute result
 
-       printf("\nThe distance is %g feet.\n", answer);
+       printf("\nThe distance is %g feet.\n", answer); // print result
 
-       return 0;
+       return 0; // if program completes, return 0
 
-     }
+     } // end of main program
    #+end_src
 
 7. Write a nested =for= loop to iterate over a 2 x 2 integer array
    =baz=. Inside the =for= loop, print an array element.
    #+begin_src C
-
+     int baz[2][2]={1,2,3,4};
+     for (int i=0;i<2;i++) {
+       for (int j=0;j<2;j++) {
+         printf("%d ", baz[i][j]);
+       }
+       puts("");
+      }
    #+end_src
+
+   #+RESULTS:
+   : 1 2 
+   : 3 4 
 
 8. Change the following function so that the parameter =signal= can be
    passed by reference from the calling function: =morse(&signal)=
    #+begin_src C
-
-     void morse ( char  signal )
+     // pass by reference
+     void morse ( char  *s )
      {
-       printf("Your morse signal was %c.\n",  signal );
+       printf("Your morse signal was '%c'.\n",  *s );
+     }
+
+     int main(void)
+     {
+       char signal = '-';
+       morse(&signal); // pass address-of signal
+       return 0;
      }
    #+end_src
+
+   #+RESULTS:
+   : Your morse signal was '-'.
 
 9. Write a statement that prints =i=, =p= and =**pp= below, and write after
    the =//= comments what =i=, =p=, and =pp= each are.
    #+begin_src C
-     int i  = 100;
-     int* p = &i;
-     int** pp = &p;
+     int i  = 100; // integer variable
+     int* p = &i; // pointer to the address-of integer variable i
+     int** pp = &p; // pointer to the address of the pointer to i
      // print i, p, **pp
-
+     printf("i = %d, p = %p, **pp = %d\n", i, p, **pp);
 
    #+end_src
 
+   #+RESULTS:
+   : i = 100, p = 0x7ffc2d1633a4, **pp = 100
+
 10. For given integers =a= and =b=, complete the selection statement below:
     #+begin_example C
-      if (      ) {
+      if (a == b) {
         printf("%d and %d are the same!\n",a,b);
-      } else if (      ) {
+      } else if (a > b) {
         printf("%d is bigger than %d!\n",a,b);
       } else {
         printf("%d is smaller than %d!\n",a,b);
@@ -1879,17 +1925,22 @@ close to solving the current assignment and bonus assignments.
 
 11. Write a =while= loop that prints your name 10 times before exiting:
     #+begin_src C
-
-
-
-
+      int i = 0;  // start
+      while (i < 10) {// stop condition
+        printf("Joe ");
+        i++; 
+       }        
     #+end_src
+
+    #+RESULTS:
+    : Joe Joe Joe Joe Joe Joe Joe Joe Joe Joe 
 
 12. You've tangled a source code file as =main.c=. Write the code
     necessary to compile it on the command-line so that the executable
     is called =a.out=
     #+begin_example bash
-    
+    gcc main.c # standard output file is `a.out`
+    gcc main.c -o a.out  # explicitly create an output file `a.out`
     #+end_example
 
 ** Popquiz Post-Mortem
