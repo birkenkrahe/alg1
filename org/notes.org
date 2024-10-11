@@ -1577,7 +1577,7 @@ Next topics:
    : **pp = 100
 
    - Here is a diagram that summarizes the relationships:
-     #+attr_html: :width 400px:
+     #+attr_html: :width 600px:
      [[../img/double_pointer.png]]
 
 6. Coding challenge:
@@ -1967,7 +1967,6 @@ possibilities:
 -----
 /Image: The Syndics of the Clothmaker's Guild (The Staalmeesters),
 Rembrandt van Rijn, 1662/
-
 
 * Week 9 - Recursion and Quicksort
 #+attr_html: :width 600px:
