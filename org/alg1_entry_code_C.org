@@ -1,0 +1,202 @@
+#+TITLE: 10 Simple Entry Problems for Data Structures with C
+#+AUTHOR: Marcus Birkenkrahe
+#+SUBTITLE: CSC 240 Lyon College Fall Term 2024
+#+startup: overview hideblocks indent entitiespretty:
+* Entry test: write 10 simple programs (in C)
+
+1. Declare two variables of type =int=, initialize them to appropriate
+   values, and print them next to one another separated by a comma.
+
+   Solution:
+   #+begin_src C :main yes :includes <stdio.h> :results output :exports both :comments both
+
+   #+end_src
+
+2. Declare three integer variables: ~sum~, ~a~, ~b~. Initialize ~sum~
+   to 0. Initialize the variables ~a~ and ~b~ to an appropriate integer
+   value, use an assignment statement to assign ~sum~ the result of ~a~
+   plus ~b~, and print the result: ~"The sum of _ and _ is _."~ using
+   =printf=.
+
+   Solution:
+   #+begin_src C :main yes :includes <stdio.h> :results output :exports both :comments both
+
+   #+end_src
+
+3. Create a program in which 3 variables are declared. Create one
+   float named =myFloat=, one int named =myInt=, and one =double= named
+   =myDouble=. Initialize them to =3.14=, =3=, and =3.14159=,
+   respectively. Print each variable on a line of its own like this:
+   #+begin_example
+     myFloat  = 3.14
+     myInt    = 3
+     myDouble = 3.14159
+   #+end_example
+
+   Solution:
+   #+begin_src C :main yes :includes <stdio.h> :results output :exports both :comments both
+
+   #+end_src
+
+4. Create a program that displays the diameter and area of a circle
+   for any given radius. Initialize the radius in the program. Use a
+   =const float= to represent the literal π. The output should look like
+   this: ~The area of a circle of diameter 2 is 3.14159~ (for r=1).
+
+   Solution:
+   #+begin_src C :main yes :includes <stdio.h> :results output :exports both :comments both
+
+   #+end_src
+
+5. Comment each line of this code (use the code block below):
+   #+begin_example C
+     #include <stdio.h>
+
+     int main(void)
+     {
+       int time;
+       printf("Enter time in seconds:\n");
+       scanf("%d",&time);
+       printf("You entered: %d seconds",time);
+       int answer = (32 * time * time) / 2;
+       printf("\nThe distance is %d feet.\n", answer);
+       return 0;
+     }
+   #+end_example 
+
+   *Background:* In the imperial metric system, 32 feet per second
+   squared (or 9.8 meter per second squared in the metric system) is
+   the approximate acceleration due to Earth's gravity for a freely
+   falling body (no air friction or other effects assumed).
+
+   Solution: To run this code, run the shell code block below first.
+   #+begin_src C++ :cmdline < input :main yes :includes <iostream> :namespaces std :results output :exports both :comments both :tangle yes :noweb yes
+     #include <stdio.h>
+
+     int main(void)
+     {
+       int time;
+       printf("Enter time in seconds:\n");
+       scanf("%d",&time);
+       printf("You entered: %d seconds",time);
+       int answer = (32 * time * time) / 2;
+       printf("\nThe distance is %d feet.\n", answer);
+       return 0;
+     }
+   #+end_src
+
+   #+begin_src bash :results output
+     echo "10" > input
+     cat input
+   #+end_src
+
+6. Data Types and conversion
+
+   Write a 3-line program that declares a variable named ~sampleSize~ and set it
+   to 14.58093. Use a compound operator to increase its value by 12.495. Finally
+   print the result converted to an integer using =cout= and =int=. The output
+   should be 27.
+
+   Solution:
+   #+begin_src C :main yes :includes <stdio.h> :results output :exports both
+
+   #+end_src
+
+7. Conditionals
+
+   - Write a program that declares two integers =a= and =b= and
+     initializes them with appropriate values. The program should
+     print out one message that informs the user if =a= is smaller or
+     bigger than =b=, or if they're the same.
+
+     Solution:
+     #+begin_src C :main yes :includes <stdio.h> :results output :exports both
+
+     #+end_src
+
+   - Rook's Guide to C++ contains this rather useless (though not wrong) flow
+     chart ([[https://github.com/birkenkrahe/alg1/blob/main/img/if_else_bad.png][fig. 10.2, pg. 51]]). This chart can be improved a lot, see this BPMN
+     model created at bpmn.io ([[https://github.com/birkenkrahe/alg1/blob/main/img/if_else_good.svg][link]]).
+
+8. Loops
+
+   Do the first program, if you've completed section 7, and do the second
+   program, if not.
+
+   1) Wrap the program ='compare and b'= from sect. 7 ("Conditionals")
+      in an /infinite/ loop, and ask the user after each iteration if he
+      wants to quit or continue playing, exit the program accordinly,
+      and print the number of iterations. Play at least once.
+
+      Solution:
+      #+begin_src C :cmdline < compare :tangle src/compare.c :main yes :includes <stdio.h> :results output :exports both
+
+      #+end_src
+
+      Testing with sample data:
+      #+begin_src bash :results output
+        echo "100 100 N
+             -100 100 N
+                8   1 Y" > compare
+        cat compare
+      #+end_src
+
+   2) Create a =for= loop that outputs your =name= to the screen 10 times before
+      exiting the loop.
+
+      Solution I:
+      #+begin_src C :main yes :includes <stdio.h> :results output :exports both
+        for (int i=0; i<10; i++) {
+          printf("Marcus ");
+         }
+      #+end_src
+
+9. Arrays
+
+   Create a program in which an integer array named ~myArray~ is declared with a
+   size of 10. Use a =for= loop to prompt the user to store a value in every index
+   of the array. Aer the array is given values, output the values of the array
+   to the screen using a =for= loop. Output each value of the array on its own
+   line.
+
+   Input: 10 integers
+   #+begin_src bash :results output
+     echo "4 56 7 324 -4 0 21 -999 9 1" > array
+     cat array
+     cat array | wc -w
+   #+end_src
+
+   Solution:
+   #+begin_src C :cmdline < data/array :main yes :includes <stdio.h> :results output
+     
+   #+end_src
+
+10. Functions
+
+    Write code that prompts the user for a number of miles travelled
+    and a number of hours, then calculates the user's speed in miles
+    per hour using a user-defined function named ~mph~.
+
+    If you're doing this in Emacs, use the complete C program header
+    and call ~mph~ in a =main= function:
+    #+begin_example C
+      #include <stdio.h>
+
+      int main() {
+          //....
+      }
+    #+end_example
+
+    Solution:
+    #+begin_src C :cmdline < mph :main no :includes <stdio.h> :results output 
+
+    #+end_src
+
+    Testing:
+    #+begin_src bash :results output
+      echo "740 11.5" > data/mph
+      cat data/mph
+    #+end_src
+
+
+
