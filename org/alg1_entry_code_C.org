@@ -92,10 +92,10 @@
 
 6. Data Types and conversion
 
-   Write a 3-line program that declares a variable named ~sampleSize~ and set it
-   to 14.58093. Use a compound operator to increase its value by 12.495. Finally
-   print the result converted to an integer using =cout= and =int=. The output
-   should be 27.
+   Write a 3-line program that declares a variable named ~sampleSize~
+   and set it to 14.58093. Use a compound operator to increase its
+   value by 12.495. Finally print the result converted to an integer
+   using =int=. The output should be 27.
 
    Solution:
    #+begin_src C :main yes :includes <stdio.h> :results output :exports both
