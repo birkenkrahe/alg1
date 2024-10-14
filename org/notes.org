@@ -1974,6 +1974,30 @@ Rembrandt van Rijn, 1662/
 
 [[https://lamfo-unb.github.io/img/Sorting-algorithms/Quicksort.gif][See also the Gif animation here.]]
 
+- Change of plan: Large scale projects or why assignments are stupid
+  (see Huw Collinbourne's [[https://youtu.be/L0l3LERJDwc?si=6lZj2Er0MvlP3UrY][YouTube video]] shared on the Google chat).
+
+- Some example projects that I'd like to build:
+
+  1) Build a custom linked-list based *text editor* (command-line based)
+     that allows the user to create, edit, and save text files. It
+     allows basic operations like inserting, deleting, searching,
+     saving text.
+
+  2) Build a *hash table* with collision handling for a dictionary that
+     stores words and their definitions, simulating a dictionary. You
+     need to implement a hash function, handle collisions, and provide
+     search, insert, and delete functionalities.
+
+  3) Design a dynamic array-based *file system* (simulated in-memory)
+     that uses a dynamic array (with resizing) to store files and
+     directories, simulating basic file system operations such as
+     creating, deleting, and listing files and directories, and
+     resizing of the storage array as more files are added.
+
+  References: "Do THIS To Master Programming (why coding exercises are
+  KILLING your progress!), by Code with Huw (Oct 1, 2024).
+
 * Week 10 - Arrays and Pointers
 * Week 11 - Strings, Structs, Enums, Unions
 * Week 12 - Dynamic Storage Allocation and Lists
