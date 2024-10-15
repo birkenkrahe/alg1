@@ -11,7 +11,7 @@
   + Compound literals to initialize arrays
   + Cast operators, lvalues and rvalues
   + Exiting from a function in the case of failure
-  + Recursion principle and Fibonacci application
+  + Recursion principle with applications
   + Quicksort algorithm explained and coded
   + Code along and solve different exercises
   + Review questions, glossary, and summary
@@ -28,6 +28,22 @@
   #+begin_src C :results none
     int sum_array(int a[], int n) {
       // ...
+    }
+  #+end_src
+
+- The array could be shorter or longer than =n= (and the function might
+  break and lead to a "stack smashing" error because of an out of
+  bounds array access:
+  #+begin_src C :results none
+    void foo(int a[], int n)
+    {
+      a[n]=0;
+    }
+    int main(void)
+    {
+      int a[2]={0};
+      foo(a,2);
+      return 0;
     }
   #+end_src
 
@@ -52,7 +68,7 @@
     int main(void)
     {
       int a[10]={[0 ... 9]=1}; // another way of initializing arrays
-      printf("vla: %d\n", sum_array_vla(11,a));
+      printf("vla: %d\n", sum_array_vla(10,a));
       printf("regular: %d ", sum_array(a,11));
       return 0;
     }
@@ -75,8 +91,8 @@
   #+end_src
 
   #+RESULTS:
-  : vla: -2037517814
-  : regular: -2037517814 
+  : vla: 10
+  : regular: 897987594 
 
 - What did you find out?
   #+begin_quote
@@ -116,10 +132,10 @@
   #+end_src
 
   #+RESULTS:
-  : 0 1 2 3
-  : 1 2 3 4
-  : 2 3 4 5
-  : 3 4 5 6
+  : 0 1 2 3 
+  : 1 2 3 4 
+  : 2 3 4 5 
+  : 3 4 5 6 
   : Sum: 48
 
 - Using keyboard input:
@@ -215,18 +231,36 @@
   #+end_src
 
   #+RESULTS: sum_array2
+  : total = 11
 
 - A compound literal resembles a cast =(int[])= applied to an
   initializer ={}=. It is also an /lvalue/, so the value of its elements
   can be changed. It can be made read-only by adding =const= before the
   type.
 
+- An /lvalue/ (locator value) is an expression that points to a location
+  in memory (that is it has an address):
+  #+begin_src C :results none
+    int x = 10; // x is an lvalue on the left of =
+    x = x + 1; // x is an lvalue on the left and the right of =
+  #+end_src
+
+- An /rvalue/ (right-hand value) can only appear on the right of an
+  assignment: It is a temporary value without a usable address.
+  #+begin_src C :results none
+    int y = 10 + 5; // `10 + 5` is an rvalue
+
+    #define PI 3.14
+    int x = PI; // PI is an rvalue because you cannot assign a value to it
+    //PI = 3.15;
+  #+end_src
+  
 - A /cast/ is an operator that converts one type into another:
   #+begin_src C
-    int i = 1;
-    float x = 3.14;
-    char c = 'a';
-    char *ic = "22";
+    int i = 1; // an integer 
+    float x = 3.14; // a floating-point variable
+    char c = 'a'; // a character variable
+    char *ic = "22"; // a character pointer variable
 
     printf("%f\n", (float)(i)); // cast int to float (widening)
     printf("%d\n", (int)(x)); // cast float to int (narrowing/truncates)
