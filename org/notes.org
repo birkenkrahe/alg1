@@ -1701,54 +1701,54 @@ Next topics:
 
 ** Total grade evolution: Getting better (though not for everyone).
 
-- R code:
-  #+begin_src R :file gradesDensity.png :session *R* :results file graphics output :exports both
-    grades1 <- c(0.,7.62,30.16,30.16,32.59,45.24,45.56,53.02,
-                 59.26,62.22,63.17,65.4,76.19,98.33,98.41,98.89)
-    grades2 <- c(20.56,35.42,42.78,48.75,52.78,57.5,69.86,70.42,
-                 75.,76.11,81.53,83.19,86.39,91.25,98.47,104.29)
-    grades3 <- c(20.56,31.53,48.41,50.85,52.8,83.78,88.52,89.79,
-                 91.32,97.2,100.71,101.01,103.02,105.56,108.99,120.4)
+  - R code:
+    #+begin_src R :file gradesDensity.png :session *R* :results file graphics output :exports both
+      grades1 <- c(0.,7.62,30.16,30.16,32.59,45.24,45.56,53.02,
+                   59.26,62.22,63.17,65.4,76.19,98.33,98.41,98.89)
+      grades2 <- c(20.56,35.42,42.78,48.75,52.78,57.5,69.86,70.42,
+                   75.,76.11,81.53,83.19,86.39,91.25,98.47,104.29)
+      grades3 <- c(20.56,31.53,48.41,50.85,52.8,83.78,88.52,89.79,
+                   91.32,97.2,100.71,101.01,103.02,105.56,108.99,120.4)
 
-    ## Get the common x and y limits
-    xlim <- range(c(grades1, grades2))
-    ylim <- range(c(density(grades1)$y, density(grades3)$y))
+      ## Get the common x and y limits
+      xlim <- range(c(grades1, grades2))
+      ylim <- range(c(density(grades1)$y, density(grades3)$y))
 
-    ## First plot with specified xlim and ylim
-    plot(density(grades1), lwd=2, col="red",
-         xlab="", ylab="", main="", xlim=xlim, ylim=ylim, yaxt="n")
+      ## First plot with specified xlim and ylim
+      plot(density(grades1), lwd=2, col="red",
+           xlab="", ylab="", main="", xlim=xlim, ylim=ylim, yaxt="n")
 
-    ## Overlay the second plot with the same xlim and ylim
-    par(new=TRUE)
-    plot(density(grades2), lwd=2, col="blue",
-         xlab="", ylab="", main="", xlim=xlim, ylim=ylim, yaxt="n")
+      ## Overlay the second plot with the same xlim and ylim
+      par(new=TRUE)
+      plot(density(grades2), lwd=2, col="blue",
+           xlab="", ylab="", main="", xlim=xlim, ylim=ylim, yaxt="n")
 
-    ## Overlay the third plot with the same xlim and ylim
-    par(new=TRUE)
-    plot(density(grades3), lwd=2, col="darkgreen",
-         xlab="Grades [%]", main="Total grades CSC 240",
-         xlim=xlim, ylim=ylim, yaxt="n")
+      ## Overlay the third plot with the same xlim and ylim
+      par(new=TRUE)
+      plot(density(grades3), lwd=2, col="darkgreen",
+           xlab="Grades [%]", main="Total grades CSC 240",
+           xlim=xlim, ylim=ylim, yaxt="n")
 
-    ## Add mean lines for grades1
-    abline(v=mean(grades1), col="red", lwd=2)
+      ## Add mean lines for grades1
+      abline(v=mean(grades1), col="red", lwd=2)
 
-    ## Add mean lines for grades2
-    abline(v=mean(grades2), col="blue", lwd=2)
+      ## Add mean lines for grades2
+      abline(v=mean(grades2), col="blue", lwd=2)
 
-    ## Add mean lines for grades2
-    abline(v=mean(grades3), col="darkgreen", lwd=2)
+      ## Add mean lines for grades2
+      abline(v=mean(grades3), col="darkgreen", lwd=2)
 
-    ## add a legend
-    legend("topleft", legend=c("14-Sep", "30-Sep", "7-Oct"),
-           col=c("red", "blue", "darkgreen"), lwd=2)
-  #+end_src
+      ## add a legend
+      legend("topleft", legend=c("14-Sep", "30-Sep", "7-Oct"),
+             col=c("red", "blue", "darkgreen"), lwd=2)
+    #+end_src
 
-#+RESULTS:
-[[file:gradesDensity.png]]
+  #+RESULTS:
+  [[file:gradesDensity.png]]
 
-- In three weeks, the class average has improved by 25%.
-- This is largely due to generous bonus payouts.
-- The bottom of the class (30%) has not moved much, alas.
+  - In three weeks, the class average has improved by 25%.
+  - This is largely due to generous bonus payouts.
+  - The bottom of the class (30%) has not moved much, alas.
 
 ** Current assignments (bonus and regular) - get coding!
 #+attr_html: :width 600px:
@@ -1814,7 +1814,7 @@ close to solving the current assignment and bonus assignments.
        int j;
        for (j = 0; j < k; j++) {
          printf("%g ", bar[j]);
-         }
+       }
      }
    #+end_src
 
@@ -1975,17 +1975,40 @@ Rembrandt van Rijn, 1662/
 
 [[https://lamfo-unb.github.io/img/Sorting-algorithms/Quicksort.gif][See also the Gif animation here.]]
 
+- [ ] Popquiz results histogram
+- [ ] Anonymous poll: How much are you coding?
+- [ ] New grading element: Large projects
 - [ ] Variable-Length Arrays
 - [ ] Compound literals
 - [ ] Exit failure or success
 - [ ] Recursion: Factorials
 - [ ] Quicksort algorithm
 
+** Popquiz results
+#+begin_src R :file pophist.png :session *R* :results file graphics output :exports both
+  pop <- c(2.5,0,1,6.5,1.5,4,6,6.5,10,6.5,9.5,10,9,2.5,8,12)
+  hist(pop,
+       xlab="Points [0-12]",
+       ylab="Participants",
+       main="Popquiz '12 Easy Pieces' (Oct-8-2024) CSC 240",
+       col="lightblue")
+#+end_src
+
+#+RESULTS:
+[[file:pophist.png]]
+
+- Remember that the 12 pieces unlock many of the bonus assignments.
+
+- Especially valuable: The 10 Entry problem bonus assignment.
+
+- You should be able to code its problems with your eyes closed.
+
 ** Anonymous poll: How much have you programmed (in any language) this week?
 #+attr_html: :width 600px: 
 [[../img/poll.png]]
 
 Vote anonymously at strawpoll.com: [[https://strawpoll.com/LVyK2j9oQZ0][strawpoll.com/LVyK2j9oQZ0]]
+
 
 ** "Why coding exercises are KILLING your progress"
 #+attr_html: :width 600px: 
@@ -2001,15 +2024,51 @@ Vote anonymously at strawpoll.com: [[https://strawpoll.com/LVyK2j9oQZ0][strawpol
   initiative and design. You must document it as a literate program
   and you must present it (to me), but it doesn't need to be finished.
 
+- Look at a large project as a series of many small exercises, which
+  you pose yourself! It's a fight for freedom from the shackles of
+  *procrastination*. Graciousness towards yourself is the key.
+
 - Let me know what you want to do and create a shared GDrive to which
   you can invite me, get going and ask me if you need any help.
 
-- Some example projects that I would personally like to build:
+- I will put this into the gradebook as a bonus category with
+  detailed instructions later this week.
+
+- Some example projects:
   1) Build a *text editor* (linked list)
   2) Build a *dictionary* (hash table)
   3) Design a *file system* (dynamic array)
   4) Implement *machine learning* algorithms from scratch.
   5) Implement a *blockchain* (structs)
+  6) Build a *melody generator* and music player (strings)
+
+** Review
+
+- VLA paramters
+
+- Debug compound literal
+
+- A compound literal resembles a cast =(int[])= applied to an
+  initializer ={}=. It is also an /lvalue/, so the value of its elements
+  can be changed. It can be made read-only by adding =const= before the
+  type.
+
+- An /lvalue/ or /locator value/ is an expression that represents a memory
+  location, and that can appear on the left hand side of an assignment
+  operator. As an object it persists beyond a single expression and
+  can have a value assigned to it.
+
+  By contrast, an /rvalue/ or /right value/ represents a data value stored
+  in memory but that is not an assignable object itself.
+
+  For example:
+  #+begin_src C
+    int x = 10;   // 'x' is an lvalue, '10' is an rvalue
+    int *p = &x;  // 'p' is an lvalue, '&x' is an rvalue
+
+    (*p) = 20;      // '*p' is an lvalue, '20' is an rvalue
+    x = x + 5;    // 'x' is an lvalue, 'x + 5' is an rvalue
+  #+end_src
 
 
 * Week 10 - Arrays and Pointers [Oct 21]
