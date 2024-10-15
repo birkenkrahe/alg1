@@ -1968,39 +1968,54 @@ possibilities:
 /Image: The Syndics of the Clothmaker's Guild (The Staalmeesters),
 Rembrandt van Rijn, 1662/
 
-* Week 9 - Recursion and Quicksort
+
+* Week 9 - Recursion and Quicksort [Oct 14]
 #+attr_html: :width 600px:
 [[../img/quicksort.png]]
 
 [[https://lamfo-unb.github.io/img/Sorting-algorithms/Quicksort.gif][See also the Gif animation here.]]
 
-- Change of plan: Large scale projects or why assignments are stupid
+- [ ] Variable-Length Arrays
+- [ ] Compound literals
+- [ ] Exit failure or success
+- [ ] Recursion: Factorials
+- [ ] Quicksort algorithm
+
+** Anonymous poll: How much have you programmed (in any language) this week?
+#+attr_html: :width 600px: 
+[[../img/poll.png]]
+
+Vote anonymously at strawpoll.com: [[https://strawpoll.com/LVyK2j9oQZ0][strawpoll.com/LVyK2j9oQZ0]]
+
+** "Why coding exercises are KILLING your progress"
+#+attr_html: :width 600px: 
+[[../img/killingExercises.png]]
+
+- *Change of plan:* Large scale projects or why assignments are stupid
   (see Huw Collinbourne's [[https://youtu.be/L0l3LERJDwc?si=6lZj2Er0MvlP3UrY][YouTube video]] shared on the Google chat).
 
-- Some example projects that I'd like to build:
+- There will be 6-7 *programming assignments* and perhaps as many bonus
+  assignments until the end of term (100 points).
 
-  1) Build a custom linked-list based *text editor* (command-line based)
-     that allows the user to create, edit, and save text files. It
-     allows basic operations like inserting, deleting, searching,
-     saving text.
+- You can get as many points with a *programming project* of your own
+  initiative and design. You must document it as a literate program
+  and you must present it (to me), but it doesn't need to be finished.
 
-  2) Build a *hash table* with collision handling for a dictionary that
-     stores words and their definitions, simulating a dictionary. You
-     need to implement a hash function, handle collisions, and provide
-     search, insert, and delete functionalities.
+- Let me know what you want to do and create a shared GDrive to which
+  you can invite me, get going and ask me if you need any help.
 
-  3) Design a dynamic array-based *file system* (simulated in-memory)
-     that uses a dynamic array (with resizing) to store files and
-     directories, simulating basic file system operations such as
-     creating, deleting, and listing files and directories, and
-     resizing of the storage array as more files are added.
+- Some example projects that I would personally like to build:
+  1) Build a *text editor* (linked list)
+  2) Build a *dictionary* (hash table)
+  3) Design a *file system* (dynamic array)
+  4) Implement *machine learning* algorithms from scratch.
+  5) Implement a *blockchain* (structs)
 
-  References: "Do THIS To Master Programming (why coding exercises are
-  KILLING your progress!), by Code with Huw (Oct 1, 2024).
 
-* Week 10 - Arrays and Pointers
-* Week 11 - Strings, Structs, Enums, Unions
-* Week 12 - Dynamic Storage Allocation and Lists
-* Week 13 - Stacks and Queues
-* Week 14 - Trees and Hash Tables
-* Week 15 - Heaps and Graphs / C++
+* Week 10 - Arrays and Pointers [Oct 21]
+* Week 11 - Strings, Structs, Enums, Unions [Oct 28]
+* Week 12 - Dynamic Storage Allocation and Lists [Nov 4]
+* Week 13 - Stacks and Queues [Nov 11]
+* Week 14 - Trees and Hash Tables [Nov 18]
+* +Week 15 - Thanksgiving Break+
+* Week 15 - Heaps and Graphs / C++ [Dec 2]
