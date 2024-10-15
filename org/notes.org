@@ -2003,12 +2003,12 @@ Rembrandt van Rijn, 1662/
 
 - You should be able to code its problems with your eyes closed.
 
+
 ** Anonymous poll: How much have you programmed (in any language) this week?
 #+attr_html: :width 600px: 
 [[../img/poll.png]]
 
 Vote anonymously at strawpoll.com: [[https://strawpoll.com/LVyK2j9oQZ0][strawpoll.com/LVyK2j9oQZ0]]
-
 
 ** "Why coding exercises are KILLING your progress"
 #+attr_html: :width 600px: 
@@ -2041,8 +2041,10 @@ Vote anonymously at strawpoll.com: [[https://strawpoll.com/LVyK2j9oQZ0][strawpol
   4) Implement *machine learning* algorithms from scratch.
   5) Implement a *blockchain* (structs)
   6) Build a *melody generator* and music player (strings)
+  7) Build a *text adventure game* (strings)
 
-
+- This could be done in any language that you know (however, ideally I
+  know the language), in any case you will be queried.
 ** Recursion codealong I
 
 - Get the file from [[https://tinyurl.com/recursion-org][tinyurl.com/recursion-org]]
