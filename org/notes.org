@@ -2042,6 +2042,21 @@ Vote anonymously at strawpoll.com: [[https://strawpoll.com/LVyK2j9oQZ0][strawpol
   5) Implement a *blockchain* (structs)
   6) Build a *melody generator* and music player (strings)
 
+
+** Recursion codealong I
+
+- Get the file from [[https://tinyurl.com/recursion-org][tinyurl.com/recursion-org]]
+
+- In Linux:
+  #+begin_example sh
+  wget -O recursion.org tinyurl.com/recursion-org
+  #+end_example
+
+- Open =recursion.org= with Emacs from the terminal: 
+  #+begin_example sh
+  emacs --file recursion.org & 
+  #+end_example
+
 ** Review
 
 - VLA paramters
