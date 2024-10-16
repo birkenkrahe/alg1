@@ -139,16 +139,20 @@
   : Sum: 48
 
 - Using keyboard input:
-  #+begin_src C :main no :tangle vlaSum.c :results silent
+  #+name: sum_two_dimensional_array
+  #+begin_src C :main no :tangle vlaSum.c :results none :flags -Wall -Wextra
     int sum_two_dimensional_array(int n, int m, int a[n][m]);
 
     int main(void)
     {
       int n, m, i, j; // n x m array, loop variables i, j
-      int a[n][m];
 
-      // printf("Enter number of rows and columns: ");
-      // scanf("%d %d", &n, &m);
+      printf("Enter number of rows and columns: ");
+      scanf("%d %d", &n, &m);
+      printf("%d %d", n, m);
+
+      int a[n][m];
+      puts("");
 
       for(i=0;i<n;i++) {
         for(j=0;j<m;j++) {
@@ -179,6 +183,19 @@
   #+end_src
 
   #+RESULTS:
+  : Enter number of rows and columns: 4 4
+  : 0 1 2 3 
+  : 1 2 3 4 
+  : 2 3 4 5 
+  : 3 4 5 6 
+  : Sum: 48
+
+- Note: My first attempt at [[sum_two_dimensional_array]] failed with a
+  "segmentation fault". The problem was that the array =a[n][m]= can
+  only be declared *after* the user input =scanf= statement! To find
+  issues like these, use additional compiler flags:
+  #+attr_html: :width 600px:
+  [[../img/compiler_flags.png]]
 
 - These are all alternative ways to declare a VLA: the first one is to
   be preferred because it suggests the VLA, and also because the
@@ -311,7 +328,7 @@
   separate piece of code.
   #+end_quote
 
-* The =return= statement
+* NEXT The =return= statement
 
 - Functions are the most important building blocks of C
   programs. Using functions, we can divide a program into smaller
