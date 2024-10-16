@@ -2058,7 +2058,7 @@ Vote anonymously at strawpoll.com: [[https://strawpoll.com/LVyK2j9oQZ0][strawpol
   emacs --file recursion.org & 
   #+end_example
 
-** Review
+** Review: VLA / Compound Literals / lvalue and rvalue
 
 - VLA paramters
 

@@ -92,7 +92,7 @@
 
   #+RESULTS:
   : vla: 10
-  : regular: 897987594 
+  : regular: 897987594
 
 - What did you find out?
   #+begin_quote
@@ -132,10 +132,10 @@
   #+end_src
 
   #+RESULTS:
-  : 0 1 2 3 
-  : 1 2 3 4 
-  : 2 3 4 5 
-  : 3 4 5 6 
+  : 0 1 2 3
+  : 1 2 3 4
+  : 2 3 4 5
+  : 3 4 5 6
   : Sum: 48
 
 - Using keyboard input:
@@ -184,10 +184,10 @@
 
   #+RESULTS:
   : Enter number of rows and columns: 4 4
-  : 0 1 2 3 
-  : 1 2 3 4 
-  : 2 3 4 5 
-  : 3 4 5 6 
+  : 0 1 2 3
+  : 1 2 3 4
+  : 2 3 4 5
+  : 3 4 5 6
   : Sum: 48
 
 - Note: My first attempt at [[sum_two_dimensional_array]] failed with a
@@ -271,10 +271,10 @@
     int x = PI; // PI is an rvalue because you cannot assign a value to it
     //PI = 3.15;
   #+end_src
-  
+
 - A /cast/ is an operator that converts one type into another:
   #+begin_src C
-    int i = 1; // an integer 
+    int i = 1; // an integer
     float x = 3.14; // a floating-point variable
     char c = 'a'; // a character variable
     char *ic = "22"; // a character pointer variable
@@ -330,6 +330,11 @@
 
 * NEXT The =return= statement
 
+- Understanding =return= is fundamental when working with functions,
+  especially since data structures often involve returning values
+  or pointers from functions. Knowing how =return= works with
+  different data types and conditions is essential.
+
 - Functions are the most important building blocks of C
   programs. Using functions, we can divide a program into smaller
   parts that are easier to maintain and to understand.
@@ -356,6 +361,11 @@
   : 1
 
 * The =exit= Function
+
+- While not directly related to data structures, knowing how to handle
+  program termination and error reporting will be useful in debugging
+  and testing data structure implementations. It can be part of error
+  handling strategies when working with complex data structures.
 
 - The argument passed to =stdlib::exit= indicates the status at
   termination: =exit(0)= is normal termination =exit(1)= is failure, but
@@ -404,7 +414,10 @@
 
 * Recursion
 
-*The following is taken from Loudon, Algorithms in C (1999).*
+- Recursion is crucial for implementing and understanding many data
+  structures, such as linked lists, trees, and graphs. It's especially
+  important in algorithms like tree traversals, divide-and-conquer
+  strategies (e.g., Quicksort), and backtracking.
 
 - Recursion is a powerful principle that allows something to be
   defined in terms of smaller instances of itself.
@@ -545,8 +558,13 @@
   which a large problem is divided into smaller pieces that are then
   tackled by the same algorithm.
 
-- A classic example is Quicksort to sort the elements of an array
-  indexed from 1..n
+- Learning Quicksort introduces divide-and-conquer techniques, which
+  are central to many data structure algorithms. It also provides
+  insights into recursion and optimization techniques, like choosing a
+  good pivot or handling small arrays differently.
+  
+- The purpose of Quicksort is to sort the elements of an array indexed
+  from 1..n
 
   1. Choose a partitioning element, then arrange array so that
      elements 1...i-1 <= e <= i+1...n
