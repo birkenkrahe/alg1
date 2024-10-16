@@ -1975,11 +1975,11 @@ Rembrandt van Rijn, 1662/
 
 [[https://lamfo-unb.github.io/img/Sorting-algorithms/Quicksort.gif][See also the Gif animation here.]]
 
-- [ ] Popquiz results histogram
-- [ ] Anonymous poll: How much are you coding?
-- [ ] New grading element: Large projects
-- [ ] Variable-Length Arrays
-- [ ] Compound literals
+- [X] Popquiz results histogram
+- [X] Anonymous poll: How much are you coding?
+- [X] New grading element: Large projects
+- [X] Variable-Length Arrays
+- [X] Compound literals
 - [ ] Exit failure or success
 - [ ] Recursion: Factorials
 - [ ] Quicksort algorithm
@@ -2002,7 +2002,6 @@ Rembrandt van Rijn, 1662/
 - Especially valuable: The 10 Entry problem bonus assignment.
 
 - You should be able to code its problems with your eyes closed.
-
 
 ** Anonymous poll: How much have you programmed (in any language) this week?
 #+attr_html: :width 600px: 
