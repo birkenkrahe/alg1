@@ -293,9 +293,9 @@
   : 97
   : 22
 
-- =atoi= is a function from the C Standard Library (=stdlib.h=) that
-  converts a numeric string into an integer value. The syntax looks
-  like this:
+- =atoi= (ASCII to Integer) is a function from the C Standard Library
+  (=stdlib.h=) that converts a numeric string into an integer value. The
+  syntax looks like this:
   #+begin_example C
     int atoi(const char *str)
   #+end_example

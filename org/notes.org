@@ -2,7 +2,7 @@
 #+AUTHOR: Marcus Birkenkrahe
 #+SUBTITLE: CSC 240 Data Structures Lyon College Fall 2024
 #+STARTUP: overview hideblocks indent entitiespretty:
-#+PROPERTY: header-args:C :main yes :includes <stdio.h> :results output :exports both
+#+PROPERTY: header-args:C :main yes :includes <stdio.h> <stdlib.h> :results output :exports both
 * Week 0 - Why You Are Here
 #+attr_html: :width 500px:
 [[../img/manga1.png]]
@@ -1984,7 +1984,7 @@ Rembrandt van Rijn, 1662/
 - [ ] Recursion: Factorials
 - [ ] Quicksort algorithm
 
-** Popquiz results
+** DONE Popquiz results
 #+begin_src R :file pophist.png :session *R* :results file graphics output :exports both
   pop <- c(2.5,0,1,6.5,1.5,4,6,6.5,10,6.5,9.5,10,9,2.5,8,12)
   hist(pop,
@@ -2003,13 +2003,13 @@ Rembrandt van Rijn, 1662/
 
 - You should be able to code its problems with your eyes closed.
 
-** Anonymous poll: How much have you programmed (in any language) this week?
+** DONE Anonymous poll: How much have you programmed (in any language) this week?
 #+attr_html: :width 600px: 
 [[../img/poll.png]]
 
 Vote anonymously at strawpoll.com: [[https://strawpoll.com/LVyK2j9oQZ0][strawpoll.com/LVyK2j9oQZ0]]
 
-** "Why coding exercises are KILLING your progress"
+** DONE "Why coding exercises are KILLING your progress"
 #+attr_html: :width 600px: 
 [[../img/killingExercises.png]]
 
@@ -2044,7 +2044,7 @@ Vote anonymously at strawpoll.com: [[https://strawpoll.com/LVyK2j9oQZ0][strawpol
 
 - This could be done in any language that you know (however, ideally I
   know the language), in any case you will be queried.
-** Recursion codealong I
+** DONE Recursion codealong I
 
 - Get the file from [[https://tinyurl.com/recursion-org][tinyurl.com/recursion-org]]
 
@@ -2058,33 +2058,169 @@ Vote anonymously at strawpoll.com: [[https://strawpoll.com/LVyK2j9oQZ0][strawpol
   emacs --file recursion.org & 
   #+end_example
 
-** Review: VLA / Compound Literals / lvalue and rvalue
+** NEXT A Treat: Why We Bother Trying to Manipulate Memory
+#+attr_html: :width 400px: 
+[[../img/memory-clip.png]]
 
-- VLA paramters
+- Tune in: [[https://x.com/BenjDicken/status/1846586055048540648][tinyurl.com/memory-clip]] by @BenJDicken on X
 
-- Debug compound literal
+#+begin_quote
+"This is why memory buffers and caches are so important, especially
+for I/O heavy workloads like databases [onlin Non-Volatile Memory]"
+#+end_quote
 
-- A compound literal resembles a cast =(int[])= applied to an
-  initializer ={}=. It is also an /lvalue/, so the value of its elements
-  can be changed. It can be made read-only by adding =const= before the
-  type.
+** TODO Review: VLA / Compound Literals / lvalue and rvalue
 
-- An /lvalue/ or /locator value/ is an expression that represents a memory
-  location, and that can appear on the left hand side of an assignment
-  operator. As an object it persists beyond a single expression and
-  can have a value assigned to it.
+1. What's a Variable-Length Array (VLA)?
+   #+begin_quote
+   A VLA is an array whose length is determined at run-time (when the
+   program is executed).
+   #+end_quote
 
-  By contrast, an /rvalue/ or /right value/ represents a data value stored
-  in memory but that is not an assignable object itself.
+2. What is a function parameter?
+   #+begin_quote
+   A function parameter is a dummy value that represents a value to be
+   supplied when the function is called.
+   #+end_quote
 
-  For example:
-  #+begin_src C
-    int x = 10;   // 'x' is an lvalue, '10' is an rvalue
-    int *p = &x;  // 'p' is an lvalue, '&x' is an rvalue
+3. What's a VLA parameter?
+   #+begin_quote
+   A VLA parameter is an function parameter that represents a VLA,
+   which is passed when the function is called.
+   #+end_quote
 
-    (*p) = 20;      // '*p' is an lvalue, '20' is an rvalue
-    x = x + 5;    // 'x' is an lvalue, 'x + 5' is an rvalue
-  #+end_src
+4. Which of these declares a VLA?
+   #+begin_example C
+   int func1(int n, int a[n]);
+   int func2(int, int []);
+   int func3(int a[n], int n);
+   int func4(int a[], int n);
+   #+end_example
+   #+begin_quote
+   - =func1= and =func2= are VLAs
+   - =func3= triggers an error because =n= is not known when =int a[n]= is
+     declared.
+   - =func4= is a regular array parameter
+   #+end_quote
+
+5. What's the meaning of 'compound literal', and what's an example?
+   #+begin_quote
+   A compound literal consists of an array term (like =int []=) and an
+   initializer list (like ={1,2,3}=) to save declaring and initializing
+   an array.
+   #+end_quote
+
+   Example: An on-the-fly lookup table.
+   #+begin_src C :main no :tangle getMonthDays.c
+     // Function to get the number of days in a month (1-12)
+     int get_month_days(int month) 
+     {
+       // Use compound literal for temporary array for days in each month
+       return ((int[]){31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31})[month-1];
+     }
+     // main program
+     int main(void)
+     {
+       int month;
+       printf("Enter a month (1-12): ");
+       scanf("%d",&month);
+       printf("\nMonth %d has %d days.\n", month, get_month_days(month));
+       return 0;
+     }
+   #+end_src
+
+   Test:
+   #+begin_src bash :results output
+     gcc getMonthDays.c -o main
+     echo 10 | ./main
+   #+end_src
+
+   #+RESULTS:
+   : Enter a month (1-12): 
+   : Month 10 has 31 days.
+
+6. What's a cast? Give an example and print it.
+   #+begin_quote
+   The integer =int i = 1;= can be cast (widening) to a =float= with the
+   =(float)= operator: =(float)(i)=;
+   #+end_quote
+   #+begin_src C
+     int i = 1;
+     printf("Casting integer %d to float %.2f.\n",i,(float)(i));
+   #+end_src
+
+7. How can you cast & print an integer =int i = 97;= to a character?
+   #+begin_src C
+     int i = 97;
+     printf("Casting integer %d to character %c.\n",i, (char)(i));
+   #+end_src
+
+8. The character pointer =ic= points to the string ="1000"=. How can you
+   convert this string to the number =1000=?
+   #+begin_src C
+     char* ic = "1000";
+     printf("%d\n",atoi(ic)); // "ASCII to integer"
+   #+end_src
+
+9. Your program compiles but when you run it you get a "segmentation
+   fault", which sounds bad. What could you do?
+   #+begin_quote
+   Add the compiler option =-Wall= and =-Wextra= - either in the code
+   block header or on the command-line:
+   #+end_quote
+   Command-line example:
+   #+begin_src C :tangle flag.c
+     int n;
+   #+end_src
+
+   #+begin_src bash :results output 
+     gcc flag.c -Wall -Wextra -o flag
+     ls -l flag
+     ./flag
+   #+end_src
+   Code block compilation example:
+   #+begin_src C :tangle :flags -Wextra 
+     
+     int n; // define integer
+     int a[n]; // define VLA
+     scanf("%d",&n); // get integer input
+   #+end_src
+
+10. What's an lvalue and what's an rvalue? Give an example for each.
+    #+begin_quote
+    - An lvalue (locator value) represents a memory location. It
+      persists in memory and is addressable.
+    - An rvalue (right value) represents a transient memory value. It
+      does not persist in memory and is not addressable.
+    #+end_quote
+    For example:
+    #+begin_src C
+      int x = 10;   // 'x' is an lvalue, '10' is an rvalue
+      int *p = &x;  // 'p' is an lvalue, '&x' is an rvalue
+
+      (*p) = 20;      // '*p' is an lvalue, '20' is an rvalue
+      x = x + 5;    // 'x' is an lvalue, 'x + 5' is an rvalue
+    #+end_src
+    Explanation:
+    #+begin_quote
+    1. ~int x = 10;~
+       - =x= is an lvalue because it refers to a location in memory.
+       - =10= is an rvalue because it is a literal value assigned to =x=.
+
+    2. ~int *p = &x;~
+       - =p= is an lvalue because it represents a memory location.
+       - =&x= is an rvalue because it evaluates to the address of the
+         variable =x=.
+
+    3. ~(*p) = 20;~
+       - =*p= is an lvalue because it refers to the value stored at the
+         address pointed to by =p=.
+       - =20= is an rvalue because it is a literal value assigned to =*p=.
+
+    4. ~x = x + 5;~
+       - =x= is an lvalue because it refers to a memory location.
+       - =x + 5= is an rvalue because it results in a computed value (the sum of =x= and 5).
+    #+end_quote
 
 
 * Week 10 - Arrays and Pointers [Oct 21]
