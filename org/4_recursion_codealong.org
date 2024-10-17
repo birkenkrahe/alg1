@@ -4,7 +4,7 @@
 #+STARTUP:overview hideblocks indent
 #+OPTIONS: toc:1 num:2 ^:nil
 #+PROPERTY: header-args:C++ :main yes :includes <iostream> :results output :exports both :noweb yes
-#+PROPERTY: header-args:C :main yes :includes <stdio.h> :results output :exports both :noweb yes
+#+PROPERTY: header-args:C :main yes :includes <stdio.h> <stdlib.h> :results output :exports both :noweb yes
 * Overview
 
 - *Objectives:*
@@ -92,7 +92,7 @@
 
   #+RESULTS:
   : vla: 10
-  : regular: 897987594 
+  : regular: 897987594
 
 - What did you find out?
   #+begin_quote
@@ -132,10 +132,10 @@
   #+end_src
 
   #+RESULTS:
-  : 0 1 2 3 
-  : 1 2 3 4 
-  : 2 3 4 5 
-  : 3 4 5 6 
+  : 0 1 2 3
+  : 1 2 3 4
+  : 2 3 4 5
+  : 3 4 5 6
   : Sum: 48
 
 - Using keyboard input:
@@ -184,10 +184,10 @@
 
   #+RESULTS:
   : Enter number of rows and columns: 4 4
-  : 0 1 2 3 
-  : 1 2 3 4 
-  : 2 3 4 5 
-  : 3 4 5 6 
+  : 0 1 2 3
+  : 1 2 3 4
+  : 2 3 4 5
+  : 3 4 5 6
   : Sum: 48
 
 - Note: My first attempt at [[sum_two_dimensional_array]] failed with a
@@ -232,7 +232,7 @@
     int main()
     {
       printf("total = %d\n",
-         sum_array2(5, (int []){3,0,3,4,1}));
+             sum_array2(5, (int []){3,0,3,4,1}));
       return 0;
     }
 
@@ -271,10 +271,10 @@
     int x = PI; // PI is an rvalue because you cannot assign a value to it
     //PI = 3.15;
   #+end_src
-  
+
 - A /cast/ is an operator that converts one type into another:
   #+begin_src C
-    int i = 1; // an integer 
+    int i = 1; // an integer
     float x = 3.14; // a floating-point variable
     char c = 'a'; // a character variable
     char *ic = "22"; // a character pointer variable
@@ -328,3 +328,126 @@
   separate piece of code.
   #+end_quote
 
+* The =return= statement
+
+Example of a =return= statement in a =void= function:
+#+begin_src C
+  void print(int i)
+  {
+    if (i<0)
+      return;
+    printf("%d\n",i);
+  }
+
+  int main(void)
+  {
+    print(1);  // print in function
+    print(-1); // returns from print function for i<0
+    return 0;
+  }
+
+#+end_src
+
+#+RESULTS:
+: 1
+
+* The =exit= function
+
+- Add =<stdlib.h>= to your =PROPERTY= line at the top
+
+- Run the =PROPERTY= again (with =C-c C-c=)
+
+- Define an input file
+  #+begin_src bash :results output
+    echo 100 200 > input
+    cat input
+  #+end_src
+
+- Example code:
+  #+begin_src C :main no :cmdline < input
+    // define failure/success using stdlib macros
+    #define FAILURE EXIT_FAILURE
+    #define SUCCESS EXIT_SUCCESS
+
+    int main(void)
+    {
+      int i,j;
+      scanf("%d%d", &i, &j);
+      // print 0 or 1 depending on the input values
+      printf("%d", i > j ? SUCCESS : FAILURE);
+      return 0;
+    }
+  #+end_src
+
+  #+RESULTS:
+  : 1
+
+- The =i>j?SUCCESS:FAILURE= resolves to this:
+  #+begin_example C
+  if (i > j) {
+    EXIST_SUCCESS;
+  } else {
+    EXIT_FAILURE;
+  }
+  #+end_example
+* Recursion
+
+- Two examples for recursive functions:
+
+  1) Factorial: n! = n * (n-1)!
+
+     3! = 3 * 2 * 1 = 6 ways to order 3 things
+
+  2) Power: x^n = x * x^(n-1)
+
+     3^3 = 3 * 3^(3-1) = 3 * 3^2 = 27
+
+- Factorial example:
+  #+begin_src C
+    int factorial(int n)
+    {
+      if (n <= 1) // two special cases 0!, 1!
+        return 1; // abort
+      else
+        return n * factorial(n-1);
+    }
+    int main(void)
+    {
+      int n = 3;
+      printf("The factorial of n = %d is %d\n",n,factorial(n));
+      return 0;
+    }
+  #+end_src
+
+- What happens for i = f(3)?
+  #+begin_example
+    call f(3): 3 > 1
+         call f(2): 2 > 1
+              call f(1): 1 = 1 return 1 (abort)
+         return 2 * 1
+    return 3 * 2 * 1 = 6
+  #+end_example
+
+- Exercise: do this for x^n = x * x^(n-1)
+  #+begin_src C
+    int power(int x, int n)
+    {
+      // if n = 0 return 1 and abort
+      if (n==0)
+        return 1; // abort to wind up
+      // otherwise compute x recursively
+      else
+        x = x * power(x, n-1);
+    }
+    int main(void)
+    {
+      int x = 5;
+      int n = 2;
+      // print result
+      printf("%d^%d = %d\n", x, n, power(x,n));
+      return 0;
+    }
+  #+end_src
+
+  #+RESULTS:
+  : 5^2 = 25

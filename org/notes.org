@@ -1978,6 +1978,7 @@ Rembrandt van Rijn, 1662/
 - [X] New grading element: Large projects
 - [X] Variable-Length Arrays
 - [X] Compound literals
+- [ ] The =return= 
 - [ ] Exit failure or success
 - [ ] Recursion: Factorials
 - [ ] Quicksort algorithm
@@ -2056,7 +2057,12 @@ Vote anonymously at strawpoll.com: [[https://strawpoll.com/LVyK2j9oQZ0][strawpol
   emacs --file recursion.org & 
   #+end_example
 
-** NEXT A Treat: Why We Bother Trying to Manipulate Memory
+** Advisees!
+
+- If you are one of my advisees, see me for advising!
+- You'll get an email with instructions from me!
+
+** A Treat: Why We Bother Trying to Manipulate Memory
 #+attr_html: :width 400px: 
 [[../img/memory-clip.png]]
 
@@ -2144,8 +2150,11 @@ for I/O heavy workloads like databases [onlin Non-Volatile Memory]"
    #+end_quote
    #+begin_src C
      int i = 1;
-     printf("Casting integer %d to float %.2f.\n",i,(float)(i));
+     printf("Casting integer %d to float %.2f\n",i,(float)(i));
    #+end_src
+
+   #+RESULTS:
+   : Casting integer 1 to float 1.00
 
 7. How can you cast & print an integer =int i = 97;= to a character?
    #+begin_src C
@@ -2153,12 +2162,18 @@ for I/O heavy workloads like databases [onlin Non-Volatile Memory]"
      printf("Casting integer %d to character %c.\n",i, (char)(i));
    #+end_src
 
-8. The character pointer =ic= points to the string ="1000"=. How can you
+   #+RESULTS:
+   : Casting integer 97 to character a.
+
+8. The character pointer =ic= points to the string ="1000"= - How can you
    convert this string to the number =1000=?
    #+begin_src C
      char* ic = "1000";
      printf("%d\n",atoi(ic)); // "ASCII to integer"
    #+end_src
+
+   #+RESULTS:
+   : 1000
 
 9. Your program compiles but when you run it you get a "segmentation
    fault", which sounds bad. What could you do?
@@ -2172,29 +2187,33 @@ for I/O heavy workloads like databases [onlin Non-Volatile Memory]"
    #+end_src
 
    #+begin_src bash :results output 
-     gcc flag.c -Wall -Wextra -o flag
-     ls -l flag
-     ./flag
+     gcc flag.c -Wall -Wextra -o flag # compilation with additional options
+     ls -l flag  # listing the executable
+     ./flag # executing the executable
    #+end_src
+
+   #+RESULTS:
+   : -rwxrwxr-x 1 marcus marcus 15776 Oct 17 09:56 flag
+
    Code block compilation example:
-   #+begin_src C :tangle :flags -Wextra 
+   #+begin_src C :flags -Wextra :results none
      
      int n; // define integer
      int a[n]; // define VLA
      scanf("%d",&n); // get integer input
    #+end_src
 
-10. What's an lvalue and what's an rvalue? Give an example for each.
+10. What's an /lvalue/ and what's an /rvalue/? Give an example for each.
     #+begin_quote
-    - An lvalue (locator value) represents a memory location. It
+    - An /lvalue/ (locator value) represents a memory location. It
       persists in memory and is addressable.
-    - An rvalue (right value) represents a transient memory value. It
+    - An /rvalue/ (right value) represents a transient memory value. It
       does not persist in memory and is not addressable.
     #+end_quote
     For example:
     #+begin_src C
       int x = 10;   // 'x' is an lvalue, '10' is an rvalue
-      int *p = &x;  // 'p' is an lvalue, '&x' is an rvalue
+      int* p = &x;  // 'p' is an lvalue, '&x' is an rvalue
 
       (*p) = 20;      // '*p' is an lvalue, '20' is an rvalue
       x = x + 5;    // 'x' is an lvalue, 'x + 5' is an rvalue
