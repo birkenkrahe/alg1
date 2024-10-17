@@ -1973,8 +1973,6 @@ Rembrandt van Rijn, 1662/
 #+attr_html: :width 600px:
 [[../img/quicksort.png]]
 
-[[https://lamfo-unb.github.io/img/Sorting-algorithms/Quicksort.gif][See also the Gif animation here.]]
-
 - [X] Popquiz results histogram
 - [X] Anonymous poll: How much are you coding?
 - [X] New grading element: Large projects

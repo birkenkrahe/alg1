@@ -4,7 +4,7 @@
 #+STARTUP:overview hideblocks indent
 #+OPTIONS: toc:1 num:2 ^:nil
 #+PROPERTY: header-args:C++ :main yes :includes <iostream> :results output :exports both :noweb yes
-#+PROPERTY: header-args:C :main yes :includes <stdio.h> :results output :exports both :noweb yes
+#+PROPERTY: header-args:C :main yes :includes <stdio.h> <stdlib.h> :results output :exports both :noweb yes
 * Overview
 
 - *Objectives:*
@@ -376,15 +376,16 @@
   demonstrate their use with =exit= in a short program by comparing two
   numbers which you input via standard input.
 
-  Input file
+- Before you start, add =<stdlib.h>= to your =PROPERTY= line at the top,
+  and run the line again with =C-c C-c=.
+
+- Input file
   #+begin_src bash :results output :exports both
-    echo 300 200 > input
+    echo 100 200 > input
     cat input
   #+end_src
 
-  #+RESULTS:
-  : 300 200
-
+- Example code:  
   #+begin_src C :cmdline < input :main no
     #define FAILURE EXIT_FAILURE
     #define SUCCESS EXIT_SUCCESS
@@ -399,9 +400,6 @@
     }
   #+end_src
 
-  #+RESULTS:
-  : 0
-
 - The expression in the =printf= argument resolves to:
   #+begin_example C
   if (i > j)
@@ -411,6 +409,9 @@
     EXIT_FAILURE  // return 1 for failure and exit
   }
   #+end_example
+
+- Perhaps confusingly, =0= counts as success ("nothing out of the
+  ordinary"), while =1= counts as failure ("something's the matter").
 
 * Recursion
 
@@ -435,6 +436,13 @@
 - In math and computing, a function is /recursive/ if it calls
   itself. Each successive call works on a more refined set of inputs,
   bringin us closer to the solution of a problem.
+
+- *Examples:* Factorial (permutations, e.g. there are 3!=6 ways to
+  arrange 3 objects), and power.
+
+  1) n! = n \times (n-1)!
+     
+  2) x^{n} = x \times x^{n-1}
 
 - Algorithmic applications of recursion include tree traversals, graph
   searches, and sorting.
@@ -473,9 +481,41 @@
   ended by the "terminating condition". The second part is the
   "unwinding phase".
 
-- *Exercise:* compute x^{n} using the formula x^{n} = x \times
-  x^{n-1}. For example for x = 2, n = 3: 2^{3} = 2 \times 2^{3-1} = 2
-  \times 2^{2} = 2 \times (2 \times 2^{2-1}) = 2 \times 2 \times 2 = 8
+- *Exercise:* compute x^{n} using the formula x^{n} = x \times x^{n-1}.
+
+  For example for x = 2, n = 3: 2^{3} = 2 \times 2^{3-1} = 2 \times 2^{2} = 2 \times (2 \times
+  2^{2-1}) = 2 \times 2 \times 2 = 8
+
+- You can use the following template to generate the sample output:
+  #+begin_example
+    5^2 = 25
+  #+end_example
+  
+- Template: Supplement the print and the recursion statements  
+  #+begin_src C :main no
+    int power(int x, int n); // function declaration
+
+    int main()  // main program
+    {
+      int x = 5; // number to be raised
+      int n = 2; // power factor
+      // print result
+
+      return 0;
+    }
+
+    int power(int x, int n)
+    {
+      // if n = 0 return 1 and abort
+
+      // otherwise compute x recursively
+
+    }
+  #+end_src
+
+  #+RESULTS:
+  
+- Solution:
   #+begin_src C :main no :tangle power.c
     int power(int x, int n); // function declaration
 
@@ -553,10 +593,14 @@
   : 5^3 = 125
 
 * The Quicksort Algorithms explained
+#+attr_html: :width 600px:
+[[../img/quicksort.png]]
 
 - Recursion arises naturally in divide-and-conquer algorithms, in
   which a large problem is divided into smaller pieces that are then
   tackled by the same algorithm.
+
+- [[https://lamfo-unb.github.io/img/Sorting-algorithms/Quicksort.gif][See this Gif animation for an illustration of the algorithm.]]
 
 - Learning Quicksort introduces divide-and-conquer techniques, which
   are central to many data structure algorithms. It also provides
@@ -566,7 +610,7 @@
 - The purpose of Quicksort is to sort the elements of an array indexed
   from 1..n
 
-  1. Choose a partitioning element, then arrange array so that
+  1. Choose a *partitioning* element, then arrange array so that
      elements 1...i-1 <= e <= i+1...n
 
   2. Sort elements 1...i-1 by using Quicksort recursively
@@ -586,7 +630,7 @@
   4) Move /high/ across array from right to left until it points to an
      element that's smaller than /e/.
 
-  5) Copy that element into the hole left by /e/ (that /low/ points to).
+  5) Copy that element into the hole left of /e/ (that /low/ points to).
 
   6) Move /low/ from left to right looking for an element that's larger
      than /e/.
