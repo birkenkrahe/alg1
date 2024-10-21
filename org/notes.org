@@ -1968,8 +1968,7 @@ possibilities:
 /Image: The Syndics of the Clothmaker's Guild (The Staalmeesters),
 Rembrandt van Rijn, 1662/
 
-
-* Week 9 - Recursion and Quicksort [Oct 14]
+* Week 9 - VLAs, Compound Literals, Recursion [Oct 14]
 #+attr_html: :width 600px:
 [[../img/quicksort.png]]
 
@@ -1983,7 +1982,7 @@ Rembrandt van Rijn, 1662/
 - [ ] Recursion: Factorials
 - [ ] Quicksort algorithm
 
-** DONE Popquiz results
+** Popquiz results
 #+begin_src R :file pophist.png :session *R* :results file graphics output :exports both
   pop <- c(2.5,0,1,6.5,1.5,4,6,6.5,10,6.5,9.5,10,9,2.5,8,12)
   hist(pop,
@@ -2002,13 +2001,13 @@ Rembrandt van Rijn, 1662/
 
 - You should be able to code its problems with your eyes closed.
 
-** DONE Anonymous poll: How much have you programmed (in any language) this week?
+** Anonymous poll: How much have you programmed (in any language) this week?
 #+attr_html: :width 600px: 
 [[../img/poll.png]]
 
 Vote anonymously at strawpoll.com: [[https://strawpoll.com/LVyK2j9oQZ0][strawpoll.com/LVyK2j9oQZ0]]
 
-** DONE "Why coding exercises are KILLING your progress"
+** "Why coding exercises are KILLING your progress"
 #+attr_html: :width 600px: 
 [[../img/killingExercises.png]]
 
@@ -2043,7 +2042,7 @@ Vote anonymously at strawpoll.com: [[https://strawpoll.com/LVyK2j9oQZ0][strawpol
 
 - This could be done in any language that you know (however, ideally I
   know the language), in any case you will be queried.
-** DONE Recursion codealong I
+** Recursion codealong I
 
 - Get the file from [[https://tinyurl.com/recursion-org][tinyurl.com/recursion-org]]
 
@@ -2073,7 +2072,7 @@ Vote anonymously at strawpoll.com: [[https://strawpoll.com/LVyK2j9oQZ0][strawpol
 for I/O heavy workloads like databases [onlin Non-Volatile Memory]"
 #+end_quote
 
-** TODO Review: VLA / Compound Literals / lvalue and rvalue
+** Review: VLA / Compound Literals / lvalue and rvalue
 
 1. What's a Variable-Length Array (VLA)?
    #+begin_quote
@@ -2239,8 +2238,13 @@ for I/O heavy workloads like databases [onlin Non-Volatile Memory]"
        - =x + 5= is an rvalue because it results in a computed value (the sum of =x= and 5).
     #+end_quote
 
+* Week 10 - Quicksort & Arrays and Pointers [Oct 21]
 
-* Week 10 - Arrays and Pointers [Oct 21]
+- [ ] *Review:* =exit=, =return= and =recursion= (=power= function)
+- [ ] New *quiz* (Oct 25) and new *assignment* (Oct 28)
+- [ ] The *Quicksort* algorithm explained & implemented
+- [ ] *Coding*: Three practice exercises
+
 * Week 11 - Strings, Structs, Enums, Unions [Oct 28]
 * Week 12 - Dynamic Storage Allocation and Lists [Nov 4]
 * Week 13 - Stacks and Queues [Nov 11]
