@@ -328,7 +328,7 @@
   separate piece of code.
   #+end_quote
 
-* NEXT The =return= statement
+* The =return= statement
 
 - Understanding =return= is fundamental when working with functions,
   especially since data structures often involve returning values
@@ -413,7 +413,7 @@
 - Perhaps confusingly, =0= counts as success ("nothing out of the
   ordinary"), while =1= counts as failure ("something's the matter").
 
-* Recursion
+* IN PROGRESS Recursion
 
 - Recursion is crucial for implementing and understanding many data
   structures, such as linked lists, trees, and graphs. It's especially
@@ -535,7 +535,7 @@
         }
       else
         {
-          x =  x * power(x,n-1);
+          return  x * power(x,n-1);
         }
     }
   #+end_src
