@@ -1969,8 +1969,8 @@ possibilities:
 Rembrandt van Rijn, 1662/
 
 * Week 9 - VLAs, Compound Literals, Recursion [Oct 14]
-#+attr_html: :width 600px:
-[[../img/quicksort.png]]
+#+attr_html: :width 500px:
+[[../img/drawing_hands_escher.png]]
 
 - [X] Popquiz results histogram
 - [X] Anonymous poll: How much are you coding?
@@ -2239,11 +2239,25 @@ for I/O heavy workloads like databases [onlin Non-Volatile Memory]"
     #+end_quote
 
 * Week 10 - Quicksort & Arrays and Pointers [Oct 21]
+#+attr_html: :width 600px:
+[[../img/quicksort.png]]
 
-- [ ] *Review:* =exit=, =return= and =recursion= (=power= function)
+- [ ] *Review:* =exit=, =return= and recursion (=power= function)
 - [ ] New *quiz* (Oct 25) and new *assignment* (Oct 28)
 - [ ] The *Quicksort* algorithm explained & implemented
-- [ ] *Coding*: Three practice exercises
+- [ ] *Coding*: Three practice exercises (Euclid's algorithm)
+
+** Review: =return=, =exit=, recursion
+
+1. What is the purpose of a =return= statement in a function?
+
+2. Can a =void= function use a =return= statement?
+
+3. How could you use the =exit= function in C and where is it?
+
+4. What's the process for a recursive function?
+
+5. Which examples of recursive functions do you know?
 
 * Week 11 - Strings, Structs, Enums, Unions [Oct 28]
 * Week 12 - Dynamic Storage Allocation and Lists [Nov 4]
