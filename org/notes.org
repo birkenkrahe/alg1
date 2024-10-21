@@ -1690,7 +1690,7 @@ Next topics:
     #+end_quote
 
 * Week 8 - Functions Popquiz & Midterm Assignments
-#+attr_html: :width 600px: 
+#+attr_html: :width 600px:
 [[../img/still_life.jpg]]
 
 /Image: Still Life. Pieter Claesz. 1641./
@@ -1701,47 +1701,47 @@ Next topics:
 
 ** Total grade evolution: Getting better (though not for everyone).
 
-  - R code:
-    #+begin_src R :file gradesDensity.png :session *R* :results file graphics output :exports both
-      grades1 <- c(0.,7.62,30.16,30.16,32.59,45.24,45.56,53.02,
-                   59.26,62.22,63.17,65.4,76.19,98.33,98.41,98.89)
-      grades2 <- c(20.56,35.42,42.78,48.75,52.78,57.5,69.86,70.42,
-                   75.,76.11,81.53,83.19,86.39,91.25,98.47,104.29)
-      grades3 <- c(20.56,31.53,48.41,50.85,52.8,83.78,88.52,89.79,
-                   91.32,97.2,100.71,101.01,103.02,105.56,108.99,120.4)
+- R code:
+  #+begin_src R :file gradesDensity.png :session *R* :results file graphics output :exports both
+    grades1 <- c(0.,7.62,30.16,30.16,32.59,45.24,45.56,53.02,
+                 59.26,62.22,63.17,65.4,76.19,98.33,98.41,98.89)
+    grades2 <- c(20.56,35.42,42.78,48.75,52.78,57.5,69.86,70.42,
+                 75.,76.11,81.53,83.19,86.39,91.25,98.47,104.29)
+    grades3 <- c(20.56,31.53,48.41,50.85,52.8,83.78,88.52,89.79,
+                 91.32,97.2,100.71,101.01,103.02,105.56,108.99,120.4)
 
-      ## Get the common x and y limits
-      xlim <- range(c(grades1, grades2))
-      ylim <- range(c(density(grades1)$y, density(grades3)$y))
+    ## Get the common x and y limits
+    xlim <- range(c(grades1, grades2))
+    ylim <- range(c(density(grades1)$y, density(grades3)$y))
 
-      ## First plot with specified xlim and ylim
-      plot(density(grades1), lwd=2, col="red",
-           xlab="", ylab="", main="", xlim=xlim, ylim=ylim, yaxt="n")
+    ## First plot with specified xlim and ylim
+    plot(density(grades1), lwd=2, col="red",
+         xlab="", ylab="", main="", xlim=xlim, ylim=ylim, yaxt="n")
 
-      ## Overlay the second plot with the same xlim and ylim
-      par(new=TRUE)
-      plot(density(grades2), lwd=2, col="blue",
-           xlab="", ylab="", main="", xlim=xlim, ylim=ylim, yaxt="n")
+    ## Overlay the second plot with the same xlim and ylim
+    par(new=TRUE)
+    plot(density(grades2), lwd=2, col="blue",
+         xlab="", ylab="", main="", xlim=xlim, ylim=ylim, yaxt="n")
 
-      ## Overlay the third plot with the same xlim and ylim
-      par(new=TRUE)
-      plot(density(grades3), lwd=2, col="darkgreen",
-           xlab="Grades [%]", main="Total grades CSC 240",
-           xlim=xlim, ylim=ylim, yaxt="n")
+    ## Overlay the third plot with the same xlim and ylim
+    par(new=TRUE)
+    plot(density(grades3), lwd=2, col="darkgreen",
+         xlab="Grades [%]", main="Total grades CSC 240",
+         xlim=xlim, ylim=ylim, yaxt="n")
 
-      ## Add mean lines for grades1
-      abline(v=mean(grades1), col="red", lwd=2)
+    ## Add mean lines for grades1
+    abline(v=mean(grades1), col="red", lwd=2)
 
-      ## Add mean lines for grades2
-      abline(v=mean(grades2), col="blue", lwd=2)
+    ## Add mean lines for grades2
+    abline(v=mean(grades2), col="blue", lwd=2)
 
-      ## Add mean lines for grades2
-      abline(v=mean(grades3), col="darkgreen", lwd=2)
+    ## Add mean lines for grades2
+    abline(v=mean(grades3), col="darkgreen", lwd=2)
 
-      ## add a legend
-      legend("topleft", legend=c("14-Sep", "30-Sep", "7-Oct"),
-             col=c("red", "blue", "darkgreen"), lwd=2)
-    #+end_src
+    ## add a legend
+    legend("topleft", legend=c("14-Sep", "30-Sep", "7-Oct"),
+           col=c("red", "blue", "darkgreen"), lwd=2)
+  #+end_src
 
   #+RESULTS:
   [[file:gradesDensity.png]]
@@ -1763,7 +1763,7 @@ Next topics:
   assignments together. I'll do (almost) anything to get you coding!
 
 ** Popquiz! 12 easy pieces
-#+attr_html: :width 600px: 
+#+attr_html: :width 600px:
 [[../img/popart.jpg]]
 
 The last popquiz 3 weeks ago was probably too difficult. This contains
@@ -1875,8 +1875,8 @@ close to solving the current assignment and bonus assignments.
    #+end_src
 
    #+RESULTS:
-   : 1 2 
-   : 3 4 
+   : 1 2
+   : 3 4
 
 8. Change the following function so that the parameter =signal= can be
    passed by reference from the calling function: =morse(&signal)=
@@ -1928,12 +1928,12 @@ close to solving the current assignment and bonus assignments.
       int i = 0;  // start
       while (i < 10) {// stop condition
         printf("Joe ");
-        i++; 
-       }        
+        i++;
+       }
     #+end_src
 
     #+RESULTS:
-    : Joe Joe Joe Joe Joe Joe Joe Joe Joe Joe 
+    : Joe Joe Joe Joe Joe Joe Joe Joe Joe Joe
 
 12. You've tangled a source code file as =main.c=. Write the code
     necessary to compile it on the command-line so that the executable
@@ -1944,7 +1944,7 @@ close to solving the current assignment and bonus assignments.
     #+end_example
 
 ** Popquiz Post-Mortem
-#+attr_html: :width 600px: 
+#+attr_html: :width 600px:
 [[../img/staalmeesters.jpg]]
 
 *What if you didn't do well on this popquiz?* There are several
@@ -1977,7 +1977,7 @@ Rembrandt van Rijn, 1662/
 - [X] New grading element: Large projects
 - [X] Variable-Length Arrays
 - [X] Compound literals
-- [ ] The =return= 
+- [ ] The =return=
 - [ ] Exit failure or success
 - [ ] Recursion: Factorials
 - [ ] Quicksort algorithm
@@ -2002,13 +2002,13 @@ Rembrandt van Rijn, 1662/
 - You should be able to code its problems with your eyes closed.
 
 ** Anonymous poll: How much have you programmed (in any language) this week?
-#+attr_html: :width 600px: 
+#+attr_html: :width 600px:
 [[../img/poll.png]]
 
 Vote anonymously at strawpoll.com: [[https://strawpoll.com/LVyK2j9oQZ0][strawpoll.com/LVyK2j9oQZ0]]
 
 ** "Why coding exercises are KILLING your progress"
-#+attr_html: :width 600px: 
+#+attr_html: :width 600px:
 [[../img/killingExercises.png]]
 
 - *Change of plan:* Large scale projects or why assignments are stupid
@@ -2051,9 +2051,9 @@ Vote anonymously at strawpoll.com: [[https://strawpoll.com/LVyK2j9oQZ0][strawpol
   wget -O recursion.org tinyurl.com/recursion-org
   #+end_example
 
-- Open =recursion.org= with Emacs from the terminal: 
+- Open =recursion.org= with Emacs from the terminal:
   #+begin_example sh
-  emacs --file recursion.org & 
+  emacs --file recursion.org &
   #+end_example
 
 ** Advisees!
@@ -2062,7 +2062,7 @@ Vote anonymously at strawpoll.com: [[https://strawpoll.com/LVyK2j9oQZ0][strawpol
 - You'll get an email with instructions from me!
 
 ** A Treat: Why We Bother Trying to Manipulate Memory
-#+attr_html: :width 400px: 
+#+attr_html: :width 400px:
 [[../img/memory-clip.png]]
 
 - Tune in: [[https://x.com/BenjDicken/status/1846586055048540648][tinyurl.com/memory-clip]] by @BenJDicken on X
@@ -2116,7 +2116,7 @@ for I/O heavy workloads like databases [onlin Non-Volatile Memory]"
    Example: An on-the-fly lookup table.
    #+begin_src C :main no :tangle getMonthDays.c
      // Function to get the number of days in a month (1-12)
-     int get_month_days(int month) 
+     int get_month_days(int month)
      {
        // Use compound literal for temporary array for days in each month
        return ((int[]){31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31})[month-1];
@@ -2139,7 +2139,7 @@ for I/O heavy workloads like databases [onlin Non-Volatile Memory]"
    #+end_src
 
    #+RESULTS:
-   : Enter a month (1-12): 
+   : Enter a month (1-12):
    : Month 10 has 31 days.
 
 6. What's a cast? Give an example and print it.
@@ -2185,7 +2185,7 @@ for I/O heavy workloads like databases [onlin Non-Volatile Memory]"
      int n;
    #+end_src
 
-   #+begin_src bash :results output 
+   #+begin_src bash :results output
      gcc flag.c -Wall -Wextra -o flag # compilation with additional options
      ls -l flag  # listing the executable
      ./flag # executing the executable
@@ -2196,7 +2196,7 @@ for I/O heavy workloads like databases [onlin Non-Volatile Memory]"
 
    Code block compilation example:
    #+begin_src C :flags -Wextra :results none
-     
+
      int n; // define integer
      int a[n]; // define VLA
      scanf("%d",&n); // get integer input
@@ -2249,15 +2249,94 @@ for I/O heavy workloads like databases [onlin Non-Volatile Memory]"
 
 ** Review: =return=, =exit=, recursion
 
-1. What is the purpose of a =return= statement in a function?
+1. What is the purpose of a =return= statement in a function? What is
+   the shortest example for this that you know?
+   #+begin_quote
+   To terminate the function and optionally return a value to the
+   caller.
+   #+end_quote
+   Shortest example:
+   #+begin_src C :main no :results none
+     int main(void) {
+       return 0; // returns 0 if successful or 1 otherwise
+     }
+   #+end_src
 
 2. Can a =void= function use a =return= statement?
+   #+begin_quote
+   Yes, but without returning a value.
+   #+end_quote
+   #+begin_src C :main no :tangle main.c
+     void hello(char* name, int n) {
+       if(n)
+         return; // return if n=1
+       else
+         printf("%s",name); // print if n=0
+     }
+     int main(void) {
+       hello((char*){"Marcus"},1); // what's the first argument?
+       return 0;
+     }
+   #+end_src
 
 3. How could you use the =exit= function in C and where is it?
+   #+begin_src C 
+     #include <stdlib.h>
+     int status = 1;
+     if (status) {
+       printf("Exiting with failure...\n");
+       exit(EXIT_FAILURE);  // Terminate with failure status
+      } else {
+       printf("Exiting with success...\n");
+       exit(EXIT_SUCCESS);  // Terminate with success status
+      }
+   #+end_src
 
-4. What's the process for a recursive function?
+   #+RESULTS:
+   : Exiting with failure...
 
-5. Which examples of recursive functions do you know?
+4. Which examples of recursive functions do you know?
+   #+begin_quote
+   1. Factorial, based on n! = n * (n-1)!
+   2. Power, based on x^n = x * x^(n-1)
+   #+end_quote
+   Short versions:
+   #+begin_src C
+     int factorial(int n) {
+       return n <= 1 ? 1 : n * factorial(n-1);
+     }
+     int power(int x, int n) {
+       return n == 0 ? 1 : x * power(x,n-1); 
+     }
+     int main(void) {
+       int x = 5, n = 3;
+       printf("The factorial of n = %d is %d\n", n, factorial(n));
+       printf("The %d-th power of %d is %d\n", n, x, power(x,n));
+       return 0;
+     }
+   #+end_src
+
+   #+RESULTS:
+   : The factorial of n = 3 is 6
+   : The 3-th power of 5 is 125
+
+5. What's the process for a recursive function?
+   #+begin_quote
+   A recursive function has a winding phase while it calls itself, and
+   an unwinding phase after the terminating condition has been met,
+   until it has returned to the first function that called itself.
+   #+end_quote
+   Example:
+   #+begin_example
+   // Example x^n for x = 5 and n = 3
+       call power(5,3) : 3 != 0
+         call power(5,2) : 2 != 0
+              call power(5,1) : 1 != 0
+                   call power(5,0) : 0 == 0 return 1
+              return 5 * 1 = 5
+         return 5 * 5 = 25
+       return 5 * 25 = 125
+   #+end_example
 
 * Week 11 - Strings, Structs, Enums, Unions [Oct 28]
 * Week 12 - Dynamic Storage Allocation and Lists [Nov 4]

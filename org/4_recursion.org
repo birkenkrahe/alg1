@@ -413,7 +413,7 @@
 - Perhaps confusingly, =0= counts as success ("nothing out of the
   ordinary"), while =1= counts as failure ("something's the matter").
 
-* IN PROGRESS Recursion
+* Recursion
 
 - Recursion is crucial for implementing and understanding many data
   structures, such as linked lists, trees, and graphs. It's especially
@@ -592,7 +592,7 @@
   #+RESULTS:
   : 5^3 = 125
 
-* The Quicksort Algorithms explained
+* NEXT The Quicksort Algorithms explained
 #+attr_html: :width 600px:
 [[../img/quicksort.png]]
 
