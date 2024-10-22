@@ -2242,8 +2242,8 @@ for I/O heavy workloads like databases [onlin Non-Volatile Memory]"
 #+attr_html: :width 600px:
 [[../img/quicksort.png]]
 
-- [ ] *Review:* =exit=, =return= and recursion (=power= function)
-- [ ] New *quiz* (Oct 25) and new *assignment* (Oct 28)
+- [X] *Review:* =exit=, =return= and recursion (=power= function)
+- [X] New *quiz* (Oct 25) and new *assignment* (Oct 28)
 - [ ] The *Quicksort* algorithm explained & implemented
 - [ ] Final *notes* on functions and their use in C
 - [ ] *Coding*: Some exercises (incl. Euclid's algorithm)
@@ -2259,6 +2259,7 @@ for I/O heavy workloads like databases [onlin Non-Volatile Memory]"
    Shortest example:
    #+begin_src C :main no :results none
      int main(void) {
+       // anything may happen here
        return 0; // returns 0 if successful or 1 otherwise
      }
    #+end_src
@@ -2275,15 +2276,21 @@ for I/O heavy workloads like databases [onlin Non-Volatile Memory]"
          printf("%s",name); // print if n=0
      }
      int main(void) {
-       hello((char*){"Marcus"},1); // what's the first argument?
+       hello((char*){"Marcus"},1); // initialized as compound literal
        return 0;
      }
    #+end_src
 
+   #+RESULTS:
+
 3. How could you use the =exit= function in C and where is it?
+   #+begin_quote
+   Both the =exit= function and the macro definitions =EXIT_SUCCESS= (0)
+   and =EXIT_FAILURE= (1) are defined in =stdlib.h=.
+   #+end_quote
    #+begin_src C 
      #include <stdlib.h>
-     int status = 1;
+     int status = 0;
      if (status) {
        printf("Exiting with failure...\n");
        exit(EXIT_FAILURE);  // Terminate with failure status
@@ -2294,7 +2301,7 @@ for I/O heavy workloads like databases [onlin Non-Volatile Memory]"
    #+end_src
 
    #+RESULTS:
-   : Exiting with failure...
+   : Exiting with success...
 
 4. Which examples of recursive functions do you know?
    #+begin_quote
