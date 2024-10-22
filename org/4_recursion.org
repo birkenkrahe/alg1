@@ -610,8 +610,8 @@
 - The purpose of Quicksort is to sort the elements of an array indexed
   from 1..n
 
-  1. Choose a *partitioning* element, then arrange array so that
-     elements 1...i-1 <= e <= i+1...n
+  1. Choose a *partitioning* (aka /pivot/) element, then arrange array so
+     that elements 1...i-1 <= e <= i+1...n
 
   2. Sort elements 1...i-1 by using Quicksort recursively
 
@@ -627,13 +627,13 @@
 
   3) Copy the first element /e/ into a temporary location.
 
-  4) Move /high/ across array from right to left until it points to an
-     element that's smaller than /e/.
+  4) Move the /high/ marker across the array from right to left until it
+     points to an element that's smaller than /e/.
 
   5) Copy that element into the hole left of /e/ (that /low/ points to).
 
-  6) Move /low/ from left to right looking for an element that's larger
-     than /e/.
+  6) Move the /low/ marker from left to right looking for an element
+     that's larger than /e/.
 
   7) Copy that element into the hole that /high/ points to.
 
@@ -713,9 +713,715 @@
      on the right are greater or equal than 12.
 
   7. Now we apply Quicksort recursively to sort the first (10,3,6,7)
-     and the last partition (15,18).
+     and the last partition (15,18)
+     - In the left sub-array, 10 is the new e: because the other
+       values are all smaller than 10, /low/ and /high/ come together
+       on the right and 10 is moved there.
+     - In the right sub-array, 15 is the new e, 18 > 15 so it stays,
+       and we're done.
 
-* Quicksort Algorithm coded
+* Exercises: Breaking down Quicksort
+
+1. Swapping two elements in an array
+2. Finding the pivot without recursion
+3. Recursive quicksort without split
+4. Combining partitioning with recursive quicksort
+
+** Exercise 1: Swapping Two Elements in an Array
+The ability to swap two elements in an array is crucial for
+partitioning in quicksort. Write a function that swaps two elements in
+an array and use it in a program.
+
+**Goal**: Learn how to manipulate array elements and pass arrays to
+functions.
+
+#+begin_src C
+#include <stdio.h>
+
+void swap(int *a, int *b) {
+    int temp = *a;
+    *a = *b;
+    *b = temp;
+}
+
+int main(void) {
+    int arr[] = {5, 10, 15};
+    printf("Before swap: %d %d\n", arr[0], arr[1]);
+    swap(&arr[0], &arr[1]);
+    printf("After swap: %d %d\n", arr[0], arr[1]);
+
+    return 0;
+}
+#+end_src
+
+#+RESULTS:
+: Before swap: 5 10
+: After swap: 10 5
+
+**Exercise**: 
+1. Write the `swap` function to exchange two elements in the array.
+2. Test the function by printing the array before and after swapping.
+
+** Exercise 2: Finding the Partitioning Element (Pivot) Without Recursion
+In this exercise, we implement the partition logic of quicksort
+without recursion. You’ll write a function that chooses a pivot (the
+first element) and rearranges the array so that all elements smaller
+than the pivot are on its left and all elements greater are on its
+right.
+
+**Goal**: Understand how to rearrange elements in an array using
+pointers.
+
+#+begin_src C
+#include <stdio.h>
+
+int split(int a[], int low, int high) {
+    int part_element = a[low];
+    while (low < high) {
+        while (low < high && a[high] >= part_element)
+            high--;
+        a[low] = a[high];
+        while (low < high && a[low] <= part_element)
+            low++;
+        a[high] = a[low];
+    }
+    a[low] = part_element;
+    return low;
+}
+
+int main(void) {
+    int a[] = {9, 16, 47, 82, 4, 66, 12, 3, 25, 51};
+    int n = sizeof(a) / sizeof(a[0]);
+
+    int pivot_index = split(a, 0, n - 1);
+    printf("Pivot is at index %d\n", pivot_index);
+    printf("Array after partitioning: ");
+    for (int i = 0; i < n; i++)
+        printf("%d ", a[i]);
+    printf("\n");
+
+    return 0;
+}
+#+end_src
+
+#+RESULTS:
+: Pivot is at index 2
+: Array after partitioning: 3 4 9 82 47 66 12 16 25 51 
+
+**Exercise**:
+1. Implement the `split` function that partitions the array around the
+   pivot element.
+2. Test the function by printing the array before and after
+   partitioning.
+
+** Exercise 3: Recursive Quicksort Function (Without Split)
+This exercise introduces recursion without worrying about the actual
+partitioning. The goal is to break down the problem into sub-arrays
+recursively.
+
+**Goal**: Understand recursion and how quicksort recursively sorts
+smaller parts of the array.
+
+#+begin_src C
+#include <stdio.h>
+
+void quicksort(int a[], int low, int high) {
+    if (low >= high) return; // Base case
+    printf("Recursively sorting range [%d, %d]\n", low, high);
+    // In a complete quicksort, you would partition here and sort the parts.
+    quicksort(a, low, high - 1); // Recurse on the first part
+    quicksort(a, low + 1, high); // Recurse on the second part
+}
+
+int main(void) {
+    int a[] = {9, 16, 47, 82, 4, 66, 12, 3, 25, 51};
+    int n = sizeof(a) / sizeof(a[0]);
+
+    quicksort(a, 0, n - 1);
+    return 0;
+}
+#+end_src
+
+#+RESULTS:
+#+begin_example
+Recursively sorting range [0, 9]
+Recursively sorting range [0, 8]
+Recursively sorting range [0, 7]
+Recursively sorting range [0, 6]
+Recursively sorting range [0, 5]
+Recursively sorting range [0, 4]
+Recursively sorting range [0, 3]
+Recursively sorting range [0, 2]
+Recursively sorting range [0, 1]
+Recursively sorting range [1, 2]
+Recursively sorting range [1, 3]
+Recursively sorting range [1, 2]
+Recursively sorting range [2, 3]
+Recursively sorting range [1, 4]
+Recursively sorting range [1, 3]
+Recursively sorting range [1, 2]
+Recursively sorting range [2, 3]
+Recursively sorting range [2, 4]
+Recursively sorting range [2, 3]
+Recursively sorting range [3, 4]
+Recursively sorting range [1, 5]
+Recursively sorting range [1, 4]
+Recursively sorting range [1, 3]
+Recursively sorting range [1, 2]
+Recursively sorting range [2, 3]
+Recursively sorting range [2, 4]
+Recursively sorting range [2, 3]
+Recursively sorting range [3, 4]
+Recursively sorting range [2, 5]
+Recursively sorting range [2, 4]
+Recursively sorting range [2, 3]
+Recursively sorting range [3, 4]
+Recursively sorting range [3, 5]
+Recursively sorting range [3, 4]
+Recursively sorting range [4, 5]
+Recursively sorting range [1, 6]
+Recursively sorting range [1, 5]
+Recursively sorting range [1, 4]
+Recursively sorting range [1, 3]
+Recursively sorting range [1, 2]
+Recursively sorting range [2, 3]
+Recursively sorting range [2, 4]
+Recursively sorting range [2, 3]
+Recursively sorting range [3, 4]
+Recursively sorting range [2, 5]
+Recursively sorting range [2, 4]
+Recursively sorting range [2, 3]
+Recursively sorting range [3, 4]
+Recursively sorting range [3, 5]
+Recursively sorting range [3, 4]
+Recursively sorting range [4, 5]
+Recursively sorting range [2, 6]
+Recursively sorting range [2, 5]
+Recursively sorting range [2, 4]
+Recursively sorting range [2, 3]
+Recursively sorting range [3, 4]
+Recursively sorting range [3, 5]
+Recursively sorting range [3, 4]
+Recursively sorting range [4, 5]
+Recursively sorting range [3, 6]
+Recursively sorting range [3, 5]
+Recursively sorting range [3, 4]
+Recursively sorting range [4, 5]
+Recursively sorting range [4, 6]
+Recursively sorting range [4, 5]
+Recursively sorting range [5, 6]
+Recursively sorting range [1, 7]
+Recursively sorting range [1, 6]
+Recursively sorting range [1, 5]
+Recursively sorting range [1, 4]
+Recursively sorting range [1, 3]
+Recursively sorting range [1, 2]
+Recursively sorting range [2, 3]
+Recursively sorting range [2, 4]
+Recursively sorting range [2, 3]
+Recursively sorting range [3, 4]
+Recursively sorting range [2, 5]
+Recursively sorting range [2, 4]
+Recursively sorting range [2, 3]
+Recursively sorting range [3, 4]
+Recursively sorting range [3, 5]
+Recursively sorting range [3, 4]
+Recursively sorting range [4, 5]
+Recursively sorting range [2, 6]
+Recursively sorting range [2, 5]
+Recursively sorting range [2, 4]
+Recursively sorting range [2, 3]
+Recursively sorting range [3, 4]
+Recursively sorting range [3, 5]
+Recursively sorting range [3, 4]
+Recursively sorting range [4, 5]
+Recursively sorting range [3, 6]
+Recursively sorting range [3, 5]
+Recursively sorting range [3, 4]
+Recursively sorting range [4, 5]
+Recursively sorting range [4, 6]
+Recursively sorting range [4, 5]
+Recursively sorting range [5, 6]
+Recursively sorting range [2, 7]
+Recursively sorting range [2, 6]
+Recursively sorting range [2, 5]
+Recursively sorting range [2, 4]
+Recursively sorting range [2, 3]
+Recursively sorting range [3, 4]
+Recursively sorting range [3, 5]
+Recursively sorting range [3, 4]
+Recursively sorting range [4, 5]
+Recursively sorting range [3, 6]
+Recursively sorting range [3, 5]
+Recursively sorting range [3, 4]
+Recursively sorting range [4, 5]
+Recursively sorting range [4, 6]
+Recursively sorting range [4, 5]
+Recursively sorting range [5, 6]
+Recursively sorting range [3, 7]
+Recursively sorting range [3, 6]
+Recursively sorting range [3, 5]
+Recursively sorting range [3, 4]
+Recursively sorting range [4, 5]
+Recursively sorting range [4, 6]
+Recursively sorting range [4, 5]
+Recursively sorting range [5, 6]
+Recursively sorting range [4, 7]
+Recursively sorting range [4, 6]
+Recursively sorting range [4, 5]
+Recursively sorting range [5, 6]
+Recursively sorting range [5, 7]
+Recursively sorting range [5, 6]
+Recursively sorting range [6, 7]
+Recursively sorting range [1, 8]
+Recursively sorting range [1, 7]
+Recursively sorting range [1, 6]
+Recursively sorting range [1, 5]
+Recursively sorting range [1, 4]
+Recursively sorting range [1, 3]
+Recursively sorting range [1, 2]
+Recursively sorting range [2, 3]
+Recursively sorting range [2, 4]
+Recursively sorting range [2, 3]
+Recursively sorting range [3, 4]
+Recursively sorting range [2, 5]
+Recursively sorting range [2, 4]
+Recursively sorting range [2, 3]
+Recursively sorting range [3, 4]
+Recursively sorting range [3, 5]
+Recursively sorting range [3, 4]
+Recursively sorting range [4, 5]
+Recursively sorting range [2, 6]
+Recursively sorting range [2, 5]
+Recursively sorting range [2, 4]
+Recursively sorting range [2, 3]
+Recursively sorting range [3, 4]
+Recursively sorting range [3, 5]
+Recursively sorting range [3, 4]
+Recursively sorting range [4, 5]
+Recursively sorting range [3, 6]
+Recursively sorting range [3, 5]
+Recursively sorting range [3, 4]
+Recursively sorting range [4, 5]
+Recursively sorting range [4, 6]
+Recursively sorting range [4, 5]
+Recursively sorting range [5, 6]
+Recursively sorting range [2, 7]
+Recursively sorting range [2, 6]
+Recursively sorting range [2, 5]
+Recursively sorting range [2, 4]
+Recursively sorting range [2, 3]
+Recursively sorting range [3, 4]
+Recursively sorting range [3, 5]
+Recursively sorting range [3, 4]
+Recursively sorting range [4, 5]
+Recursively sorting range [3, 6]
+Recursively sorting range [3, 5]
+Recursively sorting range [3, 4]
+Recursively sorting range [4, 5]
+Recursively sorting range [4, 6]
+Recursively sorting range [4, 5]
+Recursively sorting range [5, 6]
+Recursively sorting range [3, 7]
+Recursively sorting range [3, 6]
+Recursively sorting range [3, 5]
+Recursively sorting range [3, 4]
+Recursively sorting range [4, 5]
+Recursively sorting range [4, 6]
+Recursively sorting range [4, 5]
+Recursively sorting range [5, 6]
+Recursively sorting range [4, 7]
+Recursively sorting range [4, 6]
+Recursively sorting range [4, 5]
+Recursively sorting range [5, 6]
+Recursively sorting range [5, 7]
+Recursively sorting range [5, 6]
+Recursively sorting range [6, 7]
+Recursively sorting range [2, 8]
+Recursively sorting range [2, 7]
+Recursively sorting range [2, 6]
+Recursively sorting range [2, 5]
+Recursively sorting range [2, 4]
+Recursively sorting range [2, 3]
+Recursively sorting range [3, 4]
+Recursively sorting range [3, 5]
+Recursively sorting range [3, 4]
+Recursively sorting range [4, 5]
+Recursively sorting range [3, 6]
+Recursively sorting range [3, 5]
+Recursively sorting range [3, 4]
+Recursively sorting range [4, 5]
+Recursively sorting range [4, 6]
+Recursively sorting range [4, 5]
+Recursively sorting range [5, 6]
+Recursively sorting range [3, 7]
+Recursively sorting range [3, 6]
+Recursively sorting range [3, 5]
+Recursively sorting range [3, 4]
+Recursively sorting range [4, 5]
+Recursively sorting range [4, 6]
+Recursively sorting range [4, 5]
+Recursively sorting range [5, 6]
+Recursively sorting range [4, 7]
+Recursively sorting range [4, 6]
+Recursively sorting range [4, 5]
+Recursively sorting range [5, 6]
+Recursively sorting range [5, 7]
+Recursively sorting range [5, 6]
+Recursively sorting range [6, 7]
+Recursively sorting range [3, 8]
+Recursively sorting range [3, 7]
+Recursively sorting range [3, 6]
+Recursively sorting range [3, 5]
+Recursively sorting range [3, 4]
+Recursively sorting range [4, 5]
+Recursively sorting range [4, 6]
+Recursively sorting range [4, 5]
+Recursively sorting range [5, 6]
+Recursively sorting range [4, 7]
+Recursively sorting range [4, 6]
+Recursively sorting range [4, 5]
+Recursively sorting range [5, 6]
+Recursively sorting range [5, 7]
+Recursively sorting range [5, 6]
+Recursively sorting range [6, 7]
+Recursively sorting range [4, 8]
+Recursively sorting range [4, 7]
+Recursively sorting range [4, 6]
+Recursively sorting range [4, 5]
+Recursively sorting range [5, 6]
+Recursively sorting range [5, 7]
+Recursively sorting range [5, 6]
+Recursively sorting range [6, 7]
+Recursively sorting range [5, 8]
+Recursively sorting range [5, 7]
+Recursively sorting range [5, 6]
+Recursively sorting range [6, 7]
+Recursively sorting range [6, 8]
+Recursively sorting range [6, 7]
+Recursively sorting range [7, 8]
+Recursively sorting range [1, 9]
+Recursively sorting range [1, 8]
+Recursively sorting range [1, 7]
+Recursively sorting range [1, 6]
+Recursively sorting range [1, 5]
+Recursively sorting range [1, 4]
+Recursively sorting range [1, 3]
+Recursively sorting range [1, 2]
+Recursively sorting range [2, 3]
+Recursively sorting range [2, 4]
+Recursively sorting range [2, 3]
+Recursively sorting range [3, 4]
+Recursively sorting range [2, 5]
+Recursively sorting range [2, 4]
+Recursively sorting range [2, 3]
+Recursively sorting range [3, 4]
+Recursively sorting range [3, 5]
+Recursively sorting range [3, 4]
+Recursively sorting range [4, 5]
+Recursively sorting range [2, 6]
+Recursively sorting range [2, 5]
+Recursively sorting range [2, 4]
+Recursively sorting range [2, 3]
+Recursively sorting range [3, 4]
+Recursively sorting range [3, 5]
+Recursively sorting range [3, 4]
+Recursively sorting range [4, 5]
+Recursively sorting range [3, 6]
+Recursively sorting range [3, 5]
+Recursively sorting range [3, 4]
+Recursively sorting range [4, 5]
+Recursively sorting range [4, 6]
+Recursively sorting range [4, 5]
+Recursively sorting range [5, 6]
+Recursively sorting range [2, 7]
+Recursively sorting range [2, 6]
+Recursively sorting range [2, 5]
+Recursively sorting range [2, 4]
+Recursively sorting range [2, 3]
+Recursively sorting range [3, 4]
+Recursively sorting range [3, 5]
+Recursively sorting range [3, 4]
+Recursively sorting range [4, 5]
+Recursively sorting range [3, 6]
+Recursively sorting range [3, 5]
+Recursively sorting range [3, 4]
+Recursively sorting range [4, 5]
+Recursively sorting range [4, 6]
+Recursively sorting range [4, 5]
+Recursively sorting range [5, 6]
+Recursively sorting range [3, 7]
+Recursively sorting range [3, 6]
+Recursively sorting range [3, 5]
+Recursively sorting range [3, 4]
+Recursively sorting range [4, 5]
+Recursively sorting range [4, 6]
+Recursively sorting range [4, 5]
+Recursively sorting range [5, 6]
+Recursively sorting range [4, 7]
+Recursively sorting range [4, 6]
+Recursively sorting range [4, 5]
+Recursively sorting range [5, 6]
+Recursively sorting range [5, 7]
+Recursively sorting range [5, 6]
+Recursively sorting range [6, 7]
+Recursively sorting range [2, 8]
+Recursively sorting range [2, 7]
+Recursively sorting range [2, 6]
+Recursively sorting range [2, 5]
+Recursively sorting range [2, 4]
+Recursively sorting range [2, 3]
+Recursively sorting range [3, 4]
+Recursively sorting range [3, 5]
+Recursively sorting range [3, 4]
+Recursively sorting range [4, 5]
+Recursively sorting range [3, 6]
+Recursively sorting range [3, 5]
+Recursively sorting range [3, 4]
+Recursively sorting range [4, 5]
+Recursively sorting range [4, 6]
+Recursively sorting range [4, 5]
+Recursively sorting range [5, 6]
+Recursively sorting range [3, 7]
+Recursively sorting range [3, 6]
+Recursively sorting range [3, 5]
+Recursively sorting range [3, 4]
+Recursively sorting range [4, 5]
+Recursively sorting range [4, 6]
+Recursively sorting range [4, 5]
+Recursively sorting range [5, 6]
+Recursively sorting range [4, 7]
+Recursively sorting range [4, 6]
+Recursively sorting range [4, 5]
+Recursively sorting range [5, 6]
+Recursively sorting range [5, 7]
+Recursively sorting range [5, 6]
+Recursively sorting range [6, 7]
+Recursively sorting range [3, 8]
+Recursively sorting range [3, 7]
+Recursively sorting range [3, 6]
+Recursively sorting range [3, 5]
+Recursively sorting range [3, 4]
+Recursively sorting range [4, 5]
+Recursively sorting range [4, 6]
+Recursively sorting range [4, 5]
+Recursively sorting range [5, 6]
+Recursively sorting range [4, 7]
+Recursively sorting range [4, 6]
+Recursively sorting range [4, 5]
+Recursively sorting range [5, 6]
+Recursively sorting range [5, 7]
+Recursively sorting range [5, 6]
+Recursively sorting range [6, 7]
+Recursively sorting range [4, 8]
+Recursively sorting range [4, 7]
+Recursively sorting range [4, 6]
+Recursively sorting range [4, 5]
+Recursively sorting range [5, 6]
+Recursively sorting range [5, 7]
+Recursively sorting range [5, 6]
+Recursively sorting range [6, 7]
+Recursively sorting range [5, 8]
+Recursively sorting range [5, 7]
+Recursively sorting range [5, 6]
+Recursively sorting range [6, 7]
+Recursively sorting range [6, 8]
+Recursively sorting range [6, 7]
+Recursively sorting range [7, 8]
+Recursively sorting range [2, 9]
+Recursively sorting range [2, 8]
+Recursively sorting range [2, 7]
+Recursively sorting range [2, 6]
+Recursively sorting range [2, 5]
+Recursively sorting range [2, 4]
+Recursively sorting range [2, 3]
+Recursively sorting range [3, 4]
+Recursively sorting range [3, 5]
+Recursively sorting range [3, 4]
+Recursively sorting range [4, 5]
+Recursively sorting range [3, 6]
+Recursively sorting range [3, 5]
+Recursively sorting range [3, 4]
+Recursively sorting range [4, 5]
+Recursively sorting range [4, 6]
+Recursively sorting range [4, 5]
+Recursively sorting range [5, 6]
+Recursively sorting range [3, 7]
+Recursively sorting range [3, 6]
+Recursively sorting range [3, 5]
+Recursively sorting range [3, 4]
+Recursively sorting range [4, 5]
+Recursively sorting range [4, 6]
+Recursively sorting range [4, 5]
+Recursively sorting range [5, 6]
+Recursively sorting range [4, 7]
+Recursively sorting range [4, 6]
+Recursively sorting range [4, 5]
+Recursively sorting range [5, 6]
+Recursively sorting range [5, 7]
+Recursively sorting range [5, 6]
+Recursively sorting range [6, 7]
+Recursively sorting range [3, 8]
+Recursively sorting range [3, 7]
+Recursively sorting range [3, 6]
+Recursively sorting range [3, 5]
+Recursively sorting range [3, 4]
+Recursively sorting range [4, 5]
+Recursively sorting range [4, 6]
+Recursively sorting range [4, 5]
+Recursively sorting range [5, 6]
+Recursively sorting range [4, 7]
+Recursively sorting range [4, 6]
+Recursively sorting range [4, 5]
+Recursively sorting range [5, 6]
+Recursively sorting range [5, 7]
+Recursively sorting range [5, 6]
+Recursively sorting range [6, 7]
+Recursively sorting range [4, 8]
+Recursively sorting range [4, 7]
+Recursively sorting range [4, 6]
+Recursively sorting range [4, 5]
+Recursively sorting range [5, 6]
+Recursively sorting range [5, 7]
+Recursively sorting range [5, 6]
+Recursively sorting range [6, 7]
+Recursively sorting range [5, 8]
+Recursively sorting range [5, 7]
+Recursively sorting range [5, 6]
+Recursively sorting range [6, 7]
+Recursively sorting range [6, 8]
+Recursively sorting range [6, 7]
+Recursively sorting range [7, 8]
+Recursively sorting range [3, 9]
+Recursively sorting range [3, 8]
+Recursively sorting range [3, 7]
+Recursively sorting range [3, 6]
+Recursively sorting range [3, 5]
+Recursively sorting range [3, 4]
+Recursively sorting range [4, 5]
+Recursively sorting range [4, 6]
+Recursively sorting range [4, 5]
+Recursively sorting range [5, 6]
+Recursively sorting range [4, 7]
+Recursively sorting range [4, 6]
+Recursively sorting range [4, 5]
+Recursively sorting range [5, 6]
+Recursively sorting range [5, 7]
+Recursively sorting range [5, 6]
+Recursively sorting range [6, 7]
+Recursively sorting range [4, 8]
+Recursively sorting range [4, 7]
+Recursively sorting range [4, 6]
+Recursively sorting range [4, 5]
+Recursively sorting range [5, 6]
+Recursively sorting range [5, 7]
+Recursively sorting range [5, 6]
+Recursively sorting range [6, 7]
+Recursively sorting range [5, 8]
+Recursively sorting range [5, 7]
+Recursively sorting range [5, 6]
+Recursively sorting range [6, 7]
+Recursively sorting range [6, 8]
+Recursively sorting range [6, 7]
+Recursively sorting range [7, 8]
+Recursively sorting range [4, 9]
+Recursively sorting range [4, 8]
+Recursively sorting range [4, 7]
+Recursively sorting range [4, 6]
+Recursively sorting range [4, 5]
+Recursively sorting range [5, 6]
+Recursively sorting range [5, 7]
+Recursively sorting range [5, 6]
+Recursively sorting range [6, 7]
+Recursively sorting range [5, 8]
+Recursively sorting range [5, 7]
+Recursively sorting range [5, 6]
+Recursively sorting range [6, 7]
+Recursively sorting range [6, 8]
+Recursively sorting range [6, 7]
+Recursively sorting range [7, 8]
+Recursively sorting range [5, 9]
+Recursively sorting range [5, 8]
+Recursively sorting range [5, 7]
+Recursively sorting range [5, 6]
+Recursively sorting range [6, 7]
+Recursively sorting range [6, 8]
+Recursively sorting range [6, 7]
+Recursively sorting range [7, 8]
+Recursively sorting range [6, 9]
+Recursively sorting range [6, 8]
+Recursively sorting range [6, 7]
+Recursively sorting range [7, 8]
+Recursively sorting range [7, 9]
+Recursively sorting range [7, 8]
+Recursively sorting range [8, 9]
+#+end_example
+
+**Exercise**:
+1. Implement the recursive structure for quicksort.
+2. Don’t worry about partitioning; just make recursive calls for now.
+3. Use print statements to show how the array is divided at each
+   recursive step.
+
+** Exercise 4: Combining Partitioning with Recursive Quicksort
+Now that you've learned the partitioning process and recursion, you can combine both to complete the quicksort algorithm.
+
+**Goal**: Implement the full quicksort algorithm using both recursion and the `split` function from the previous exercises.
+
+#+begin_src C
+#include <stdio.h>
+
+void quicksort(int a[], int low, int high);
+int split(int a[], int low, int high);
+
+int main(void) {
+    int a[] = {9, 16, 47, 82, 4, 66, 12, 3, 25, 51};
+    int n = sizeof(a) / sizeof(a[0]);
+
+    printf("Before sorting: ");
+    for (int i = 0; i < n; i++) 
+        printf("%d ", a[i]);
+    
+    quicksort(a, 0, n - 1);
+
+    printf("\nAfter sorting: ");
+    for (int i = 0; i < n; i++) 
+        printf("%d ", a[i]);
+    printf("\n");
+
+    return 0;
+}
+
+void quicksort(int a[], int low, int high) {
+    if (low >= high) return;
+    int pivot_index = split(a, low, high); // Partition
+    quicksort(a, low, pivot_index - 1);    // Sort the left part
+    quicksort(a, pivot_index + 1, high);   // Sort the right part
+}
+
+int split(int a[], int low, int high) {
+    int part_element = a[low];
+    while (low < high) {
+        while (low < high && a[high] >= part_element) 
+            high--;
+        a[low] = a[high];
+        while (low < high && a[low] <= part_element) 
+            low++;
+        a[high] = a[low];
+    }
+    a[low] = part_element;
+    return low;
+}
+#+end_src
+
+**Exercise**:
+1. Combine the recursive `quicksort` function and the `split` function.
+2. Ensure the program sorts the array correctly.
+3.
+
+
+* Full quicksort Algorithm coded
+
 ** Problem
 
 Use Quicksort to sort an array of integers.
@@ -728,10 +1434,82 @@ Array {9,16,47,82,4,66,12,3,25,51}
 
 Sorted array {3,4,9,12,16,25,47,51,66,82}.
 
-** Code
+** Code (v1)
 
 The split is performed with a function ~split~, the sorting with a
-function ~quicksort~. The input comes from a file ~input~ (see below):
+function ~quicksort~.
+#+begin_src C :main no :cmdline < input
+  #define N 10
+
+  // function declarations
+  void quicksort(int a[], int low, int high);
+  int split(int a[], int low, int high);
+
+  // main function
+  int main(void)
+  {
+    // declare array, loop variable
+    int a[]={9,16,47,82,4,66,12,3,25,51}, i; 
+    for (i=0;i<N;i++) {    // print input array
+      printf("%d ", a[i]);
+    }
+    quicksort(a, 0, N-1); // call quicksort
+    puts("\nIn sorted order:");  // print result
+    for (i=0;i<N;i++)
+      printf("%d ", a[i]);
+    puts("");
+    return 0;
+  }
+
+  // quicksort with recursion
+  void quicksort(int a[], int low, int high)
+  {
+    int middle;
+    if (low >= high) return; // do nothing
+    middle = split(a, low, high); // find partitioning element
+    quicksort(a, low, middle-1); // move low to right
+    quicksort(a, middle+1, high); // move high to left
+  }
+
+  // split to find the partitioning element
+  int split(int a[], int low, int high)
+  {
+    // partition starting with lowest element
+    int part_element = a[low]; 
+
+    for (;;) {  // forever
+      while (low < high && part_element <= a[high]) // move high left
+        high--;
+      if (low >= high) break;
+      a[low++] = a[high];
+
+      while (low < high && a[low] <= part_element) // move low right
+        low++;
+      if (low >= high) break;
+      a[high--] = a[low];
+    } // end of forever loop
+
+    a[high] = part_element;
+    return high;
+  }
+#+end_src
+
+#+RESULTS:
+: 9 16 47 82 4 66 12 3 25 51 
+: In sorted order:
+: 3 4 9 12 16 25 47 51 66 82 
+
+** Code (v2)
+For the full version below, the input comes from a file ~input~:
+#+begin_src bash :results output :exports both
+  echo 9 16 47 82 4 66 12 3 25 51 > input
+  cat input
+#+end_src
+
+#+RESULTS:
+: 9 16 47 82 4 66 12 3 25 51
+
+The quicksort code with external user input:
 #+begin_src C :main no :cmdline < input
   #define N 10
 
@@ -788,18 +1566,10 @@ function ~quicksort~. The input comes from a file ~input~ (see below):
 #+end_src
 
 #+RESULTS:
-: Enter 10 numbers to be sorted:
-: 9 16 47 82 4 66 12 3 25 51
+: Enter 10 numbers to be sorted: 
+: 9 16 47 82 4 66 12 3 25 51 
 : In sorted order:
-: 3 4 9 12 16 25 47 51 66 82
-
-#+begin_src bash :results output :exports both
-  echo 9 16 47 82 4 66 12 3 25 51 > input
-  cat input
-#+end_src
-
-#+RESULTS:
-: 9 16 47 82 4 66 12 3 25 51
+: 3 4 9 12 16 25 47 51 66 82 
 
 ** Improvements
 
@@ -815,14 +1585,20 @@ function ~quicksort~. The input comes from a file ~input~ (see below):
 - More details in algorithm books like Sedgewick's [[https://www.amazon.com/Algorithms-Parts-1-5-Bundle-Fundamentals/dp/0201756080][Algorithms in C]]
   (2001), and in CSC 245 Algorithms next term.
 
+
 * Notes
 
 - /Parameter/ and /argument/ can be used interchangeably. I prefer
   "argument" for the function call, and "parameter" for the function
   declaration and definition.
 
+- Synonyms for "function /prototype/" are: declaration, forward
+  declaration, signature, header, interface declaration.
+
 - C/C++ does not allow function definitions to be nested. Python and
-  R, for example, allow nested function definitions:
+  R, for example, allow nested function definitions.
+
+  In Python:
   #+begin_src python :results output :session *Python* :python python3 :exports both
     def outer_function():
         print("This is the outer function.")
@@ -837,10 +1613,7 @@ function ~quicksort~. The input comes from a file ~input~ (see below):
     outer_function()
   #+end_src
 
-  #+RESULTS:
-  : This is the outer function.
-  : This is the inner function.
-
+  In R:
   #+begin_src R :session *R* :results output
     outer_function <- function() {
       print("This is the outer function.")
@@ -855,12 +1628,30 @@ function ~quicksort~. The input comes from a file ~input~ (see below):
     outer_function()
   #+end_src
 
-  #+RESULTS:
-  : [1] "This is the outer function."
-  : [1] "This is the inner function."
-
 - A function name that is not followed by parentheses is interpreted
-  as a /pointer/ by the compiler.
+  as a /pointer/ by the compiler - it represents the function's memory
+  address:
+  #+begin_src C :main no
+    void myFunction() {
+      printf("Hello, World!\n");
+    }
+
+    int main() {
+      // Declaring a function pointer
+      void (*funcPtr)();
+
+      // Assigning the function address to the pointer
+      funcPtr = myFunction; // myFunction is seen as a pointer!
+
+      // Calling the function through the pointer
+      funcPtr(); // This prints "Hello, World!"
+
+      return 0;
+    }
+  #+end_src
+
+  #+RESULTS:
+  : Hello, World!
 
 - The names of parameters in the function prototype do not have to
   match the names given later in the function's definition.
@@ -875,7 +1666,7 @@ function ~quicksort~. The input comes from a file ~input~ (see below):
      compiler about functions in other files.
 
 - Functions with the same return type can be combined, for example
-  #+begin_example
+  #+begin_example C
     void print_1(void), print_2(int n);
     double x, y, average(double a, double b);
   #+end_example
@@ -883,13 +1674,17 @@ function ~quicksort~. The input comes from a file ~input~ (see below):
 - If you specify a length for a 1 dim array parameter, the compiler
   ignores it. It cannot automatically check that arguments have
   that length (no added security), and it may be misleading:
-  #+begin_example C
+  #+begin_src C :results none
     double inner_product(double v[3], double w[3]);
-  #+end_example
+  #+end_src
 
 - Why can the first dimension in an array parameter be left
   unspecified but not the other dimensions?
   #+begin_quote
+  In short: Because of the row-order storage of multi-dimensional
+  arrays, in order for the compiler to reserve enough memory.
+
+  Details:
   - If ~a~ is a 1-dim array passed to a function, it decays to a
     pointer to the first element. When we write ~a[i]=0;~, the
     address of ~a[i]~ is computed by multiplying ~i~ by the size of an
@@ -1065,6 +1860,9 @@ function ~quicksort~. The input comes from a file ~input~ (see below):
     #+end_quote
 
 * Practice Exercises
+
+If we run out of time, 
+
 ** Function with errors
 
 The following function, which computes the area of a triangle,

@@ -2245,7 +2245,8 @@ for I/O heavy workloads like databases [onlin Non-Volatile Memory]"
 - [ ] *Review:* =exit=, =return= and recursion (=power= function)
 - [ ] New *quiz* (Oct 25) and new *assignment* (Oct 28)
 - [ ] The *Quicksort* algorithm explained & implemented
-- [ ] *Coding*: Three practice exercises (Euclid's algorithm)
+- [ ] Final *notes* on functions and their use in C
+- [ ] *Coding*: Some exercises (incl. Euclid's algorithm)
 
 ** Review: =return=, =exit=, recursion
 
@@ -2324,7 +2325,8 @@ for I/O heavy workloads like databases [onlin Non-Volatile Memory]"
    #+begin_quote
    A recursive function has a winding phase while it calls itself, and
    an unwinding phase after the terminating condition has been met,
-   until it has returned to the first function that called itself.
+   until it has returned to the first function that called itself. No
+   relevant value is computed/returned until the winding is complete!
    #+end_quote
    Example:
    #+begin_example
