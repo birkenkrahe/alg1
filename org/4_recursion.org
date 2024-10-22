@@ -732,35 +732,34 @@ The ability to swap two elements in an array is crucial for
 partitioning in quicksort. Write a function that swaps two elements in
 an array and use it in a program.
 
-**Goal**: Learn how to manipulate array elements and pass arrays to
+*Goal*: Learn how to manipulate array elements and pass arrays to
 functions.
 
-#+begin_src C
-#include <stdio.h>
-
-void swap(int *a, int *b) {
-    int temp = *a;
-    *a = *b;
-    *b = temp;
-}
-
-int main(void) {
-    int arr[] = {5, 10, 15};
-    printf("Before swap: %d %d\n", arr[0], arr[1]);
-    swap(&arr[0], &arr[1]);
-    printf("After swap: %d %d\n", arr[0], arr[1]);
-
-    return 0;
-}
-#+end_src
-
-#+RESULTS:
-: Before swap: 5 10
-: After swap: 10 5
-
-**Exercise**: 
+*Exercise*:
 1. Write the `swap` function to exchange two elements in the array.
 2. Test the function by printing the array before and after swapping.
+
+- Code:
+  #+begin_src C
+    void swap(int* a, int* b) {
+      int temp = *a;
+      (*a) = *b;
+      (*b) = temp;
+    }
+
+    int main(void) {
+      int arr[] = {5,10,15};
+      printf("Before swap: %d %d\n", arr[0], arr[1]);
+      swap(&arr[0], &arr[1]); // call swap on the first two array elements
+      printf("After swap: %d %d\n", arr[0], arr[1]);      
+      return 0;
+    }
+
+  #+end_src
+
+  #+RESULTS:
+  : Before swap: 5 10
+  : After swap: 10 5
 
 ** Exercise 2: Finding the Partitioning Element (Pivot) Without Recursion
 In this exercise, we implement the partition logic of quicksort
@@ -772,24 +771,64 @@ right.
 **Goal**: Understand how to rearrange elements in an array using
 pointers.
 
-#+begin_src C
-#include <stdio.h>
+*Exercise**:
+1. Implement the `split` function that partitions the array around the
+   pivot element.
+2. Test the function by printing the array before and after
+   partitioning.
 
-int split(int a[], int low, int high) {
+#+begin_src C :main no
+  int split(int a[], int low, int high) {
     int part_element = a[low];
-    while (low < high) {
-        while (low < high && a[high] >= part_element)
-            high--;
-        a[low] = a[high];
-        while (low < high && a[low] <= part_element)
-            low++;
-        a[high] = a[low];
+    while (low < high) { 
+      while (low < high && a[high] >= part_element)
+        high--;
+      a[low]=a[high];
+      while (low < high && a[low] <= part_element)
+        low++;
+      a[high]=a[low];
     }
     a[low] = part_element;
     return low;
-}
+  }
+  int main(void) {
+    int a[] = {9, 16, 47, 82, 4, 66, 12, 3, 25, 51};
+    int n = sizeof(a) / sizeof(a[0]);
 
-int main(void) {
+    int pivot_index = split(a, 0, n-1);
+    printf("Pivot is at index %d\n", pivot_index);
+    printf("Array after partitioning: ");
+
+    for (int i=0; i < n; i++)
+      printf("%d ", a[i]);
+
+    puts("");
+    return 0;
+  }
+#+end_src   
+
+#+RESULTS:
+: Pivot is at index 2
+: Array after partitioning: 3 4 9 82 47 66 12 16 25 51 
+
+#+begin_src C
+  #include <stdio.h>
+
+  int split(int a[], int low, int high) {
+    int part_element = a[low];
+    while (low < high) {
+      while (low < high && a[high] >= part_element)
+        high--;
+      a[low] = a[high];
+      while (low < high && a[low] <= part_element)
+        low++;
+      a[high] = a[low];
+    }
+    a[low] = part_element;
+    return low;
+  }
+
+  int main(void) {
     int a[] = {9, 16, 47, 82, 4, 66, 12, 3, 25, 51};
     int n = sizeof(a) / sizeof(a[0]);
 
@@ -797,22 +836,17 @@ int main(void) {
     printf("Pivot is at index %d\n", pivot_index);
     printf("Array after partitioning: ");
     for (int i = 0; i < n; i++)
-        printf("%d ", a[i]);
+      printf("%d ", a[i]);
     printf("\n");
 
     return 0;
-}
+  }
 #+end_src
 
 #+RESULTS:
 : Pivot is at index 2
-: Array after partitioning: 3 4 9 82 47 66 12 16 25 51 
+: Array after partitioning: 3 4 9 82 47 66 12 16 25 51
 
-**Exercise**:
-1. Implement the `split` function that partitions the array around the
-   pivot element.
-2. Test the function by printing the array before and after
-   partitioning.
 
 ** Exercise 3: Recursive Quicksort Function (Without Split)
 This exercise introduces recursion without worrying about the actual
@@ -822,25 +856,29 @@ recursively.
 **Goal**: Understand recursion and how quicksort recursively sorts
 smaller parts of the array.
 
+**Exercise**:
+1. Implement the recursive structure for quicksort.
+2. Don’t worry about partitioning; just make recursive calls for now.
+3. Use print statements to show how the array is divided at each
+   recursive step.
+
 #+begin_src C
-#include <stdio.h>
-
-void quicksort(int a[], int low, int high) {
-    if (low >= high) return; // Base case
+  void quicksort(int a[], int low, int high) {
+    if (low >= high) return; // base case
     printf("Recursively sorting range [%d, %d]\n", low, high);
-    // In a complete quicksort, you would partition here and sort the parts.
-    quicksort(a, low, high - 1); // Recurse on the first part
-    quicksort(a, low + 1, high); // Recurse on the second part
-}
+    // in a complete quicksort, you would partition here & sort parts
+    quicksort(a, low, high-1); // Recurse on the first part
+    quicksort(a, low+1, high); // Recurse on the second part
+  }
 
-int main(void) {
+  int main(void) {
     int a[] = {9, 16, 47, 82, 4, 66, 12, 3, 25, 51};
     int n = sizeof(a) / sizeof(a[0]);
 
-    quicksort(a, 0, n - 1);
+    quicksort(a, 0, n-1);
     return 0;
-}
-#+end_src
+  }
+#+end_src   
 
 #+RESULTS:
 #+begin_example
@@ -1357,11 +1395,6 @@ Recursively sorting range [7, 8]
 Recursively sorting range [8, 9]
 #+end_example
 
-**Exercise**:
-1. Implement the recursive structure for quicksort.
-2. Don’t worry about partitioning; just make recursive calls for now.
-3. Use print statements to show how the array is divided at each
-   recursive step.
 
 ** Exercise 4: Combining Partitioning with Recursive Quicksort
 Now that you've learned the partitioning process and recursion, you can combine both to complete the quicksort algorithm.
@@ -1369,56 +1402,55 @@ Now that you've learned the partitioning process and recursion, you can combine 
 **Goal**: Implement the full quicksort algorithm using both recursion and the `split` function from the previous exercises.
 
 #+begin_src C
-#include <stdio.h>
+  #include <stdio.h>
 
-void quicksort(int a[], int low, int high);
-int split(int a[], int low, int high);
+  void quicksort(int a[], int low, int high);
+  int split(int a[], int low, int high);
 
-int main(void) {
+  int main(void) {
     int a[] = {9, 16, 47, 82, 4, 66, 12, 3, 25, 51};
     int n = sizeof(a) / sizeof(a[0]);
 
     printf("Before sorting: ");
-    for (int i = 0; i < n; i++) 
-        printf("%d ", a[i]);
-    
+    for (int i = 0; i < n; i++)
+      printf("%d ", a[i]);
+
     quicksort(a, 0, n - 1);
 
     printf("\nAfter sorting: ");
-    for (int i = 0; i < n; i++) 
-        printf("%d ", a[i]);
+    for (int i = 0; i < n; i++)
+      printf("%d ", a[i]);
     printf("\n");
 
     return 0;
-}
+  }
 
-void quicksort(int a[], int low, int high) {
+  void quicksort(int a[], int low, int high) {
     if (low >= high) return;
     int pivot_index = split(a, low, high); // Partition
     quicksort(a, low, pivot_index - 1);    // Sort the left part
     quicksort(a, pivot_index + 1, high);   // Sort the right part
-}
+  }
 
-int split(int a[], int low, int high) {
+  int split(int a[], int low, int high) {
     int part_element = a[low];
     while (low < high) {
-        while (low < high && a[high] >= part_element) 
-            high--;
-        a[low] = a[high];
-        while (low < high && a[low] <= part_element) 
-            low++;
-        a[high] = a[low];
+      while (low < high && a[high] >= part_element)
+        high--;
+      a[low] = a[high];
+      while (low < high && a[low] <= part_element)
+        low++;
+      a[high] = a[low];
     }
     a[low] = part_element;
     return low;
-}
+  }
 #+end_src
 
 **Exercise**:
 1. Combine the recursive `quicksort` function and the `split` function.
 2. Ensure the program sorts the array correctly.
 3.
-
 
 * Full quicksort Algorithm coded
 
@@ -1584,7 +1616,6 @@ The quicksort code with external user input:
 
 - More details in algorithm books like Sedgewick's [[https://www.amazon.com/Algorithms-Parts-1-5-Bundle-Fundamentals/dp/0201756080][Algorithms in C]]
   (2001), and in CSC 245 Algorithms next term.
-
 
 * Notes
 
@@ -1861,7 +1892,7 @@ The quicksort code with external user input:
 
 * Practice Exercises
 
-If we run out of time, 
+If we run out of time, I will put this into Canvas as bonus exercises.
 
 ** Function with errors
 
