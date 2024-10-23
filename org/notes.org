@@ -685,7 +685,7 @@ http://www.youtube.com/@LiterateProgramming
 
 **** Data science people: Plot it using R!
 
-#+begin_src R :file grades.png :session *R* :results file graphics output :exports both
+#+begin_src R :file ../img/grades.png :session *R* :results file graphics output :exports both
   grades <- c(0.,7.62,30.16,30.16,32.59,45.24,45.56,53.02,
               59.26,62.22,63.17,65.4,76.19,98.33,98.41,98.89)
   hist(grades, xlab="Grades [%]", main="Total grades CSC 240 (14-Sep-2024)");
@@ -693,7 +693,7 @@ http://www.youtube.com/@LiterateProgramming
 #+end_src
 
 #+RESULTS:
-[[file:grades.png]]
+[[file:../img/grades.png]]
 
 
 *** Did anyone do well?
@@ -1339,7 +1339,7 @@ Next topics:
 ** Programming assignments are getting better!
 
 - R code chunk (if you like how this looks, get into data science!)
-  #+begin_src R :file gradesDensity.png :session *R* :results file graphics output :exports both
+  #+begin_src R :file ../img/gradesDensity.png :session *R* :results file graphics output :exports both
     grades1 <- c(0.,7.62,30.16,30.16,32.59,45.24,45.56,53.02,
                  59.26,62.22,63.17,65.4,76.19,98.33,98.41,98.89)
     grades2 <- c(20.56,35.42,42.78,48.75,52.78,57.5,69.86,70.42,
@@ -1371,7 +1371,7 @@ Next topics:
   #+end_src
 
   #+RESULTS:
-  [[file:gradesDensity.png]]
+  [[file:../img/gradesDensity.png]]
 
 - Many of you still have not submitted assignment 2 (= *low hanging fruit*).
 
@@ -1702,7 +1702,7 @@ Next topics:
 ** Total grade evolution: Getting better (though not for everyone).
 
 - R code:
-  #+begin_src R :file gradesDensity.png :session *R* :results file graphics output :exports both
+  #+begin_src R :file ../img/gradesDensity.png :session *R* :results file graphics output :exports both
     grades1 <- c(0.,7.62,30.16,30.16,32.59,45.24,45.56,53.02,
                  59.26,62.22,63.17,65.4,76.19,98.33,98.41,98.89)
     grades2 <- c(20.56,35.42,42.78,48.75,52.78,57.5,69.86,70.42,
@@ -1744,7 +1744,7 @@ Next topics:
   #+end_src
 
   #+RESULTS:
-  [[file:gradesDensity.png]]
+  [[file:../img/gradesDensity.png]]
 
   - In three weeks, the class average has improved by 25%.
   - This is largely due to generous bonus payouts.
@@ -1983,7 +1983,7 @@ Rembrandt van Rijn, 1662/
 - [ ] Quicksort algorithm
 
 ** Popquiz results
-#+begin_src R :file pophist.png :session *R* :results file graphics output :exports both
+#+begin_src R :file ../img/pophist.png :session *R* :results file graphics output :exports both
   pop <- c(2.5,0,1,6.5,1.5,4,6,6.5,10,6.5,9.5,10,9,2.5,8,12)
   hist(pop,
        xlab="Points [0-12]",
@@ -1993,7 +1993,7 @@ Rembrandt van Rijn, 1662/
 #+end_src
 
 #+RESULTS:
-[[file:pophist.png]]
+[[file:../img/pophist.png]]
 
 - Remember that the 12 pieces unlock many of the bonus assignments.
 
