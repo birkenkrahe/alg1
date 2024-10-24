@@ -592,7 +592,7 @@
   #+RESULTS:
   : 5^3 = 125
 
-* NEXT The Quicksort Algorithms explained
+* The Quicksort Algorithms explained
 #+attr_html: :width 600px:
 [[../img/quicksort.png]]
 
@@ -720,14 +720,14 @@
      - In the right sub-array, 15 is the new e, 18 > 15 so it stays,
        and we're done.
 
-* Exercises: Breaking down Quicksort
+* Breaking down Quicksort
 
 1. Swapping two elements in an array
 2. Finding the pivot without recursion
 3. Recursive quicksort without split
 4. Combining partitioning with recursive quicksort
 
-** Exercise 1: Swapping Two Elements in an Array
+** Swapping Two Elements in an Array
 The ability to swap two elements in an array is crucial for
 partitioning in quicksort. Write a function that swaps two elements in
 an array and use it in a program.
@@ -761,7 +761,9 @@ functions.
   : Before swap: 5 10
   : After swap: 10 5
 
-** Exercise 2: Finding the Partitioning Element (Pivot) Without Recursion
+
+** Finding the Partitioning Element (Pivot) Without Recursion
+
 In this exercise, we implement the partition logic of quicksort
 without recursion. You’ll write a function that chooses a pivot (the
 first element) and rearranges the array so that all elements smaller
@@ -848,7 +850,7 @@ pointers.
 : Array after partitioning: 3 4 9 82 47 66 12 16 25 51
 
 
-** Exercise 3: Recursive Quicksort Function (Without Split)
+** Recursive Quicksort Function (Without Split)
 This exercise introduces recursion without worrying about the actual
 partitioning. The goal is to break down the problem into sub-arrays
 recursively.
@@ -1396,7 +1398,7 @@ Recursively sorting range [8, 9]
 #+end_example
 
 
-** Exercise 4: Combining Partitioning with Recursive Quicksort
+** Combining Partitioning with Recursive Quicksort
 Now that you've learned the partitioning process and recursion, you can combine both to complete the quicksort algorithm.
 
 **Goal**: Implement the full quicksort algorithm using both recursion and the `split` function from the previous exercises.
@@ -1451,6 +1453,7 @@ Now that you've learned the partitioning process and recursion, you can combine 
 1. Combine the recursive `quicksort` function and the `split` function.
 2. Ensure the program sorts the array correctly.
 3.
+
 
 * Full quicksort Algorithm coded
 
@@ -1892,8 +1895,6 @@ The quicksort code with external user input:
 
 * Practice Exercises
 
-If we run out of time, I will put this into Canvas as bonus exercises.
-
 ** Function with errors
 
 The following function, which computes the area of a triangle,
@@ -1925,6 +1926,7 @@ between =0= and =n-1= inclusive, and =0= otherwise. Assume that =x,= =y=, and
 |  0 | -1 |  0 |      1 |
 
 ** Greatest Common Denominator
+
 Write a function =gcd(m,n)= that calculates the greatest common divisor
 of the integers =m= and =n= using Euclid's algorithm.
 
@@ -1965,6 +1967,7 @@ Testing:
 #+RESULTS:
 : Enter two integer numbers: m = 12, n = 20
 : GCD = 4
+
 
 * Programming assignments
 
