@@ -2244,8 +2244,8 @@ for I/O heavy workloads like databases [onlin Non-Volatile Memory]"
 
 - [X] *Review:* =exit=, =return= and recursion (=power= function)
 - [X] New *quiz* (Oct 25) and new *assignment* (Oct 28)
-- [ ] The *Quicksort* algorithm explained & implemented
-- [ ] Final *notes* on functions and their use in C
+- [X] The *Quicksort* algorithm explained & implemented
+- [X] Final *notes* on functions and their use in C
 - [ ] *Coding*: Some exercises (incl. Euclid's algorithm)
 
 ** Review: =return=, =exit=, recursion
@@ -2347,9 +2347,29 @@ for I/O heavy workloads like databases [onlin Non-Volatile Memory]"
        return 5 * 25 = 125
    #+end_example
 
-* Week 11 - Strings, Structs, Enums, Unions [Oct 28]
-* Week 12 - Dynamic Storage Allocation and Lists [Nov 4]
-* Week 13 - Stacks and Queues [Nov 11]
+* Week 11 - Stack, Arrays & Pointers [Oct 28]
+#+attr_html: :width 600px: 
+#+caption: Caspar David Friedrich, Mondaufgang am Meer, 1822.
+[[../img/mondaufgang_am_meer_CDF_1822.jpeg]]
+
+** Assignments and Tests:
+
+- [ ] New bonus exercise: [[https://lyon.instructure.com/courses/2623/assignments/36047][Recursive Euclidean Algorithm]].
+- [ ] See also "writing a GCD function" exercise in 4_recursion.org.
+- [ ] Solution video for assignment 8 (VLA array concatenation):
+  [[https://youtu.be/GVA_2AoTdyg][youtu.be/GVA_2AoTdyg]] and PDF version [[https://github.com/birkenkrahe/alg1/blob/main/pdf/concatenateArrays_video.pdf][on GitHub]].
+- [ ] There will be 2 more assignments and about the same number of
+  bonus assignments, and 3 more online tests.
+- [ ] Remember: You can (but don't have to) write the final exam,
+  which consists of a selection of 50 questions from all quizzes.
+
+
+** Topics
+
+* Week 12 - Strings, Structs, Enums, Unions [Nov 4]
+
+* Week 13 - Dynamic Storage Allocation and Lists [Nov 11]
+
 * Week 14 - Trees and Hash Tables [Nov 18]
-* +Week 15 - Thanksgiving Break+
-* Week 15 - Heaps and Graphs / C++ [Dec 2]
+
+* Week 16 - Heaps and Graphs / C++ [Dec 2]
