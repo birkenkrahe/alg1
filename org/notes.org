@@ -2246,7 +2246,7 @@ for I/O heavy workloads like databases [onlin Non-Volatile Memory]"
 - [X] New *quiz* (Oct 25) and new *assignment* (Oct 28)
 - [X] The *Quicksort* algorithm explained & implemented
 - [X] Final *notes* on functions and their use in C
-- [ ] *Coding*: Some exercises (incl. Euclid's algorithm)
+- [ ] *Coding*: Some exercises (incl. [[https://artofproblemsolving.com/wiki/index.php/Euclidean_algorithm][Euclidean algorithm]])
 
 ** Review: =return=, =exit=, recursion
 
@@ -2363,8 +2363,24 @@ for I/O heavy workloads like databases [onlin Non-Volatile Memory]"
 - [ ] Remember: You can (but don't have to) write the final exam,
   which consists of a selection of 50 questions from all quizzes.
 
-
 ** Topics
+
+
+
+** Algorithms - Spring'25
+#+attr_html: :width 400px: 
+[[../img/Dive-Into-Algorithms_frontcover.png]]
+
+Since a number of you are currently looking at CSC 265 'Algorithms':
+Dr. Dall'Olio will teach the class with Python, most likely based on
+Tuckfield's book "[[https://nostarch.com/Dive-Into-Algorithms][Dive into Algorithms]]" (NoStarch, 2021). This is a
+great book and a marvelous choice - lots of fun applications!
+
+That's great news for us because it somewhat relaxes our course:
+instead of having to cover a lot more ground, and many more data
+structures, we can focus on mastering fundamental data structures like
+arrays, linked lists (pointers), stacks (external variables), queues
+(=struct=), and trees (=malloc= and recursion).
 
 * Week 12 - Strings, Structs, Enums, Unions [Nov 4]
 
