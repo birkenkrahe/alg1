@@ -1,0 +1,19 @@
+#+title: Strings
+#+STARTUP:overview hideblocks indent
+#+OPTIONS: toc:nil num:nil ^:nil
+#+PROPERTY: header-args:C :main yes :includes <stdio.h> <stdlib.h> <string.h> <time.h> :results output :exports both :comments none :noweb yes
+* README
+
+- This lecture covers strings in C. Strings are arrays of characters
+  terminated by a null character (`\0`). The C programming language
+  provides various functions and techniques for manipulating and
+  working with strings.
+
+- In class, we'll be working with a wiki-type summary and interactive
+  exercises. This section is accompanied by one bonus and by one
+  mandatory programming assignment, as well as an online test.
+
+- Much of this is based on King, C Programming (2008), chapter 13.
+
+
+
