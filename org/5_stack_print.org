@@ -7,7 +7,7 @@
 - This chapter covers program organization with regard to a program's
   chunks (modules, functions), objects (variables), and memory.
 
-- In class, we'll be working with an excerpt and interactive
+- In class, we'll be working with a wiki-type summary and interactive
   exercises. This section is accompanied by one bonus and by one
   mandatory programming assignment, as well as an online test.
 
@@ -31,31 +31,26 @@
   storage. When you call a function, all of its local variables are
   created on the stack. When you leave the function, they are
   destroyed.
-
 - *Heap*: The heap is for dynamic memory, data that are created
   ("allocated") when the program is running, and then hang around for
   a long time (until they are "freed" or deallocated).
-
 - *Globals:* A global variable lives outside of all functions and is
   visible to all of them. They can be updated anywhere
   anytime. Created when the program runs for the first time.
-
 - *Constants*: Created when the program first runs but stored in
   /read-only/ memory. Examples are /string literals/.
-
 - *Code:* This is where the code that the compiler has assembled, is
   located. It is also read-only, and sits at the lowest memory
   addresses.
 
 - For example, the assembly code to define the string literal =char
   *str = "hello";= would look like this (in x86):
-
   #+begin_example
   section .data
       str db 'hello', 0  ; Define a string 'hello' with a null terminator
 
   section .bss
-      ptr resb 4  ; Reserve 4 bytes for the pointer (32-bit system)
+      ptr resb 4  ; Reserve 4 bytes for the pointer (assuming a 32-bit system)
 
   section .text
       global _start
@@ -71,22 +66,11 @@
       mov eax, 1        ; sys_exit
       xor ebx, ebx      ; Exit code 0
       int 0x80
-#+end_example
-
-- For a whole book on understanding computers with assembly, see Patt
-  and Patel, "Introduction to Computing Systems: From Bits & Gatees to
-  C/C++ & Beyond" (McGraw-Hill, 2020)
+  #+end_example
 
 * Storage and Scope
 
-- A variable declared in the body of a function is /local/ to the
-  function.
-
-- Local variables have *automatic storage duration* - the storage is
-  allocated when the function is called and deallocated upon return.
-
-- Local variables have *block scope*: they are visible from the point of
-  its declaration to the end of the enclosing function body.
+- A variable declared in the body of a function is /local/ to the function.
 
 - Which of the variables in the following example are local?
   #+begin_example C
@@ -101,15 +85,15 @@
       return sum;
     }
   #+end_example
-
-  Answer:
   #+begin_quote
-  - The variables =sum= and =n= are local to the function.
-  - They're allocated at the start, and deallocated at the end of the
-    function (/automatic storage duration/).
-  - They are visible inside the function from the moment of their
-    declaration (/block scope/).
+  Answer: =sum= and =n=.
   #+end_quote
+
+- Local variables have *automatic storage duration* - the storage is
+  allocated when the function is called and deallocated upon return.
+
+- Local variables have *block scope*: they are visible from the point of
+  its declaration to the end of the enclosing function body.
 
 - In C/C++ you can declare variables anywhere you like so the scope
   can be minimal. In the weird example below, =i= can never be used.
@@ -133,39 +117,6 @@
 
 - Function *parameters* have the same properties - automatic storage
   duration and block scope - as local variables.
-
-* PROJECT Example: Static Local Variables
-
-- *Task:* Write a function =count_calls= that uses a static local variable
-  =call_count= to keep track of how many times =count_calls= was called.
-
-  #+begin_src C
-    void count_calls(void)
-    {
-      static int call_count = 0;
-      call_count++;
-      printf("Function called %d times\n", call_count);
-    }
-
-    int main(void)
-    {
-      count_calls();
-      count_calls();
-      count_calls();
-      return 0;
-    }
-  #+end_src
-
-  #+RESULTS:
-  : Function called 1 times
-  : Function called 2 times
-  : Function called 3 times
-
-- Unlike a regular local variable, the value of =call_count= persists
-  across multiple function calls.
-
-- To test that, turn =call_count= into a regular variable and run the
-  program again.
 
 * Type conversion
 
@@ -199,6 +150,9 @@
     printf("ASCII value of %c = %d\n",c,c);
   #+end_src
 
+  #+RESULTS:
+  : ASCII value of a = 97
+
 - C also allows /explicit conversion/ using the /cast/ operator, and
   explicit /type definitions/ with =typedef=.
 
@@ -206,22 +160,17 @@
 
 - Because there are so many different arithmetic types[fn:1]=, implicit
   conversion rules are complicated. A conversion is performed:
-
   1) When the operands don't have the same type (the usual case):
      =float f; int i = 2 * f;=
-
   2) When the type on the left doesn't match the type on the right of
      an assignment operator: =float f; int i = f;=
-
   3) When the type of an argument in a function call does not match
      the type of the corresponding parameter:
-
      #+begin_src C :results none
        void f(int i) {};
        float x;
        f(x);
      #+end_src
-
   4) When the type of the expression in a =return= statement does not
      match the functions =return= type:
      #+begin_src C :results none
@@ -230,44 +179,7 @@
        f(x);
      #+end_src
 
-* PROJECT Type conversion
-
-- *Task*: Modify the following program to perform explicit type
-  conversion when calculating the =result=:
-
-  #+begin_src C
-    int i = 1;
-    float f = 1.5;
-    char c = 'A';
-
-    // implicit conversion
-    double result = i + f + c;
-    printf("Result (implicit conversion): %f\n", result);
-  #+end_src
-
-  #+RESULTS:
-  : Result (implicit conversion): 67.500000
-
-- Add explicit conversion:
-  #+begin_src C
-    int i = 1;
-    float f = 1.5;
-    char c = 'A';
-
-    // implicit conversion
-    double result = i + f + c;
-    printf("Result (implicit conversion): %f\n", result);
-
-    // explicit conversion
-    result = (double)i + (double)f + (double)c;
-    printf("Result (explicit conversion): %f\n", result);
-  #+end_src
-
-  #+RESULTS:
-  : Result (implicit conversion): 67.500000
-  : Result (explicit conversion): 67.500000
-
-* Type Definitions with =typedef=
+* Type Definitions
 
 - You can create a Boolean type =BOOL= with a macro, which then allows
   you to define variables of that type:
@@ -318,6 +230,7 @@
   they take up less space. To use =int=, we define our own type:
   #+begin_src C :results none
     typedef int Quantity;
+
     Quantity q;
   #+end_src
 
@@ -325,7 +238,6 @@
   definition:
   #+begin_src C :results none
     typedef long Quantity;
-    Quantity q;
   #+end_src
 
 - The C library uses =typedef= to create names for types that can vary
@@ -365,17 +277,15 @@
 
 * External variables
 
-Functions can communicate through
+- Functions can communicate through
 
-1) passing variables (see [[Storage and Scope]["storage and scope"]])
+  1) passing variables (see [[Storage and Scope]["storage and scope"]])
 
-2) external (or /global/) variables that are declared outside the body
-   of any function.
-
-   They have =static= storage duration (don't disappear until the
-   program is finished), and /file scope/ (rather than /block scope/):
-   they can be accessed by all functions after the declaration of the
-   external variable.
+  2) external (or /global/) variables that are declared outside the body
+     of any function. They have =static= storage duration (don't
+     disappear until the program is finished), and /file scope/ (rather
+     than /block scope/): they can be accessed by all functions after
+     the declaration of the external variable.
 
 * Organizing Programs
 
@@ -752,35 +662,17 @@ effect it has (such as modifying external variables).
 
   #+RESULTS: guess.c
   : Guess the secret number between 1 and 100.
-  :
+  : 
   : A new number has been chosen.
   : Enter guess: You won in 1 guesses!
-  :
-  : Play again? (Y/N)
+  : 
+  : Play again? (Y/N) 
 
 - Practice: alter =choose_new_secret_number= and =read_guesses= so that
   =secret_number= does not have to be an external variable.
 
 - Challenge: Can you figure out how to make the numbers repeatable so that you
   can repeat a game?
-
-- Compare this with the "Guess the number" program in Python ([[https://github.com/birkenkrahe/cor/blob/main/org/4_guessing_game.org][GitHub]]):
-  
-  #+begin_example python
-    import random 
-    num = random.randint(1,20)
-    attempt = 0 
-    print("Guess my number! Enter a number between 1 and 20!")
-    while True: 
-        guess = int(input('Take a guess: ')) 
-        attempt = attempt + 1 
-        if guess < num: print("Too low")
-        elif guess > num: print("Too high")
-        else:
-            print("Attempts: " + str(attempt))
-            break
-        if input("Enter 'q' to quit (or RET to continue: ")=='q': break
-  #+end_example
 
 * Review questions
 
