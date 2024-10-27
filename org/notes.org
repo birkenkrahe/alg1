@@ -2363,13 +2363,12 @@ for I/O heavy workloads like databases [onlin Non-Volatile Memory]"
 - [ ] Remember: You can (but don't have to) write the final exam,
   which consists of a selection of 50 questions from all quizzes.
 
+
 ** Topics
 
-
-
 ** Algorithms - Spring'25
-#+attr_html: :width 400px: 
-[[../img/Dive-Into-Algorithms_frontcover.png]]
+#+attr_html: :width 200px: 
+[[../img/Dive-Into-Algorithms_frontcover.png]] [[../img/zingaro.png]]
 
 Since a number of you are currently looking at CSC 265 'Algorithms':
 Dr. Dall'Olio will teach the class with Python, most likely based on
@@ -2381,6 +2380,27 @@ instead of having to cover a lot more ground, and many more data
 structures, we can focus on mastering fundamental data structures like
 arrays, linked lists (pointers), stacks (external variables), queues
 (=struct=), and trees (=malloc= and recursion).
+
+The other book, "[[https://nostarch.com/algorithmic-thinking-2nd-edition][Algorithmic Thinking]]" by Zingaro (2023) is the one I
+was originally going to use for this class - in hindsight it's too
+difficult but it would be a great extension reading to this data
+structures course: you can get into it right away! I plan to work with
+it over the break (or over the summer more likely) myself so that I
+don't lose my hard-earned skills.
+
+And that's the thing: If you only put 2 hours into C programming on
+your own, and 3 hours of class time, that's 5 hours per week or 75
+hours over the term - amounting to almost two full weeks of learning!
+
+Don't throw this away: Keep doing anything that has got even a glimmer
+of gold and interest to you. If it's programming small or large games,
+solving leetcode or competitive programming problems, or other stuff.
+
+#+begin_quote
+"Everyday life is like programming [...] If you love something you can
+put beauty into it." -- Don Knuth (Inventor of literate programming)
+#+end_quote
+
 
 * Week 12 - Strings, Structs, Enums, Unions [Nov 4]
 
