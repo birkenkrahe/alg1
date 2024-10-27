@@ -377,6 +377,8 @@ Functions can communicate through
    they can be accessed by all functions after the declaration of the
    external variable.
 
+* 
+
 * Organizing Programs
 
 Our programs are going to get larger - and we've touched upon all of
@@ -416,6 +418,26 @@ effect it has (such as modifying external variables).
 - To push an item onto the stack, we store it in ~contents~ at the
   position ~top~, then increment ~top~. To pop an item, decrement ~top~,
   then use it as an index to ~contents~ to fetch the item to be popped.
+
+- Functions:
+  #+name: stack_header
+  #+begin_src C
+    #include <stdbool.h>
+
+    #define STACK_SIZE 100
+
+    // external variables
+    int contents[STACK_SIZE] // stack array
+    int top = 0; // stack pointer
+
+
+  #+end_src
+
+  #+RESULTS: stack_header
+
+* Full Code for Stack Implementation
+
+- *Task*: Turn the function definitions below into a working program.
 
 - Code for the stack implementation:
   #+name: stack
