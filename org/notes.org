@@ -2042,6 +2042,7 @@ Vote anonymously at strawpoll.com: [[https://strawpoll.com/LVyK2j9oQZ0][strawpol
 
 - This could be done in any language that you know (however, ideally I
   know the language), in any case you will be queried.
+
 ** Recursion codealong I
 
 - Get the file from [[https://tinyurl.com/recursion-org][tinyurl.com/recursion-org]]
@@ -2362,9 +2363,8 @@ for I/O heavy workloads like databases [onlin Non-Volatile Memory]"
   bonus assignments, and 3 more online tests.
 - [ ] Remember: You can (but don't have to) write the final exam,
   which consists of a selection of 50 questions from all quizzes.
-
-
-** Topics
+- [ ] Remember: You can build your own independent project and submit
+  a link to your repo (in GitHub or GDrive) [[https://lyon.instructure.com/courses/2623/assignments/36167][in Canvas]] now.
 
 ** Algorithms - Spring'25
 #+attr_html: :width 200px: 
@@ -2401,6 +2401,8 @@ solving leetcode or competitive programming problems, or other stuff.
 put beauty into it." -- Don Knuth (Inventor of literate programming)
 #+end_quote
 
+
+** Next topics
 
 * Week 12 - Strings, Structs, Enums, Unions [Nov 4]
 
