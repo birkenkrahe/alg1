@@ -2354,7 +2354,7 @@ for I/O heavy workloads like databases [onlin Non-Volatile Memory]"
 #+caption: Caspar David Friedrich, Mondaufgang am Meer, 1822.
 [[../img/mondaufgang_am_meer_CDF_1822.jpeg]]
 
-** TODO Algorithms - Spring'25
+* NEXT Algorithms - Spring'25
 #+attr_html: :width 200px: 
 [[../img/Dive-Into-Algorithms_frontcover.png]] [[../img/zingaro.png]]
 
@@ -2392,27 +2392,27 @@ put beauty into it." -- Don Knuth (Inventor of literate programming)
 
 ** TODO Assignments and Tests (5 weeks from the end of term!)
 
-- [ ] New bonus exercise: [[https://lyon.instructure.com/courses/2623/assignments/36047][Recursive Euclidean Algorithm]].
+- [X] New bonus exercise: [[https://lyon.instructure.com/courses/2623/assignments/36047][Recursive Euclidean Algorithm]].
 
-- [ ] See also "writing a GCD function" exercise in 4_recursion.org.
+- [X] See also "writing a GCD function" exercise in 4_recursion.org.
 
-- [ ] Solution video for assignment 8 (VLA array concatenation):
+- [X] Solution video for assignment 8 (VLA array concatenation):
   [[https://youtu.be/GVA_2AoTdyg][youtu.be/GVA_2AoTdyg]] and PDF version [[https://github.com/birkenkrahe/alg1/blob/main/pdf/concatenateArrays_video.pdf][on GitHub]].
 
-- [ ] There will be 2 more assignments and about the same number of
+- [X] There will be 2 more assignments and about the same number of
   bonus assignments, and 3 more online tests.
 
-- [ ] Remember: You can (but don't have to) write the *final exam*,
+- [X] Remember: You can (but don't have to) write the *final exam*,
   which consists of a selection of 50 questions from all quizzes.
 
-- [ ] Remember: You can build your own independent *research project*
+- [X] Remember: You can build your own independent *research project*
   and submit a link to your repo (in GitHub or GDrive) [[https://lyon.instructure.com/courses/2623/assignments/36167][in Canvas]] now.
 
-- [ ] *Quicksort*: Will create the promised analysis videos when I find
+- [X] *Quicksort*: Will create the promised analysis videos when I find
   the time.
 
 
-** TODO Modus operandi: 10 suggestions
+* Modus operandi: 10 suggestions
 #+attr_html: :width 600px: 
 [[../img/mars.png]]
 
@@ -2430,13 +2430,13 @@ put beauty into it." -- Don Knuth (Inventor of literate programming)
 
 ** TODO Next topics
 
-- [ ] Memory organization
-- [ ] Storage and scope
-- [ ] =static= local variables
-- [ ] Type conversion
-- [ ] Type definition with =typedef=
-- [ ] External variables
-- [ ] Implementing a stack
+- [X] Memory organization
+- [X] Storage and scope
+- [X] =static= local variables
+- [X] Type conversion
+- [X] Type definition with =typedef=
+- [X] External variables
+- [ ] Implementing a stack 
 - [ ] Guessing a number program
 - [ ] Variable scope
 
