@@ -398,7 +398,8 @@ Functions can communicate through
 - Functions:
   #+name: stack_header
   #+begin_src C
-    #include <stdbool.h> // to use the `bool` type
+    #include <stdbool.h> // to use the `bool` data type
+    #include <stdlib.h> // to use the EXIT_FAILURE macro
 
     #define STACK_SIZE 100 // stack size
 
@@ -421,10 +422,42 @@ Functions can communicate through
       return top == STACK_SIZE; // returns 1 if stack is full
     }
 
-    
-  #+end_src
+    void push(int i)
+    {
+      if (is_full())
+        stack_overflow(); // if stack is full, exit
+      else
+        contents[top++] = i; // if stack is not full, add next element
+    }
+    1
+    int pop(void)
+    {
+      if (is_empty())
+        stack_underflow(); // if stack is empty, exit
+      else
+        return contents[--top]; // is stack is not empty, extract previous element
+    }
 
-  #+RESULTS: stack_header
+    int stack_overflow(void)
+    {
+      printf("Stack overflow!\n");
+      return EXIT_FAILURE;
+    }
+
+    int stack_underflow(void)
+    {
+      printf("Stack underflow!\n");
+      return EXIT_FAILURE;
+    }
+
+    const int print_stack(void) // function does not change the stack array
+    {
+      printf("top = %d\n", top);
+      for (int i = 0; i < STACK_SIZE; i++)
+        printf("%d ", contents[i]);
+      puts("");
+    }
+  #+end_src
 
 - You find the full stack implementation below. There will also be a
   programming assignment on the stack, and a bonus assignment.
@@ -453,7 +486,7 @@ effect it has (such as modifying external variables).
 
 - *Task*: Turn the function definitions below into a working program.
 
-- Code for the stack implementation:
+- Solution: Code for the stack implementation:
   #+name: stack
   #+begin_src C :main no
     #include <stdbool.h> // adds data type `bool`
