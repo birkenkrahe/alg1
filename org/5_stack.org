@@ -247,8 +247,8 @@
   #+end_src
 
 
-  #+RESULTS:
-  : Result (implicit conversion): 67.500000
+#+RESULTS:
+: Result (implicit conversion): 67.500000
 
 - Solution: Explicit conversion
   #+begin_src C
@@ -329,7 +329,7 @@
   #+begin_src C :results output
     typedef long Quantity;
     Quantity q;
-    printf("Size of Quantity = %ld\n",sizeof(q));    
+    printf("Size of Quantity = %ld\n",sizeof(q));
   #+end_src
 
 - The C library uses =typedef= to create names for types that can vary
@@ -375,52 +375,7 @@ Functions can communicate through
    they can be accessed by all functions after the declaration of the
    external variable.
 
-* Pros and Cons of external variables
-
-- External variables are convenient when many functions share one, or
-  when a few functions share many variables.
-
-- In most cases, it is better for functions to communicate through
-  parameters rather by sharing variables:
-
-  1) When changing an external variable (e.g. altering its type),
-     every function that uses it must be checked.
-
-  2) If an external variable is assigned an incorrect value, it is
-     difficult to identify the guilty function.
-
-  3) Functions that rely on external variables are harder to reuse in
-     other programs (all required globals must be taken along).
-
-* PROJECT External variable bug
-
-The following example is supposed to display a 10 x 10 arrangement of
-asterisks:
-
-
-
-
-* Organizing Programs
-
-Our programs are going to get larger - and we've touched upon all of
-these structural components of programs[fn:4]:
-
-#+begin_example
-#include directives
-#define directives
-Type definitions
-Declarations of external variables
-Prototypes for functions other than main
-Definition of main
-Definitions of other functions
-#+end_example
-
-Precede each function definition by a boxed comment that gives the name
-of the function, explains its purposes, discusses the meaning of each
-parameter, describes its return value (if any), and lists any side
-effect it has (such as modifying external variables).
-
-* Using External Variables to Implement a Stack
+* PROJECT Using External Variables to Implement a Stack
 
 - A stack, like an array, can store multiple data items of the same
   type. Remember this is where local variables are stored transiently.
@@ -443,18 +398,56 @@ effect it has (such as modifying external variables).
 - Functions:
   #+name: stack_header
   #+begin_src C
-    #include <stdbool.h>
+    #include <stdbool.h> // to use the `bool` type
 
-    #define STACK_SIZE 100
+    #define STACK_SIZE 100 // stack size
 
     // external variables
-    int contents[STACK_SIZE] // stack array
+    int contents[STACK_SIZE]; // stack array
     int top = 0; // stack pointer
 
+    void make_empty(void)
+    {
+      top = 0;
+    }
 
+    bool is_empty(void)
+    {
+      return top == 0; // returns 1 if stack is empty
+    }
+
+    bool is_full(void)
+    {
+      return top == STACK_SIZE; // returns 1 if stack is full
+    }
+
+    
   #+end_src
 
   #+RESULTS: stack_header
+
+- You find the full stack implementation below. There will also be a
+  programming assignment on the stack, and a bonus assignment.
+
+* Organizing C Programs
+
+Our programs are going to get larger - and we've touched upon all of
+these structural components of programs[fn:4]:
+
+#+begin_example
+#include directives
+#define directives
+Type definitions
+Declarations of external variables
+Prototypes for functions other than main
+Definition of main
+Definitions of other functions
+#+end_example
+
+Precede each function definition by a boxed comment that gives the name
+of the function, explains its purposes, discusses the meaning of each
+parameter, describes its return value (if any), and lists any side
+effect it has (such as modifying external variables).
 
 * Full Code for Stack Implementation
 
@@ -597,6 +590,102 @@ effect it has (such as modifying external variables).
   : Stack overflow!
   : top = 20
   : 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1
+
+* Pros and Cons of external variables
+
+- External variables are convenient when many functions share one, or
+  when a few functions share many variables.
+
+- In most cases, it is better for functions to communicate through
+  parameters rather by sharing variables:
+
+  1) When changing an external variable (e.g. altering its type),
+     every function that uses it must be checked.
+
+  2) If an external variable is assigned an incorrect value, it is
+     difficult to identify the guilty function.
+
+  3) Functions that rely on external variables are harder to reuse in
+     other programs (all required globals must be taken along).
+
+* PROJECT External variable bug
+
+The following example is supposed to display a 10 x 10 arrangement of
+=+= signs:
+
+#+begin_src C :main no
+  int i;  // external counter variable
+
+  void print_one_row(void)
+  {
+    for (i = 1; i <= 10; i++)
+      printf(" +");
+  }
+
+  void print_all_rows(void)
+  {
+    for (i = 1; i <= 10; i++) {
+      print_one_row();
+      printf("\n");
+    }
+  }
+
+  int main(void)
+  {
+    print_all_rows();
+    return 0;
+  }
+#+end_src
+
+#+RESULTS:
+: + + + + + + + + + +
+
+Can you explain this?
+#+begin_quote
+- When =print_one_row= returns after being called the first time in
+  =print_all_rows=, we have =i=11=.
+- The =for= loop in =print_all_rows= tests =i= and exits because 11 > 10.
+- So, =print_one_row= is not called again.
+#+end_quote
+
+Fixed code without external counter variable:
+#+begin_src C :main no
+  void print_one_row(void)
+  {
+    int i;
+    for (i = 1; i <= 10; i++)
+      printf(" +");
+  }
+
+  void print_all_rows(void)
+  {
+    int i;
+    for (i = 1; i <= 10; i++) {
+      print_one_row();
+      printf("\n");
+    }
+  }
+
+  int main(void)
+  {
+    print_all_rows();
+    return 0;
+  }
+#+end_src
+
+#+RESULTS:
+#+begin_example
++ + + + + + + + + +
++ + + + + + + + + +
++ + + + + + + + + +
++ + + + + + + + + +
++ + + + + + + + + +
++ + + + + + + + + +
++ + + + + + + + + +
++ + + + + + + + + +
++ + + + + + + + + +
++ + + + + + + + + +
+#+end_example
 
 * Guessing a number
 
@@ -808,15 +897,15 @@ effect it has (such as modifying external variables).
   can repeat a game?
 
 - Compare this with the "Guess the number" program in Python ([[https://github.com/birkenkrahe/cor/blob/main/org/4_guessing_game.org][GitHub]]):
-  
+
   #+begin_example python
-    import random 
+    import random
     num = random.randint(1,20)
-    attempt = 0 
+    attempt = 0
     print("Guess my number! Enter a number between 1 and 20!")
-    while True: 
-        guess = int(input('Take a guess: ')) 
-        attempt = attempt + 1 
+    while True:
+        guess = int(input('Take a guess: '))
+        attempt = attempt + 1
         if guess < num: print("Too low")
         elif guess > num: print("Too high")
         else:
@@ -824,6 +913,50 @@ effect it has (such as modifying external variables).
             break
         if input("Enter 'q' to quit (or RET to continue: ")=='q': break
   #+end_example
+
+* PROJECT Variable scope
+
+- In a C program, the same identifier may have several different
+  meanings.
+
+- Scope rules enable you and the compiler to determine which meaning
+  is relevant at the given point in the program.
+
+- In the following (correct but contrived) program fragment, =i= is
+  declared in four different contexts:
+
+  #+begin_src C :results none
+    int i; // declaration 1
+
+    void f(int i) // declaration 2
+    {
+      i = 1;  // 2
+    }
+
+    void g(void)
+    {
+      int i = 2; // declaration 3
+
+      if (i > 0) {
+        int i;  // declaration 4
+        i = 3;  // 4
+      }
+
+      i  = 4; // 3
+    }
+
+    void h(void)
+    {
+      i = 5; // 1
+    }
+  #+end_src
+
+  #+begin_quote
+  1. =i= is an external variable with static storage duration and file scope
+  2. =i= is a parameter with block scope
+  3. =i= is an automatic variable with block scope (function body)
+  4. =i= is an automatic variable with block scope (selection body)
+  #+end_quote
 
 * Review questions
 
@@ -914,39 +1047,6 @@ effect it has (such as modifying external variables).
       system time on Jan 1, 1970.
     #+end_quote
 
-* Exercises
-
-- *Exercise:* show how =static= local variables work by writing a function
-  with a =static int= variable.
-
-  Solution:
-  #+begin_src C :main no
-    void add(void);
-
-    int main(void)
-    {
-      int result;
-      add();
-      add();
-      add();
-      return 0;
-    }
-
-    void add(void)
-    {
-      static int i;
-      i++;
-      printf("add: %d\n", i);
-    }
-  #+end_src
-
-  #+RESULTS:
-  : add: 1
-  : add: 2
-  : add: 3
-
-pp 237
-
 * Programming Projects
 
 1. Modify the stack example so that it stores characters instead of
@@ -969,7 +1069,7 @@ pp 237
    matched. If ~stack_overflow~ is called, have the program print the
    message ~Stack overflow~ and terminate immediately.
 
-6. Some calculators (notably those from Hewlett-Packard) use a system
+2. Some calculators (notably those from Hewlett-Packard) use a system
    of writing mathematical expressions known as Reverse Polish
    Notation (RPN). In this notation, operators are placed *after* their
    operands instead of *between* their operands. For example, 1 + 2
