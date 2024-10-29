@@ -164,8 +164,8 @@
 - Unlike a regular local variable, the value of =call_count= persists
   across multiple function calls.
 
-- To test that, turn =call_count= into a regular variable and run the
-  program again.
+- To test that, turn =call_count= into a regular variable in the code
+  block above and run the program again.
 
 * Type conversion
 
@@ -194,6 +194,7 @@
   and =x=, and a conversion from =char= to =int= and from =int= to =double= for
   =c=. For the conversion to =int=, the numeric ASCII value of =c= is used.
   #+end_quote
+
   #+begin_src C
     char c = 'a'; // ASCII value is 97
     printf("ASCII value of %c = %d\n",c,c);
@@ -204,7 +205,7 @@
 
 * Implicit Arithmetic Conversions
 
-- Because there are so many different arithmetic types[fn:1]=, implicit
+- Because there are so many different arithmetic types[fn:1], implicit
   conversion rules are complicated. A conversion is performed:
 
   1) When the operands don't have the same type (the usual case):
@@ -245,10 +246,11 @@
     printf("Result (implicit conversion): %f\n", result);
   #+end_src
 
+
   #+RESULTS:
   : Result (implicit conversion): 67.500000
 
-- Add explicit conversion:
+- Solution: Explicit conversion
   #+begin_src C
     int i = 1;
     float f = 1.5;
@@ -312,20 +314,22 @@
   different machines. The statement =int i = 100000;= works on a 32-bit
   machine, but fails on a 16-bit machine[fn:2]
 
-- Example: for a large warehouse program, you need variables capable
+- *Example*: for a large warehouse program, you need variables capable
   of storing product quantities in the range [0,50000]. We could use
   =long= variables for that[fn:3] but operations on =int= are faster and
   they take up less space. To use =int=, we define our own type:
-  #+begin_src C :results none
+  #+begin_src C :results output
     typedef int Quantity;
     Quantity q;
+    printf("Size of Quantity = %ld\n",sizeof(q));
   #+end_src
 
 - When moving to a machine with shorter integers, change the
   definition:
-  #+begin_src C :results none
+  #+begin_src C :results output
     typedef long Quantity;
     Quantity q;
+    printf("Size of Quantity = %ld\n",sizeof(q));    
   #+end_src
 
 - The C library uses =typedef= to create names for types that can vary
@@ -352,22 +356,16 @@
     printf("Size of int: %lu\n", (unsigned long) sizeof(int));
   #+end_src
 
-  #+RESULTS:
-  : Size of int: 4
-
 - The =printf= function in C99 and later can display =size_t= directly:
   #+begin_src C
     printf("Size of int: %zu\n", sizeof(int));
   #+end_src
 
-  #+RESULTS:
-  : Size of int: 4
-
 * External variables
 
 Functions can communicate through
 
-1) passing variables (see [[Storage and Scope]["storage and scope"]])
+1) passing variables.
 
 2) external (or /global/) variables that are declared outside the body
    of any function.
@@ -377,7 +375,30 @@ Functions can communicate through
    they can be accessed by all functions after the declaration of the
    external variable.
 
-* 
+* Pros and Cons of external variables
+
+- External variables are convenient when many functions share one, or
+  when a few functions share many variables.
+
+- In most cases, it is better for functions to communicate through
+  parameters rather by sharing variables:
+
+  1) When changing an external variable (e.g. altering its type),
+     every function that uses it must be checked.
+
+  2) If an external variable is assigned an incorrect value, it is
+     difficult to identify the guilty function.
+
+  3) Functions that rely on external variables are harder to reuse in
+     other programs (all required globals must be taken along).
+
+* PROJECT External variable bug
+
+The following example is supposed to display a 10 x 10 arrangement of
+asterisks:
+
+
+
 
 * Organizing Programs
 
@@ -895,7 +916,7 @@ effect it has (such as modifying external variables).
 
 * Exercises
 
-- *Exercise:* show how =static= local variables work by writing function
+- *Exercise:* show how =static= local variables work by writing a function
   with a =static int= variable.
 
   Solution:
@@ -1001,7 +1022,7 @@ pp 237
 | Implicit Conversion | Automatic type conversion in mixed-type expressions.                       |
 | typedef             | Creates a new type name, enhancing code readability and portability.       |
 
-* Summary
+* TODO Summary
 
 - Explores memory sections: stack, heap, globals, constants, code.
 - Stack stores local variables with automatic storage duration.
@@ -1010,7 +1031,9 @@ pp 237
 - Constants are read-only data, stored in a specific memory section.
 - Code section holds the program's executable instructions.
 - =static= keyword makes local variables retain value across calls.
+- Distinguish between automatic and static storage duration
 - Scope determines where a variable is visible in the code.
+- Distinguish between block and file scope.
 - Implicit conversions occur when operands in expressions differ in type.
 - Emphasizes organized program structure using external variables,
   prototypes, and type definitions.
