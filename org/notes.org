@@ -2348,25 +2348,35 @@ for I/O heavy workloads like databases [onlin Non-Volatile Memory]"
        return 5 * 25 = 125
    #+end_example
 
+
 * Week 11 - Stack, Arrays & Pointers [Oct 28]
 #+attr_html: :width 600px: 
 #+caption: Caspar David Friedrich, Mondaufgang am Meer, 1822.
 [[../img/mondaufgang_am_meer_CDF_1822.jpeg]]
 
-** Assignments and Tests:
+** TODO Assignments and Tests (5 weeks from the end of term!)
 
 - [ ] New bonus exercise: [[https://lyon.instructure.com/courses/2623/assignments/36047][Recursive Euclidean Algorithm]].
+
 - [ ] See also "writing a GCD function" exercise in 4_recursion.org.
+
 - [ ] Solution video for assignment 8 (VLA array concatenation):
   [[https://youtu.be/GVA_2AoTdyg][youtu.be/GVA_2AoTdyg]] and PDF version [[https://github.com/birkenkrahe/alg1/blob/main/pdf/concatenateArrays_video.pdf][on GitHub]].
+
 - [ ] There will be 2 more assignments and about the same number of
   bonus assignments, and 3 more online tests.
-- [ ] Remember: You can (but don't have to) write the final exam,
-  which consists of a selection of 50 questions from all quizzes.
-- [ ] Remember: You can build your own independent project and submit
-  a link to your repo (in GitHub or GDrive) [[https://lyon.instructure.com/courses/2623/assignments/36167][in Canvas]] now.
 
-** Algorithms - Spring'25
+- [ ] Remember: You can (but don't have to) write the *final exam*,
+  which consists of a selection of 50 questions from all quizzes.
+
+- [ ] Remember: You can build your own independent *research project*
+  and submit a link to your repo (in GitHub or GDrive) [[https://lyon.instructure.com/courses/2623/assignments/36167][in Canvas]] now.
+
+- [ ] *Quicksort*: Will create the promised analysis videos when I find
+  the time.
+
+
+** TODO Algorithms - Spring'25
 #+attr_html: :width 200px: 
 [[../img/Dive-Into-Algorithms_frontcover.png]] [[../img/zingaro.png]]
 
@@ -2402,7 +2412,30 @@ put beauty into it." -- Don Knuth (Inventor of literate programming)
 #+end_quote
 
 
-** Next topics
+** TODO Modus operandi:
+#+attr_html: :width 600px: 
+[[../img/mars.png]]
+
+1) Open an Org-mode file.
+2) Listen to my well-prepared ramblings.
+3) Code along with my small examples.
+4) For details, check the detailed GitHub lecture.
+5) For skills, solve exercises and assignments.
+6) For mastery, come up with your own exercises.
+7) For assistance, ask me and/or ask generative AI.
+8) For deep dives, follow C developers on X.com
+9) For deep learning, define your own large project.
+10) For support, form a coding study group.
+
+
+** TODO Next topics
+
+- [ ] Memory organization
+- [ ] Storage and scope
+- [ ] =static= local variables
+- [ ] Type conversion
+- [ ] Type definition with =typedef=
+- [ ] 
 
 * Week 12 - Strings, Structs, Enums, Unions [Nov 4]
 
