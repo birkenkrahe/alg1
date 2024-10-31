@@ -2426,11 +2426,10 @@ put beauty into it." -- Don Knuth (Inventor of literate programming)
 9) For deep learning, *research* your own large project.
 10) For additional support, *form* a coding study group.
 
-* IN PROGRESS Next topics
+* IN PROGRESS Stacks
 #+attr_html: :width 400px:
 [[../img/stack2.png]]
 
-Stacks:
 - [X] Memory organization
 - [X] Storage and scope
 - [X] =static= local variables
@@ -2441,7 +2440,15 @@ Stacks:
 - [ ] Implementing a stack (LIFO)
 - [ ] Guessing a number program -> video
 
-Pointers:
+Short (8 min) introduction to stacks (no code) [[https://youtu.be/I37kGX-nZEI?si=PZBYK2KqIh0HzAHu][on YouTube]].
+
+An even shorter (4 min) introduction to stacks in Python [[https://youtu.be/NKmasqr_Xkw?si=Bt8a_--GDSiVqa7b][on YouTube]].
+
+* NEXT Pointer Arithmetic
+#+attr_html: :width 300px:
+#+caption: https://xkcd.com/138
+[[../img/pointers.png]]
+
 - [ ] Pointers can point to array elements
 - [ ] Adding and subtracting pointers
 - [ ] Comparing pointers
@@ -2449,6 +2456,8 @@ Pointers:
 - [ ] Combining indirection and compound operators
 - [ ] Using an array name as a pointer
 - [ ] Revisiting =reverse.c=
+
+See also: Excellent [[https://youtu.be/MIL2BK02X8A?si=BlJZAsFF3OmnKLeD][freeCodeCamp video course just on pointers]] (2 hrs)
 
 * TODO Review: Scope and Storage
 
