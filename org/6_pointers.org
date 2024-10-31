@@ -170,13 +170,19 @@
     p = &a[5]; // p points at a[5]
     q = &a[1]; // q points at a[1]
 
-    printf("p <= q: %d\n", p <= q); // p<=q is false b/c 5 > 1
-    printf("p >= q: %d\n", p >= q); // p>=q is true b/c 5 > 1
+    printf("p < q: %d\n", p < q); // 5 < 1 is FALSE (0)
+    printf("p > q: %d\n", p > q); // 5 > 1 is TRUE (1)
+
+    // Show this by printing the addresses
+    printf("%d < %d: %d\n", p, q, p < q); 
+    printf("%d > %d: %d\n", p, q, p > q);
   #+end_src
 
   #+RESULTS:
-  : p <= q: 0
-  : p >= q: 1
+  : p < q: 0
+  : p > q: 1
+  : -827356428 < -827356444: 0
+  : -827356428 > -827356444: 1
 
 * Pointers to compound literals
 
