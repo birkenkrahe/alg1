@@ -1,0 +1,184 @@
+#+STARTUP:overview hideblocks indent
+#+PROPERTY: header-args:C :main yes :includes <stdio.h> <stdlib.h> <string.h> <time.h> :results output :exports both :comments none :noweb yes
+* Stack Implementation
+
+#+begin_src C :main no
+  #include <stdbool.h> // add data type `bool`
+  #include <stdlib.h> // include EXIT_FAILURE macro
+  #define STACK_SIZE 20  // size of our stack
+
+  /* external variables */
+  int contents[STACK_SIZE]; // modeling stack as integer array
+  int top = 0;
+
+  void make_empty(void)
+  {
+    top = 0;   // set pointer back to start
+  }
+
+  bool is_empty(void)
+  {
+    return top == 0; // is the pointer pointing at contents[0]
+  }
+
+  bool is_full(void)
+  {
+    return top == STACK_SIZE; // is the pointer pointing at contents[STACK_SIZE]
+  }
+
+  int stack_overflow(void) // triggered when pushing on a full stack
+  {
+    printf("Stack overflow!\n");
+    return EXIT_FAILURE;  // macro defined in stdlib.h - ABORT
+  }
+
+  int stack_underflow(void) // triggered when popping an empty stack
+  {
+    printf("Stack underflow!\n");
+    return EXIT_FAILURE;  // macro defined in stdlib.h - ABORT
+  }
+
+  void push(int i)  // pushes integer argument on stack
+  {
+    if (is_full())
+      stack_overflow();  // abort when stack is full
+    else
+      contents[top++] = i;  // put i on top of stack
+  }
+
+  int pop(void)  // returns an integer from the stack
+  {
+    if (is_empty())
+      stack_underflow(); // abort when stack is empty
+    else
+      return contents[--top]; // return top element of stack (LIFO)
+  }
+
+  const void print_stack(void)
+  {
+    printf("stack pointer = %d\n", top);
+    for (int i=0; i < STACK_SIZE; i++)
+      printf("%d ", contents[i]);
+    puts("");
+  }
+
+  // main program
+  int main (void)
+  {
+    print_stack(); // initial state
+    push(1);
+    print_stack();
+    pop();
+    print_stack();
+
+    for (int i=0; i < STACK_SIZE; i++)
+      push(1);
+    print_stack();
+    push(1);
+    return 0;
+  }
+#+end_src
+
+#+RESULTS:
+: stack pointer = 0
+: 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 
+: stack pointer = 1
+: 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 
+: stack pointer = 0
+: 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 
+: stack pointer = 20
+: 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 
+: Stack overflow!
+
+
+
+* Pointer Arithmetic
+
+What are pointers good for:
+1) Direct access to memory (important for hardware)
+2) Allocation of memory at runtime
+3) Passing arguments by reference to modify vars in calling functions
+4) Passing pointers means you don't have to copy stuff
+5) Create complex data structures (linked lists, trees, graphs)
+6) Create memory-efficient programs (important big data)
+7) Enable "polymorphic" behavior in C and C++ (OOP)
+
+** Pointers can point to array elements
+1) Define pointer to array
+2) Point at array element
+
+#+begin_src C
+  int a[10] = {0,1,2,3,4,5,6,7,8,9}; // 0-9 values
+  int *p; // * is a declaration symbol
+  int *q; 
+
+  p = &a[0];  // p points at a[0]
+  q = &a[9];  // q points at a[9]
+
+  printf("p points at a[%d]\n", *p); // * is a derefencing operator
+  printf("q points at a[%d]\n", *q); 
+
+  (*p) = 5;
+  printf("a[0] = %d\n", a[0]);
+#+end_src
+
+#+RESULTS:
+: p points at a[0]
+: q points at a[9]
+: a[0] = 5
+
+** Adding and subtracting pointers
+
+Adding an integer to a pointer
+
+#+begin_src C
+  int a[10] = {0,1,2,3,4,5,6,7,8,9};
+  int *p, *q;
+
+  p = &a[2]; // points at a[2]
+  printf("p points at a[%d]\n", *p);
+
+  q = p + 3; // q point at a[2+3] = a[5]
+  printf("q points at a[%d]\n", *q);
+
+  p += 6; // p points at p[2+6] = p[8]
+  printf("p points at a[%d]\n", *p);
+#+end_src
+
+#+RESULTS:
+: p points at a[2]
+: q points at a[5]
+: p points at a[8]
+
+** Comparing pointers
+
+#+begin_src C
+
+#+end_src
+
+** Pointers to compound literals
+
+#+begin_src C
+
+#+end_src
+
+** Using pointers to process arrays
+
+#+begin_src C
+  
+#+end_src
+
+** Combining indirection and compound operators
+
+#+begin_src C
+
+#+end_src
+
+** Using an array name as a pointer
+
+#+begin_src C
+
+#+end_src
+
+** Revisiting =reverse.c=
+
