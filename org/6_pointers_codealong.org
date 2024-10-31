@@ -1,28 +1,54 @@
 #+STARTUP:overview hideblocks indent
 #+PROPERTY: header-args:C :main yes :includes <stdio.h> <stdlib.h> <string.h> <time.h> :results output :exports both :comments none :noweb yes
+* Stack Implementation
+
+#+begin_src C
+
+#+end_src
 
 * Pointer Arithmetic
 
 ** Pointers can point to array elements
 
+#+begin_src C
+
+#+end_src
 
 ** Adding and subtracting pointers
 
+#+begin_src C
 
+#+end_src
 
 ** Comparing pointers
 
+#+begin_src C
+
+#+end_src
 
 ** Pointers to compound literals
 
+#+begin_src C
+
+#+end_src
 
 ** Using pointers to process arrays
 
+#+begin_src C
+ 
+#+end_src
 
 ** Combining indirection and compound operators
 
+#+begin_src C
+
+#+end_src
 
 ** Using an array name as a pointer
 
+#+begin_src C
+
+#+end_src
 
 ** Revisiting =reverse.c=
+
