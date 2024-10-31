@@ -13,6 +13,9 @@
 ** Comparing pointers
 
 
+** Pointers to compound literals
+
+
 ** Using pointers to process arrays
 
 

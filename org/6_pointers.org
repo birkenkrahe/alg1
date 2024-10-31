@@ -35,16 +35,29 @@
 * Pointer Arithmetic
 
 - Pointers can point to array elements:
+  1) Define pointer
+  2) Point at array element
+  3) Store values using pointer
+
   #+begin_src C
     int a[10] = {0,1,2,3,4,5,6,7,8,9};
-    int *p;
+    int *p;  // * is a declaration symbol here and not a dereferencing operator
+    int *q;
 
     p = &a[0]; // p points to a[0]
-    printf("p points at a[%d]\n", *p);
+    q = &a[9];
+
+    printf("p points at a[%d]\n", *p); // * is a dereferencing operator
+    printf("q points at a[%d]\n", *q);
+
+    (*p) = 5;
+    printf("a[0] = %d\n", a[0]);
   #+end_src
 
   #+RESULTS:
   : p points at a[0]
+  : q points at a[9]
+  : a[0] = 5
 
   #+attr_html: :width 400px:
   [[../img/ch12_1.png]]
@@ -134,7 +147,7 @@
     i = p - q; // i is 4
     i = q - p; // i is -4
 
-    printf("p - q = %d\n", (int)(p - q));
+    printf("p - q = %d\n", (int)(p - q)); // needs cast to (int)
     printf("q - p = %d\n", (int)(q - p));
   #+end_src
 
@@ -164,6 +177,24 @@
   #+RESULTS:
   : p <= q: 0
   : p >= q: 1
+
+* Pointers to compound literals
+
+- Pointers can point to an element within an array created by a
+  compound literal.
+
+- Recall that a compound literal is a C99 feature that is used to
+  create an array without declaration or name.
+
+- Example:
+  #+begin_src C
+    int *p = (int []){3, 0, 3, 4, 1}; // p points at first element (3)
+
+    printf("p points at a[0] = %d\n", *p);    
+  #+end_src
+
+  #+RESULTS:
+  : p points at a[0] = 3
 
 * Using Pointers for Array Processing
 
@@ -274,7 +305,8 @@
 - How would the =push= and =pop= functions look like? We can now replace
   =contents[top++]= by =*top_ptr++=, and =contents[--top]= by =*--top_ptr=.
 
-- Testing this and updating the other stack functions is an exercise.
+- Testing this and updating the other stack functions is a bonus
+  exercise.
 
 * Using an Array Name as a Pointer
 

@@ -2449,15 +2449,24 @@ An even shorter (4 min) introduction to stacks in Python [[https://youtu.be/NKma
 #+caption: https://xkcd.com/138
 [[../img/pointers.png]]
 
-- [ ] Pointers can point to array elements
-- [ ] Adding and subtracting pointers
+- [ ] [[https://github.com/birkenkrahe/alg1/blob/main/img/ch12_1.png][Pointers can point to array elements]]
+- [ ] [[https://github.com/birkenkrahe/alg1/blob/main/img/ch12_3.png][Adding and subtracting pointers]]
 - [ ] Comparing pointers
+- [ ] Pointers to compound literals
 - [ ] Using pointers to process arrays
 - [ ] Combining indirection and compound operators
 - [ ] Using an array name as a pointer
 - [ ] Revisiting =reverse.c=
 
 See also: Excellent [[https://youtu.be/MIL2BK02X8A?si=BlJZAsFF3OmnKLeD][freeCodeCamp video course just on pointers]] (2 hrs)
+
+To code along, download and open in Emacs:
+[[https://tinyurl.com/pointers-codealong][tinyurl.com/pointers-codealong]]
+
+#+begin_example bash
+  wget -O pointers.org tinyurl.com/pointers-codealong
+  emacs --file pointers.org
+#+end_example
 
 * TODO Review: Scope and Storage
 
