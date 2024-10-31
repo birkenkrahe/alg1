@@ -2444,43 +2444,19 @@ Short (8 min) introduction to stacks (no code) [[https://youtu.be/I37kGX-nZEI?si
 
 An even shorter (4 min) introduction to stacks in Python [[https://youtu.be/NKmasqr_Xkw?si=Bt8a_--GDSiVqa7b][on YouTube]].
 
-* NEXT Pointer Arithmetic
-#+attr_html: :width 300px:
-#+caption: https://xkcd.com/138
-[[../img/pointers.png]]
-
-- [ ] [[https://github.com/birkenkrahe/alg1/blob/main/img/ch12_1.png][Pointers can point to array elements]]
-- [ ] [[https://github.com/birkenkrahe/alg1/blob/main/img/ch12_3.png][Adding and subtracting pointers]]
-- [ ] Comparing pointers
-- [ ] Pointers to compound literals
-- [ ] Using pointers to process arrays
-- [ ] Combining indirection and compound operators
-- [ ] Using an array name as a pointer
-- [ ] Revisiting =reverse.c=
-
-See also: Excellent [[https://youtu.be/MIL2BK02X8A?si=BlJZAsFF3OmnKLeD][freeCodeCamp video course just on pointers]] (2 hrs)
-
-To code along, download and open in Emacs:
-[[https://tinyurl.com/pointers-codealong][tinyurl.com/pointers-codealong]]
-
-#+begin_example bash
-  wget -O pointers.org tinyurl.com/pointers-codealong
-  emacs --file pointers.org
-#+end_example
-
-* TODO Review: Scope and Storage
+* DONE Review: Scope and Storage
 
 1. What is the primary purpose of the stack in memory organization?
    #+begin_quote
-   The stack is used for storing local variables, especially when
+   The stack is used for storing /local/ variables, especially when
    functions are called. These variables are automatically allocated
-   when the function is called, and deallocated when it is entered.
+   when the function is called, and deallocated when it is left.
    #+end_quote
 
 2. What is the difference between "automatic" and "static" storage
    duration?
    #+begin_quote
-   - Variables defined with block scope have automatic storage
+   - Variables defined with /block scope/ have automatic storage
      duration. A block is any structure enclosed by { }.
    - Variables defined with file scope have static storage duration,
      e.g. =static= variables in functions, or global aka external
@@ -2505,6 +2481,9 @@ To code along, download and open in Emacs:
      printf("%d %d\n", i, j);
    #+end_src
 
+   #+RESULTS:
+   : 1 2
+
    #+begin_quote
    Both definitions are correct. The =static= and the data type keywords
    are interchangeable, just like =const= and data type.
@@ -2517,9 +2496,12 @@ To code along, download and open in Emacs:
      printf("%d %d\n", k, l);
    #+end_src
 
+   #+RESULTS:
+   : 3 4
+
 5. Can you define your own data type? How and why would you do it?
    #+begin_quote
-   The =typedef= keyword allows you to create an alias for an existing
+   The =typedef= keyword allows you to create an /alias/ for an existing
    data type - this can improve code readability, consistency, and
    portability.
    #+end_quote
@@ -2533,10 +2515,15 @@ To code along, download and open in Emacs:
       printf("The total distance was %g\n", d1 + d2);
     #+end_src
 
-6. The following example is supposed to display a 10 x 10 arrangement
+    #+RESULTS:
+    : The total distance was 30.5
+
+    *Note to self*: order of =typedef= alias keyword??
+
+7. The following example is supposed to display a 10 x 10 arrangement
    of plus signs but it doesn't - can you explain why? Can you fix it?
    #+begin_src C :main no
-     int i;  // external counter variable
+     int i;  // external counter variable with static storage duration
 
      void print_one_row(void)
      {
@@ -2561,7 +2548,7 @@ To code along, download and open in Emacs:
 
    #+RESULTS:
    : + + + + + + + + + +
-
+   
    #+begin_quote
    - =print_all_rows= calls =print_one_row=. When the program returns from
      =print_one_row= the first time, =i= has the value 11.
@@ -2569,6 +2556,31 @@ To code along, download and open in Emacs:
      the condition =i < 10= returns =FALSE=, the =for= loop is left and no
      further row is printed.
    #+end_quote
+
+* NEXT Pointer Arithmetic
+#+attr_html: :width 300px:
+#+caption: https://xkcd.com/138
+[[../img/pointers.png]]
+
+- [ ] [[https://github.com/birkenkrahe/alg1/blob/main/img/ch12_1.png][Pointers can point to array elements]]
+- [ ] [[https://github.com/birkenkrahe/alg1/blob/main/img/ch12_3.png][Adding and subtracting pointers]]
+- [ ] Comparing pointers
+- [ ] Pointers to compound literals
+- [ ] Using pointers to process arrays
+- [ ] Combining indirection and compound operators
+- [ ] Using an array name as a pointer
+- [ ] Revisiting =reverse.c=
+
+See also: Excellent [[https://youtu.be/MIL2BK02X8A?si=BlJZAsFF3OmnKLeD][freeCodeCamp video course just on pointers]] (2 hrs)
+
+To code along, download and open in Emacs:
+[[https://tinyurl.com/pointers-codealong][tinyurl.com/pointers-codealong]]
+
+#+begin_example bash
+  wget -O pointers.org tinyurl.com/pointers-codealong
+  emacs --file pointers.org
+#+end_example
+
 
 * Week 12 - Strings, Structs, Enums, Unions [Nov 4]
 * Week 13 - Dynamic Storage Allocation and Lists [Nov 11]
