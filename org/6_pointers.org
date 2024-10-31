@@ -4,6 +4,19 @@
 #+PROPERTY: header-args:C :main yes :includes <stdio.h> <stdlib.h> <string.h> <time.h> :results output :exports both :comments none :noweb yes
 * README
 
+- Remember pointers? What they are good for:
+  1) Direct access of memory addresses (important for hardware)
+  2) Allocation of memory at runtime to handle data structures
+  3) Passing arguments by reference to modify vars in calling function
+  4) Passing pointers means you don't have to copy large structures
+  5) Create complex data structures (linked lists, trees, graphs)
+  6) Create memory-efficient programs (important for big data)
+  7) Enable polymorphic behaviour in C and C++ (OOP)
+
+- "Polymorphic" ("made of many forms", in Greek) in this context means
+  that you allow objects to be treated as instances of their parent
+  class even if they belong to a subclass with its own behavior.
+
 - Pointers and arrays are closely related in the C programming
   language. Understanding pointer arithmetic and how arrays are
   accessed through pointers is fundamental for low-level memory

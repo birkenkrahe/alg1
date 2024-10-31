@@ -1,0 +1,25 @@
+#+STARTUP:overview hideblocks indent
+#+PROPERTY: header-args:C :main yes :includes <stdio.h> <stdlib.h> <string.h> <time.h> :results output :exports both :comments none :noweb yes
+
+* Pointer Arithmetic
+
+** Pointers can point to array elements
+
+
+** Adding and subtracting pointers
+
+
+
+** Comparing pointers
+
+
+** Using pointers to process arrays
+
+
+** Combining indirection and compound operators
+
+
+** Using an array name as a pointer
+
+
+** Revisiting =reverse.c=
