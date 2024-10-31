@@ -15,7 +15,6 @@
 
 - Much of this is based on King, C Programming (2008), chapter 12.
 
-
 #+begin_quote
 "Premature optimization is the root of all evil." --Donald E Knuth
 #+end_quote
