@@ -513,12 +513,11 @@ effect it has (such as modifying external variables).
       print_stack();
       push(1);
       print_stack();
-      //print_stack();
       // pop number from stack
       pop();
       print_stack();
       // pop number from stack (trigger underflow)
-      //pop();
+      // pop();
       // push STACK_SIZE numbers onto stack
       for (int i=0; i < STACK_SIZE; i++)
         push(1);
