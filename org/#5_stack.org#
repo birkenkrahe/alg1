@@ -615,14 +615,14 @@ effect it has (such as modifying external variables).
 
   #+RESULTS: stack
   : top = 1
-  : 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+  : 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 
   : top = 2
-  : 1 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+  : 1 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 
   : top = 1
-  : 1 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+  : 1 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 
   : Stack overflow!
   : top = 20
-  : 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1
+  : 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 
 
 * Pros and Cons of external variables
 

@@ -2289,7 +2289,7 @@ for I/O heavy workloads like databases [onlin Non-Volatile Memory]"
    Both the =exit= function and the macro definitions =EXIT_SUCCESS= (0)
    and =EXIT_FAILURE= (1) are defined in =stdlib.h=.
    #+end_quote
-   #+begin_src C 
+   #+begin_src C
      #include <stdlib.h>
      int status = 0;
      if (status) {
@@ -2315,7 +2315,7 @@ for I/O heavy workloads like databases [onlin Non-Volatile Memory]"
        return n <= 1 ? 1 : n * factorial(n-1);
      }
      int power(int x, int n) {
-       return n == 0 ? 1 : x * power(x,n-1); 
+       return n == 0 ? 1 : x * power(x,n-1);
      }
      int main(void) {
        int x = 5, n = 3;
@@ -2348,14 +2348,14 @@ for I/O heavy workloads like databases [onlin Non-Volatile Memory]"
        return 5 * 25 = 125
    #+end_example
 
-
-* Week 11 - Stack, Arrays & Pointers [Oct 28]
-#+attr_html: :width 600px: 
+   
+* Week 11 - Stack & Pointer Arithmetic [Oct 28]
+#+attr_html: :width 600px:
 #+caption: Caspar David Friedrich, Mondaufgang am Meer, 1822.
 [[../img/mondaufgang_am_meer_CDF_1822.jpeg]]
 
-* NEXT Algorithms - Spring'25
-#+attr_html: :width 200px: 
+* DONE Algorithms - Spring'25
+#+attr_html: :width 200px:
 [[../img/Dive-Into-Algorithms_frontcover.png]] [[../img/zingaro.png]]
 
 Since a number of you are currently looking at CSC 265 'Algorithms':
@@ -2411,9 +2411,8 @@ put beauty into it." -- Don Knuth (Inventor of literate programming)
 - [X] *Quicksort*: Will create the promised analysis videos when I find
   the time.
 
-
-* Modus operandi: 10 suggestions
-#+attr_html: :width 600px: 
+* DONE Modus operandi: 10 suggestions
+#+attr_html: :width 600px:
 [[../img/mars.png]]
 
 1) *Open* an Org-mode file.
@@ -2427,22 +2426,133 @@ put beauty into it." -- Don Knuth (Inventor of literate programming)
 9) For deep learning, *research* your own large project.
 10) For additional support, *form* a coding study group.
 
+* IN PROGRESS Next topics
+#+attr_html: :width 400px:
+[[../img/stack2.png]]
 
-** TODO Next topics
-
+Stacks:
 - [X] Memory organization
 - [X] Storage and scope
 - [X] =static= local variables
+- [X] Variable scope
 - [X] Type conversion
 - [X] Type definition with =typedef=
 - [X] External variables
-- [ ] Implementing a stack 
-- [ ] Guessing a number program
-- [ ] Variable scope
+- [ ] Implementing a stack (LIFO)
+- [ ] Guessing a number program -> video
 
+Pointers:
+- [ ] Pointers can point to array elements
+- [ ] Adding and subtracting pointers
+- [ ] Comparing pointers
+- [ ] Using pointers to process arrays
+- [ ] Combining indirection and compound operators
+- [ ] Using an array name as a pointer
+- [ ] Revisiting =reverse.c=
+
+* TODO Review: Scope and Storage
+
+1. What is the primary purpose of the stack in memory organization?
+   #+begin_quote
+   The stack is used for storing local variables, especially when
+   functions are called. These variables are automatically allocated
+   when the function is called, and deallocated when it is entered.
+   #+end_quote
+
+2. What is the difference between "automatic" and "static" storage
+   duration?
+   #+begin_quote
+   - Variables defined with block scope have automatic storage
+     duration. A block is any structure enclosed by { }.
+   - Variables defined with file scope have static storage duration,
+     e.g. =static= variables in functions, or global aka external
+     variables outside of any function.
+   #+end_quote
+
+3. Why is the =sizeof= operator crucial for type portability in C?
+   #+begin_quote
+   - "Type portability" means that the programmer knows the exact
+     memory needed, across different computer architectures and
+     machines.
+   - The =sizeof= operator is evaluated at compile-time (not at
+     run-time). It returns the number of bytes required for a
+     particular type.
+   #+end_quote
+
+4. Which definition is correct:
+   #+begin_src C
+     static int i = 1;
+     int static j = 2;
+
+     printf("%d %d\n", i, j);
+   #+end_src
+
+   #+begin_quote
+   Both definitions are correct. The =static= and the data type keywords
+   are interchangeable, just like =const= and data type.
+   #+end_quote
+
+   #+begin_src C
+     const int k = 3;
+     int const l = 4;
+
+     printf("%d %d\n", k, l);
+   #+end_src
+
+5. Can you define your own data type? How and why would you do it?
+   #+begin_quote
+   The =typedef= keyword allows you to create an alias for an existing
+   data type - this can improve code readability, consistency, and
+   portability.
+   #+end_quote
+
+6. How about defining a type for a program that computes distance?
+    #+begin_src C
+      typedef float Distance; // order cannot be changed - `typdef` comes first
+      Distance d1 = 10.1;
+      Distance d2 = 20.4;
+
+      printf("The total distance was %g\n", d1 + d2);
+    #+end_src
+
+6. The following example is supposed to display a 10 x 10 arrangement
+   of plus signs but it doesn't - can you explain why? Can you fix it?
+   #+begin_src C :main no
+     int i;  // external counter variable
+
+     void print_one_row(void)
+     {
+       for (i = 1; i <= 10; i++)
+         printf(" +");
+     }
+
+     void print_all_rows(void)
+     {
+       for (i = 1; i <= 10; i++) {
+         print_one_row();
+         printf("\n");
+       }
+     }
+
+     int main(void)
+     {
+       print_all_rows();
+       return 0;
+     }
+   #+end_src
+
+   #+RESULTS:
+   : + + + + + + + + + +
+
+   #+begin_quote
+   - =print_all_rows= calls =print_one_row=. When the program returns from
+     =print_one_row= the first time, =i= has the value 11.
+   - Since =i= is an external variable, this value is not deallocated,
+     the condition =i < 10= returns =FALSE=, the =for= loop is left and no
+     further row is printed.
+   #+end_quote
 
 * Week 12 - Strings, Structs, Enums, Unions [Nov 4]
-
 * Week 13 - Dynamic Storage Allocation and Lists [Nov 11]
 
 * Week 14 - Trees and Hash Tables [Nov 18]
