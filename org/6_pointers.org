@@ -196,11 +196,15 @@
   #+begin_src C
     int *p = (int []){3, 0, 3, 4, 1}; // p points at first element (3)
 
-    printf("p points at a[0] = %d\n", *p);    
+    printf("p points at a[0] = %d\n", *p);
+
+    p += 4;
+    printf("p points at a[4] = %d\n", *p);
   #+end_src
 
   #+RESULTS:
   : p points at a[0] = 3
+  : p points at a[4] = 1
 
 * Using Pointers for Array Processing
 
@@ -212,10 +216,16 @@
     #define N 10
 
     int a[N] = {11,34,82,7,64,98,47,18,79,20};
-    int sum, *p;
 
-    sum = 0;
-    for (p = &a[0]; p < &a[N]; p++) {
+    int sum_i, sum_p, *p, i;
+
+    sum_i = sum_p = 0;
+    // loop with subscripting
+    for (i=0; i<N; i++)
+      sum_i+=a[i];
+    printf("sum = %d\n", sum_i);
+    // loop with pointer arithmetic
+    for (p = &a[0]; p < &a[N]; p++) { // p++: p = p + 1
       sum += *p;
       printf("iter: %d sum: %d\n", *p, sum);
      }
@@ -248,10 +258,12 @@
 - Can you guess what the pointer equivalent of =a[i++] = j= is?
   #+begin_quote
   - The non-pointer statement assigns =j= to the array element =a[i]= and
-    then advances one element.
+    then advances one element
 
-  - If =p= points at =a[i]=, then =*p++= points at =a[i++]=, so the
-    statement is equivalent to =*p++ = j=.
+  - Remember =push= and =pop= with =contents[top++]= and =contents[--top]=.
+
+  - If =p= points at =a[i]=, then =*p++= points at =*&a[i++]= or =a[i++]=.  so
+    =a[i++]= is equivalent to =*p++ = j=.
 
   - Because =++= takes precedence over =*=, the compiler sees =*p++= as
     =*(p++)=, and the value of =p++= is =p= (because of the postfix
@@ -266,18 +278,19 @@
     a[i++] = val;
 
     i = 6;
-    val = -1;
     p = &a[6];
-    (*p++) = val;
+    (*p++) = val;  // assign val to *p and then advance to p+1
 
     printf("0   1  2  3  4  5   6  7  8  9\n");
     for (j=0; j<10; j++)
       printf("%d  ", a[j]);
+
+    printf("\nvalue *p = %d ", *p); // points at a[7]
   #+end_src
 
   #+RESULTS:
   : 0   1  2  3  4  5   6  7  8  9
-  : 0  -1  0  0  0  0  -1  0  0  0
+  : 0  -1  0  0  0  0  -1  0  0  0  
 
 - Note: Org-mode code blocks need the extra parentheses around =*p++=
   because the leading asterisk is otherwise interpreted
