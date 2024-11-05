@@ -226,14 +226,22 @@
     printf("sum = %d\n", sum_i);
     // loop with pointer arithmetic
     for (p = &a[0]; p < &a[N]; p++) { // p++: p = p + 1
-      sum += *p;
-      printf("iter: %d sum: %d\n", *p, sum);
+      sum_p += *p;
+      printf("iter: %d sum: %d\n", *p, sum_p);
      }
+    printf("Sum of array elements: %d\n", sum_p);
+
+    // while loop (see later)
+    int sum = 0;
+    p = &a[0];
+    while (p < &a[N]) // while p points at array element
+      sum = sum + (*p++); // same as sum += *(&a[i++])
     printf("Sum of array elements: %d\n", sum);
   #+end_src
 
   #+RESULTS:
   #+begin_example
+  sum = 460
   iter: 11 sum: 11
   iter: 34 sum: 45
   iter: 82 sum: 127
@@ -244,6 +252,7 @@
   iter: 18 sum: 361
   iter: 79 sum: 440
   iter: 20 sum: 460
+  Sum of array elements: 460
   Sum of array elements: 460
   #+end_example
 
@@ -295,7 +304,7 @@
 - Note: Org-mode code blocks need the extra parentheses around =*p++=
   because the leading asterisk is otherwise interpreted
 
-- =*p++= is handy in loops: to sum the elements of an array =a= as before,
+- =*p++= is handy in loops: To sum the elements of an array =a= as before,
   with =for (p = &a[0]; p < &a[N]; p++)=, you can now write
   #+begin_src C
     #define N 10
@@ -305,8 +314,8 @@
 
     sum = 0;
     p = &a[0];
-    while (p < &a[N])
-      sum = sum + (*p++);
+    while (p < &a[N]) // while p points at array element
+      sum = sum + (*p++); // same as sum += *(&a[i++])
     printf("Sum of array elements: %d\n", sum);
   #+end_src
 
@@ -324,8 +333,7 @@
 - How would the =push= and =pop= functions look like? We can now replace
   =contents[top++]= by =*top_ptr++=, and =contents[--top]= by =*--top_ptr=.
 
-- Testing this and updating the other stack functions is a bonus
-  exercise.
+- This is going to be a simple (bonus) programming assignment!
 
 * Using an Array Name as a Pointer
 
@@ -342,7 +350,8 @@
 - Since =a + i= is the same as =&a[i]= and =*(a+i)= is the same as =a[i]=,
   array subscripting can be viewed as a form of pointer arithmetic.
 
-- It is now easier to step through an array using pointers (last line):
+- It is now easier to step through an array using pointers. Here are
+  all three ways of looping again:
   #+begin_src C
     #define N 10
     int a[N] = {[0 ... N-1]=1}, *p; // initialize with a designated initializer
@@ -352,9 +361,9 @@
   #+end_src
 
   #+RESULTS:
-  : 1 1 1 1 1 1 1 1 1 1
-  : 1 1 1 1 1 1 1 1 1 1
-  : 1 1 1 1 1 1 1 1 1 1
+  : 1 1 1 1 1 1 1 1 1 1 
+  : 1 1 1 1 1 1 1 1 1 1 
+  : 1 1 1 1 1 1 1 1 1 1 
 
 - You cannot assign the array name a new value but have to copy it to
   a pointer first:
@@ -362,15 +371,18 @@
     #define N 10
     int a[N] = {[0 ... N-1]=1}, *p; // initialize with a designated initializer
 
-    p = a;
-    while (*p != 0)
-      p--;
+    for (int i=0;i<N;i++) printf("%d ",a[i]); puts("");
 
-    printf("%p %d\n", p, *p);
+    p = a; // same as p = &a[0]
+    while (*p != 0)
+      p--; // p = p - 1
+
+    printf("%p %d\n", p, *p); 
   #+end_src
 
   #+RESULTS:
-  : 0x7ffce34d4b04 0
+  : 1 1 1 1 1 1 1 1 1 1 
+  : 0x7fff87e78c54 0
 
 - As an application of array names as pointers, we revisit =reverse.c=:
   #+begin_src C :tangle reverse.c :main no :includes :results none
