@@ -1384,7 +1384,8 @@ that changes its elements to 0. Print all result in =main=.
      }
    #+end_src
 
-5) Update the stack program with pointers to arrays.
+5) Update the stack program with pointers to arrays (BONUS
+   assignment).
 
 6) Write and test the following function:
    #+begin_src C :results none
