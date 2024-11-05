@@ -2586,6 +2586,8 @@ To code along, download and open in Emacs:
 
 /Image: Soviet election poster "Choose the worthy!" (1936)/
 
+---- *REMEMBER: THERE IS NO CLASS MEETING THIS THURSDAY NOVEMBER 7* ----
+
 - [ ] Programming assignment 9 (Nov 11) and bonus assignment (Dec 6)
 - [ ] Review: Pointer arithmetic I (see quiz)
 - [ ] Continued: Pointer arithmetic II
@@ -2593,7 +2595,7 @@ To code along, download and open in Emacs:
 
 ** Review: Pointer arithmetic I
 
-1. What does "pointer arithmetic" mean?
+1. What does "pointer arithmetic" mean? 
    #+begin_quote
    It refers to using pointers to access array elements that they're
    pointing at. You can add an integer to a pointer, subtract an
@@ -2602,7 +2604,16 @@ To code along, download and open in Emacs:
    index operations.
    #+end_quote
 
-2. Give an example for adding an integer to a pointer.
+2. What is the meaning of the =*= symbol (asterisk) in connection with pointers?
+   #+begin_quote
+   1. In a pointer /declaration/ (=int *p = &a[0];=) it is a symbol to
+      declare a pointer structure with the given data type (=int=).
+   2. In a pointer statement (=*p = 5;=) it is an /indirection/ operator
+      that dereferences the pointer =p= to access the value stored at
+      the address =p= points at.
+   #+end_quote
+
+3. Give an example for adding an integer to a pointer.
    #+begin_src C
      int a[10]={100,101,102,103,104,105,106,800,900,1000}, *p, i;
      p = &a[0]; // p points at a[0] = 100
@@ -2615,7 +2626,7 @@ To code along, download and open in Emacs:
    : *p = 104, a[4] = 104
    : p = 0x7ffc9f8188a0, &a[4] = 0x7ffc9f8188a0
 
-3. Give an example for subtracting an integer from a pointer.
+4. Give an example for subtracting an integer from a pointer.
    #+begin_src C
      int a[10]={100,101,102,103,104,105,106,800,900,1000}, *p, i;
      p = &a[9]; // p points at a[9] = 9
@@ -2628,27 +2639,54 @@ To code along, download and open in Emacs:
    : *p = 106, a[6] = 106
    : p = 0x7ffd3aae4af8, &a[6] = 0x7ffd3aae4af8
 
-4.  Give an example for subtracting one pointer from another.
-   #+begin_src C
-     int a[10]={100,101,102,103,104,105,106,800,900,1000}, *p, *q;
-     p = &a[9]; // p points at a[9]
-     q = &a[3];
-     printf("p - q = %ld\n", p-q); // distance between locations as indices
-     printf("*p - *q = %d\n", *p-*q); // difference of values
-     printf("&a[9] - &a[3] = %ld\n", &a[9] - &a[3]); // distance between addresses
-   #+end_src
+5. Give an example for subtracting one pointer from another.
+  #+begin_src C
+    int a[10]={100,101,102,103,104,105,106,800,900,1000}, *p, *q;
+    p = &a[9]; // p points at a[9]
+    q = &a[3];
+    printf("p - q = %ld\n", p-q); // distance between locations as indices
+    printf("*p - *q = %d\n", *p-*q); // difference of values
+    printf("&a[9] - &a[3] = %ld\n", &a[9] - &a[3]); // distance between addresses
+  #+end_src
 
-   #+RESULTS:
-   : p - q = 6
-   : *p - *q = 897
-   : &a[9] - &a[3] = 6
+  #+RESULTS:
+  : p - q = 6
+  : *p - *q = 897
+  : &a[9] - &a[3] = 6
 
-5. If =p = &a[3]=, what is =p+=3= ?
+6. If =p = &a[3]=, what is =p+=3= ?
    #+begin_quote
    If =p= points at the array element =a[3]=, then =p+=3= (or =p = p + 3=)
    points at the array element =a[3+3] = a[6]=.
    #+end_quote
 
+
+** Strings (online to code along with - starting Nov 4)
+
+Planned: 10-part series of (15') video tutorials.
+
+1. [ ] String literals
+2. [ ] String variables
+3. [ ] Reading and writing strings
+4. [ ] Accessing the characters in a string
+5. [ ] Using the C string library
+6. [ ] Program: Printing a One-Month Reminder List
+7. [ ] String idioms
+8. [ ] Arrays of Strings
+9. [ ] Program: Checking planet names
+10. [ ] Review questions
+
+** Pointer arithmetic II
+
+To code along, download and open in Emacs:
+[[https://tinyurl.com/pointers-codealong-2][tinyurl.com/pointers-codealong-2]] (pre-filled from last time)
+
+- [ ] Comparing pointers
+- [ ] Pointers to compound literals
+- [ ] Using pointers to process arrays
+- [ ] Combining indirection and compound operators
+- [ ] Using an array name as a pointer
+- [ ] Revisiting =reverse.c=
 
 * Week 13 - Dynamic Storage Allocation and Lists [Nov 11]
 
