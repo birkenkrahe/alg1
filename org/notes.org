@@ -3,7 +3,7 @@
 #+SUBTITLE: CSC 240 Data Structures Lyon College Fall 2024
 #+STARTUP: overview hideblocks indent entitiespretty:
 #+PROPERTY: header-args:C :main yes :includes <stdio.h> <stdlib.h> :results output :exports both
-* Week 0 - Why You Are Here
+* DONE Week 0 - Why You Are Here
 #+attr_html: :width 500px:
 [[../img/manga1.png]]
 
@@ -46,7 +46,7 @@ Later, an 8-th bit was added to extend the character set to 2^8 = 256
 so that special symbols (like German umlauts =ü=, or the German =ß=) could
 be represented.
 
-* Week 1 - What Data Structures Are About
+* DONE Week 1 - What Data Structures Are About
 #+attr_html: :width 500px:
 [[../img/manga2.png]]
 
@@ -243,7 +243,7 @@ requires more independence.
 
 ** Introduction to Data Structures (Lecture) I (handout)
 
-* Week 2 - The Concert in the Egg Begins
+* DONE Week 2 - The Concert in the Egg Begins
 #+attr_html: :width 600px:
 #+caption: The Concert in the Egg ca. 1550 AD
 [[../img/TheConcertInTheEgg.jpg]]
@@ -512,7 +512,7 @@ We'll combine this review with some light coding. Useful also for the
     #+RESULTS:
     : 0 1 4 9 16 25 36 49 64 81
 
-* Week 3 - Array Basics
+* DONE Week 3 - Array Basics
 #+attr_html: :width 600px:
 #+caption: M C Escher (geese)
 [[../img/escher1.jpg]]
@@ -633,7 +633,7 @@ We'll combine this review with some light coding. Useful also for the
 #+caption: M C Escher (birds)
 [[../img/escher.jpg]]
 
-* Week 4 - VLAs, Macros, Arrays
+* DONE Week 4 - VLAs, Macros, Arrays
 #+attr_html: :width 300px:
 #+caption: M C Escher (crystal ball)
 [[../img/escher.gif]]
@@ -656,7 +656,7 @@ Use my sample solution to create your own solution if you like and
 submit it late for at most 50% of the points, but make sure that you
 don't copy and paste but write all code by hand and understand it.
 
-* Week 5 - Diligence and Debugging
+* DONE Week 5 - Diligence and Debugging
 #+attr_html: :width 600px:
 [[../img/coach.png]]
 
@@ -1140,7 +1140,7 @@ points to Canvas:
 
   Solutions to the exercises are in GitHub in the PDF directory.
 
-* Week 6 - Function Prototypes and Parameters
+* DONE Week 6 - Function Prototypes and Parameters
 #+attr_html: :width 600px:
 [[../img/four-monks-by-rinaldi-9696.jpg]]
 
@@ -1313,7 +1313,7 @@ Quiz 4
     - Modifying =const= parameters inside the function
     #+end_quote
 
-* Week 7 - Pass-by-value, pass-by-reference, pointers
+* DONE Week 7 - Pass-by-value, pass-by-reference, pointers
 #+attr_html: :width 400px:
 [[../img/podcasters.png]]
 
@@ -1689,7 +1689,7 @@ Next topics:
     they are changed everywhere.
     #+end_quote
 
-* Week 8 - Functions Popquiz & Midterm Assignments
+* DONE Week 8 - Functions Popquiz & Midterm Assignments
 #+attr_html: :width 600px:
 [[../img/still_life.jpg]]
 
@@ -1968,7 +1968,7 @@ possibilities:
 /Image: The Syndics of the Clothmaker's Guild (The Staalmeesters),
 Rembrandt van Rijn, 1662/
 
-* Week 9 - VLAs, Compound Literals, Recursion [Oct 14]
+* DONE Week 9 - VLAs, Compound Literals, Recursion [Oct 14]
 #+attr_html: :width 500px:
 [[../img/drawing_hands_escher.png]]
 
@@ -2239,7 +2239,7 @@ for I/O heavy workloads like databases [onlin Non-Volatile Memory]"
        - =x + 5= is an rvalue because it results in a computed value (the sum of =x= and 5).
     #+end_quote
 
-* Week 10 - Quicksort & Arrays and Pointers [Oct 21]
+* DONE Week 10 - Quicksort & Arrays and Pointers [Oct 21]
 #+attr_html: :width 600px:
 [[../img/quicksort.png]]
 
@@ -2348,13 +2348,12 @@ for I/O heavy workloads like databases [onlin Non-Volatile Memory]"
        return 5 * 25 = 125
    #+end_example
 
-   
-* Week 11 - Stack & Pointer Arithmetic [Oct 28]
+* DONE Week 11 - Stack & Pointer Arithmetic [Oct 28]
 #+attr_html: :width 600px:
 #+caption: Caspar David Friedrich, Mondaufgang am Meer, 1822.
 [[../img/mondaufgang_am_meer_CDF_1822.jpeg]]
 
-* DONE Algorithms - Spring'25
+** Algorithms - Spring'25
 #+attr_html: :width 200px:
 [[../img/Dive-Into-Algorithms_frontcover.png]] [[../img/zingaro.png]]
 
@@ -2389,8 +2388,7 @@ solving leetcode or competitive programming problems, or other stuff.
 put beauty into it." -- Don Knuth (Inventor of literate programming)
 #+end_quote
 
-
-** TODO Assignments and Tests (5 weeks from the end of term!)
+** Assignments and Tests (5 weeks from the end of term!)
 
 - [X] New bonus exercise: [[https://lyon.instructure.com/courses/2623/assignments/36047][Recursive Euclidean Algorithm]].
 
@@ -2411,7 +2409,7 @@ put beauty into it." -- Don Knuth (Inventor of literate programming)
 - [X] *Quicksort*: Will create the promised analysis videos when I find
   the time.
 
-* DONE Modus operandi: 10 suggestions
+** Modus operandi: 10 suggestions
 #+attr_html: :width 600px:
 [[../img/mars.png]]
 
@@ -2426,7 +2424,7 @@ put beauty into it." -- Don Knuth (Inventor of literate programming)
 9) For deep learning, *research* your own large project.
 10) For additional support, *form* a coding study group.
 
-* IN PROGRESS Stacks
+** Stacks
 #+attr_html: :width 400px:
 [[../img/stack2.png]]
 
@@ -2437,14 +2435,14 @@ put beauty into it." -- Don Knuth (Inventor of literate programming)
 - [X] Type conversion
 - [X] Type definition with =typedef=
 - [X] External variables
-- [ ] Implementing a stack (LIFO)
+- [X] Implementing a stack (LIFO)
 - [ ] Guessing a number program -> video
 
-Short (8 min) introduction to stacks (no code) [[https://youtu.be/I37kGX-nZEI?si=PZBYK2KqIh0HzAHu][on YouTube]].
+Further study:
+- Short (8 min) introduction to stacks (no code) [[https://youtu.be/I37kGX-nZEI?si=PZBYK2KqIh0HzAHu][on YouTube]].
+- An even shorter (4 min) introduction to stacks in Python [[https://youtu.be/NKmasqr_Xkw?si=Bt8a_--GDSiVqa7b][on YouTube]].
 
-An even shorter (4 min) introduction to stacks in Python [[https://youtu.be/NKmasqr_Xkw?si=Bt8a_--GDSiVqa7b][on YouTube]].
-
-* DONE Review: Scope and Storage
+** Review: Scope and Storage
 
 1. What is the primary purpose of the stack in memory organization?
    #+begin_quote
@@ -2507,18 +2505,18 @@ An even shorter (4 min) introduction to stacks in Python [[https://youtu.be/NKma
    #+end_quote
 
 6. How about defining a type for a program that computes distance?
-    #+begin_src C
-      typedef float Distance; // order cannot be changed - `typdef` comes first
-      Distance d1 = 10.1;
-      Distance d2 = 20.4;
+   #+begin_src C
+     typedef float Distance; // order cannot be changed - `typdef` comes first
+     Distance d1 = 10.1;
+     Distance d2 = 20.4;
 
-      printf("The total distance was %g\n", d1 + d2);
-    #+end_src
+     printf("The total distance was %g\n", d1 + d2);
+   #+end_src
 
-    #+RESULTS:
-    : The total distance was 30.5
+   #+RESULTS:
+   : The total distance was 30.5
 
-    *Note to self*: order of =typedef= alias keyword??
+   *Note to self*: order of =typedef= alias keyword??
 
 7. The following example is supposed to display a 10 x 10 arrangement
    of plus signs but it doesn't - can you explain why? Can you fix it?
@@ -2548,7 +2546,7 @@ An even shorter (4 min) introduction to stacks in Python [[https://youtu.be/NKma
 
    #+RESULTS:
    : + + + + + + + + + +
-   
+
    #+begin_quote
    - =print_all_rows= calls =print_one_row=. When the program returns from
      =print_one_row= the first time, =i= has the value 11.
@@ -2557,13 +2555,13 @@ An even shorter (4 min) introduction to stacks in Python [[https://youtu.be/NKma
      further row is printed.
    #+end_quote
 
-* NEXT Pointer Arithmetic
+** Pointer Arithmetic
 #+attr_html: :width 300px:
 #+caption: https://xkcd.com/138
 [[../img/pointers.png]]
 
-- [ ] [[https://github.com/birkenkrahe/alg1/blob/main/img/ch12_1.png][Pointers can point to array elements]]
-- [ ] [[https://github.com/birkenkrahe/alg1/blob/main/img/ch12_3.png][Adding and subtracting pointers]]
+- [X] [[https://github.com/birkenkrahe/alg1/blob/main/img/ch12_1.png][Pointers can point to array elements]]
+- [X] [[https://github.com/birkenkrahe/alg1/blob/main/img/ch12_3.png][Adding and subtracting pointers]]
 - [ ] Comparing pointers
 - [ ] Pointers to compound literals
 - [ ] Using pointers to process arrays
@@ -2583,6 +2581,75 @@ To code along, download and open in Emacs:
 
 
 * Week 12 - Strings, Structs, Enums, Unions [Nov 4]
+#+attr_html: :width 600px:
+[[../img/choose_the_worthy_1936.jpg]]
+
+/Image: Soviet election poster "Choose the worthy!" (1936)/
+
+- [ ] Programming assignment 9 (Nov 11) and bonus assignment (Dec 6)
+- [ ] Review: Pointer arithmetic I (see quiz)
+- [ ] Continued: Pointer arithmetic II
+- [ ] Strings (video lecture - review & quiz next week)
+
+** Review: Pointer arithmetic I
+
+1. What does "pointer arithmetic" mean?
+   #+begin_quote
+   It refers to using pointers to access array elements that they're
+   pointing at. You can add an integer to a pointer, subtract an
+   integer from a pointer, subtract pointers from one another, and
+   compare pointers. All of these operations are translated to array
+   index operations.
+   #+end_quote
+
+2. Give an example for adding an integer to a pointer.
+   #+begin_src C
+     int a[10]={100,101,102,103,104,105,106,800,900,1000}, *p, i;
+     p = &a[0]; // p points at a[0] = 100
+     i = 4;
+     printf("*p = %d, a[%d] = %d\n",*(p+i), i, a[i]);
+     printf("p = %p, &a[%d] = %p\n",(p+i), i, &a[i]);
+   #+end_src
+
+   #+RESULTS:
+   : *p = 104, a[4] = 104
+   : p = 0x7ffc9f8188a0, &a[4] = 0x7ffc9f8188a0
+
+3. Give an example for subtracting an integer from a pointer.
+   #+begin_src C
+     int a[10]={100,101,102,103,104,105,106,800,900,1000}, *p, i;
+     p = &a[9]; // p points at a[9] = 9
+     i = 3;
+     printf("*p = %d, a[%d] = %d\n",*(p-i), 9-i, a[9-i]);
+     printf("p = %p, &a[%d] = %p\n", (p-i), 9-i, &a[9-i]);
+   #+end_src
+
+   #+RESULTS:
+   : *p = 106, a[6] = 106
+   : p = 0x7ffd3aae4af8, &a[6] = 0x7ffd3aae4af8
+
+4.  Give an example for subtracting one pointer from another.
+   #+begin_src C
+     int a[10]={100,101,102,103,104,105,106,800,900,1000}, *p, *q;
+     p = &a[9]; // p points at a[9]
+     q = &a[3];
+     printf("p - q = %ld\n", p-q); // distance between locations as indices
+     printf("*p - *q = %d\n", *p-*q); // difference of values
+     printf("&a[9] - &a[3] = %ld\n", &a[9] - &a[3]); // distance between addresses
+   #+end_src
+
+   #+RESULTS:
+   : p - q = 6
+   : *p - *q = 897
+   : &a[9] - &a[3] = 6
+
+5. If =p = &a[3]=, what is =p+=3= ?
+   #+begin_quote
+   If =p= points at the array element =a[3]=, then =p+=3= (or =p = p + 3=)
+   points at the array element =a[3+3] = a[6]=.
+   #+end_quote
+
+
 * Week 13 - Dynamic Storage Allocation and Lists [Nov 11]
 
 * Week 14 - Trees and Hash Tables [Nov 18]

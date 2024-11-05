@@ -967,6 +967,12 @@ index operations.
 : *p - *q = 897
 : &a[9] - &a[3] = 6
 
+** If =p = &a[3]=, what is =p+=3= ?
+#+begin_quote
+If =p= points at the array element =a[3]=, then =p+=3= (or =p = p + 3=)
+points at the array element =a[3+3] = a[6]=.
+#+end_quote
+
 ** Give an example for comparing two pointers
 #+begin_src C
   int a[10]={100,101,102,103,104,105,105,800,900,1000}, *p, *q;
@@ -977,12 +983,6 @@ index operations.
 
 #+RESULTS:
 : p == q : 0
-
-** If =p = &a[3]=, what is =p+=3= ?
-#+begin_quote
-If =p= points at the array element =a[3]=, then =p+=3= (or =p = p + 3=)
-points at the array element =a[3+3] = a[6]=.
-#+end_quote
 
 ** Difference between pointers
 A pointer =p= points at =a[9] = 100=, and another pointer =q= points at
