@@ -2580,7 +2580,7 @@ To code along, download and open in Emacs:
 #+end_example
 
 
-* NEXT Week 12 - Strings, Structs, Enums, Unions [Nov 4]
+* Week 12 - Strings, Structs, Enums, Unions [Nov 4]
 #+attr_html: :width 600px:
 [[../img/choose_the_worthy_1936.jpg]]
 
@@ -2588,8 +2588,8 @@ To code along, download and open in Emacs:
 
 ---- *REMEMBER: THERE IS NO CLASS MEETING THIS THURSDAY NOVEMBER 7* ----
 
-- [ ] Programming assignment 9 (Nov 11) and bonus assignment (Dec 6)
-- [ ] Review: Pointer arithmetic I (see quiz)
+- [X] Programming assignment 9 (Nov 11) and bonus assignment (Dec 6)
+- [X] Review: Pointer arithmetic I (see quiz)
 - [ ] Continued: Pointer arithmetic II
 - [ ] Strings (video lecture - review & quiz next week)
 
@@ -2610,13 +2610,13 @@ To code along, download and open in Emacs:
       declare a pointer structure with the given data type (=int=).
    2. In a pointer statement (=*p = 5;=) it is an /indirection/ operator
       that dereferences the pointer =p= to access the value stored at
-      the address =p= points at.
+      the address =p= points at: =*p = *(&i) = i=.
    #+end_quote
 
 3. Give an example for adding an integer to a pointer.
    #+begin_src C
      int a[10]={100,101,102,103,104,105,106,800,900,1000}, *p, i;
-     p = &a[0]; // p points at a[0] = 100
+     p = &a[0]; // p points to a[0] = 100
      i = 4;
      printf("*p = %d, a[%d] = %d\n",*(p+i), i, a[i]);
      printf("p = %p, &a[%d] = %p\n",(p+i), i, &a[i]);
@@ -2624,7 +2624,7 @@ To code along, download and open in Emacs:
 
    #+RESULTS:
    : *p = 104, a[4] = 104
-   : p = 0x7ffc9f8188a0, &a[4] = 0x7ffc9f8188a0
+   : p = 0x7fff3d5f4d60, &a[4] = 0x7fff3d5f4d60
 
 4. Give an example for subtracting an integer from a pointer.
    #+begin_src C
@@ -2637,7 +2637,7 @@ To code along, download and open in Emacs:
 
    #+RESULTS:
    : *p = 106, a[6] = 106
-   : p = 0x7ffd3aae4af8, &a[6] = 0x7ffd3aae4af8
+   : p = 0x7ffe01f7c318, &a[6] = 0x7ffe01f7c318
 
 5. Give an example for subtracting one pointer from another.
   #+begin_src C
@@ -2659,7 +2659,6 @@ To code along, download and open in Emacs:
    If =p= points at the array element =a[3]=, then =p+=3= (or =p = p + 3=)
    points at the array element =a[3+3] = a[6]=.
    #+end_quote
-
 
 ** Strings (online to code along with - starting Nov 4)
 
