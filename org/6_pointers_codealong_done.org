@@ -90,7 +90,6 @@
 : 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 
 : Stack overflow!
 
-
 * Pointer Arithmetic
 
 What are pointers good for:
@@ -284,15 +283,15 @@ that points initially at =contents[0]=:
   int *top_ptr = &contents[0];
 #+end_example
 
-contents[top++] -> *top_ptr++
+=contents[top++]= -> =*top_ptr++=
 
-contents[--top] -> *--top+ptr
+=contents[--top]= -> =*--top+ptr=
 
 -> Bonus assignment (turn stack top into pointer)
 
 ** Using an array name as a pointer
 
-You can use the name of an array as a pointer
+You can use the name of an array as a pointer!
 
 #+begin_src C
   int a[10];
@@ -308,7 +307,6 @@ You can use the name of an array as a pointer
     int a[N] = {[0 ... N-1]=1}, *p; // initialize with a designated initializer
     for (int i=0;i<N;i++) printf("%d ",a[i]); puts("");// regular subscripting
     for (p = &a[0];p<&a[N];p++) printf("%d ",*p); puts("");// pointer subscripting
-
     for (p = a; p < a + N; p++) printf("%d ",*p); puts("");// pointer subscripting
   #+end_src
 
