@@ -2580,7 +2580,7 @@ To code along, download and open in Emacs:
 #+end_example
 
 
-* Week 12 - Strings, Structs, Enums, Unions [Nov 4]
+* NEXT Week 12 - Strings, Structs, Enums, Unions [Nov 4]
 #+attr_html: :width 600px:
 [[../img/choose_the_worthy_1936.jpg]]
 
@@ -2663,7 +2663,7 @@ To code along, download and open in Emacs:
 
 ** Strings (online to code along with - starting Nov 4)
 
-Planned: 10-part series of (15') video tutorials.
+Planned: 10-part series of (15') video with code along examples.
 
 1. [ ] String literals
 2. [ ] String variables
@@ -2687,6 +2687,7 @@ To code along, download and open in Emacs:
 - [ ] Combining indirection and compound operators
 - [ ] Using an array name as a pointer
 - [ ] Revisiting =reverse.c=
+
 
 * Week 13 - Dynamic Storage Allocation and Lists [Nov 11]
 
