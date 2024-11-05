@@ -442,7 +442,7 @@
     {
       int *p;       // declare loop pointer
       int a[N] = {0};  // macro definition (uses constant N)
-      p = a;
+      p = a; // p = &a[0];
       printf("Enter 10 numbers: "); // ask for input
       for ( p = a; p < a + N; p++) { // loop over array (counting up)
         scanf("%d", p); // get the i-th array element *(p+i) from stdin
@@ -469,8 +469,8 @@
   #+end_src
 
   #+RESULTS:
-  : Enter 10 numbers: 34 82 49 102 2 94 23 11 50 31
-  : In reverse order: 31 50 11 23 94 2 102 49 82 34
+  : Enter 10 numbers: 34 82 49 102 2 94 23 11 50 31 
+  : In reverse order: 31 50 11 23 94 2 102 49 82 34 
 
 - Note:
   1. =p < N= is wrong (comparing pointer and integer), but =p < a + N= is
