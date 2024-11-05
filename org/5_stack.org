@@ -719,7 +719,7 @@ Fixed code without external counter variable:
 + + + + + + + + + +
 #+end_example
 
-* Guessing a number
+* TODO Guessing a number
 
 - We'll write a simple game-playing program: the program generates a
   random number between 1 and 100, which the user attempts to guess in
@@ -1085,12 +1085,13 @@ Fixed code without external counter variable:
    integers. Next, add a =main= function that asks the user to enter a
    series of parentheses and/or braces, then indicates whether or not
    they're properly nested:
+   
    #+begin_example
    Enter parentheses and/or braces: ((){}{()})
    Parentheses/braces are nested properly
    #+end_example
 
-   Hint: As the program reads characters, have it ~push~ each left
+   /Hint:/ As the program reads characters, have it ~push~ each left
    parenthesis or left brace. When it reads a right parenthesis or
    brace, have it ~pop~ the stack and check that the item popped is a
    matching parenthesis or brace. (If not, the parentheses/braces
