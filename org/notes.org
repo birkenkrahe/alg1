@@ -2579,7 +2579,7 @@ To code along, download and open in Emacs:
   emacs --file pointers.org
 #+end_example
 
-* DONE Week 12 - Strings, Structs, Enums, Unions [Nov 4]
+* DONE Week 12 - Pointer arithmetic II [Nov 4]
 #+attr_html: :width 600px:
 [[../img/choose_the_worthy_1936.jpg]]
 
@@ -2687,13 +2687,26 @@ To code along, download and open in Emacs:
 - [ ] Revisiting =reverse.c=
 
 
-* Week 13 - Dynamic Storage Allocation and Lists [Nov 11]
+* Week 13 - Strings and structs [Nov 11]
 #+attr_html: :width 400px:
 [[./img/string_theory.png]]
 
-** Review: Pointer arithmetic 
+- [ ] Quiz 8 - Stack, scope and pointer arithmetic *due tonight*
+- [ ] Strings (video lectures)
+- [ ] Structures (=struct=, =enum=, =union=)
+
+** TODO Structures 
 
 
-* Week 14 - Trees and Hash Tables [Nov 18]
+** TODO Review: Strings (video lectures)
 
-* Week 16 - Heaps and Graphs / C++ [Dec 2]
+
+* Week 14 - Dynamic memory allocation [Nov 18]
+
+- [ ] Dynamic memory allocation (=malloc=)
+
+** TODO Dynamic memory allocation
+
+*
+
+* Week 16 - Linked lists / C++ [Dec 2]
