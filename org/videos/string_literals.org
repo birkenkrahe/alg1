@@ -1,0 +1,174 @@
+#+TITLE: String Literals
+#+AUTHOR: Marcus Birkenkrahe
+#+STARTUP:overview hideblocks indent
+#+PROPERTY: header-args:C :main yes :includes <stdio.h> <stdlib.h> <string.h> <time.h> :results output :exports both :comments none :noweb yes
+* Definition
+
+A /string literal/ is a sequence of characters enclosed within
+double quotes.
+
+* Escape Sequences in String Literals
+
+- Example: Formatting strings in =printf= or =scanf= statements
+  #+begin_src C
+    printf("hello");
+  #+end_src
+
+  #+RESULTS:
+  : hello
+
+- With an escape sequence:
+  #+begin_src C
+    printf("hello\n");
+  #+end_src
+
+  #+RESULTS:
+  : hello
+
+- With a format specifier:
+  #+begin_src C
+    printf("%d is smaller than %g\n", 100, 100.1);
+  #+end_src
+
+  #+RESULTS:
+  : 100 is smaller than 100.1
+
+- There are different escape sequences:
+  #+begin_src C
+    printf("\"The world will never starve for want of wonders;\nbut only for want of wonder.\"\nG.K. Chesterton");
+  #+end_src
+
+  #+RESULTS:
+  : "The world will never starve for want of wonders;
+  : but only for want of wonder."
+  : G.K. Chesterton
+
+* Continuing a String Literal
+
+              - Use =\= to continue a string literal on the next line:
+                #+begin_src C
+                  printf("\"Man only likes to count his troubles; \n\
+                  he doesn't calculate his happiness.\"				\
+                         \n- Fyodor Dostoyevsky, Notes from Underground.\n");
+                #+end_src
+
+                #+RESULTS:
+                : "Man only likes to count his troubles; 
+                : he doesn't calculate his happiness."				       
+                : - Fyodor Dostoyevsky, Notes from Underground.
+
+              - That was torturous! Easier way to join two string literals:
+                Use white space between them.
+
+                #+begin_src C
+                  printf("\"To know and love one other human being"
+                         "\n is the root of all wisdom.\"\n"
+                         " Evelyn Waugh, Brideshead Revisited");
+                #+end_src
+
+                #+RESULTS:
+                : "To know and love one other human being
+                :  is the root of all wisdom."
+                :  Evelyn Waugh, Brideshead Revisited
+
+* How String Literals are Stored
+
+- String literals are treated as character arrays
+
+- When the compiler encounters a string of length =n=, it sets
+  aside =n+1= bytes of memory - all characters plus the null string
+
+- The null character is a byte whose bits are all zero. It is
+  represented by the =\0= escape sequence.
+
+- The empty string =""= is stored as a single null character.
+
+- Example:
+
+  When =printf("abc");= is called, it is passed the /address/
+  of ="abc"=, a pointer to where 'a' is stored in memory.
+
+* Operations on String Literals
+
+- Use string literals whenever a =char *= pointer is allowed.
+
+  #+begin_src C :results none
+    char *p; // character pointer
+    p = "abc"; // p points to the first character of the string
+  #+end_src
+
+- Pointers can be subscripted:
+
+  #+begin_src C
+    char ch; // declare a character value
+    ch = "abc"[1]; // assign character value 'b' to ch
+    printf("%c\n", ch);
+  #+end_src
+
+  #+RESULTS:
+  : b
+
+- Example: You can also use =n+1= as subscript for a string
+  of length =n=.
+
+  #+begin_src C
+    // function: convert number in (0,15) to a character that
+    // represents a hexadecimal digit
+    char digit_to_hex_char(int digit)
+    {
+      return "0123456789ABCDEF"[digit];
+    }
+
+    int main(void)
+    {
+      int digit = 10; // convertb 15 to hexadecimal
+      char hex = digit_to_hex_char(digit);
+
+      printf("%d to %c\n", digit, hex);
+      
+      return 0;
+    }
+  #+end_src
+
+  #+RESULTS:
+  : 10 to A
+
+  - You cannot modify a string literal:
+    #+begin_example C
+      char *p = "abc"; // p points at 'a' in string
+      *p = 'd'; // attempt to change value "abc"[1] to 'd' leads
+                // to a segmentation fault.
+    #+end_example
+
+  - Pointer arithmetic is possible
+
+    #+begin_src C
+      char *p = "abc";
+
+      printf("%c", p[1+1]);
+    #+end_src
+
+    #+RESULTS:
+    : c
+    
+* String Literals versus Character Constants
+
+- The string literal "a" is represented by a pointer to the
+  memory location that contains the character 'a' followed by
+  '\0'.
+
+  #+begin_src C :results none
+    printf("\n");
+  #+end_src
+
+- The character constant 'a' is represented by an integer,
+  the numerical (ASCII) code for the character.
+
+  #+begin_src C
+    printf("%d", '\n');
+    printf("\n%d", '\0');    
+  #+end_src
+
+  #+RESULTS:
+  : 10
+  : 0
