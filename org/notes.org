@@ -2689,7 +2689,7 @@ To code along, download and open in Emacs:
 
 * Week 13 - Strings and structs [Nov 11]
 #+attr_html: :width 400px:
-[[./img/string_theory.png]]
+[[../img/string_theory.png]]
 
 - [ ] First video lecture on strings is live (quiz 9)
 - [ ] Quiz 8 - Stack, scope and pointer arithmetic *due tonight*
