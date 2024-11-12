@@ -170,7 +170,7 @@
   #+RESULTS:
   : |....|....|....|
   :         C pro
-  : C pro        
+  : C pro   
 
 ** Exercise 12: Safe String Input with fgets
 
