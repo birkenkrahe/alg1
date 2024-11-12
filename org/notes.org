@@ -2691,9 +2691,9 @@ To code along, download and open in Emacs:
 #+attr_html: :width 400px:
 [[../img/string_theory.png]]
 
-- [ ] First video lecture on strings is live (quiz 9)
-- [ ] Quiz 8 - Stack, scope and pointer arithmetic *due tonight*
-- [ ] Quiz 9 - available until next week (watch the video)
+- [X] First video lecture on strings is live (quiz 9)
+- [X] Quiz 8 - Stack, scope and pointer arithmetic *due tonight*
+- [X] Quiz 9 - available until next week (watch the video)
 - [ ] Lecture + codealong: Strings
 - [ ] Structures (=struct=, =enum=, =union=)
 
