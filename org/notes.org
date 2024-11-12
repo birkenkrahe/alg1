@@ -2693,14 +2693,13 @@ To code along, download and open in Emacs:
 
 - [ ] First video lecture on strings is live (quiz 9)
 - [ ] Quiz 8 - Stack, scope and pointer arithmetic *due tonight*
-- [ ] Strings (variables
+- [ ] Quiz 9 - available until next week (watch the video)
+- [ ] Lecture + codealong: Strings
 - [ ] Structures (=struct=, =enum=, =union=)
 
-** IN PROGRESS String video project
+** IN PROGRESS Strings
 
-There will be quiz questions.
-
-[[https://www.youtube.com/watch?v=aE5k6UyhYaA&list=PLwgb17bzeNygqkMODQYfL1BEWHzft3gsJ&pp=gAQBiAQB][See playlist on YouTube]].
+There will be quiz questions. [[https://www.youtube.com/watch?v=aE5k6UyhYaA&list=PLwgb17bzeNygqkMODQYfL1BEWHzft3gsJ&pp=gAQBiAQB][See playlist on YouTube]].
 
 Lectures with short coding exercises:
 
@@ -2717,14 +2716,32 @@ Lectures with short coding exercises:
 
 There will be a quiz (10), a mandatory and a bonus program assignment.
 
+To code along (with exercises): tinyurl.com/strings-org
+
 ** TODO Structures 
 
 * Week 14 - Dynamic memory allocation [Nov 18]
 
 - [ ] Dynamic memory allocation (=malloc=)
+- [ ] Tips for Thanksgiving Break
 
 ** TODO Dynamic memory allocation
 
 *
+
+
+** TODO Tips for Thanksgiving break
+
+- [ ] If you need a better grade: Sit for the final exam
+
+- [ ] To ace the final exam: Drill yourself with all quizzes
+
+- [ ] You can attempt any quiz any number of times
+
+- [ ] Complete some bonus assignments to make up for lost points
+
+- [ ] If you're bored, ask me for more exercises or check out David
+  Zingaro's "Algorithmic Thinking" (NoStarch, 2023), with worked up
+  examples from programming competitions.
 
 * Week 16 - Linked lists / C++ [Dec 2]
