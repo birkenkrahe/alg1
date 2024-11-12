@@ -2716,7 +2716,7 @@ Lectures with short coding exercises:
 
 There will be a quiz (10), a mandatory and a bonus program assignment.
 
-To code along (with exercises): tinyurl.com/strings-org
+To code along (with exercises): [[https://tinyurl.com/strings-org][tinyurl.com/strings-org]]
 
 ** TODO Structures 
 
