@@ -2,8 +2,249 @@
 #+STARTUP:overview hideblocks indent
 #+OPTIONS: toc:nil num:nil ^:nil
 #+PROPERTY: header-args:C :main yes :includes <stdio.h> <stdlib.h> <string.h> <time.h> :results output :exports both :comments none :noweb yes
-* README
+* TODO Exercises: Initializing String Variables
+
+** Exercise 1: Basic Initialization
+
+- Declare a character array called =greeting= with a length of 10 and
+  initialize it with the string ="Hello"=. Use =printf= to print the
+  string.
+
+  #+begin_src C
+
+  #+end_src
+
+** Exercise 2: Exact Fit without Null Character
+
+- Declare a character array =month= with a length of 5 and initialize it
+  with the string ="June"=. Print the string and observe the result.
+
+- Modify the code to add a =\0= at the end of =month= and print it again.
+
+  #+begin_src C
+
+  #+end_src
+
+** Exercise 3: Overfilled Array
+
+- Declare a character array =day= with length 3 and try initializing it
+  with the string ="Mon"=. Print the array using =printf=.
+
+  #+begin_src C
+
+  #+end_src
+
+** Exercise 4: Using =sizeof= with Strings
+- Declare =char name[] = "Student";=. Print the size of =name= using
+  =sizeof= and compare it with the length of the string.
+
+  #+begin_src C
+
+  #+end_src
+
+* TODO Exercises: Character Arrays versus Character Pointers
+
+** Exercise 5: String Array vs. Pointer Modification Attempt
+- Declare =char message_a[] = "Welcome";= and =char *message_p =
+  "Welcome";=.
+
+- Try modifying the first character of each: =message_a[0] = 'w';= and
+  =message_p[0] = 'w';=.
+
+  #+begin_src C
+
+  #+end_src
+
+** Exercise 6: Changing the Pointer Target
+
+- Initialize two character arrays =char date1[] = "June 14";= and =char
+  date2[] = "July 15";=.
+
+- Declare a character pointer =char *p= and make it point to
+  =date1=. Print the string using =p=, then change =p= to point to =date2= and
+  print again.
+
+  #+begin_src C
+
+  #+end_src
+
+** Exercise 7: Pointer Initialization and Dereferencing
+
+- Declare a character array =char city[] = "Paris";= and a character
+  pointer =char *ptr=.
+
+- Initialize =ptr= to point to =city= and print the first character of
+  =city= by dereferencing =ptr= with =*ptr= and =ptr[0]=.
+
+  #+begin_src C
+
+  #+end_src
+
+** Exercise 8: Uninitialized Pointer Error Simulation
+
+- Declare a character pointer =char *uninitialized_ptr;=. Attempt to
+  assign =uninitialized_ptr[0] = 'X';=.
+
+  #+begin_src C
+
+  #+end_src
 
 
+* TODO Exercises: Writing strings
+
+** Exercise 9: Simple String Output
+
+- *Problem*: Write a program that stores the string ="Learning C is
+  fun!"= in a variable and prints it to the console.
+
+- *Solution*:
+  #+begin_src C
+
+  #+end_src
+
+** Exercise 10: Partial String Output
+
+- *Problem*: Modify the previous program to only print the first 10
+  characters of the string.
+
+- *Solution*:
+  #+begin_src C
+
+  #+end_src
+
+** Exercise 11: String Formatting with Field Width
+- *Problem*: Use the string ="C programming"= and:
+  1. Print only the first 5 characters in a field of width 8,
+     right-aligned.
+  2. Print only the first 5 characters in a field of width 8,
+     left-aligned.
+  3. Print a ruler (=|....|....|....|=) to check your results.
+
+- *Solution*:
+  #+begin_src C
+
+  #+end_src
+
+** Exercise 12: Safe String Input with fgets
+
+- *Problem*: Write a program that reads a line of text using =fgets= and
+  then prints it. Use the =:cmdline < strinput= header argument to
+  stream the data to the program.
+
+- String input:
+  #+begin_src bash :results output
+
+  #+end_src
+
+- *Solution*:
+  #+begin_src C :cmdline < strinput
+
+  #+end_src
+
+* TODO Exercises: Reading strings
+
+** Exercise 13: Printing on new lines
+
+- *Problem*: Write a program that stores ="Hello, C!"= in a string
+  variable. Use a loop to print each character in the string on a
+  new line.
+
+- *Solution*:
+
+  #+begin_src C
+
+  #+end_src
+
+** Exercise 10: Reading Strings Character-by-Character
+
+- *Problem*: Write a program that stores ="Hello, C!"= in a string
+  variable. Use a loop to print each character in the string on a new
+  line.
+
+- *Solution*:
+  #+begin_src C
+
+  #+end_src
+
+** Exercise 11: Pointer Arithmetic in Strings
+
+- *Problem*: Modify the =count_spaces= function to use pointer arithmetic
+  instead of array indexing.
+  
+- *Solution*:
+  #+begin_src C
+    #include <stdio.h>
+
+    int count_spaces(const char *s) {
+      int count = 0;
+      // ...
+      return count;
+    }
+
+    int main() {
+      char str[] = "Can you count spaces?";
+      printf("Spaces in \"%s\" = %d\n", str, count_spaces(str));
+      return 0;
+    }
+  #+end_src
+
+  #+RESULTS:
+  : Spaces in "Can you count spaces?" = 0
+
+** Exercise 12: Exploring scanf and Strings
+- *Problem*: Write a program that reads a word using =scanf= and prints
+  it. Modify the program to only allow up to 10 characters to be read.
+
+- *Solution*:
+  #+begin_src C
+
+  #+end_src
+
+* TODO Exercise: Pointer and string literal argument call
+
+Modify =count_spaces= function call with pointer variable and with string literal.
+
+- Function call with pointer variable:
+  #+begin_src C
+    int count_spaces(const char *s) // const prevents modification of
+    // whatever s points to but not s itself
+    {
+      int count = 0;
+      for ( ; *s != '\0'; s++) // no need for start index counter
+        if (*s == ' ')
+          count++;
+      return count;
+    }
+
+    int main(void)
+    {
+
+      // str decays to pointer to str[0] upon function call
+
+      return 0;
+    }
+  #+end_src
+
+- Function call with string literal:
+  #+begin_src C
+    int count_spaces(const char *s) // const prevents modification of
+    // whatever s points to but not s itself
+    {
+      int count = 0;
+      for ( ; *s != '\0'; s++) // no need for start index counter
+        if (*s == ' ')
+          count++;
+      return count;
+    }
+
+    int main(void)
+    {
+      // str decays to pointer to str[0] upon function call
+
+      return 0;
+    }
+  #+end_src
+
+ 
 
 
