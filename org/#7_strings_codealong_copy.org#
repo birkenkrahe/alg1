@@ -1,9 +1,9 @@
 #+title: Strings
-#+author: [yourname] (pledged)
+#+author: Marcus Birkenkrahe (pledged)
 #+STARTUP:overview hideblocks indent
 #+OPTIONS: toc:nil num:nil ^:nil
 #+PROPERTY: header-args:C :main yes :includes <stdio.h> <stdlib.h> <string.h> <time.h> :results output :exports both :comments none :noweb yes
-* TODO Exercises: Initializing String Variables
+* IN PROGRESS Exercises: Initializing String Variables
 
 ** Exercise 1: Basic Initialization
 
@@ -11,8 +11,12 @@
   and initialize it with the string "Hello" and use =printf= to print it.
 
   #+begin_src C
-
+    char greeting[10]="Hello";
+    printf("%s\n", greeting);
   #+end_src
+
+  #+RESULTS:
+  : Hello
 
 ** Exercise 2: Exact Fit without Null Character
 
@@ -22,8 +26,12 @@
 - Modify the code to add a =\0= at the end of =month= and print it again.
 
   #+begin_src C
-    
+    char month[5]="June";
+    printf("%s\n", month);
   #+end_src
+
+  #+RESULTS:
+  : June
 
 ** Exercise 3: Overfilled Array
 
@@ -31,20 +39,29 @@
   with the string ="Mon"=. Print the array using =printf=.
 
   #+begin_src C
-
+    char day[3]="Mon";
+    printf("%s\n",day);
   #+end_src
+
+  #+RESULTS:
+  : Mon
 
 ** Exercise 4: Using =sizeof= with Strings
 - Declare =char name[] = "Student";=. Print the size of =name= using
   =sizeof= and compare it with the length of the string.
 
   #+begin_src C
-
+    char name[]="Student"; // compiler substitutes the length
+    printf("Size of name: %zu\n", sizeof(name));
   #+end_src
+
+  #+RESULTS:
+  : Size of name: 8
 
 * TODO Exercises: Character Arrays versus Character Pointers
 
 ** Exercise 5: String Array vs. Pointer Modification Attempt
+
 - Declare =char message_a[] = "Welcome";= and =char *message_p =
   "Welcome";=.
 
@@ -52,7 +69,11 @@
   =message_p[0] = 'w';=.
 
   #+begin_src C
+    char msg_a[] = "Welcome";
+    char *msg_p = "Welcome";
 
+    msg_a[0] = 'w';
+    //msg_p[0] = 'w';
   #+end_src
 
 ** Exercise 6: Changing the Pointer Target
@@ -65,8 +86,17 @@
   print again.
 
   #+begin_src C
-
+    char date1[] = "June 14";
+    char date2[] = "July 15";
+    char *p = date1;   // p points at date1[0]
+    printf("%s\n", p);
+    p = date2;   // p now points at date2[0]
+    printf("%s\n", p);
   #+end_src
+
+  #+RESULTS:
+  : June 14
+  : July 15
 
 ** Exercise 7: Pointer Initialization and Dereferencing
 
@@ -77,16 +107,22 @@
   =city= by dereferencing =ptr= with =*ptr= and =ptr[0]=.
 
   #+begin_src C
-
+    char city[] = "Paris";
+    char *ptr = city;
+    printf("First character: %c %c\n", *ptr, ptr[0]);
   #+end_src
+
+  #+RESULTS:
+  : First character: P P
 
 ** Exercise 8: Uninitialized Pointer Error Simulation
 
 - Declare a character pointer =char *uninitialized_ptr;=. Attempt to
   assign =uninitialized_ptr[0] = 'X';=.
 
-  #+begin_src C
-
+  #+begin_src C :results none
+    char *ptr;
+    ptr[0] = 'X';
   #+end_src
 
 * TODO Exercises: Writing strings
@@ -98,7 +134,7 @@
 
 - *Solution*:
   #+begin_src C
-
+    
   #+end_src
 
 ** Exercise 10: Partial String Output
@@ -108,8 +144,12 @@
 
 - *Solution*:
   #+begin_src C
-
+    char str[]="Learning C is fun!";
+    printf("%.10s\n", str);     // prints 'Learning C'
   #+end_src
+
+  #+RESULTS:
+  : Learning C
 
 ** Exercise 11: String Formatting with Field Width
 - *Problem*: Use the string ="C programming"= and:
@@ -121,8 +161,16 @@
 
 - *Solution*:
   #+begin_src C
-
+    char str[] = "C programming";
+    puts("|....|....|....|");
+    printf("%13.5s\n", str);  // Right-aligned
+    printf("%-8.5s\n", str); // Left-aligned
   #+end_src
+
+  #+RESULTS:
+  : |....|....|....|
+  :         C pro
+  : C pro   
 
 ** Exercise 12: Safe String Input with fgets
 
