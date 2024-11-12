@@ -89,7 +89,6 @@
 
   #+end_src
 
-
 * TODO Exercises: Writing strings
 
 ** Exercise 9: Simple String Output
