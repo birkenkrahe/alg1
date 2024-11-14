@@ -2701,11 +2701,11 @@ To code along, download and open in Emacs:
 
 There will be quiz questions. [[https://www.youtube.com/watch?v=aE5k6UyhYaA&list=PLwgb17bzeNygqkMODQYfL1BEWHzft3gsJ&pp=gAQBiAQB][See playlist on YouTube]].
 
-Lectures with short coding exercises:
+Lectures with short coding exercises (handout to be printed):
 
 1) [X] String literals (aka string constants) - *video 23 min*
-2) [ ] String variables 
-3) [ ] Reading and writing strings 
+2) [X] String variables 
+3) [X] Reading and writing strings 
 4) [ ] Writing functions that process strings 
 5) [ ] Understanding string-handling functions in the C library
 6) [ ] Sample program: List of daily reminders (video?)
@@ -2718,9 +2718,7 @@ There will be a quiz (10), a mandatory and a bonus program assignment.
 
 To code along (with exercises): [[https://tinyurl.com/strings-org][tinyurl.com/strings-org]]
 
-** TODO Structures 
-
-* Week 14 - Dynamic memory allocation [Nov 18]
+* Week 14 - Structures & Dynamic memory allocation [Nov 18]
 
 - [ ] Dynamic memory allocation (=malloc=)
 - [ ] Tips for Thanksgiving Break
@@ -2744,4 +2742,11 @@ To code along (with exercises): [[https://tinyurl.com/strings-org][tinyurl.com/s
   Zingaro's "Algorithmic Thinking" (NoStarch, 2023), with worked up
   examples from programming competitions.
 
+
 * Week 16 - Linked lists / C++ [Dec 2]
+
+* Week 17 - Final exam (optional) [Dec 10]
+
+According to the [[https://assets.speakcdn.com/assets/2433/fa24_final_exam_schedule.pdf][published exam schedule]], the final exam will take
+place on Tuesday, December 10, at 8-10 am in room 104 Lyon building.
+ 
