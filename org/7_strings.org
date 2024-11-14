@@ -789,6 +789,7 @@ This will compile but with nonsense results:
   #+end_src  
 
   #+RESULTS:
+  : @ .ÙV
   : Hello
 
 * TODO The =strcpy= function
