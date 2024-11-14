@@ -140,7 +140,6 @@
 
   #+end_src
 * TODO Exercises: Reading strings
-
 ** Exercise 13: Printing on new lines
 
 - *Problem*: Write a program that stores ="Hello, C!"= in a string
@@ -153,7 +152,7 @@
 
   #+end_src
 
-** Exercise 10: Reading Strings Character-by-Character
+** Exercise 14: Reading Strings Character-by-Character
 
 - *Problem*: Write a program that stores ="Hello, C!"= in a string
   variable. Use a loop to print each character in the string on a new
@@ -164,7 +163,7 @@
 
   #+end_src
 
-** Exercise 11: Pointer Arithmetic in Strings
+** Exercise 15: Pointer Arithmetic in Strings
 
 - *Problem*: Modify the =count_spaces= function to use pointer arithmetic
   instead of array indexing.
@@ -189,7 +188,7 @@
   #+RESULTS:
   : Spaces in "Can you count spaces?" = 0
 
-** Exercise 12: Exploring scanf and Strings
+** Exercise 16: Exploring scanf and Strings
 - *Problem*: Write a program that reads a word using =scanf= and prints
   it. Modify the program to only allow up to 10 characters to be read.
 
@@ -243,6 +242,49 @@ Modify =count_spaces= function call with pointer variable and with string litera
     }
   #+end_src
 
- 
+
+* TODO Exercise: C string library functions
+
+** =strcpy= exercise
+
+Write a C program that initializes a source string with the value
+"Hello, World!" and uses =strcpy= to copy this string into an empty
+destination string. Print the destination string after copying.
+
+#+begin_src C :main yes :includes <stdio.h> <string.h>
+
+#+end_src
+
+** =strlen= exercise
+
+Write a C program that initializes a string with the value "OpenAI"
+and uses =strlen= to find and print the length of this string.
+
+#+begin_src C :main yes :includes <stdio.h> <string.h>
+
+#+end_src
+
+** =strcat= exercise
+
+Write a C program that initializes two strings: =str1= with "Hello, "
+and =str2= with "world!". Use =strcat= to concatenate =str2= to =str1= and
+print the resulting string.
+
+#+begin_src C :main yes :includes <stdio.h> <string.h>
+
+#+end_src
+
+** =strcmp= exercise
+
+Write a C program that initializes two strings: =str1= with "apple" and
+=str2= with "orange". Use =strcmp= to compare the two strings and print
+whether =str1= is less than, equal to, or greater than =str2=.
+
+#+begin_src C :main yes :includes <stdio.h> <string.h>
+
+#+end_src
+
+
+
 
 

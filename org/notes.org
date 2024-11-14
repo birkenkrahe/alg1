@@ -2718,6 +2718,170 @@ There will be a quiz (10), a mandatory and a bonus program assignment.
 
 To code along (with exercises): [[https://tinyurl.com/strings-org][tinyurl.com/strings-org]]
 
+** NEXT Review: String literals, variables, reading and writing strings
+
+1. *What is a string literal?*
+   #+begin_quote
+   A string literal is a sequence of characters enclosed within double
+   quotes.
+   #+end_quote
+
+   #+begin_src C
+     printf("Hello, world!"); // string literal: "Hello, world!"
+   #+end_src
+
+2. *How can two lines of text be joined together?*
+   #+begin_quote
+   When the compiler finds white space between string literals, it
+   will join them.
+   #+end_quote
+
+   #+begin_src C
+     printf("\"To be or not to be, " 
+            "that is the question.\""
+            "\n-William Shakespeare, Hamlet");
+   #+end_src
+
+   #+RESULTS:
+   : "To be or not to be, that is the question."
+   : -William Shakespeare, Hamlet
+
+3. *What's the difference between these statements? What's the output?*
+   #+name: helloWorld
+   #+begin_src C
+     // A
+     char *ptr = "Hello, world!";
+     // B
+     char word = "Hello, world!"[0];
+   #+end_src
+   
+   Output
+   #+begin_src C :noweb yes
+     <<helloWorld>>
+
+     printf("%c ", *ptr);
+     printf("%c", word);
+   #+end_src
+
+   #+RESULTS:
+   : H H
+   
+   #+begin_quote
+   Explanation: =ptr= points at the first letter of the string literal,
+   and =word= extracts the first element of the string literal. The
+   dereferenced pointer and the character variable print the same.
+   #+end_quote
+
+4. *Can you modify a string literal - like "Hello, world!"?*
+   #+begin_quote
+   No, because being /literal/ means that it's constant.
+   #+end_quote
+
+   #+begin_src C
+     char *p = "Hello, world!"; // p points to `H`
+     *p = 'h';
+   #+end_src
+
+   #+RESULTS:
+
+5. *How can I change "Hello, world!" to "hello, world!"?*
+   #+begin_quote
+   By storing it in a string /variable/ and overwriting the first
+   element.
+   #+end_quote
+
+   #+begin_src C
+     char *p = "Hello, world!"; // cannot be modified - string literal
+
+     char s[] = "Hello, world!"; // string variables are arrays
+
+     s[0] = 'h';
+
+     printf("%s\n", s);
+   #+end_src
+
+   #+RESULTS:
+   : hello, world!
+
+6. *How many characters do I need to reserve to store a string of length N?*
+   #+begin_quote
+   A string of length N must be stored in a =char= array of length N+1.
+   #+end_quote
+
+7. *What happens if you underfill a string?*
+   #+begin_quote
+   If you don't fill a declared character array, the unused places are
+   filled with null characters =\0=.
+   #+end_quote
+
+   #+begin_src C
+     char msg[10] = "Welcome"; // 9 characters + null value = 10
+
+     for (int i=0; i<12; i++)
+            if (i < 7)
+     	 printf("msg[%d] = %c\n", i, msg[i]);
+            else
+     	 printf("msg[%d] = %d\n", i, msg[i]);
+   #+end_src   
+
+8. *How can you print the first 5 letters of "Hello, world!"
+   left-aligned on 10 spaces?*
+
+   #+begin_src C
+     char str[]="Hello, world!";
+     puts("|----|----|----|");
+     printf("%-10.5s\n",str);
+   #+end_src
+
+   #+RESULTS:
+   : |----|----|----|
+   : Hello     
+
+9. *What's the fastest way to store a line of text from the keyboard?*
+
+   #+begin_src bash :results output :exports both
+     echo \"Three things are important: To be kind, to be kind, and to be kind.\"\
+     > strinput
+     cat strinput
+   #+end_src
+
+   #+RESULTS:
+   : "Three things are important: To be kind, to be kind, and to be kind."
+   
+   #+begin_src C :cmdline < strinput 
+     char str[80];
+     gets(str);
+     printf("%s",str);
+   #+end_src
+
+   #+RESULTS:
+   : "Three things are important: To be kind, to be kind, and to be kind."
+
+10. *What's the safe way to get a name as keyboard input?*
+
+    #+begin_src bash :results output
+      echo "Marcus Birkenkrahe" > strinput # write to file
+      cat strinput # view file
+    #+end_src
+
+    #+RESULTS:
+    : Marcus Birkenkrahe
+   
+    #+begin_src C :cmdline < strinput
+      char str[80]; // declare string
+
+      fgets(str, sizeof(str), stdin); // get keyboard input (`stdin`)
+
+      printf("%s", str); // print input to screen (`stdout`)
+    #+end_src
+
+    #+RESULTS:
+    : Marcus Birkenkrahe
+
+
+Now, download the string codealong file again (there are a few new
+exercises): [[https://tinyurl.com/strings-org][tinyurl.com/strings-org]]
+
 * Week 14 - Structures & Dynamic memory allocation [Nov 18]
 
 - [ ] Dynamic memory allocation (=malloc=)
