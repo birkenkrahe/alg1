@@ -2742,10 +2742,6 @@ To code along (with exercises): [[https://tinyurl.com/strings-org][tinyurl.com/s
             "\n-William Shakespeare, Hamlet");
    #+end_src
 
-   #+RESULTS:
-   : "To be or not to be, that is the question."
-   : -William Shakespeare, Hamlet
-
 3. *What's the difference between these statements? What's the output?*
    #+name: helloWorld
    #+begin_src C
@@ -2762,9 +2758,6 @@ To code along (with exercises): [[https://tinyurl.com/strings-org][tinyurl.com/s
      printf("%c ", *ptr);
      printf("%c", word);
    #+end_src
-
-   #+RESULTS:
-   : H H
    
    #+begin_quote
    Explanation: =ptr= points at the first letter of the string literal,
@@ -2777,12 +2770,10 @@ To code along (with exercises): [[https://tinyurl.com/strings-org][tinyurl.com/s
    No, because being /literal/ means that it's constant.
    #+end_quote
 
-   #+begin_src C
+   #+begin_src C :results none
      char *p = "Hello, world!"; // p points to `H`
      *p = 'h';
    #+end_src
-
-   #+RESULTS:
 
 5. *How can I change "Hello, world!" to "hello, world!"?*
    #+begin_quote
@@ -2799,9 +2790,6 @@ To code along (with exercises): [[https://tinyurl.com/strings-org][tinyurl.com/s
 
      printf("%s\n", s);
    #+end_src
-
-   #+RESULTS:
-   : hello, world!
 
 6. *How many characters do I need to reserve to store a string of length N?*
    #+begin_quote
@@ -2833,10 +2821,6 @@ To code along (with exercises): [[https://tinyurl.com/strings-org][tinyurl.com/s
      printf("%-10.5s\n",str);
    #+end_src
 
-   #+RESULTS:
-   : |----|----|----|
-   : Hello     
-
 9. *What's the fastest way to store a line of text from the keyboard?*
 
    #+begin_src bash :results output :exports both
@@ -2845,17 +2829,11 @@ To code along (with exercises): [[https://tinyurl.com/strings-org][tinyurl.com/s
      cat strinput
    #+end_src
 
-   #+RESULTS:
-   : "Three things are important: To be kind, to be kind, and to be kind."
-   
    #+begin_src C :cmdline < strinput 
      char str[80];
      gets(str);
      printf("%s",str);
    #+end_src
-
-   #+RESULTS:
-   : "Three things are important: To be kind, to be kind, and to be kind."
 
 10. *What's the safe way to get a name as keyboard input?*
 
@@ -2863,9 +2841,6 @@ To code along (with exercises): [[https://tinyurl.com/strings-org][tinyurl.com/s
       echo "Marcus Birkenkrahe" > strinput # write to file
       cat strinput # view file
     #+end_src
-
-    #+RESULTS:
-    : Marcus Birkenkrahe
    
     #+begin_src C :cmdline < strinput
       char str[80]; // declare string
@@ -2875,10 +2850,12 @@ To code along (with exercises): [[https://tinyurl.com/strings-org][tinyurl.com/s
       printf("%s", str); // print input to screen (`stdout`)
     #+end_src
 
-    #+RESULTS:
-    : Marcus Birkenkrahe
+    #+begin_quote
+    Note: A newline character =\n= is included at the end of =fgets=
+    because the user has pressed =RET= to send the input to =stdin=.
+    #+end_quote
 
-
+-----
 Now, download the string codealong file again (there are a few new
 exercises): [[https://tinyurl.com/strings-org][tinyurl.com/strings-org]]
 
