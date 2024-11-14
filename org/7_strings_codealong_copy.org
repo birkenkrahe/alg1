@@ -204,26 +204,29 @@
 
 - *Problem*: Write a program that stores ="Hello, C!"= in a string
   variable. Use a loop to print each character in the string on a
-  new line.
-
-- *Solution*:
-
-  #+begin_src C
-
-  #+end_src
-
-** Exercise 14: Reading Strings Character-by-Character
-
-- *Problem*: Write a program that stores ="Hello, C!"= in a string
-  variable. Use a loop to print each character in the string on a new
-  line.
+  new line. Use the array itself for the loop stopping condition.
 
 - *Solution*:
   #+begin_src C
-
+    char str[] = "Hello, C!";
+    int i;
+    for (i = 0; str[i] != '\0'; i++) {
+      printf("%c\n", str[i]);
+     }
   #+end_src
 
-** Exercise 15: Pointer Arithmetic in Strings
+  #+RESULTS:
+  : H
+  : e
+  : l
+  : l
+  : o
+  : ,
+  :  
+  : C
+  : !
+
+** Exercise 14: Pointer Arithmetic in Strings
 
 - *Problem*: Modify the =count_spaces= function to use pointer arithmetic
   instead of array indexing.
@@ -234,7 +237,12 @@
 
     int count_spaces(const char *s) {
       int count = 0;
-      // ...
+      // for loop using pointer arithmetic
+      for ( ; *s != '\0'; s++) {
+        // count up when finding empty space
+        if ( *s == ' ')
+          count++;
+      }
       return count;
     }
 
@@ -246,9 +254,9 @@
   #+end_src
 
   #+RESULTS:
-  : Spaces in "Can you count spaces?" = 0
+  : Spaces in "Can you count spaces?" = 3
 
-** Exercise 16: Exploring scanf and Strings
+** Exercise 15: Exploring scanf and Strings
 - *Problem*: Write a program that reads a word using =scanf= and prints
   it. Modify the program to only allow up to 10 characters to be read.
 
@@ -275,12 +283,16 @@ Modify =count_spaces= function call with pointer variable and with string litera
 
     int main(void)
     {
-
+      // declare string with pointer 
+      char *str = "Are we having fun?"; // instead of str[]
       // str decays to pointer to str[0] upon function call
-
+      printf("Spaces in %s = %d\n", str, count_spaces(str));
       return 0;
     }
   #+end_src
+
+  #+RESULTS:
+  : Spaces in Are we having fun? = 3
 
 - Function call with string literal:
   #+begin_src C
@@ -297,10 +309,14 @@ Modify =count_spaces= function call with pointer variable and with string litera
     int main(void)
     {
       // str decays to pointer to str[0] upon function call
-
+      printf("Spaces in \"Are we having fun?\" = %d\n",
+             count_spaces("Are we having fun?"));
       return 0;
     }
   #+end_src
+
+  #+RESULTS:
+  : Spaces in "Are we having fun?" = 3
 
 * TODO Exercise: C string library functions
 
