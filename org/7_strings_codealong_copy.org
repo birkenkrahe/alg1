@@ -3,7 +3,7 @@
 #+STARTUP:overview hideblocks indent
 #+OPTIONS: toc:nil num:nil ^:nil
 #+PROPERTY: header-args:C :main yes :includes <stdio.h> <stdlib.h> <string.h> <time.h> :results output :exports both :comments none :noweb yes
-* IN PROGRESS Exercises: Initializing String Variables
+* DONE Exercises: Initializing String Variables
 
 ** Exercise 1: Basic Initialization
 
@@ -58,8 +58,7 @@
   #+RESULTS:
   : Size of name: 8
 
-* TODO Exercises: Character Arrays versus Character Pointers
-
+* DONE Exercises: Character Arrays versus Character Pointers
 ** Exercise 5: String Array vs. Pointer Modification Attempt
 
 - Declare =char message_a[] = "Welcome";= and =char *message_p =
@@ -125,8 +124,7 @@
     ptr[0] = 'X';
   #+end_src
 
-* TODO Exercises: Writing strings
-
+* DONE Exercises: Writing strings
 ** Exercise 9: Simple String Output
 
 - *Problem*: Write a program that stores the string ="Learning C is
@@ -134,8 +132,12 @@
 
 - *Solution*:
   #+begin_src C
-    
+    char str[]="Learning C is fun!";
+    printf("%s",str);
   #+end_src
+
+  #+RESULTS:
+  : Learning C is fun!
 
 ** Exercise 10: Partial String Output
 
@@ -180,16 +182,24 @@
 
 - String input:
   #+begin_src bash :results output
-
+    echo "Write a program that reads a line of text" > strinput
+    cat strinput
   #+end_src
+
+  #+RESULTS:
+  : Write a program that reads a line of text
 
 - *Solution*:
   #+begin_src C :cmdline < strinput
-
+    char str[80];
+    fgets(str,sizeof(str),stdin);
+    printf("%s",str);
   #+end_src
 
-* TODO Exercises: Reading strings
+  #+RESULTS:
+  : Write a program that reads a line of text
 
+* TODO Exercises: Reading strings
 ** Exercise 13: Printing on new lines
 
 - *Problem*: Write a program that stores ="Hello, C!"= in a string
@@ -202,7 +212,7 @@
 
   #+end_src
 
-** Exercise 10: Reading Strings Character-by-Character
+** Exercise 14: Reading Strings Character-by-Character
 
 - *Problem*: Write a program that stores ="Hello, C!"= in a string
   variable. Use a loop to print each character in the string on a new
@@ -213,7 +223,7 @@
 
   #+end_src
 
-** Exercise 11: Pointer Arithmetic in Strings
+** Exercise 15: Pointer Arithmetic in Strings
 
 - *Problem*: Modify the =count_spaces= function to use pointer arithmetic
   instead of array indexing.
@@ -238,7 +248,7 @@
   #+RESULTS:
   : Spaces in "Can you count spaces?" = 0
 
-** Exercise 12: Exploring scanf and Strings
+** Exercise 16: Exploring scanf and Strings
 - *Problem*: Write a program that reads a word using =scanf= and prints
   it. Modify the program to only allow up to 10 characters to be read.
 
@@ -292,6 +302,46 @@ Modify =count_spaces= function call with pointer variable and with string litera
     }
   #+end_src
 
- 
+* TODO Exercise: C string library functions
+
+** =strcpy= exercise
+
+Write a C program that initializes a source string with the value
+"Hello, World!" and uses =strcpy= to copy this string into an empty
+destination string. Print the destination string after copying.
+
+#+begin_src C :main yes :includes <stdio.h> <string.h>
+
+#+end_src
+
+** =strlen= exercise
+
+Write a C program that initializes a string with the value "OpenAI"
+and uses =strlen= to find and print the length of this string.
+
+#+begin_src C :main yes :includes <stdio.h> <string.h>
+
+#+end_src
+
+** =strcat= exercise
+
+Write a C program that initializes two strings: =str1= with "Hello, "
+and =str2= with "world!". Use =strcat= to concatenate =str2= to =str1= and
+print the resulting string.
+
+#+begin_src C :main yes :includes <stdio.h> <string.h>
+
+#+end_src
+
+** =strcmp= exercise
+
+Write a C program that initializes two strings: =str1= with "apple" and
+=str2= with "orange". Use =strcmp= to compare the two strings and print
+whether =str1= is less than, equal to, or greater than =str2=.
+
+#+begin_src C :main yes :includes <stdio.h> <string.h>
+
+#+end_src
+
 
 
