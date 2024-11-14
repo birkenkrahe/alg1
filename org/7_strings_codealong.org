@@ -139,7 +139,6 @@
   #+begin_src C :cmdline < strinput
 
   #+end_src
-
 * TODO Exercises: Reading strings
 
 ** Exercise 13: Printing on new lines
