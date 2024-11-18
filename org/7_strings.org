@@ -690,8 +690,6 @@
     #+RESULTS:
     : Are we having fun?
 
-* TODO Exercises: Reading strings (ex 13)
-
 * TODO Accessing the characters in a string (counting spaces)
 
 - Write a function that counts the number of spaces in a string
@@ -745,11 +743,6 @@
 
   #+RESULTS:
   : Spaces in "Are we having                fun?" = 0
-
-* TODO Exercises: Reading strings (ex 14 + 15)
-
-
-* TODO Exercise: Pointer vs. string literal argument call
 
 * TODO Using the C string library =<string.h>=
 
