@@ -2686,8 +2686,7 @@ To code along, download and open in Emacs:
 - [ ] Using an array name as a pointer
 - [ ] Revisiting =reverse.c=
 
-
-* Week 13 - Strings [Nov 11]
+* DONE Week 13 - Strings [Nov 11]
 #+attr_html: :width 400px:
 [[../img/string_theory.png]]
 
@@ -2718,8 +2717,7 @@ There will be a quiz (10), a mandatory and a bonus program assignment.
 
 To code along (with exercises): [[https://tinyurl.com/strings-org][tinyurl.com/strings-org]]
 
-
-** NEXT Review: String literals, variables, reading and writing strings
+** Review: String literals, variables, reading and writing strings
 
 1. *What is a string literal?*
    #+begin_quote
@@ -2906,15 +2904,17 @@ To code along (with exercises): [[https://tinyurl.com/strings-org][tinyurl.com/s
 Now, download the string codealong file again (there are a few new
 exercises): [[https://tinyurl.com/strings-org][tinyurl.com/strings-org]]
 
+
 * Week 14 - Structures & Dynamic memory allocation [Nov 18]
 
+- [ ] Last quiz (10) and assignments on strings
+- [ ] =struct= data structures
 - [ ] Dynamic memory allocation (=malloc=)
 - [ ] Tips for Thanksgiving Break
 
+** NEXT =struct= data structures
+
 ** TODO Dynamic memory allocation
-
-*
-
 
 ** TODO Tips for Thanksgiving break
 
@@ -2932,6 +2932,7 @@ exercises): [[https://tinyurl.com/strings-org][tinyurl.com/strings-org]]
 
 
 * Week 16 - Linked lists / C++ [Dec 2]
+
 
 * Week 17 - Final exam (optional) [Dec 10]
 
