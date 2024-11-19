@@ -3025,6 +3025,9 @@ by the people, for the people, shall not perish from the earth.«
 
 ** TODO =struct= data structures
 
+- Download this file to code along & practice:
+  [[https://tinyurl.com/structures-org][tinyurl.com/structures-org]]
+
 - We're heading towards "linked lists", which requires the following
   concepts:
   1) [X] Pointers
