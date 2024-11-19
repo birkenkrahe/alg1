@@ -800,7 +800,7 @@ This will compile but with nonsense results:
 * TODO Arrays of strings
 
 
-* NEXT Command-line arguments
+* DONE Command-line arguments
 
 - Programs often need to be supplied with information from =stdin= - a
   file name, or a switch/flag/option that modifies the programs
@@ -810,12 +810,19 @@ This will compile but with nonsense results:
   #+end_src
 
   #+RESULTS:
-  : -rw-rw-r-- 1 aletheia aletheia  9079 Nov 14 14:48 7_strings_codealong_copy.org
-  : -rw-rw-r-- 1 aletheia aletheia  6959 Nov 14 00:07 7_strings_codealong.org
-  : -rw-rw-r-- 1 aletheia aletheia 20953 Nov 18 20:16 7_strings.org
+  : -rw-rw-r-- 1 marcus marcus  9079 Nov 14 10:39 7_strings_codealong_copy.org
+  : -rw-rw-r-- 1 marcus marcus  6959 Nov 14 09:27 7_strings_codealong.org
+  : -rw-rw-r-- 1 marcus marcus 24246 Nov 19 09:50 7_strings.org
+
+  #+begin_src bash
+    which ls
+  #+end_src
+
+  #+RESULTS:
+  : /usr/bin/ls
 
 - In the example,
-  1. =ls= is the C program (executable for file listing),
+  1. =ls= is the C program (executable for file listing with PATH),
   2. =-l= is the flag (long listing), and
   3. =[7]*= is a regular expression (all files beginning with =7=).
 
@@ -892,8 +899,8 @@ This will compile but with nonsense results:
   #+end_src
 
   #+RESULTS:
-  : foo bar baz
-  : ls -l main.c
+  : foo bar baz 
+  : ls -l main.c 
 
 - You can also print the command-line arguments with pointer arithmetic:
   
@@ -924,3 +931,9 @@ This will compile but with nonsense results:
   #+RESULTS:
   : foo bar baz 
   : ls -l main.c 
+
+- Why would you not just use =main(void)=?
+  #+begin_quote
+  You might want to use =main= like a function, and not just like
+  a program block.
+  #+end_quote  
