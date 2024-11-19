@@ -225,7 +225,7 @@
 
       return 0;
     }
-  #+end_src
+  #+end_srcn
 
   #+RESULTS:
   : Employee: Fritz Fisch, number = 285942, sex = M

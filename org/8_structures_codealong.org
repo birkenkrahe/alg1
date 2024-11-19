@@ -29,26 +29,14 @@
   values. Once the =struct= is defined, =Point= can be used like any other
   data type.
   #+begin_src C
-    #include <stdio.h>
-    struct Point {
-      int x;
-      int y;
-    };
+    // Declare Point structure
 
-    int main() {
-      struct Point p1 = {10, 20};
-      printf("Point: (%d, %d)\n", p1.x, p1.y);
-      return 0;
-    }
+    // Main program
   #+end_src
-
-  #+RESULTS:
-  : Point: (10, 20)
 
 - Enumeration example: The =enum= =Day= is an integer type whose values
   are named.
   #+begin_src C
-    #include <stdio.h>
     enum Day { MON, TUE, WED, THU, FRI, SAT, SUN };
 
     int main() {
@@ -64,31 +52,19 @@
 - Union example: Similar to a structure except that its members share
   the same storage so that only one member can be stored at a time.
   #+begin_src C
-    union Data {
-      int i;
-      float f;
-      char str[20];
-    };
+    // declare data Union
 
+    // Main program
     int main() {
-      union Data data;
-      data.i = 42;
-      printf("Integer: %d\n", data.i);
+      // Define data as Data
 
-      data.f = 3.14;
-      printf("Float: %f\n", data.f);
+      // Assign data values
 
-      strcpy(data.str,"hello");
-      printf("String: %s\n", data.str);
-
+      // Print data values
+      n
       return 0;
     }
   #+end_src
-
-  #+RESULTS:
-  : Integer: 42
-  : Float: 3.140000
-  : String: hello
 
 * Structure variables
 
@@ -117,26 +93,17 @@
 - In code:
   #+name: parts
   #+begin_src C :results none
-    #define NAME_LEN 25
 
-    struct {
-      int number; // parts number
-      char name[NAME_LEN+1]; // parts name - string + null character
-      int on_hand; // part is on hand
-    } part1, part2; // two part variables
   #+end_src
 
-- Members are stored in memory in the order in which they are declared:
-  #+attr_html: :width 250px:
-  [[./img/struct.png]]
+- Members are stored in memory in the order in which they are
+  declared: [[https://github.com/birkenkrahe/alg1/blob/main/img/struct.png][See image]]
 
 - Here, =number= and =on_hand= occupy 4 bytes (=int=), and =name= occupies 25
   bytes (=char= has 1 byte x 25).
 
 - Usually, structures are represented by adjacent vertical or
-  horizontal boxes:
-  #+attr_html: :width 600px:
-  [[./img/struct2.png]]
+  horizontal boxes:  [[https://github.com/birkenkrahe/alg1/blob/main/img/struct2.png][See image]]
 
 - Structure scope: Each structure represents a new block scope, and
   its names will not conflict with other names in a program. This is
@@ -146,46 +113,25 @@
   namespace =std= at the start, you don't have to write =std::cout= and
   =std::endl=.
   #+begin_src C++ :includes <iostream>
-    using namespace std;
-
-    cout << "hello name space" << endl;
 
   #+end_src
-
-  #+RESULTS:
-  : hello name space
 
 * Using a structure
 
 - Now let's use this parts structure:
   #+begin_src C
-    #define NAME_LEN 25
-
-    // declare structure
-    struct {
-      int number; // parts number
-      char name[NAME_LEN+1]; // parts name - string + null character
-      int on_hand; // how many parts are available
-    } part1, part2; // two parts
-
+    <<parts>>
+    
     // main program
     int main(void)
     {
       // use parts structure
-      strcpy(part1.name, "Printer cable"); // cannot copy string array
-      part1.number = 528;
-      part1.on_hand = 10;
 
       // print part1 data
-      printf("Part: %s, number = %d, on hand = %d\n",
-         part1.name, part1.number, part1.on_hand);
 
       return 0;
     }
   #+end_src
-
-  #+RESULTS:
-  : Part: Printer cable, number = 528, on hand = 10
 
 * Practice: Create and test an employee database structure
 
@@ -204,32 +150,18 @@
 
 - Solution:
   #+begin_src C
-    #define NAME_LEN 25
-
     // declare structure
-    struct {
-      char name[NAME_LEN+1];
-      int number;
-      char sex;
-    } employee1, employee2; // two employees
 
     // main program
     int main(void)
     {
-      // use employee structure
-      strcpy(employee1.name, "Fritz Fisch");
-      employee1.number = 285942;
-      employee1.sex = 'M';
+      // define employee1
 
-      printf("Employee: %s, number = %d, sex = %c\n",
-         employee1.name, employee1.number, employee1.sex);
+      // print employee1 details
 
       return 0;
     }
   #+end_src
-
-  #+RESULTS:
-  : Employee: Fritz Fisch, number = 285942, sex = M
 
 * Initializing structure variables
 
@@ -247,18 +179,13 @@
       int number;
       char name[NAME_LEN+1];
       int on_hand;
-    } part1 = {.name = "Disk drive", .on_hand = 10, .number = 528},
-      part2 = {914, "Printer cable"};
+    } ...
 
     printf("Part 1: %s, number = %d, on hand = %d\n"
            "Part 2: %s, number = %d, on hand = %d\n",
            part1.name, part1.number, part1.on_hand,
            part2.name, part2.number, part2.on_hand);
   #+end_src
-
-  #+RESULTS:
-  : Part 1: Disk drive, number = 528, on hand = 10
-  : Part 2: Printer cable, number = 914, on hand = 0
 
 * Operations on structures
 
@@ -271,16 +198,7 @@
   #+begin_src C
     <<parts>> // declaration of parts only
 
-    printf("part no. = %d\n",part1.number = 201);
-
-    part1.number++;
-
-    printf("part no. = %d\n",part1.number);
   #+end_src
-
-  #+RESULTS:
-  : part no. = 201
-  : part no. = 202
 
 - The period to access a structure is a C operator. It takes
   precedence over nearly all other operators. Other C-like languages
@@ -293,90 +211,37 @@
     print(arr)
   #+end_src
 
-  #+RESULTS:
-  : [1 2 3]
-
 - In the following statement, the argument contains two operators: the
   "dot" operator takes precedence: =&= computes the address of =part.num=:
 #+begin_example C
   scanf("%d", &part.num);
 #+end_example
 
-- We can show this by print address and value before and after the
-  =scanf= command:
-
-  #+begin_src bash :results output :exports both
-    echo "1000" > input
-    cat input
-  #+end_src
-
-  #+RESULTS:
-  : 1000
-
-  #+begin_src C :cmdline < input
-    // declare structure
-    struct {
-      int num;
-    } part = {.num = 999};
-
-    // print structure member and address before user input
-    printf("%p %d\n", &part.num, part.num);
-
-    // get user input
-    scanf("%d", &part.num);
-
-    // print user input and address of user input
-    printf("%p %d\n", &part.num, part.num);
-  #+end_src
-
-  #+RESULTS:
-  : 0x7ffd12681ea4 999
-  : 0x7ffd12681ea4 1000
-
 - Though arrays cannot be copied using ===, structures can!
 
   #+begin_src C
     <<parts>>
-    part1.number=415;
-    strcpy(part1.name,"Keyboard");
-    part1.on_hand=20;
+
+    // initialize part1
 
     printf("Part 1: %s, number = %d, on hand = %d\n"
            "Part 2: %s, number = %d, on hand = %d\n",
            part1.name, part1.number, part1.on_hand,
            part2.name, part2.number, part2.on_hand);
 
-    part2 = part1; // copy one structure into another
+    // copy one structure into another
+
 
     printf("Part 1: %s, number = %d, on hand = %d\n"
            "Part 2: %s, number = %d, on hand = %d\n",
            part1.name, part1.number, part1.on_hand,
            part2.name, part2.number, part2.on_hand);
   #+end_src
-
-  #+RESULTS:
-  : Part 1: Keyboard, number = 415, on hand = 20
-  : Part 2: , number = 2, on hand = 4096
-  : Part 1: Keyboard, number = 415, on hand = 20
-  : Part 2: Keyboard, number = 415, on hand = 20
 
 - You can use this to copy arrays with dummy structures:
   #+begin_src C
-    struct { int a[10]; } a1={1}, a2; puts("a1:");
-    for(int *p=a1.a;p<a1.a+10;p++) printf("%d ",*p);
-    puts("\na2:");
-    for(int *p=a2.a;p<a2.a+10;p++) printf("%d ",*p);
-    a2 = a1; puts("\na2:");
-    for(int *p=a2.a;p<a2.a+10;p++) printf("%d ",*p);
-  #+end_src
 
-  #+RESULTS:
-  : a1:
-  : 1 0 0 0 0 0 0 0 0 0
-  : a2:
-  : 2 0 -1075053569 0 -22377815 32767 100 0 4096 0
-  : a2:
-  : 1 0 0 0 0 0 0 0 0 0
+  #+end_src
 
 - No other operations but === are available. In particular, there is no
   way to compare structures with logical operators (==== and =!==).
@@ -392,60 +257,29 @@
 - We can either define a /structure tag/ or use /typedef/ to define a type
   name for our structure:
 
-- This example declares a structure tag named =part=:
-  #+name: part
+- This example declares a structure tag named =Part=:
+  #+name: Part
   #+begin_src C :main no :results none
-    #define NAME_LEN 25
-    struct part {
-      int number;
-      char name[NAME_LEN+1];
-      int on_hand;
-    };  // semi-colon must terminate the declaration
+
   #+end_src
 
 - The tag can now be used to declare variables:
 
   #+begin_src C :results none
-    <<part>>
+    <<Part>>
 
-    struct part part1, part2; // must be prefixed by `struct`
+    struct Part part1, part2; // must be prefixed by `struct`
 
   #+end_src
 
 - Declaration of a tag and of structure variables can be combined:
 
   #+begin_src C
-    #define NAME_LEN 25
 
-    struct part {
-      int number;
-      char name[NAME_LEN+1];
-      int on_hand;
-    } part1 = {100,"keyboard",10};
-
-    struct part part2;
-    strcpy(part2.name,"screen");
-
-    printf("Parts: %s and %s", part1.name,part2.name);
   #+end_src
-
-  #+RESULTS:
-  : Parts: keyboard and screen
 
 - Alternatively, use =typedef= to define a genuine data type. All =Part=
   variables, no matter when they're declared, are compatible.
-
-  #+begin_src C
-    #define NAME_LEN 25
-
-    typedef struct {
-      int number;
-      char name[NAME_LEN+1];
-      int on_hand;
-    } Part;  // define a type `Part`
-
-    Part part1, part2; // declare variables
-  #+end_src
 
 - Declaring a structure tag is mandatory when the structure is used in
   a linked list.
@@ -460,45 +294,6 @@
 2. Declare and initialize two =Book= variables:
    - =book1= with the =id= 101, =title= "C Programming", and =price= 29.99.
    - =book2= without initialization.
-
-   #+name: Book_init
-   #+begin_src C
-     <<Book>>
-
-     struct Book book1 = {101,"C Programming",29.99};
-     struct Book book2;
-   #+end_src
-
-   #+RESULTS:
-
-Solution:
-#+name: Book
-#+begin_src C :results none
-  struct Book {
-    int id;
-    char title[50];
-    float price;
-  } book1 = {.id = 101, .title = "C Programming", .price = 29.99},
-    book2;
-#+end_src
-
-
-#+begin_src C :tangle book.c
-  <<Book>>
-
-  book2.id = 102;
-  strcpy(book2.title,"Data Structures");
-  book2.price=39.99;
-
-  printf("Book1: id = %d, title = %s, price = %g\n",
-         book1.id, book1.title, book1.price);
-  printf("Book2: id = %d, title = %s, price = %g\n",
-         book2.id, book2.title, book2.price);
-#+end_src
-
-#+RESULTS:
-: Book1: id = 101, title = C Programming, price = 29.99
-: Book2: id = 102, title = Data Structures, price = 39.99
 
 Bonus assignment (see next section):
 
@@ -522,34 +317,23 @@ Bonus assignment (see next section):
   #+begin_src C :tangle parts.c
     // Define a structure with a tag
     struct Part {
-        int number; 
-        char name[50];
-        int on_hand; 
+      int number; 
+      char name[50];
+      int on_hand; 
     };
 
     // Function to print a part
-    void print_part(struct Part p)
-    {
-        printf("Part number: %d\n", p.number);
-        printf("Part name: %s\n", p.name);
-        printf("Quantity on hand: %d\n", p.on_hand);      
-    }
 
     int main(int argc, char *argv[])
     {
         // Initialize part1
-        struct Part part1 = {101, "Keyboard", 20};
+
 
         // Print part1 details
-        print_part(part1);
+
         return 0;
     }
   #+end_src
-
-  #+RESULTS:
-  : Part number: 101
-  : Part name: Keyboard
-  : Quantity on hand: 20
 
 - The second function returns a =Part= structure that it constructs from
   its arguments:
@@ -562,34 +346,16 @@ Bonus assignment (see next section):
       int on_hand; 
     };
 
-    struct Part build_part(int number, const char *name, int on_hand)
-    {
-      struct Part p;  // declares part as Part
-
-      p.number = number;
-      strcpy(p.name, name);
-      p.on_hand = on_hand;
-
-      return p; // returns part
-    }
-
     int main(int argc, char *argv[])
     {
       // Create a Part using the build_part function
-      struct Part part1 = build_part(101, "Keyboard", 20);
+
       
       // Print part details
-      printf("Part number: %d\n", part1.number);
-      printf("Part name: %s\n", part1.name);
-      printf("Quantity on hand: %d\n", part1.on_hand);
       
       return 0;
     }
   #+end_src
 
-  #+RESULTS:
-  : Part number: 101
-  : Part name: Keyboard
-  : Quantity on hand: 20
 
   
