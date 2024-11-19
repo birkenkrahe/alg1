@@ -2913,14 +2913,14 @@ Nov 19, 1863: Lincoln's Gettysburg address: »This nation, under God,
 shall have a new birth of freedom—and that government of the people,
 by the people, for the people, shall not perish from the earth.«
 
-- [ ] Last quiz (10) and assignments on strings (with bonus) available
-- [ ] Exit quiz on current topics as bonus in last week of term
-- [ ] Lecture: Command-line arguments =main(int argc, char *argv[])=
-- [ ] Lecture: =struct= data structures & other user-defined structures)
+- [X] Last quiz (10) and assignments on strings (with bonus) available
+- [X] Exit quiz on current topics as bonus in last week of term
+- [X] Lecture: Command-line arguments =main(int argc, char *argv[])=
+- [ ] Lecture: =struct= data structures & other user-defined structures
 - [ ] Lecture: Dynamic memory allocation (=malloc=)
 - [ ] Tips for Thanksgiving Break
 
-** NEXT Review: Strings II (see also quiz 10)
+** DONE Review: Strings II (see also quiz 10)
 
 1. What is the safe way for reading strings from the keyboard?
    #+begin_quote
@@ -2948,7 +2948,7 @@ by the people, for the people, shall not perish from the earth.«
    Answer: To prevent modifications to the string but not the pointer itself.
    #+end_quote
 
-6. How does can you iterate over a string =str= with pointer arithmetic?
+6. How can you iterate over a string =str= with pointer arithmetic?
    #+begin_quote
    Answer: `for (; *str != '\0'; str++)`
    #+end_quote
@@ -2964,7 +2964,7 @@ by the people, for the people, shall not perish from the earth.«
    f(char *s)= with a pointer variable and with a string literal?
    #+begin_quote
    Answer: Pointer variables point to modifiable memory, while string
-   literals point to read-only memory.
+   literals (which are constant) point to read-only memory.
    #+end_quote
 
 9. What is the main difference between modifying a pointer to a string
@@ -3018,7 +3018,7 @@ by the people, for the people, shall not perish from the earth.«
     #+end_quote
 
 
-** TODO Command-line arguments - passing stuff to a C program
+** DONE Command-line arguments - passing stuff to a C program
 
 [Re-] open your string code along file.
 
@@ -3031,12 +3031,12 @@ by the people, for the people, shall not perish from the earth.«
 - We're heading towards "linked lists", which requires the following
   concepts:
   1) [X] Pointers
-  2) [ ] Structures
+  2) [X] Structures
   3) [ ] Dynamic memory management with =malloc= (C) or =new= (C++), =free=
      (C) or =delete= (C++)
 
 - We'll discuss:
-  1. [ ] Declaring and using structures
+  1. [ ] Declaring and using structures (=struct=)
   2. [ ] Initializing and operating on structures
   3. [ ] Structure types: Tags and type definition
   4. [ ] Structures as arguments and return values
@@ -3048,7 +3048,6 @@ by the people, for the people, shall not perish from the earth.«
 - Bonus assignment on structures (for you to practice)
 
 ** Dynamic memory allocation
-
 
 ** Tips for Thanksgiving break
 
