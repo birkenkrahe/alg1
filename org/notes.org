@@ -2594,7 +2594,7 @@ To code along, download and open in Emacs:
 
 ** Review: Pointer arithmetic I
 
-1. What does "pointer arithmetic" mean? 
+1. What does "pointer arithmetic" mean?
    #+begin_quote
    It refers to using pointers to access array elements that they're
    pointing at. You can add an integer to a pointer, subtract an
@@ -2639,19 +2639,19 @@ To code along, download and open in Emacs:
    : p = 0x7ffe01f7c318, &a[6] = 0x7ffe01f7c318
 
 5. Give an example for subtracting one pointer from another.
-  #+begin_src C
-    int a[10]={100,101,102,103,104,105,106,800,900,1000}, *p, *q;
-    p = &a[9]; // p points at a[9]
-    q = &a[3];
-    printf("p - q = %ld\n", p-q); // distance between locations as indices
-    printf("*p - *q = %d\n", *p-*q); // difference of values
-    printf("&a[9] - &a[3] = %ld\n", &a[9] - &a[3]); // distance between addresses
-  #+end_src
+   #+begin_src C
+     int a[10]={100,101,102,103,104,105,106,800,900,1000}, *p, *q;
+     p = &a[9]; // p points at a[9]
+     q = &a[3];
+     printf("p - q = %ld\n", p-q); // distance between locations as indices
+     printf("*p - *q = %d\n", *p-*q); // difference of values
+     printf("&a[9] - &a[3] = %ld\n", &a[9] - &a[3]); // distance between addresses
+   #+end_src
 
-  #+RESULTS:
-  : p - q = 6
-  : *p - *q = 897
-  : &a[9] - &a[3] = 6
+   #+RESULTS:
+   : p - q = 6
+   : *p - *q = 897
+   : &a[9] - &a[3] = 6
 
 6. If =p = &a[3]=, what is =p+=3= ?
    #+begin_quote
@@ -2703,13 +2703,13 @@ There will be quiz questions. [[https://www.youtube.com/watch?v=aE5k6UyhYaA&list
 Lectures with short coding exercises (handout to be printed):
 
 1) [X] String literals (aka string constants) - *video 23 min*
-2) [X] String variables 
-3) [X] Reading and writing strings 
-4) [ ] Writing functions that process strings 
+2) [X] String variables
+3) [X] Reading and writing strings
+4) [ ] Writing functions that process strings
 5) [ ] Understanding string-handling functions in the C library
 6) [ ] Sample program: List of daily reminders (video?)
-7) [ ] Searching, copying, strings 
-8) [ ] Arrays of strings 
+7) [ ] Searching, copying, strings
+8) [ ] Arrays of strings
 9) [ ] Command-line arguments (class)
 10) [ ] Sample program: Checking planet names (video?)
 
@@ -2739,7 +2739,7 @@ To code along (with exercises): [[https://tinyurl.com/strings-org][tinyurl.com/s
    #+end_quote
 
    #+begin_src C
-     printf("\"To be or not to be, " 
+     printf("\"To be or not to be, "
             "that is the question.\""
             "\n-William Shakespeare, Hamlet");
    #+end_src
@@ -2756,7 +2756,7 @@ To code along (with exercises): [[https://tinyurl.com/strings-org][tinyurl.com/s
      // B
      char word = "Hello, world!"[0];
    #+end_src
-   
+
    Output
    #+begin_src C :noweb yes
      <<helloWorld>>
@@ -2767,7 +2767,7 @@ To code along (with exercises): [[https://tinyurl.com/strings-org][tinyurl.com/s
 
    #+RESULTS:
    : H H
-   
+
    #+begin_quote
    Explanation: =ptr= points at the first letter of the string literal,
    and =word= extracts the first element of the string literal. The
@@ -2781,7 +2781,7 @@ To code along (with exercises): [[https://tinyurl.com/strings-org][tinyurl.com/s
 
    #+begin_src C :results none
      char *p = "Hello, world!"; // p points to `H`
-     *p = 'h';
+     ,*p = 'h';
    #+end_src
 
 5. *How can I change "Hello, world!" to "hello, world!"?*
@@ -2818,11 +2818,11 @@ To code along (with exercises): [[https://tinyurl.com/strings-org][tinyurl.com/s
      char msg[10] = "Welcome"; // 9 characters + null value = 10
 
      for (int i=0; i<12; i++)
-            if (i < 7)
-     	 printf("msg[%d] = %c\n", i, msg[i]);
-            else
-     	 printf("msg[%d] = %d\n", i, msg[i]);
-   #+end_src   
+       if (i < 7)
+         printf("msg[%d] = %c\n", i, msg[i]);
+       else
+         printf("msg[%d] = %d\n", i, msg[i]);
+   #+end_src
 
    #+RESULTS:
    #+begin_example
@@ -2851,20 +2851,20 @@ To code along (with exercises): [[https://tinyurl.com/strings-org][tinyurl.com/s
 
    #+RESULTS:
    : |----|----|----|
-   : Hello     
+   : Hello
 
 9. *What's the fastest way to store a line of text from the keyboard?*
 
    #+begin_src bash :results output :exports both
      echo \"Three things are important: To be kind, to be kind, and to be kind.\"\
-     > strinput
+          > strinput
      cat strinput
    #+end_src
 
    #+RESULTS:
    : "Three things are important: To be kind, to be kind, and to be kind."
 
-   #+begin_src C :cmdline < strinput 
+   #+begin_src C :cmdline < strinput
      char str[80];
      gets(str);
      printf("%s",str);
@@ -2882,7 +2882,7 @@ To code along (with exercises): [[https://tinyurl.com/strings-org][tinyurl.com/s
 
     #+RESULTS:
     : Marcus Birkenkrahe
-   
+
     #+begin_src C :cmdline < strinput
       char str[80]; // declare string
 
@@ -2893,7 +2893,7 @@ To code along (with exercises): [[https://tinyurl.com/strings-org][tinyurl.com/s
 
     #+RESULTS:
     : Marcus Birkenkrahe
-    : 
+    :
 
     #+begin_quote
     Note: A newline character =\n= is included at the end of =fgets=
@@ -2906,17 +2906,145 @@ exercises): [[https://tinyurl.com/strings-org][tinyurl.com/strings-org]]
 
 
 * Week 14 - Structures & Dynamic memory allocation [Nov 18]
+#+attr_html: :width 500px:
+[[../img/gettysburg2.jpg]]
+
+Nov 19, 1863: Lincoln's Gettysburg address: »This nation, under God,
+shall have a new birth of freedom—and that government of the people,
+by the people, for the people, shall not perish from the earth.«
 
 - [ ] Last quiz (10) and assignments on strings
-- [ ] =struct= data structures
+- [ ] Command-line arguments =main(int argc, char *argv[])=
+- [ ] =struct= data structures (and other user-defined structures)
 - [ ] Dynamic memory allocation (=malloc=)
 - [ ] Tips for Thanksgiving Break
 
-** NEXT =struct= data structures
+** NEXT Review: Strings II
 
-** TODO Dynamic memory allocation
+1. What is the safe way for reading strings from the keyboard?
+   #+begin_quote
+   Answer: =fgets(str, sizeof(str), stdin);=.
+   #+end_quote
 
-** TODO Tips for Thanksgiving break
+2. What happens if you try to modify a string literal in C?
+   #+begin_quote
+   Answer: It leads to undefined behavior.
+   #+end_quote
+
+3. How does =fgets()= handle the newline character at the end of input?
+   #+begin_quote
+   Answer: It includes the newline character in the string.
+   #+end_quote
+
+4. Where does =ptr= point at in: =char *ptr = "Hello, world!";=?
+   #+begin_quote
+   Answer: The pointer points to a read-only memory location.
+   #+end_quote
+
+5. What is the purpose of using =const= in the parameter =const char *s=
+   of a function?
+   #+begin_quote
+   Answer: To prevent modifications to the string but not the pointer itself.
+   #+end_quote
+
+6. How does can you iterate over a string =str= with pointer arithmetic?
+   #+begin_quote
+   Answer: `for (; *str != '\0'; str++)`
+   #+end_quote
+
+7. What happens when you pass a string literal directly to a function
+   declared as: =int f(char *s)=, as in =f("hello")=
+   #+begin_quote
+   Answer: The function receives a pointer to the string literal's
+   first element, ="hello"[0] = 'h'=
+   #+end_quote
+
+8. What is the key difference between calling a string function =void
+   f(char *s)= with a pointer variable and with a string literal?
+   #+begin_quote
+   Answer: Pointer variables point to modifiable memory, while string
+   literals point to read-only memory.
+   #+end_quote
+
+9. What is the main difference between modifying a pointer to a string
+   and modifying the string itself e.g. with array subscripting?
+   #+begin_quote
+   Answer: Modifying a pointer changes where it points, while
+   modifying the string itself (via array subscripting) changes the
+   data stored in memory if the string is in a modifiable location
+   (e.g., a character array).
+   #+end_quote
+
+   #+begin_src C
+     char *p = "Hello";
+     p = "World"; // This is fine; `p` now points to "World".
+     printf("%s",p);
+   #+end_src
+
+   #+RESULTS:
+   : World
+
+10. Why do we not have to dereference =p= in the previous code?
+    #+begin_quote
+    Answer: because the =%s= format specifier in =printf= expects a pointer
+    to the first character of the string.
+    #+end_quote
+
+11. What if we want to print the first character of "World" only? 
+    #+begin_src C
+     char *p = "Hello";
+     p = "World";
+     printf("%c",*p); // *p dereferences p[0] = 'W'
+   #+end_src
+
+   #+RESULTS:
+   : W
+
+12. What do we get if we use =printf("%d",*p);= instead?
+    #+begin_src C
+     char *p = "Hello";
+     p = "World";
+     printf("%d",*p); // *p dereferences p[0] = 'W' = 87 as ASCII
+   #+end_src
+
+   #+RESULTS:
+   : 87
+
+13. Why is modifying a string literal considered unsafe in C?
+    #+begin_quote
+    Answer: String literals are stored in read-only memory, and
+    modifying them leads to undefined behavior.
+    #+end_quote
+
+
+** TODO Command-line arguments - passing stuff to a C program
+
+[Re-] open your string code along file.
+
+
+** TODO =struct= data structures
+
+- We're heading towards "linked lists", which requires the following
+  concepts:
+  1) [X] Pointers
+  2) [ ] Structures
+  3) [ ] Dynamic memory management with =malloc= (C) or =new= (C++), =free=
+     (C) or =delete= (C++)
+
+- We'll discuss:
+  1. [ ] Declaring and using structures
+  2. [ ] Initializing and operating on structures
+  3. [ ] Structure types: Tags and type definition
+  4. [ ] Structures as arguments and return values
+  5. [ ] Creating structures on the fly as compound literals
+  6. [ ] Nested arrays and arrays of structures
+
+- Extended structure examples - a parts database (video)
+
+** Dynamic memory allocation
+
+
+** Tips for Thanksgiving break
 
 - [ ] If you need a better grade: Sit for the final exam
 
@@ -2930,7 +3058,6 @@ exercises): [[https://tinyurl.com/strings-org][tinyurl.com/strings-org]]
   Zingaro's "Algorithmic Thinking" (NoStarch, 2023), with worked up
   examples from programming competitions.
 
-
 * Week 16 - Linked lists / C++ [Dec 2]
 
 
@@ -2938,4 +3065,3 @@ exercises): [[https://tinyurl.com/strings-org][tinyurl.com/strings-org]]
 
 According to the [[https://assets.speakcdn.com/assets/2433/fa24_final_exam_schedule.pdf][published exam schedule]], the final exam will take
 place on Tuesday, December 10, at 8-10 am in room 104 Lyon building.
- 

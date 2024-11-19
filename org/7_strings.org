@@ -63,13 +63,13 @@
   #+end_src
 
   #+RESULTS:
-  : "Man only likes to count his troubles; he doesn't calculate his happiness."        
+  : "Man only likes to count his troubles; he doesn't calculate his happiness."
   : Fyodor Dostoyevsky, Notes from Underground.
 
 - A better way to join two string literals: When the compiler finds
   white space between string literals, it will join them.
   #+begin_src C
-    printf("\"To know and love one other human being"            
+    printf("\"To know and love one other human being"
            " is the root of all wisdom.\"\n"
            "Evelyn Waugh, Brideshead Revisited");
   #+end_src
@@ -413,7 +413,7 @@
 
   #+begin_src C
     char *p; // pointer points nowhere in particular
-   // p[0] = 'a'; // segmentation fault
+    // p[0] = 'a'; // segmentation fault
   #+end_src
 
 - Explanation:
@@ -666,29 +666,29 @@
 
 * NEXT Reading strings character by character
 
-  - Regular subscripting:
-    #+begin_src C
-      char str[]="Are we having fun?";
-      int i;
+- Regular subscripting:
+  #+begin_src C
+    char str[]="Are we having fun?";
+    int i;
 
-      for (i=0; i < 18; i++) // goes to N-1 to avoid printing \0
-        printf("%c", str[i]);
-    #+end_src
+    for (i=0; i < 18; i++) // goes to N-1 to avoid printing \0
+      printf("%c", str[i]);
+  #+end_src
 
-    #+RESULTS:
-    : Are we having fun?
+  #+RESULTS:
+  : Are we having fun?
 
-  - More elegant: use the knowledge about strings!
-    #+begin_src C
-      char str[]="Are we having fun?";
-      int i;
+- More elegant: use the knowledge about strings!
+  #+begin_src C
+    char str[]="Are we having fun?";
+    int i;
 
-      for (i=0; str[i] != '\0'; i++) // loop until first '\0'
-        printf("%c", str[i]);
-    #+end_src  
+    for (i=0; str[i] != '\0'; i++) // loop until first '\0'
+      printf("%c", str[i]);
+  #+end_src
 
-    #+RESULTS:
-    : Are we having fun?
+  #+RESULTS:
+  : Are we having fun?
 
 * TODO Accessing the characters in a string (counting spaces)
 
@@ -779,7 +779,7 @@ This will compile but with nonsense results:
     strcpy(str,"Hello");
 
     printf("%s\n",str);
-  #+end_src  
+  #+end_src
 
   #+RESULTS:
   : @ .ÙV
@@ -799,5 +799,128 @@ This will compile but with nonsense results:
 
 * TODO Arrays of strings
 
-* TODO Command-line arguments
 
+* NEXT Command-line arguments
+
+- Programs often need to be supplied with information from =stdin= - a
+  file name, or a switch/flag/option that modifies the programs
+  behavior:
+  #+begin_src bash :results output :exports both
+    ls -l [7]*
+  #+end_src
+
+  #+RESULTS:
+  : -rw-rw-r-- 1 aletheia aletheia  9079 Nov 14 14:48 7_strings_codealong_copy.org
+  : -rw-rw-r-- 1 aletheia aletheia  6959 Nov 14 00:07 7_strings_codealong.org
+  : -rw-rw-r-- 1 aletheia aletheia 20953 Nov 18 20:16 7_strings.org
+
+- In the example,
+  1. =ls= is the C program (executable for file listing),
+  2. =-l= is the flag (long listing), and
+  3. =[7]*= is a regular expression (all files beginning with =7=).
+
+- Command-line information is available to all files not just OS
+  commands. To access these /command-line arguments/, we define =main= as
+  a function not without (=void=) but with two parameters, =argc= and =argv=:
+
+  #+begin_src C :results none
+    int main(int argc, char *argv[])
+    {
+      return 0;
+    }
+  #+end_src
+
+- =argc= is the "argument count": The number of command-line arguments
+  (including the name of the program itself.
+
+- =argv= is the "argument vector": An array of pointers to the
+  command-line arguments, stored in string form.
+
+- =argv[0]= points to the name of the program, =argv[1]= to =argv[argc-1]=
+  point to the remaining command-line arguments, while the last
+  element, =argv[argc]= is always a null pointer that points nowhere.
+
+- The preprocessor macro =NULL= represents a null pointer (cannot be
+  dereferenced - has no value equivalent):
+  #+begin_src C
+    int *ptr = NULL; // NULL macro used to define a null pointer
+
+    if (ptr == NULL) {
+      printf("Pointer is null.\n");
+     } else {
+      printf("Pointer is not null.\n");
+     }
+  #+end_src
+
+  #+RESULTS:
+  : Pointer is null.
+
+- Example: If the user enters =gcc main.c -o main=, =argv= points to the
+  following values:
+
+  | Index | Value    | Explanation                                        |
+  |-------+----------+----------------------------------------------------|
+  |     0 | "gcc"    | The name of the program being executed (with path) |
+  |     1 | "main.c" | The first argument, the input source file + \0     |
+  |     2 | "-o"     | The option flag specifying output file name + \0   |
+  |     3 | "main"   | The name of the output file + \0                   |
+  |     4 | NULL     | Null pointer                                       |
+
+- If the program name is not available, =argv[0]= points to an empty
+  string.
+
+- You can print the command-line arguments with array subscripting:
+  
+  #+begin_src C :tangle argv.c :results none :main no
+    int main(int argc, char *argv[])
+    {
+      int i;
+      for(i=1;i<argc;i++)
+        printf("%s ", argv[i]);
+      puts("");
+      return 0;
+    }
+  #+end_src
+
+- To test this program, compile it and run it on any command-line
+  input.
+
+  #+begin_src bash :results output :exports both
+    gcc argv.c -o CMD
+    ./CMD foo bar baz
+    ./CMD ls -l main.c
+  #+end_src
+
+  #+RESULTS:
+  : foo bar baz
+  : ls -l main.c
+
+- You can also print the command-line arguments with pointer arithmetic:
+  
+  #+begin_src C :main no :results no :tangle argv2.c
+    int main(int argc, char *argv[])
+    {
+      char **p; // p is a pointer to a pointer to a character
+
+      // start: p points to argv[1] which points to the first string after
+      // the program name
+      // stop: when the pointer is the NULL pointer
+      // increment: go to next pointer (element of argv)
+      for (p = &argv[1]; *p != NULL; p++) 
+        printf("%s ", *p); // print dereferenced pointer = stored string
+      puts("");
+      return 0;
+    }
+  #+end_src
+
+- Testing:  
+
+  #+begin_src bash :results output :exports both
+    gcc argv2.c -o CMD
+    ./CMD foo bar baz
+    ./CMD ls -l main.c
+  #+end_src
+
+  #+RESULTS:
+  : foo bar baz 
+  : ls -l main.c 
