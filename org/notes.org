@@ -2913,13 +2913,14 @@ Nov 19, 1863: Lincoln's Gettysburg address: »This nation, under God,
 shall have a new birth of freedom—and that government of the people,
 by the people, for the people, shall not perish from the earth.«
 
-- [ ] Last quiz (10) and assignments on strings
-- [ ] Command-line arguments =main(int argc, char *argv[])=
-- [ ] =struct= data structures (and other user-defined structures)
-- [ ] Dynamic memory allocation (=malloc=)
+- [ ] Last quiz (10) and assignments on strings (with bonus) available
+- [ ] Exit quiz on current topics as bonus in last week of term
+- [ ] Lecture: Command-line arguments =main(int argc, char *argv[])=
+- [ ] Lecture: =struct= data structures & other user-defined structures)
+- [ ] Lecture: Dynamic memory allocation (=malloc=)
 - [ ] Tips for Thanksgiving Break
 
-** NEXT Review: Strings II
+** NEXT Review: Strings II (see also quiz 10)
 
 1. What is the safe way for reading strings from the keyboard?
    #+begin_quote
@@ -3041,6 +3042,8 @@ by the people, for the people, shall not perish from the earth.«
 
 - Extended structure examples - a parts database (video)
 
+- Bonus assignment on structures (for you to practice)
+
 ** Dynamic memory allocation
 
 
@@ -3058,6 +3061,7 @@ by the people, for the people, shall not perish from the earth.«
   Zingaro's "Algorithmic Thinking" (NoStarch, 2023), with worked up
   examples from programming competitions.
 
+  
 * Week 16 - Linked lists / C++ [Dec 2]
 
 
