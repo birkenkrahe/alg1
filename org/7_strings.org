@@ -934,6 +934,43 @@ This will compile but with nonsense results:
 
 - Why would you not just use =main(void)=?
   #+begin_quote
-  You might want to use =main= like a function, and not just like
-  a program block.
+  You might want to use =main= like a function, and not just like a
+  program block.
   #+end_quote  
+
+- Using =main= with the full parameter list also simplifies code
+  testing. Check e.g. this program to sum two numbers.
+  
+  1) Check if the number of arguments is correct & print usage.
+  2) Convert command-line arguments to integers.
+  3) Print the integers and their sum.
+     
+  #+begin_src C :tangle sum.c :results none
+    int main(int argc, char *argv[])
+    {
+      if (argc != 3) { // argv[0] points to the executable, argv[1],
+    		   // argv[2] point to the two numbers to be added
+        printf("Usage: %s <num1> <num2>\n", argv[0]); // name of program
+        return 1;
+      }
+      // convert command-line arguments to integers
+      int num1 = atoi(argv[1]);
+      int num2 = atoi(argv[2]);      
+
+      // print the sum of the two numbers
+      printf("The sum of %d and %d is %d\n", num1, num2, num1 + num2);
+      return 0;
+    }
+  #+end_src
+
+  Test: When the command fails, you now get a return code 1 and usage
+  information.
+  #+begin_src bash :results output :exports both
+    gcc sum.c -o sum
+    ./sum 10 20 # this works 
+    echo 10 20 | ./sum  # this does not work
+  #+end_src
+
+  #+RESULTS:
+  : The sum of 10 and 20 is 30
+  : Usage: ./sum <num1> <num2>

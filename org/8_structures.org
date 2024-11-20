@@ -1,8 +1,7 @@
-#+title: Strings
+#+title: Structures
 #+STARTUP:overview hideblocks indent
 #+OPTIONS: toc:nil num:nil ^:nil
 #+PROPERTY: header-args:C :main yes :includes <stdio.h> <stdlib.h> <string.h> <time.h> :results output :exports both :comments none :noweb yes
-
 * Motivation
 
 - There are three user-defined data structures that help organize data
@@ -203,29 +202,29 @@
 
 - Solution:
   #+begin_src C
-    #define NAME_LEN 25
+  #define NAME_LEN 25
 
-    // declare structure
-    struct {
-      char name[NAME_LEN+1];
-      int number;
-      char sex;
-    } employee1, employee2; // two employees
+  // declare structure
+  struct {
+  char name[NAME_LEN+1];
+  int number;
+  char sex;
+  } employee1, employee2; // two employees
 
-    // main program
-    int main(void)
-    {
-      // use employee structure
-      strcpy(employee1.name, "Fritz Fisch");
-      employee1.number = 285942;
-      employee1.sex = 'M';
+  // main program
+  int main(void)
+  {
+  // use employee structure
+  strcpy(employee1.name, "Fritz Fisch");
+  employee1.number = 285942;
+  employee1.sex = 'M';
 
-      printf("Employee: %s, number = %d, sex = %c\n",
-         employee1.name, employee1.number, employee1.sex);
+  printf("Employee: %s, number = %d, sex = %c\n",
+  employee1.name, employee1.number, employee1.sex);
 
-      return 0;
-    }
-  #+end_src
+  return 0;
+  }
+  #+end_srcn
 
   #+RESULTS:
   : Employee: Fritz Fisch, number = 285942, sex = M
@@ -451,7 +450,7 @@
 
 * Practice: Creating a structure tag
 
-1. Define a structure =Book= that has the following members:
+1. Declare a structure =Book= that has the following members:
    - An integer =id=.
    - A string =title= (with a maximum length of 50).
    - A float =price=.
@@ -460,56 +459,42 @@
    - =book1= with the =id= 101, =title= "C Programming", and =price= 29.99.
    - =book2= without initialization.
 
-   #+name: Book_init
-   #+begin_src C
+   Solution:
+   #+name: Book
+   #+begin_src C :results none
+     struct Book {
+       int id;
+       char title[50];
+       float price;
+     } book1 = {.id = 101, .title = "C Programming", .price = 29.99},
+       book2;
+   #+end_src
+
+3. Write a =main= program. In it:
+   - Define =book2= with =id= 102, =title= "Data Structures", and =price=
+     39.99.
+   - Print =book1= and =book2= details.
+
+   #+begin_src C :tangle book.c :main no
      <<Book>>
 
-     struct Book book1 = {101,"C Programming",29.99};
-     struct Book book2;
+     int main()
+     {
+       book2.id = 102;
+       strcpy(book2.title,"Data Structures");
+       book2.price=39.99;
+
+       printf("Book1: id = %d, title = %s, price = %g\n",
+     	 book1.id, book1.title, book1.price);
+       printf("Book2: id = %d, title = %s, price = %g\n",
+     	 book2.id, book2.title, book2.price);
+       return 0;
+     }
    #+end_src
 
    #+RESULTS:
-
-Solution:
-#+name: Book
-#+begin_src C :results none
-  struct Book {
-    int id;
-    char title[50];
-    float price;
-  } book1 = {.id = 101, .title = "C Programming", .price = 29.99},
-    book2;
-#+end_src
-
-
-#+begin_src C :tangle book.c
-  <<Book>>
-
-  book2.id = 102;
-  strcpy(book2.title,"Data Structures");
-  book2.price=39.99;
-
-  printf("Book1: id = %d, title = %s, price = %g\n",
-         book1.id, book1.title, book1.price);
-  printf("Book2: id = %d, title = %s, price = %g\n",
-         book2.id, book2.title, book2.price);
-#+end_src
-
-#+RESULTS:
-: Book1: id = 101, title = C Programming, price = 29.99
-: Book2: id = 102, title = Data Structures, price = 39.99
-
-Bonus assignment (see next section):
-
-1. Write a program to:
-   - Print the details of =book1=.
-   - Assign values to the members of =book2= (=id= 102, =title= "Data
-     Structures", =price= 39.99).
-   - Print the details of =book2=.
-
-4. Use functions to:
-   - Print the details of a =Book= structure.
-   - Update the =price= of a book based on a percentage discount. 
+   : Book1: id = 101, title = C Programming, price = 29.99
+   : Book2: id = 102, title = Data Structures, price = 39.99
 
 * Structures as arguments and return values
 
@@ -521,27 +506,28 @@ Bonus assignment (see next section):
   #+begin_src C :tangle parts.c
     // Define a structure with a tag
     struct Part {
-        int number; 
-        char name[50];
-        int on_hand; 
+      int number;
+      char name[50];
+      int on_hand;
     };
 
-    // Function to print a part
+    // Function to print a Part object p
+    // No return value
     void print_part(struct Part p)
     {
-        printf("Part number: %d\n", p.number);
-        printf("Part name: %s\n", p.name);
-        printf("Quantity on hand: %d\n", p.on_hand);      
+      printf("Part number: %d\n", p.number);
+      printf("Part name: %s\n", p.name);
+      printf("Quantity on hand: %d\n", p.on_hand);
     }
 
     int main(int argc, char *argv[])
     {
-        // Initialize part1
-        struct Part part1 = {101, "Keyboard", 20};
+      // Initialize part1
+      struct Part part1 = {101, "Keyboard", 20};
 
-        // Print part1 details
-        print_part(part1);
-        return 0;
+      // Print part1 details
+      print_part(part1);
+      return 0;
     }
   #+end_src
 
@@ -556,9 +542,9 @@ Bonus assignment (see next section):
   #+begin_src C
     // Define a structure with a tag
     struct Part {
-      int number; 
+      int number;
       char name[50];
-      int on_hand; 
+      int on_hand;
     };
 
     struct Part build_part(int number, const char *name, int on_hand)
@@ -576,12 +562,12 @@ Bonus assignment (see next section):
     {
       // Create a Part using the build_part function
       struct Part part1 = build_part(101, "Keyboard", 20);
-      
+
       // Print part details
       printf("Part number: %d\n", part1.number);
       printf("Part name: %s\n", part1.name);
       printf("Quantity on hand: %d\n", part1.on_hand);
-      
+
       return 0;
     }
   #+end_src
@@ -591,4 +577,113 @@ Bonus assignment (see next section):
   : Part name: Keyboard
   : Quantity on hand: 20
 
-  
+* Practice: Function to print structure details
+
+Write a program that:
+
+1. Declares a =Book= structure with the following members: integer book
+   ID), book title (max 100 characters), and book author (max 50
+   characters).
+
+   #+name: Book2
+   #+begin_src C :results none
+     struct Book {
+       int id;
+       char title[100];
+       char author[50];
+     };
+   #+end_src
+
+2. Implements a function =print_book= to print the book's details in a
+   formatted manner.
+
+   #+name: print_book
+   #+begin_src C :results none
+     <<Book2>>
+       // function to print book details
+       // returns: nothing
+       // params: Book structure
+     void print_book(struct Book b)
+     {
+       printf("Book ID: %d\n", b.id);
+       printf("Book Title: %s\n", b.title);
+       printf("Author: %s\n", b.author);
+     }
+   #+end_src
+
+3. Initializes a =Book= structure in the =main= function and calls
+   =print_book= to display its details.
+
+   Expected output:
+   #+begin_example
+   Book ID: 201
+   Book Title: The C Programming Language
+   Author: Brian W. Kernighan and Dennis M. Ritchie
+   #+end_example
+
+Solution:
+#+begin_src C
+  // declare Book structure
+  struct Book {
+    int id;
+    char title[100];
+    char author[50];
+  };
+
+  // function to print book details
+  // returns: nothing
+  // params: Book structure
+  void print_book(struct Book b);
+
+  // main program
+  int main(int argc, char **argv)
+  {
+    // initialize a book structure
+    struct Book book1 = {
+      .id=201,
+      .title="The C Programming Language",
+      .author="Brian W. Kernighan and Dennis M. Ritchie"
+    };
+
+    // print book details using print_book
+    print_book(book1);
+    
+    return 0;
+  }
+
+  void print_book(struct Book b)
+  {
+    printf("Book ID: %d\n", b.id);
+    printf("Book Title: %s\n", b.title);
+    printf("Author: %s\n", b.author);
+  }
+#+end_src
+
+#+RESULTS:
+: Book ID: 201
+: Book Title: The C Programming Language
+: Author: Brian W. Kernighan and Dennis M. Ritchie
+
+* Bonus practice: Return structure from function
+
+Write a program that:
+
+1. Defines a =Student= structure with the following members:
+   - =int roll_no= (for roll number)
+   - =char name[50]= (for student name)
+   - =float marks= (for marks)
+
+2. Implements a function =struct Student create_student(int roll_no,
+   const char *name, float marks)= that:
+   - Takes roll number, name, and marks as arguments.
+   - Constructs and returns a =Student= structure with the provided
+     values.
+
+3. In the =main= function, uses =create_student= to initialize a =Student=
+   structure and prints its details.
+
+Expected Output (Example):
+: Student Roll No: 101
+: Student Name: John Doe
+: Marks: 92.5
+
