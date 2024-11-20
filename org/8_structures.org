@@ -687,3 +687,16 @@ Expected Output (Example):
 : Student Name: John Doe
 : Marks: 92.5
 
+* Nested arrays and structures
+
+- Structures and arrays can be combined without restriction:
+
+  1. Arrays may have structures as their elements.
+
+  2. Structures may contains both arrays and structures as members.
+
+- Example: Nested structures
+  
+
+- Example: Arrays of structures
+  

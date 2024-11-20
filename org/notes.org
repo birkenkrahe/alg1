@@ -3043,8 +3043,7 @@ by the people, for the people, shall not perish from the earth.«
   2. [X] Initializing and operating on structures
   3. [ ] Structure types: Tags and type definition
   4. [ ] Structures as arguments and return values
-  5. [ ] Creating structures on the fly as compound literals
-  6. [ ] Nested arrays and arrays of structures
+  5. [ ] Nested structures and arrays of structures
 
 - Extended structure examples - a parts database (video)
 
