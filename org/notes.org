@@ -3023,10 +3023,13 @@ by the people, for the people, shall not perish from the earth.«
 [Re-] open your string code along file.
 
 
-** TODO =struct= data structures
+** IN PROGRESS =struct= data structures
 
 - Download this file to code along & practice:
-  [[https://tinyurl.com/structures-org][tinyurl.com/structures-org]]
+  
+  [[https://tinyurl.com/structures-org][tinyurl.com/structures-org]] (Tuesday)
+ 
+  [[https://tinyurl.com/structures2-org][tinyurl.com/structures2-org]] (Thursday)
 
 - We're heading towards "linked lists", which requires the following
   concepts:
@@ -3036,8 +3039,8 @@ by the people, for the people, shall not perish from the earth.«
      (C) or =delete= (C++)
 
 - We'll discuss:
-  1. [ ] Declaring and using structures (=struct=)
-  2. [ ] Initializing and operating on structures
+  1. [X] Declaring and using structures (=struct=)
+  2. [X] Initializing and operating on structures
   3. [ ] Structure types: Tags and type definition
   4. [ ] Structures as arguments and return values
   5. [ ] Creating structures on the fly as compound literals
@@ -3047,7 +3050,9 @@ by the people, for the people, shall not perish from the earth.«
 
 - Bonus assignment on structures (for you to practice)
 
+
 ** Dynamic memory allocation
+
 
 ** Tips for Thanksgiving break
 
