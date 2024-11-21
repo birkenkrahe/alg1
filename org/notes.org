@@ -2918,6 +2918,7 @@ by the people, for the people, shall not perish from the earth.«
 - [X] Lecture: Command-line arguments =main(int argc, char *argv[])=
 - [ ] Lecture: =struct= data structures & other user-defined structures
 - [ ] Lecture: Dynamic memory allocation (=malloc=)
+- [ ] Bonus programs: using =main(int argc char **argv)=, =struct=, =malloc=
 - [ ] Tips for Thanksgiving Break
 
 ** DONE Review: Strings II (see also quiz 10)
@@ -3048,6 +3049,7 @@ by the people, for the people, shall not perish from the earth.«
 - Extended structure examples - a parts database (video)
 
 - Bonus assignment on structures (for you to practice)
+
 
 ** NEXT Review: C structures
 
