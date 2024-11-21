@@ -3049,6 +3049,107 @@ by the people, for the people, shall not perish from the earth.«
 
 - Bonus assignment on structures (for you to practice)
 
+** NEXT Review: C structures
+
+1. What are =argc= and =argv= in the =main= function, and how are they used
+   in C programs?
+   #+BEGIN_QUOTE
+   =argc= is the "argument count," representing the number of
+   command-line arguments, including the program name. =argv= is the
+   "argument vector," an array of pointers to strings representing
+   the command-line arguments.
+   #+END_QUOTE
+
+2. Why would you use =main(int argc, char **argv)= instead of
+   =main(void)= in a C program?
+   #+BEGIN_QUOTE
+   Using =main(int argc, char *argv[])= or =main(int argc, **argv)=
+   allows the program to access command-line arguments, enabling
+   customization of program behavior based on user input.
+   #+END_QUOTE
+
+3. What is a =struct= in C, and why is it used?
+   #+BEGIN_QUOTE
+   A =struct= in C is a user-defined data type that groups related
+   variables of different types under one name. It is used to
+   represent complex objects like points, employees, or students.
+   #+END_QUOTE
+
+4. How are =struct= members accessed in C?
+   #+BEGIN_QUOTE
+   Using the dot operator (=.=), for example, =p1.x= to access the =x=
+   member of a =struct Point=.
+   #+END_QUOTE
+
+5. How is a =struct= different from an array in C?
+   #+BEGIN_QUOTE
+   A =struct= can store elements of different types with named members,
+   while an array stores multiple elements of the same type and uses
+   indices to access them.
+   #+END_QUOTE
+
+6. Why is the =strcpy= function necessary when working with =struct= members that are strings?
+   #+BEGIN_QUOTE
+   The =strcpy= function is necessary to copy a string into a =struct=
+   member because direct assignment of strings to character arrays is
+   not allowed in C.
+   #+END_QUOTE
+
+7. How can you initialize a =struct= in C? Provide an example.
+   #+BEGIN_QUOTE
+   A =struct= can be initialized using curly braces with values for its
+   members in order, for example: =struct Point p1 = {10, 20};=.
+   #+END_QUOTE
+
+8. What is the advantage of using =struct= over separate variables in C?
+   #+BEGIN_QUOTE
+   A =struct= groups related variables of different types under one
+   name, making the code more organized and easier to manage.
+   #+END_QUOTE
+
+9. How does the memory layout of a =struct= affect its members?
+   #+BEGIN_QUOTE
+   =struct= members are stored in memory in the order they are declared,
+   with each member occupying its own memory space.
+   #+END_QUOTE
+
+10. What happens if two =struct= definitions with the same name are declared in different blocks in C?
+    #+BEGIN_QUOTE
+    There will be no conflict because =struct= names have block scope and
+    are local to the block in which they are defined.
+    #+END_QUOTE
+
+11. How would you declare and use a =struct= to represent an employee with fields for =name=, =number=, and =salary= in C?
+    #+BEGIN_SRC C
+      struct Employee {
+        char name[30];
+        int number;
+        float salary;
+      };
+
+      struct Employee emp1;
+      strcpy(emp1.name, "John Doe");
+      emp1.number = 1234;
+      emp1.salary = 50000.0;
+    #+END_SRC
+
+12. What are =argc= and =argv= in the =main= function, and how are they used
+    in C programs?
+    #+BEGIN_QUOTE
+    =argc= is the "argument count," representing the number of
+    command-line arguments, including the program name. =argv= is the
+    "argument vector," an array of pointers to strings representing
+    the command-line arguments.
+    #+END_QUOTE
+
+13. Why would you use =main(int argc, char **argv)= instead of
+    =main(void)= in a C program?
+    #+BEGIN_QUOTE
+    Using =main(int argc, char *argv[])= or =main(int argc, **argv)=
+    allows the program to access command-line arguments, enabling
+    customization of program behavior based on user input.
+    #+END_QUOTE
+
 
 ** Dynamic memory allocation
 
