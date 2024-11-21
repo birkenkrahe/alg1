@@ -3153,12 +3153,15 @@ by the people, for the people, shall not perish from the earth.«
     #+END_QUOTE
 
 
-** Dynamic memory allocation
+** TODO Dynamic memory allocation
 
+Lecture - Review and practice after the break!
 
-** Tips for Thanksgiving break
+** TODO Tips for Thanksgiving break
+#+attr_html: :width 400px: 
+[[../img/you_got_this.png]]
 
-- [ ] If you need a better grade: Sit for the final exam
+- [ ] If you need a better grade: Sit for the final exam 
 
 - [ ] To ace the final exam: Drill yourself with all quizzes
 
