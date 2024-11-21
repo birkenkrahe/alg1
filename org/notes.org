@@ -2,7 +2,7 @@
 #+AUTHOR: Marcus Birkenkrahe
 #+SUBTITLE: CSC 240 Data Structures Lyon College Fall 2024
 #+STARTUP: overview hideblocks indent entitiespretty:
-#+PROPERTY: header-args:C :main yes :includes <stdio.h> <stdlib.h> :results output :exports both
+#+PROPERTY: header-args:C :main yes :includes <stdio.h> <stdlib.h> <string.h> :results output :exports both
 * DONE Week 0 - Why You Are Here
 #+attr_html: :width 500px:
 [[../img/manga1.png]]
@@ -2909,14 +2909,16 @@ exercises): [[https://tinyurl.com/strings-org][tinyurl.com/strings-org]]
 #+attr_html: :width 500px:
 [[../img/gettysburg2.jpg]]
 
+#+begin_quote
 Nov 19, 1863: Lincoln's Gettysburg address: »This nation, under God,
 shall have a new birth of freedom—and that government of the people,
 by the people, for the people, shall not perish from the earth.«
+#+end_quote
 
 - [X] Last quiz (10) and assignments on strings (with bonus) available
 - [X] Exit quiz on current topics as bonus in last week of term
 - [X] Lecture: Command-line arguments =main(int argc, char *argv[])=
-- [ ] Lecture: =struct= data structures & other user-defined structures
+- [X] Lecture: =struct= data structures & other user-defined structures
 - [ ] Lecture: Dynamic memory allocation (=malloc=)
 - [ ] Bonus programs: using =main(int argc char **argv)=, =struct=, =malloc=
 - [ ] Tips for Thanksgiving Break
@@ -3018,11 +3020,9 @@ by the people, for the people, shall not perish from the earth.«
     modifying them leads to undefined behavior.
     #+end_quote
 
-
 ** DONE Command-line arguments - passing stuff to a C program
 
 [Re-] open your string code along file.
-
 
 ** IN PROGRESS =struct= data structures
 
@@ -3049,7 +3049,6 @@ by the people, for the people, shall not perish from the earth.«
 - Extended structure examples - a parts database (video)
 
 - Bonus assignment on structures (for you to practice)
-
 
 ** NEXT Review: C structures
 
@@ -3079,18 +3078,20 @@ by the people, for the people, shall not perish from the earth.«
 
 4. How are =struct= members accessed in C?
    #+BEGIN_QUOTE
-   Using the dot operator (=.=), for example, =p1.x= to access the =x=
-   member of a =struct Point=.
+   Using the dot operator (=.=) (aka selector), for example, =p1.x= to
+   access the =x= member of a =struct Point p1=.
    #+END_QUOTE
 
 5. How is a =struct= different from an array in C?
    #+BEGIN_QUOTE
    A =struct= can store elements of different types with named members,
    while an array stores multiple elements of the same type and uses
-   indices to access them.
+   indices to access them. They are similar in that both use contingent
+   memory.
    #+END_QUOTE
 
-6. Why is the =strcpy= function necessary when working with =struct= members that are strings?
+6. Why is the =strcpy= function necessary when working with =struct=
+   members that are strings?
    #+BEGIN_QUOTE
    The =strcpy= function is necessary to copy a string into a =struct=
    member because direct assignment of strings to character arrays is
@@ -3115,43 +3116,28 @@ by the people, for the people, shall not perish from the earth.«
    with each member occupying its own memory space.
    #+END_QUOTE
 
-10. What happens if two =struct= definitions with the same name are declared in different blocks in C?
+10. What happens if two =struct= definitions with the same name are
+    declared in different code blocks in C?
     #+BEGIN_QUOTE
     There will be no conflict because =struct= names have block scope and
     are local to the block in which they are defined.
     #+END_QUOTE
 
-11. How would you declare and use a =struct= to represent an employee with fields for =name=, =number=, and =salary= in C?
+11. How would you declare and use a =struct= to represent an employee
+    with fields for =name=, =number=, and =salary= in C?
     #+BEGIN_SRC C
+      // declaration of a tagged structure
       struct Employee {
         char name[30];
         int number;
         float salary;
       };
-
+      // using structure in the main program
       struct Employee emp1;
       strcpy(emp1.name, "John Doe");
       emp1.number = 1234;
       emp1.salary = 50000.0;
     #+END_SRC
-
-12. What are =argc= and =argv= in the =main= function, and how are they used
-    in C programs?
-    #+BEGIN_QUOTE
-    =argc= is the "argument count," representing the number of
-    command-line arguments, including the program name. =argv= is the
-    "argument vector," an array of pointers to strings representing
-    the command-line arguments.
-    #+END_QUOTE
-
-13. Why would you use =main(int argc, char **argv)= instead of
-    =main(void)= in a C program?
-    #+BEGIN_QUOTE
-    Using =main(int argc, char *argv[])= or =main(int argc, **argv)=
-    allows the program to access command-line arguments, enabling
-    customization of program behavior based on user input.
-    #+END_QUOTE
-
 
 ** TODO Dynamic memory allocation
 
@@ -3172,7 +3158,6 @@ Lecture - Review and practice after the break!
 - [ ] If you're bored, ask me for more exercises or check out David
   Zingaro's "Algorithmic Thinking" (NoStarch, 2023), with worked up
   examples from programming competitions.
-
   
 * Week 16 - Linked lists / C++ [Dec 2]
 
