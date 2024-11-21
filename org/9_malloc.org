@@ -2,3 +2,146 @@
 #+STARTUP:overview hideblocks indent
 #+OPTIONS: toc:nil num:nil ^:nil
 #+PROPERTY: header-args:C :main yes :includes <stdio.h> <stdlib.h> <string.h> <time.h> :results output :exports both :comments none :noweb yes
+* Advanced use of pointers
+
+- Using /dynamical memory allocation/, a program can obtain blocks of
+  memory as needed during execution.
+
+- We'll discuss dynamically allocated strings and arrays with =malloc=
+  and their deallocation with =free=.
+
+- These structures can be linked together to form lists, trees, and
+  other flexible data structures.
+
+- We introduce /linked lists/, the most fundamental linked data
+  structure.
+
+- Advanced pointer use also includes pointers to functions: Some of
+  C's library functions expect function pointers as arguments - one of
+  these is =qsort=, which can sort any array fast (we won't cover this).
+
+- As a motivation booster, the number of programmers who master these
+  concepts is no larger than 10% world-wide. And you can get there in
+  a 200-level undergraduate class!
+
+- Differently put, in one of the densest, most complete books on C
+  programming, you're now past page 400 (few explorers get that far).
+
+* Dynamic storage allocation
+
+- C data structures are normally fixed in size:
+
+  1. The number of elements of an array is fixed after compilation.
+
+  2. In C99, a VLA length is determined at run time but it remains
+     fixed for the array's lifetime.
+
+- This is a problem because we're forced to choose the size when
+  writing a program - we cannot change it without rewriting and
+  recompiling the code.
+
+* Memory allocation functions
+
+- There are three, all defined in =<stdlib.h>=:
+
+  1. =malloc=, which allocates a memory block without initialization.
+
+  2. =calloc=, which allocates memory and clears it.
+
+  3. =realloc=, which resizes a previously allocated block of memory.
+
+- Of these, =malloc= is most used and most efficient.
+
+- When we call =malloc= to request memory, the function has no idea what
+  type of data we plan to store there - it cannot return a pointer to
+  an ordinary type (=int= or =char=).
+
+- Instead, the =malloc= returns a value of type =void *=, a generic
+  pointer, which is just a memory address, to be specified later.
+
+* Null pointers
+
+- If =malloc= cannot locate a block of memory large enough to satisfy
+  our request, it returns a /null pointer/, a pointer to nothing, =NULL=.
+
+- After calling =malloc=, we must test if its =return= value is =NULL=:
+
+  #+begin_example C
+    p = malloc(10000); // reserve 10k bytes, store address in pointer p
+    if (p == NULL)
+      /* allocation failed, take appopriate action */
+  #+end_example
+
+- You can also combine these in one statement:
+
+  #+begin_example C
+  if ( (p = malloc(10000)) == NULL)
+      /* allocation failed, take appopriate action */
+  #+end_example
+
+- What is "appropriate action"?
+
+  1. Abort the program.
+
+  2. Issue warning, keep a log, save what can be saved, and continue.
+
+- Remember that numbers can be =TRUE= or =FALSE= - any number that's not =0=
+  is =TRUE=, and only =0= is =FALSE=.
+
+- In the same way, all non-null pointers test =TRUE=, and only =NULL=
+  tests =FALSE=.
+
+- So you could write =if (!p)= instead of =if (p==NULL)=, and =if (p)=
+  instead of =if (p !== =NULL)= (don't do it).
+
+* Dynamically allocated strings with =malloc=
+
+- Strings are stored in character arrays and it can be hard to
+  anticipate their length.
+
+- By allocating a string dynamically, we can postpone the decision
+  until the program is running.
+
+- The =malloc= function has the following /prototype/:
+
+  #+begin_src C
+    void *malloc(size_t size);
+  #+end_src
+
+  1. It returns a generic pointer =void *= to the start of a block
+
+  2. It allocates a block of =size= bytes.
+
+  3. The block =size= has type =size_t= to be machine independent.
+
+  4. =size_t= is an unsigned integer type defined in the C library.
+
+  5. So you can think of =size= as an ordinary integer =int=.
+
+- To allocate space for a string of =n= characters:
+
+  #+begin_example C
+    p = malloc(n + 1);
+  #+end_example
+
+  1. =p= is a character pointer, a =char *= variable.
+
+  2. A =char= value requires 1 byte of storage: =sizeof(char) = 1=.
+
+  3. You need to leave one byte free for the null character ='\0'=.
+
+  4. The generic =void *= pointer from =malloc= is converted to =char *=.
+
+- You can also make the /cast/ from =void *= to =char *= explicit:
+
+  #+begin_example C
+    p = (char *) malloc(n + 1);
+  #+end_example
+
+- To initialize =p=, you can use =strcpy=:
+
+  #+begin_example C
+    strcpy(p, "abc");
+  #+end_example
+
+- Now the first four characters in the array will be =a=, =b=, =c=, and ='\0=.

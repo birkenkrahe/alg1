@@ -493,4 +493,133 @@ Expected Output (Example):
 : Student Name: John Doe
 : Marks: 92.5
 
+* Nested arrays with structure elements
+
+- Structures and arrays can be combined without restriction.
+
+- This tagged structure can store a person's first name, middle
+  initial, and last name.
+
+  #+name: person_name
+  #+begin_src C :results none
+    #define FIRST_NAME_LEN 20
+    #define LAST_NAME_LEN 50
+
+    struct ... { // add person_name tag
+      char first[FIRST_NAME_LEN+1];
+      char middle_initial;
+      char last[LAST_NAME_LEN+1];
+    };
+  #+end_src
+
+- You can use =person_name= as part of a larger structure now:
+  #+name: student
+  #+begin_src C :results none
+    <<person_name>> // a person's first, last name and middle initial
+
+    struct student {
+      ...            // add person_name structure
+      int id, age;
+      char sex;
+    } student1, student2;
+  #+end_src
+
+- You access a =student='s name parts with two dot operators:
+
+  #+begin_src C :main no
+    <<student>> // student's age, sex and name, two students defined
+
+    int main()
+    {
+      // assign first name to student
+      ...
+      printf("The student is called %s.\n", ...);
+      return 0;
+    }
+
+  #+end_src
+
+- Why not just add the name details to =student=?
+  #+begin_quote
+  1. You can treat names more easily as units of data: If you write a
+     function that displays a name, you could pass just one argument,
+     a =person_name= structure, instead of three arguments.
+
+  2. You can copy the information from a =person_name= structure to the
+     =name= member of a =student= in one instead of three assignments.
+  #+end_quote
+
+- Example:
+  #+begin_src C :tangle student.c
+    <<student>> // student's age, sex and name, two students defined
+
+    void display_name(...)
+    {
+      printf("Student's name: %s %c. %s\n",
+    	 ...
+    }
+
+    int main()
+    {
+      // initialize student's name
+      struct person_name name;
+      strcpy(name.first, "Jane");
+      name.middle_initial = 'D';
+      strcpy(name.last, "Doe");
+
+      // assign name to student1
+      ...
+
+      // display student1's name
+      ...
+
+      // initialize student's new name
+      struct person_name new_name;
+      strcpy(new_name.first, "Jane");
+      new_name.middle_initial = 'D';
+      strcpy(new_name.last, "Zane");
+
+      // assign new name to student1
+      ...
+
+      // display student1's new name
+      ...
+      
+      return 0;
+    }
+  #+end_src
   
+* Arrays of structures
+
+- Arrays whose elements are structures are very common, and can serve
+  as a simple database.
+
+- Example: This array of =part= structures can store information about
+  100 parts.
+  
+  #+begin_example C
+    struct part inventory[100];
+  #+end_example
+
+- To access on of the parts you use subscripting: This prints the =part=
+  stored in position =i=:
+  
+  #+begin_example C
+    print_part(inventory[i]); // array element contains i-th `part` structure
+  #+end_example
+
+- To assign a =number= within a =part= structure, combine subscripting and
+  member selection:
+
+  #+begin_example C
+    inventory[i].number = 883; // changes number of i-th part to 883
+  #+end_example
+
+- To assign a character in a =part= name, combine subscripting,
+  selection, and subscripting again:
+
+  #+begin_example C
+    inventory[i].name[0] = '\0'; // changes `name` of i-th part to \0
+  #+end_example
+
+
