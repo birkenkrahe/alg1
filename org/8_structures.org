@@ -496,6 +496,7 @@
    : Book1: id = 101, title = C Programming, price = 29.99
    : Book2: id = 102, title = Data Structures, price = 39.99
 
+* SOMEDAY Compound literals
 * Structures as arguments and return values
 
 - Functions may have structures as arguments and return values.
