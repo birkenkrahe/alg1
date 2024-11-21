@@ -229,7 +229,7 @@
   #+RESULTS:
   : Employee: Fritz Fisch, number = 285942, sex = M
 
-* Initializing structure variables
+* NEXT Initializing structure variables
 
 - A structure declaration may include an initializer.
 
@@ -700,3 +700,5 @@ Expected Output (Example):
 
 - Example: Arrays of structures
   
+* Initializing an array of structures
+
