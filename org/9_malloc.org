@@ -145,3 +145,5 @@
   #+end_example
 
 - Now the first four characters in the array will be =a=, =b=, =c=, and ='\0=.
+
+  
