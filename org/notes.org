@@ -2904,8 +2904,7 @@ To code along (with exercises): [[https://tinyurl.com/strings-org][tinyurl.com/s
 Now, download the string codealong file again (there are a few new
 exercises): [[https://tinyurl.com/strings-org][tinyurl.com/strings-org]]
 
-
-* Week 14 - Structures & Dynamic memory allocation [Nov 18]
+* DONE Week 14 - Structures [Nov 18]
 #+attr_html: :width 500px:
 [[../img/gettysburg2.jpg]]
 
@@ -2919,11 +2918,11 @@ by the people, for the people, shall not perish from the earth.«
 - [X] Exit quiz on current topics as bonus in last week of term
 - [X] Lecture: Command-line arguments =main(int argc, char *argv[])=
 - [X] Lecture: =struct= data structures & other user-defined structures
-- [ ] Lecture: Dynamic memory allocation (=malloc=)
 - [ ] Bonus programs: using =main(int argc char **argv)=, =struct=, =malloc=
+- [ ] Lecture: Dynamic memory allocation (=malloc=)
 - [ ] Tips for Thanksgiving Break
 
-** DONE Review: Strings II (see also quiz 10)
+** Review: Strings II (see also quiz 10)
 
 1. What is the safe way for reading strings from the keyboard?
    #+begin_quote
@@ -3020,11 +3019,11 @@ by the people, for the people, shall not perish from the earth.«
     modifying them leads to undefined behavior.
     #+end_quote
 
-** DONE Command-line arguments - passing stuff to a C program
+** Command-line arguments - passing stuff to a C program
 
 [Re-] open your string code along file.
 
-** IN PROGRESS =struct= data structures
+** =struct= data structures
 
 - Download this file to code along & practice:
   
@@ -3050,7 +3049,7 @@ by the people, for the people, shall not perish from the earth.«
 
 - Bonus assignment on structures (for you to practice)
 
-** NEXT Review: C structures
+** Review: C structures
 
 1. What are =argc= and =argv= in the =main= function, and how are they used
    in C programs?
@@ -3139,10 +3138,6 @@ by the people, for the people, shall not perish from the earth.«
       emp1.salary = 50000.0;
     #+END_SRC
 
-** TODO Dynamic memory allocation
-
-Lecture - Review and practice after the break!
-
 ** TODO Tips for Thanksgiving break
 #+attr_html: :width 400px: 
 [[../img/you_got_this.png]]
@@ -3159,8 +3154,20 @@ Lecture - Review and practice after the break!
   Zingaro's "Algorithmic Thinking" (NoStarch, 2023), with worked up
   examples from programming competitions.
   
-* Week 16 - Linked lists / C++ [Dec 2]
 
+* Week 16 - Linked lists / C++ [Dec 2]
+#+attr_html: :width 400px: 
+[[../img/girl_reading_on_a_sofa.jpg]]
+
+/[[https://live.staticflickr.com/65535/51267388266_19a4d2c74a_b.jpg][Image:]] Girl reading on sofa, Israel Isaacs (1920)/.
+
+- [X] Bonus programs: using =main(int argc char **argv)=, =struct=, =malloc=
+- [ ] Code along lecture: Dynamic memory allocation (=malloc= and =free=)
+- [ ] Code along lecture: Linked lists
+
+** TODO Dynamic memory allocation
+
+** TODO Linked lists
 
 * Week 17 - Final exam (optional) [Dec 10]
 
