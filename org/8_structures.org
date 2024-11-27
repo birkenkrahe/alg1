@@ -126,7 +126,7 @@
 
 - Members are stored in memory in the order in which they are declared:
   #+attr_html: :width 250px:
-  [[./img/struct.png]]
+  [[../img/struct.png]]
 
 - Here, =number= and =on_hand= occupy 4 bytes (=int=), and =name= occupies 25
   bytes (=char= has 1 byte x 25).
@@ -134,7 +134,7 @@
 - Usually, structures are represented by adjacent vertical or
   horizontal boxes:
   #+attr_html: :width 600px:
-  [[./img/struct2.png]]
+  [[../img/struct2.png]]
 
 - Structure scope: Each structure represents a new block scope, and
   its names will not conflict with other names in a program. This is
@@ -229,7 +229,7 @@
   #+RESULTS:
   : Employee: Fritz Fisch, number = 285942, sex = M
 
-* NEXT Initializing structure variables
+* Initializing structure variables
 
 - A structure declaration may include an initializer.
 
@@ -448,7 +448,7 @@
 - Declaring a structure tag is mandatory when the structure is used in
   a linked list.
 
-* TODO Practice: Creating a structure tag
+* Practice: Creating a structure tag
 
 1. Declare a structure =Book= that has the following members:
    - An integer =id=.
@@ -496,7 +496,6 @@
    : Book1: id = 101, title = C Programming, price = 29.99
    : Book2: id = 102, title = Data Structures, price = 39.99
 
-* SOMEDAY Compound literals
 * Structures as arguments and return values
 
 - Functions may have structures as arguments and return values.
@@ -592,7 +591,7 @@
   =FILE=, and every function working on an open file requires a =FILE=
   pointer as an argument.
 
-* TODO Practice: Function to print structure details
+* Practice: Function to print structure details
 
 Write a program that:
 
@@ -838,6 +837,3 @@ Expected Output (Example):
     inventory[i].name[0] = '\0'; // changes `name` of i-th part to \0
   #+end_example
 
-
-* TODO Initializing an array of structures
-* TODO Extended example: A parts database with =struct=

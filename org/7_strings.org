@@ -3,8 +3,8 @@
 #+OPTIONS: toc:nil num:nil ^:nil
 #+PROPERTY: header-args:C :main yes :includes <stdio.h> <stdlib.h> <string.h> <time.h> :results output :exports both :comments none :noweb yes
 
-#+attr_html: :width 400px:
-[[./img/string_theory.png]]
+#+attr_html: :width 300px:
+[[../img/string_theory.png]]
 
 * Motivation
 
@@ -43,7 +43,7 @@
   : hello
   : 100 is smaller than 100.1
 
-- *Example* - different escape sequences [fn:8]:
+- *Example* - different escape sequences:
   #+begin_src C
     printf("\"The world will never starve for want of wonders;\nbut only for want of wonder.\"\nG.K. Chesterton");
   #+end_src
@@ -206,7 +206,7 @@
 
 - =date1= looks like this:
   #+attr_html: :width 600px:
-  [[./img/date1.png]]
+  [[../img/date1.png]]
 
 - ="June 14"= *is not a string literal*! It is an abbreviation for an
   array initializer. The following statement is equivalent:
@@ -232,7 +232,7 @@
 
 - =date2= looks like this:
   #+attr_html: :width 600px:
-  [[./img/date2.png]]
+  [[../img/date2.png]]
 
 - If the initializer is exactly as long as the string variable, the
   null character is omitted, and the array cannot be used as a string.
@@ -249,7 +249,7 @@
 
 - =date3= looks like this:
   #+attr_html: :width 600px:
-  [[./img/date3.png]]
+  [[../img/date3.png]]
 
 - Here is a longer program to test this:
   #+begin_src C
@@ -298,7 +298,7 @@
   : 8
   : 1
 
-* DONE Exercises: Initializing String Variables
+* Exercises: Initializing String Variables
 ** Exercise 1: Basic Initialization
 
 - Declare a character array called =greeting= with a length of 10 and
@@ -423,7 +423,7 @@
   undefined behavior.
   #+end_quote
 
-* DONE Exercises: Character Arrays versus Character Pointers
+* Exercises: Character Arrays versus Character Pointers
 ** Exercise 1: String Array vs. Pointer Modification Attempt
 - Declare =char message_a[] = "Welcome";= and =char *message_p =
   "Welcome";=.
@@ -520,7 +520,7 @@
   :     Are we
   : Are we
 
-* DONE Exercises: Writing strings
+* Exercises: Writing strings
 ** Exercise 5: Simple String Output
 
 - *Problem*: Write a program that stores the string ="Learning C is
@@ -664,7 +664,7 @@
   #+RESULTS:
   : Are we having fun?
 
-* NEXT Reading strings character by character
+* Reading strings character by character
 
 - Regular subscripting:
   #+begin_src C
@@ -690,7 +690,7 @@
   #+RESULTS:
   : Are we having fun?
 
-* TODO Accessing the characters in a string (counting spaces)
+* Accessing the characters in a string (counting spaces)
 
 - Write a function that counts the number of spaces in a string
   #+begin_src C :main no
@@ -744,25 +744,29 @@
   #+RESULTS:
   : Spaces in "Are we having                fun?" = 0
 
-* TODO Using the C string library =<string.h>=
+* Using the C string library =<string.h>=
 
-Straight copying won't work!
-#+begin_example C
+- Straight copying won't work!
+  #+begin_example C
 char str1[10], str2[10];
 
 str1 = "abc"; // wrong: array cannot be an lvalue
 str2 = str1; // wrong
 #+end_example
 
-This will compile but with nonsense results:
-#+begin_example C
+- This will compile but with nonsense results:
+  #+begin_example C
   if (str1 == str2) // wrong: no vectorization
 #+end_example
 
-- Copy with =strcpy=
+- Get length with =strlen= 
+- Copy with =strcpy= (safe: =strncpy=)
 - Compare with =strcmp=
+- Concatenate with =strcat= (safe: =strncat=)
 
-- Example prototype:
+* Example: =strcpy=
+
+- Example prototype for =strcpy=
   #+begin_src C :results none
     // function: strcpy
     // returns a char pointer
@@ -785,22 +789,7 @@ This will compile but with nonsense results:
   : @ .ÙV
   : Hello
 
-* TODO The =strcpy= function
-
-* TODO The =strlen= function
-
-* TODO The =strcat= function
-
-* TODO The =strcmp= function
-
-* TODO Searching for the end of a string
-
-* TODO Copying a string
-
-* TODO Arrays of strings
-
-
-* DONE Command-line arguments
+* Command-line arguments
 
 - Programs often need to be supplied with information from =stdin= - a
   file name, or a switch/flag/option that modifies the programs
@@ -974,3 +963,5 @@ This will compile but with nonsense results:
   #+RESULTS:
   : The sum of 10 and 20 is 30
   : Usage: ./sum <num1> <num2>
+
+
