@@ -77,16 +77,13 @@
 - After calling =malloc=, we must test if its =return= value is =NULL=:
 
   #+begin_example C
-    p = malloc(10000); // reserve 10k bytes, store address in pointer p
-    if (p == NULL)
-      /* allocation failed, take appopriate action like EXIT_FAILURE*/
+
   #+end_example
 
 - You can also combine these in one statement:
 
   #+begin_example C
-  if ( (p = malloc(10000)) == NULL)
-      /* allocation failed, take appopriate action */
+
   #+end_example
 
 - What is "appropriate action"?
@@ -222,10 +219,7 @@ Hints:
 
 - Why does the following code not work? ("Segmentation fault")
   #+begin_src C :results silent
-    char *one = "Hello, ";
-    char *two = "world!";
-
-    printf("%s\n",strcat(one,two));
+  
   #+end_src
 
 - The following =concat= function does this:
