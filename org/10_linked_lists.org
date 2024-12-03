@@ -18,6 +18,11 @@
   2. Deleting a node from a linked list
   3. Doubly linked lists (pointers go both directions)
 
+- There will be a bonus home assignment to check your understanding.
+
+- There will be a video with an extended example building on the
+  extended example from the lecture on structures (parts database).
+
 * Linked lists
 
 - A *linked list* consists of a chain of structures called *nodes*. Each
