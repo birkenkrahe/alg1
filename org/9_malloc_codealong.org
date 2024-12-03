@@ -77,13 +77,14 @@
 - After calling =malloc=, we must test if its =return= value is =NULL=:
 
   #+begin_example C
-
+  p = malloc(10000);
+  if (p == NULL)
   #+end_example
 
 - You can also combine these in one statement:
 
   #+begin_example C
-
+  if ( (p=malloc(10000)) == NULL)
   #+end_example
 
 - What is "appropriate action"?
@@ -103,29 +104,36 @@
 - The =malloc= function has the following /prototype/:
 
   #+begin_src C :results none
-
+    void *malloc(size_t size);
   #+end_src
 
 - To allocate space for a string of =n= characters:
 
   #+begin_example C
-
+    char *p; //1
+    p = malloc(n + 1)g;
   #+end_example
 
+  1. declare =char= value =sizeof(char0=1=
+
+  2. leave 1 byte for =`\0'=
+
+  3. the generic pointer is automatically converted to =char *=
+  
 - You can also make the /cast/ from =void *= to =char *= explicit:
 
   #+begin_example C
-
+    p = (char *) malloc(n+1); // explicit cast of void* -> char*
   #+end_example
 
 - To initialize =p=, you can use =strcpy=:
 
   #+begin_example C
-
+   strcpy(p, "abc"); // p = target, "abc" = string
   #+end_example
 
 - What is =sizeof(p)=? Is that the length of the string stored in =p=?
-
+  
 * Practice: Dynamically Allocating and Managing Strings (v1)
 
 Write a C program that does the following:
@@ -155,13 +163,48 @@ Hints:
 
 - Sample input:
   #+begin_src bash :results output :exports both
-
+    echo "Marcus Birkenkrahe" > nameInput
+    cat nameInput
   #+end_src
+
+  #+RESULTS:
+  : Marcus Birkenkrahe
 
 - Code (remove =main= and =includes= templates) v1: with =gets= (unsafe)
   #+begin_src C  :cmdline < nameInput :tangle main.c :main no :includes
+    #include <stdio.h>
+    #include <stdlib.h>
+    #include <string.h>
+
+    int main(void)
+    {
+      char temp[100];
+      char *name;
+
+      printf("Enter your full name: ");
+      gets(temp);  // will generate a warning
+      printf("%s",temp);
+
+      name = (char *) malloc(strlen(temp) + 1);
+      if (name == NULL) { // failsafe if malloc failed
+        printf("Memory allocation failed\n");
+        return 1;  // abort the program
+      }
+
+      strcpy(name, temp); // name is target, temp is src
+
+      printf("\nHello, %s!\n", name);
+
+      free(name);
+
+      return 0;
+    }
 
   #+end_src
+
+  #+RESULTS:
+  : Enter your full name: Marcus Birkenkrahe
+  : Hello, Marcus Birkenkrahe!
 
 - Version 2: make code safer with =fgets= (see script)
 
@@ -193,17 +236,33 @@ Hints:
 ** Solution:
 
 - Code without checks if arguments were provided: source code =main.c=
-  #+begin_src C :cmdline < name :results none :tangle main.c
 
+  Tangle this with C-u C-c C-v t
+  
+  #+begin_src C :results none :tangle main.c
+
+    int main(int argc, char **argv)
+    {
+      char *name;
+      name = (char *) malloc(strlen(argv[1]) + 1);
+      strcpy(name,argv[1]);
+      printf("Hello, %s!\n",name);
+      free(name);
+      return 0;
+    }
   #+end_src
 
 - Test:
   #+begin_src bash :results output :exports both
-
+    gcc main.c -o main
+    ./main "Marcus Birkenkrahe" 
   #+end_src
 
+  #+RESULTS:
+  : Hello, Marcus Birkenkrahe!
+
 - Version 2: Code with checks if command-line arguments were provided
-  (see script).
+  (see script) to make it failsafe.
 
 * Using dynamic storage allocation in string functions
 
@@ -214,13 +273,25 @@ Hints:
   standard library has =strcat= but it modifies one of them:
 
   #+begin_src C
+    char one[50] = "Hello, ";
+    char *two = "world!";
 
+    printf("%s\n", strcat(one,two)); // works b/c of <string.h>
   #+end_src
+
+  #+RESULTS:
+  : Hello, world!
 
 - Why does the following code not work? ("Segmentation fault")
   #+begin_src C :results silent
-  
-  #+end_src
+    char *one = "Hello, ";
+    char *two = "world!";
+
+    printf("%s\n", strcat(one,two)); // works b/c of <string.h>
+    #+end_src
+
+  Answer: string literals are stored in read-only memory - you cannot
+  copy the second string into the constant first string.
 
 - The following =concat= function does this:
 
@@ -235,8 +306,35 @@ Hints:
 - Code:
 
   #+begin_src C :main no
+    // concat: concatenates two strings into a new string
+    // return: character pointer to beginning of new string
+    // params: two constant character pointers
+    char *concat(const char *s1, const char *s2);
 
+    int main() // main program
+    {
+      printf("%s\n", concat("Hello, ", "world!"));
+      return 0;
+    }
+
+    char *concat(const char *s1, const char *s2) // function def
+    {
+      char *result;
+
+      size_t len_s1 = strlen(s1); // compute length of s1
+      size_t len_s2 = strlen(s2); // compute length of s2
+
+      result = malloc(len_s1 + len_s2 + 1);
+
+      strcpy(result, s1); // copies first string into result
+      strcat(result, s2); // append second string to result
+
+      return result;
+    }
   #+end_src
+
+  #+RESULTS:
+  : Hello, world!
 
 * Dynamically allocated arrays
 
@@ -266,8 +364,34 @@ Hints:
 - Code:
 
   #+begin_src C
+    #define N 5 // size of array
 
+    int *a; // demo array subscripting
+    int *b; // demo pointer arithmetic
+
+    a = malloc(N + sizeof(int)); // memory block for a 5-element int array
+    b = malloc(N + sizeof(int));
+
+    // initialize array with subscripts
+    for (int i = 0; i < N; i++) {
+      a[i] = 1;
+      printf("%d ", a[i]);
+     }; puts("");
+
+    // initialize array with pointer arithmetic
+    for(int *p = b; p < b + N; p++) {
+      (*b) = 1;
+      printf("%d ", *b);
+     }
+
+    // free memory
+    free(a);
+    free(b);
   #+end_src
+
+  #+RESULTS:
+  : 1 1 1 1 1 
+  : 1 1 1 1 1 
 
 - Sometimes, you'll also see a casting operator =(int *)= before the
   =malloc= function - because it returns a =void *= pointer by
@@ -298,7 +422,7 @@ Hints:
   space:
 
   #+begin_src C
-
+    
   #+end_src
 
 * The "dangling pointer" problem
