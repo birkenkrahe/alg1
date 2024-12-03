@@ -3167,11 +3167,7 @@ by the people, for the people, shall not perish from the earth.«
 
 ** TODO Dynamic memory allocation
 
-Code along file (Org-mode): [[https://github.com/birkenkrahe/alg1/blob/main/org/9_malloc_codealong.org][tinyurl.com/malloc-org]]
-
-GitHub changed something: you can no longer directly access the "raw"
-file so you need to download the file in the browser using the "raw"
-menu and then open it in Emacs.
+Code along file (Org-mode): [[https://tinyurl.com/malloc-org][tinyurl.com/malloc-org]]
 
 ** TODO Linked lists
 
