@@ -3167,8 +3167,11 @@ by the people, for the people, shall not perish from the earth.«
 
 ** TODO Dynamic memory allocation
 
+Code along file: tinyurl.com/malloc-org
+
 ** TODO Linked lists
 
+Code along file: ---
 
 * Week 17 - Final exam (optional) [Dec 10]
 
