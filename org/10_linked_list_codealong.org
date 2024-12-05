@@ -27,9 +27,7 @@
 
 - A *linked list* consists of a chain of structures called *nodes*. Each
   node contains a pointer to the next node in the chain. The last node
-  contains a null pointer:
-  #+attr_html: :width 400px:
-  [[../img/linkedList.png]]
+  contains a null pointer: [[https://github.com/birkenkrahe/alg1/blob/main/img/linkedList.png][Image]]
 
 - A linked list is more flexible than an array to store a collection
   of data items: Nodes can easily be inserted and deleted to grow and
@@ -103,15 +101,13 @@
 
 - After the first command, =new_node= now points to a block of memory
   just large enough to hold a =node= structure with its members.
-
-  #+attr_html: :width 600px:
-  [[../img/new_node.png]]
+  
+  [[https://github.com/birkenkrahe/alg1/blob/main/img/new_node.png][Image]]
 
 - After the second command, dereferencing =new_node= allows us to access
   its =value= member.
 
-  #+attr_html: :width 600px:
-  [[../img/new_node2.png]]
+  [[https://github.com/birkenkrahe/alg1/blob/main/img/new_node2.png][Image]]
 
 - We can now print the =value= of the =new_node=:
   #+begin_src C
@@ -217,20 +213,17 @@
   1. Create a first (=NULL=) pointer and a =new_node=, then make a =node=
      list item with =data= and =next= members:
 
-     #+attr_html: :width 600px:
-     [[../img/linkedList1.png]]
+     [[https://github.com/birkenkrahe/alg1/blob/main/img/linkedList1.png][Image]]
 
   2. Point =first= pointer at the first list item. Now both =first= and
      =new_node= point at the same item. Then create a second =node=:
 
-     #+attr_html: :width 600px:
-     [[../img/linkedList2.png]]
+     [[https://github.com/birkenkrahe/alg1/blob/main/img/linkedList2.png][Image]]
 
   3. Create a second list item, make its =next= member point at the
      first list item, and then point =first= at the new item.
 
-     #+attr_html: :width 600px:
-     [[../img/linkedList3.png]]
+     [[https://github.com/birkenkrahe/alg1/blob/main/img/linkedList3.png][Image]]
 
 - These statements work even if the list is empty.
 
