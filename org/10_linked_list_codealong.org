@@ -52,7 +52,10 @@
   pointer member =next= to the next =node=.
   #+name: start_node
   #+begin_src C :results none :main no
-    
+    struct node {
+      int value; // data stored in the node
+      struct node *next; // pointer to the next node
+    };
   #+end_src
 
 - =node= is self-referential because it contains a =node= structure.
@@ -70,7 +73,7 @@
   #+begin_src C :results none :tangle node.c
     <<start_node>> // node with one integer member `value`
 
-    
+    struct node *first = NULL;
   #+end_src
 
 - There is nothing to see here: =first= does not point to a valid memory
@@ -90,18 +93,18 @@
 - Code:
   #+name: insert_new_node
   #+begin_src C :results none
-    <<start_node>>
+    <<start_node>> // declare `node` with `value` and `*next` pointer
 
       // allocate memory for `new_node`
-
+    struct node *new_node = malloc(sizeof(struct node));
 
     // store data in the `value` member of `new_node`
-
+    (*new_node).value = 10;
   #+end_src
 
 - After the first command, =new_node= now points to a block of memory
   just large enough to hold a =node= structure with its members.
-  
+
   [[https://github.com/birkenkrahe/alg1/blob/main/img/new_node.png][Image]]
 
 - After the second command, dereferencing =new_node= allows us to access
@@ -113,7 +116,11 @@
   #+begin_src C
     <<insert_new_node>>
 
+    printf("New node value: %d\n", (*new_node).value);
   #+end_src
+
+  #+RESULTS:
+  : New node value: 10
 
 - The command must be formatted =(*new_node).value = 10;= rather than
   =*new_node.value = 10;= because the dot-operator otherwise takes
@@ -129,7 +136,11 @@
   #+begin_src C
     <<insert_new_node>>
 
+    printf("New node value: %d\n", new_node->value);
   #+end_src
+
+  #+RESULTS:
+  : New node value: 10
 
 - The =->= operator produces an /lvalue/, which is why it can be used in
   the =printf= call or in an assignment with ===.
@@ -152,17 +163,29 @@
        cat nodeInput
      #+end_src
 
+     #+RESULTS:
+     : 12
+
   2) Using the input file
      #+begin_src C :cmdline < nodeInput
        // structure definition
+       struct node {
+         int value; // data node->value
+         struct node *next; // this is node->next
+       };
 
        // new node definition
+       struct node *new_node = malloc(sizeof(struct node));
 
        // get input for new_node->value
+       scanf("%d\n", &new_node->value);
 
        // print output
-
+       printf("%d\n",  new_node->value);
      #+end_src
+
+     #+RESULTS:
+     : 12
 
 - Notice that =scanf= requires the /address-of/ =new_node->value= even
   though =new_node= is a pointer. But =new_node->value= is an =int= so we
@@ -172,28 +195,47 @@
 
 - Create another solution with a complete (not =void=) =main= function:
 
-  1) Tangle the file =newNode.c=
+  1) Tangle the file =newNode.c= with C-u C-c C-v t
 
   2) Test it on the command-line (in a =bash= block)
 
   #+begin_src C :main no :return none :tangle newNode.c
     // declare structure
+    struct node {
+      int value;
+      struct node *next;
+    };
 
     // main program
+    int main(int argc, char **argv)
+    {
+      // allocate a new node
+      struct node *new_node = malloc(sizeof(struct node));
 
+      if (argc > 1) {
+        new_node->value = atoi(argv[1]); // convert char to int
+        printf("Value = %d\n", new_node->value);
+      } else {
+        printf("Usage: %s <number>\n", argv[0]); // argv[0] = command
+        return 0;
+      }
+    }
   #+end_src
 
-
-  Testing it with a little more =bash= glizz:
+- Testing it with a little more =bash= glizz:
   #+begin_src bash :results output :exports both
     if [ -e "./newNode.c" ]; then
         gcc newNode.c -o newNode
-        ./newNode
-        ./newNode 12
+        ./newNode      # false use: value is missing, argc = 0
+        ./newNode 12   # correct use argc = 1
     else
         echo "File does not exist"
     fi
   #+end_src
+
+  #+RESULTS:
+  : Usage: ./newNode <number>
+  : Value = 12
 
 * Inserting a Node at the Beginning of a Linked List
 
@@ -231,22 +273,45 @@
   #+name: two_member_list
   #+begin_src C :results none
     // declare structure
+    struct node {
+      int data;
+      struct node *next;
+    };
 
     // declare two pointers
+    struct node *first = NULL;  // start with a NULL pointer
+    struct node *new_node; // new node is empty
 
     // first list item
+    new_node = malloc(sizeof(struct node));
+    new_node->data = 10;
+    new_node->next = first;
+    first = new_node;  // repoint first to new node
 
     // second list item
-
-  #+end_src
+    new_node = malloc(sizeof(struct node));
+    new_node->data = 20;
+    new_node->next = first;
+    first = new_node;
+    #+end_src
 
 - Print the list so far:
   #+begin_src C
     <<two_member_list>>
 
-    // print the list so far
+      // print the list so far
+    struct node *item = first;
 
+    while (item != NULL) { // go to end of list (NULL pointer)
+      printf("list item is at %p; next is at %p; data is %d\n",
+             item, item->next, item->data); // print addresses & data
+      item = item->next; // move to next list item
+     }
   #+end_src
+
+  #+RESULTS:
+  : list item is at 0x55de275472c0; next is at 0x55de275472a0; data is 20
+  : list item is at 0x55de275472a0; next is at (nil); data is 10
 
 * Practice: Modify the code to add a third list member
 
@@ -260,9 +325,25 @@ Add the code chunk for two list members, then:
 #+begin_src C
   <<two_member_list>>
 
-    // third list item
+  // third list item
+  new_node = malloc(sizeof(struct node)); // 1
+  new_node->data = 30; // 2
+  new_node->next = first; // 3
+  first = new_node; // 4
 
+  struct node *item = first; // start at the beginning of list
+  
+  while (item != NULL) { // go to end of list (NULL pointer)
+    printf("list item is at %p; next is at %p; data is %d\n",
+           item, item->next, item->data); // print addresses & data
+    item = item->next; // move to next list item
+   }
 #+end_src
+
+#+RESULTS:
+: list item is at 0x561cf06d92e0; next is at 0x561cf06d92c0; data is 30
+: list item is at 0x561cf06d92c0; next is at 0x561cf06d92a0; data is 20
+: list item is at 0x561cf06d92a0; next is at (nil); data is 10
 
 * Practice: Print list with a function =print_list=
 
@@ -274,14 +355,16 @@ Add the code chunk for two list members, then:
       struct node *next;
     };
 
-    // task:
-    // return: 
-    // params: 
-
+    // task: print list
+    // return: nothing
+    // params: pointer to list node structur
+    void print_list(struct node *list);
 
     int main(void)
     {
       // declare two pointers
+      struct node *first = NULL;
+      struct node *new_node;
 
       // first list item
       new_node = malloc(sizeof(struct node));
@@ -296,14 +379,25 @@ Add the code chunk for two list members, then:
       first = new_node;
 
       // print list
-      
+      print_list(first);
       return 0;
     }
 
     // function definition: print_list
-    
+    void print_list(struct node *first)
+    {
+      struct node *item = first;
+      while(item != NULL) {
+        printf("item: %p, next: %p, data: %d\n",
+               (void *)item, (void *)item->next, item->data);
+        item = item->next;
+      }
     }
   #+end_src
+
+  #+RESULTS:
+  : item: 0x55c7c1aff2c0, next: 0x55c7c1aff2a0, data: 20
+  : item: 0x55c7c1aff2a0, next: (nil), data: 10
 
 - Making the cast explicit in =printf= ensures portability (treat
   pointer as generic) & avoids implicit conversion warnings.
@@ -323,21 +417,33 @@ Add the code chunk for two list members, then:
     // params: pointer to list node structure
     void print_list(struct node *list);
 
-    // task: 
-    // return:
-    // params:
-
+    // task: add to list from beginning
+    // return: pointer to the new node (beginning of list)
+    // params: pointer to list, data to store in list member
+    struct node *add_to_list(struct node *list, int n);
 
     int main(void)
     {
 
-      // declare two pointers
+      // declare first pointer as NULL pointer
       struct node *first = NULL;
 
       for (int i=1; i<4; i++)
-        first = add_to_list(first,i*10);
+        first = add_to_list(first,i*10); // initiate list with value
       print_list(first);
       return 0;
+    }
+
+    struct node *add_to_list(struct node *first, int n)
+    {
+      struct node *new_node; // declare new node
+
+      new_node = malloc(sizeof(struct node));
+      new_node->data = n;
+      new_node->next = first;
+      first = new_node;
+
+      return new_node;
     }
 
     void print_list(struct node *first)
@@ -345,12 +451,17 @@ Add the code chunk for two list members, then:
       struct node *item = first;
       while (item != NULL) {
         printf("item is at %p; next is at %p; data is %d\n",
-    	   (void *)item, (void *)item->next, item->data);
+               (void *)item, (void *)item->next, item->data);
         item = item->next;
       }
     }
 
   #+end_src
+
+  #+RESULTS:
+  : item is at 0x55be963eb2e0; next is at 0x55be963eb2c0; data is 30
+  : item is at 0x55be963eb2c0; next is at 0x55be963eb2a0; data is 20
+  : item is at 0x55be963eb2a0; next is at (nil); data is 10
 
 - When the new node is a =NULL= pointer, no memory should be added, and
   it is better to add this check after the allocation of =new_node=:
@@ -361,4 +472,3 @@ Add the code chunk for two list members, then:
       exit (EXIT_FAILURE);
     }
   #+end_example
-  

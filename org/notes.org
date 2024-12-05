@@ -3162,7 +3162,7 @@ by the people, for the people, shall not perish from the earth.«
 /[[https://live.staticflickr.com/65535/51267388266_19a4d2c74a_b.jpg][Image:]] Girl reading on sofa, Israel Isaacs (1920)/.
 
 - [X] Bonus programs: using =main(int argc char **argv)=, =struct=, =malloc=
-- [ ] Code along lecture: Dynamic memory allocation (=malloc= and =free=)
+- [X] Code along lecture: Dynamic memory allocation (=malloc= and =free=)
 - [ ] Code along lecture: Linked lists
 
 ** DONE Dynamic memory allocation
