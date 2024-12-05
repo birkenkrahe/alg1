@@ -3165,13 +3165,13 @@ by the people, for the people, shall not perish from the earth.«
 - [ ] Code along lecture: Dynamic memory allocation (=malloc= and =free=)
 - [ ] Code along lecture: Linked lists
 
-** TODO Dynamic memory allocation
+** DONE Dynamic memory allocation
 
 Code along file (Org-mode): [[https://tinyurl.com/malloc-org][tinyurl.com/malloc-org]]
 
 ** TODO Linked lists
 
-Code along file: ---
+Code along file (Org-mode): [[https://tinyurl.com/list-org][tinyurl.com/list-org]]
 
 * Week 17 - Final exam (optional) [Dec 10]
 
