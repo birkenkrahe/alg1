@@ -28,7 +28,7 @@
 - A *linked list* consists of a chain of structures called *nodes*. Each
   node contains a pointer to the next node in the chain. The last node
   contains a null pointer:
-  #+attr_html: :width 400px:
+  #+attr_html: :width 600px:
   [[../img/linkedList.png]]
 
 - A linked list is more flexible than an array to store a collection

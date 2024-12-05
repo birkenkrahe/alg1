@@ -3174,6 +3174,8 @@ Code along file (Org-mode): [[https://tinyurl.com/malloc-org][tinyurl.com/malloc
 Code along file (Org-mode): [[https://tinyurl.com/linked-list-org][tinyurl.com/linked-list-org]]
 
 * Week 17 - Final exam (optional) [Dec 10]
+#+attr_html: :width 600px: 
+[[../img/yoda.gif]]
 
 According to the [[https://assets.speakcdn.com/assets/2433/fa24_final_exam_schedule.pdf][published exam schedule]], the final exam will take
 place on Tuesday, December 10, at 8-10 am in room 104 Lyon building.
