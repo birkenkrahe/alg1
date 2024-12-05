@@ -3171,7 +3171,7 @@ Code along file (Org-mode): [[https://tinyurl.com/malloc-org][tinyurl.com/malloc
 
 ** TODO Linked lists
 
-Code along file (Org-mode): [[https://tinyurl.com/list-org][tinyurl.com/list-org]]
+Code along file (Org-mode): [[https://tinyurl.com/linked-list-org][tinyurl.com/linked-list-org]]
 
 * Week 17 - Final exam (optional) [Dec 10]
 

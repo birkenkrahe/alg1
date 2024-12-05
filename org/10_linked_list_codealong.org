@@ -268,23 +268,8 @@ Add the code chunk for two list members, then:
   <<two_member_list>>
 
     // third list item
-  new_node = malloc(sizeof(struct node)); // #1
-  new_node->data = 30; // #2
-  new_node->next = first; // #3
-  first = new_node;
 
-  struct node *item = first; // start at the beginning
-  while (item != NULL) {
-    printf("item is at %p; next is at %p; data is %d\n",
-         item, item->next, item->data);
-    item = item->next;
-   }
 #+end_src
-
-#+RESULTS:
-: item is at 0x5b09bddf22e0; next is at 0x5b09bddf22c0; data is 30
-: item is at 0x5b09bddf22c0; next is at 0x5b09bddf22a0; data is 20
-: item is at 0x5b09bddf22a0; next is at (nil); data is 10
 
 * Practice: Print list with a function =print_list=
 
@@ -296,17 +281,14 @@ Add the code chunk for two list members, then:
       struct node *next;
     };
 
-    // print list
-    // return: nothing
-    // params: pointer to list node structure
-    void print_list(struct node *list);
+    // task:
+    // return: 
+    // params: 
+
 
     int main(void)
     {
-
       // declare two pointers
-      struct node *first = NULL;
-      struct node *new_node;
 
       // first list item
       new_node = malloc(sizeof(struct node));
@@ -320,24 +302,15 @@ Add the code chunk for two list members, then:
       new_node->next = first;
       first = new_node;
 
-      print_list(first);
+      // print list
+      
       return 0;
     }
 
-    void print_list(struct node *first)
-    {
-      struct node *item = first;
-      while (item != NULL) {
-        printf("item is at %p; next is at %p; data is %d\n",
-    	   (void *)item, (void *)item->next, item->data);
-        item = item->next;
-      }
+    // function definition: print_list
+    
     }
   #+end_src
-
-  #+RESULTS:
-  : item is at 0x5f60acda72c0; next is at 0x5f60acda72a0; data is 20
-  : item is at 0x5f60acda72a0; next is at (nil); data is 10
 
 - Making the cast explicit in =printf= ensures portability (treat
   pointer as generic) & avoids implicit conversion warnings.
@@ -357,10 +330,10 @@ Add the code chunk for two list members, then:
     // params: pointer to list node structure
     void print_list(struct node *list);
 
-    // task: add to list from beginning
-    // return: pointer to new node (now beginning of list)
-    // params: pointer to list, data to store
-    struct node *add_to_list(struct node *list, int n);
+    // task: 
+    // return:
+    // params:
+
 
     int main(void)
     {
@@ -384,21 +357,7 @@ Add the code chunk for two list members, then:
       }
     }
 
-    struct node *add_to_list(struct node *first, int n)
-    {
-      struct node *new_node; // declare new node
-      new_node = malloc(sizeof(struct node)); // allocate new member
-      new_node->data = n; // store data member
-      new_node->next = first; // repoint next member to previous member
-      first = new_node; // repoint beginning of list to new member
-      return new_node;
-    }
   #+end_src
-
-  #+RESULTS:
-  : item is at 0x64bce66612e0; next is at 0x64bce66612c0; data is 30
-  : item is at 0x64bce66612c0; next is at 0x64bce66612a0; data is 20
-  : item is at 0x64bce66612a0; next is at (nil); data is 10
 
 - When the new node is a =NULL= pointer, no memory should be added, and
   it is better to add this check after the allocation of =new_node=:
