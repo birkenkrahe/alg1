@@ -75,7 +75,6 @@
   #+begin_src C :results none :tangle node.c
     <<start_node>> // node with one integer member `value`
 
-
     struct node *first = NULL;
     // printf("%d\n", first->value);  // segmentation fault!
   #+end_src
