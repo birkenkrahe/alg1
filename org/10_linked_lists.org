@@ -333,7 +333,7 @@ Add the code chunk for two list members, then:
 #+begin_src C
   <<two_member_list>>
 
-    // third list item
+  // third list item
   new_node = malloc(sizeof(struct node)); // #1
   new_node->data = 30; // #2
   new_node->next = first; // #3
