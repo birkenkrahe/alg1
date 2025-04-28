@@ -3154,7 +3154,6 @@ by the people, for the people, shall not perish from the earth.«
   Zingaro's "Algorithmic Thinking" (NoStarch, 2023), with worked up
   examples from programming competitions.
   
-  
 * Week 16 - Dynamically allocated memory & Linked lists [Dec 2]
 #+attr_html: :width 400px: 
 [[../img/girl_reading_on_a_sofa.jpg]]
