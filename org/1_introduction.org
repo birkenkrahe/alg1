@@ -42,8 +42,8 @@ Examples:
 3) Vectors like ~c(1,2,3,4} -> foo~ in R
 4) Matrices like ~M <- diag(4)~ in R
 5) Dictionaries like ~d = {"key":[1,2,3,4]}~ in Python
-6) Structures like ~struct Person { std::string name; int age;}~ in C++
-7) Enumeration like ~enum Color { RED, GREEN, BLUE }~ in C++
+6) Structures like ~struct Person { std::string name; int age;}~ in C/C++
+7) Enumeration like ~enum Color { RED, GREEN, BLUE }~ in C/C++
 8) Data frames like ~df = pd.DataFrame([1,2],["a","b"])~ in Python
 9) Class like ~public class Person~ in Java
 10) Table like ~CREATE TABLE t (int ID, name TEXT);~ in SQL
@@ -305,6 +305,7 @@ following data structures:
    sets of strings - trie memoization).
 
 6) Task scheduling with priority queues (sorting, traversing - heaps).
+
 * How do choose the right data structure
 
 By building up algorithmic muscle: solve *many problems* in *different
@@ -512,10 +513,6 @@ start to end for every participant of a process.
 - [[https://www.geeksforgeeks.org/trie-insert-and-search/][Trie Data Structure - GeeksforGeeks]]
 - Morin, [[https://opendatastructures.org/ods-cpp/ods-cpp-html.html][Open Data Structures in C++]] (2024)
 - Rocca, [[https://livebook.manning.com/book/grokking-data-structures][Grokking Data Structures]] (2024)
-
-#+attr_html: :width 250px:
-#+caption: Cover De Rocca, Grokking Data Structures (Manning, 2024)
-[[../img/bookCover.jpg]]
   
 * Footnotes
 
