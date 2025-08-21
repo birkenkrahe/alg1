@@ -3413,7 +3413,6 @@ Input file:
    : 7
    : 7
 
-
 * References
 
 - Jensen, Rook's Guide to C++ (2013). [[https://rooksguide.org/wp-content/uploads/2013/12/rooks-guide-isbn-version.pdf][URL]]
