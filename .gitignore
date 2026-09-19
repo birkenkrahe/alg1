@@ -26,3 +26,4 @@ reveal.js
 #ignore source code
 *.c
 *.cpp
+*.deb
